@@ -1,0 +1,40 @@
+body {
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+h1{
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 0 0 0;
+    color: blue;
+}
+
+span {
+    color: red;
+}
+
+span#para{
+    color: blue;
+}
+
+span#por{
+    color: red;
+}
+
+p{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto;
+}
+
+img{
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    padding-left: 25px;
+}
