@@ -1,9 +1,9 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    height: 100%;
-    color: #0077B6;
+    color: white;
     background-color: #CAF0F8;
+    flex: 1 1;
 }
 
 #logo {
@@ -87,7 +87,7 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows:  0.2fr 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+    grid-template-rows: 9vh 30vh 30vh 22vh 9vh;
     min-height: 100%;
 }
 
@@ -106,7 +106,7 @@ nav img {
 
 nav a {
     float: left;
-    display: block;
+    display: inline;
     color: white;
     text-align: center;
     padding: 20px 16px;
@@ -123,32 +123,40 @@ nav #boton-usuario {
 }
 
 #temas-populares {
-    background-color: white;
-    grid-column: 2/3;
-    grid-row: 1/2;
+    grid-column: 1/4;
+    grid-row: 3/5;
 }
 
 #temas-populares a {
     text-decoration: none;
-    font-size: 18px;
-    color: #0077B6;
+    font-size: 16px;
+    margin: 5px;
+    color: white;
     display: inline;
-    border: solid;
-    background-color: #00B4D8;
+    border: solid #03045E;
+    background-color: #0077B6;
     padding: 3px;
     border-radius: 10%;
+    flex: 1 1;
 }
 
 #temas-populares a:hover {
-    color: #03045E;
+    background-color: #00B4D8;
+    color: #0077B6;
 }
 
 main {
-    background-color: green;
+    border: solid #03045E;
+    background-color: #0077B6;
+    text-align: center;
+    grid-column: 2/4;
+    grid-row: 2/5;
 }
 
 footer {
-    background-color: #00B4D8;
+    background-color: #0077B6;
     text-align: center;
     padding: 1px;
+    grid-column: 1/4;
+    grid-row: 5/6;
 }
