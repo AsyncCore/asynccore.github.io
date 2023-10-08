@@ -28,7 +28,7 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 
 ## Paleta de colores
 
-https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8
+[![](https://img.shields.io/badge/Paleta_de_colores-03045e)](https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8)
 
 ### Backend
 
