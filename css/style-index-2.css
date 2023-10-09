@@ -24,6 +24,7 @@ li{
     display: inline-block;
     border-radius: 10px;
     font-weight: bold;
+    margin: 2px;
 }
 
 li:hover{
