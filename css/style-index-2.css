@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+
+#contenedor{
+    text-align: center;
+}
+
+nav{
+    margin: auto;
+}
+
+a{
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+li{
+    background-color:#0077B6;
+    color: #333333;
+    padding: 14px 16px;
+    font-size: 17px;
+    border: solid;
+    display: inline-block;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+li:hover{
+    background-color: #90E0EF;
+    & a {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
