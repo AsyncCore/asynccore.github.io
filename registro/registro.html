@@ -6,19 +6,28 @@
     <link rel="stylesheet" href="registro-estilos.css">
 </head>
 <body>
-<div  id="login">
-    <h2>registro</h2>
+<div  id="registro">
+    <h2>Registro</h2>
     <form action="#" method="post">
-        <label for="correo">Correo Institucional:</label>
-        <input type="email" id="correo" name="correo" required pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"><br><br>
 
-        <label for="nombre_usuario">Nombre de Usuario:</label>
-        <input type="text" id="nombre_usuario" name="nombre_usuario" required><br><br>
+        <div class="input-container">
+            <label for="nombre_usuario"></label>
+            <input type="text" id="nombre_usuario" placeholder="Nombre" name="nombre_usuario" required>
 
-        <label for="apellidos">apellidos:</label>
-        <input type="text" id="apellidos" name="apellidos" required><br><br>
+            <label for="apellidos"></label>
+            <input type="text" id="apellidos" placeholder="Apellidos" name="apellidos" required><br>
+        </div>
 
-        <input type="submit" value="registrarme">
+        <label for="correo"></label>
+        <input type="email" id="correo" placeholder="Correo institucional" name="correo" required pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"><br>
+
+        <label for="pwd"></label>
+        <input type="password" id="pwd" placeholder="Contraseña" name="pwd"><br>
+
+        <label for="pwd2"></label>
+        <input type="password" id="pwd2" placeholder="Repetir contraseña" name="pwd"><br>
+
+        <input type="submit" value="Registrarme">
     </form>
 
 </div>
