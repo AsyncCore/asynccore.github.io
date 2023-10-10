@@ -19,13 +19,6 @@ Como idea básica, el proyecto consiste en una aplicación web que permite a los
 
 Está pensado como un complemento a las clases presenciales, donde los alumnos puedan resolver sus dudas y compartir conocimientos en un entorno virtual, colaborativo y seguro.
 
-## Tecnologías utilizadas
-
-### Frontend
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
 ## Paleta de colores
 
 [![](https://img.shields.io/badge/Paleta_de_colores-coolors.co-gray?style=for-the-badge)](https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8)
@@ -35,6 +28,13 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 [![](https://img.shields.io/badge/00b4d8-00b4d8?style=for-the-badge)]()
 [![](https://img.shields.io/badge/90e0ef-90e0ef?style=for-the-badge)]()
 [![](https://img.shields.io/badge/caf0f8-caf0f8?style=for-the-badge)]()
+
+## Tecnologías utilizadas
+
+### Frontend
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ### Backend
 
