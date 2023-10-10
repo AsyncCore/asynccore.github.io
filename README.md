@@ -28,7 +28,13 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 
 ## Paleta de colores
 
-[![](https://img.shields.io/badge/Paleta_de_colores-03045e)](https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8)
+[![](https://img.shields.io/badge/Paleta_de_colores-coolors.co-gray?style=for-the-badge)](https://coolors.co/palette/03045e-0077b6-00b4d8-90e0ef-caf0f8)
+
+[![](https://img.shields.io/badge/03045e-03045e?style=for-the-badge)]()
+[![](https://img.shields.io/badge/0077b6-0077b6?style=for-the-badge)]()
+[![](https://img.shields.io/badge/00b4d8-00b4d8?style=for-the-badge)]()
+[![](https://img.shields.io/badge/90e0ef-90e0ef?style=for-the-badge)]()
+[![](https://img.shields.io/badge/caf0f8-caf0f8?style=for-the-badge)]()
 
 ### Backend
 
