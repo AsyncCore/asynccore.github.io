@@ -70,7 +70,9 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 
 ## Contacto
 
+
 [![](https://img.shields.io/discord/1161416338653331546?color=7289da&label=Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZzjtQ2Tb)
+
 
 ## Licencia
 
