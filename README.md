@@ -67,6 +67,11 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 - [Miguel Martínez Santos](https://github.com/trikytrukos)
 - [Víctor Hellín Sáez](https://github.com/Redcario4444)
 
+
+## Contacto
+
+[![](https://img.shields.io/discord/897491553658787338?color=7289da&label=Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZzjtQ2Tb)
+
 ## Licencia
 
 ![](https://img.shields.io/github/license/AsyncCore/asynccore.github.io.svg)
