@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="login-estilos.css">
+    <link href="/css/login-style.css" rel="stylesheet">
 </head>
 <body>
-<div  id="login">
+<div id="login">
     <h2>Iniciar Sesión</h2>
     <form action="#" method="post">
         <label for="correo"></label>
-        <input type="email" id="correo" placeholder="Correo institucional" name="correo" required pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"><br>
+        <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional" required
+               type="email"><br>
 
         <label for="pwd"></label>
-        <input type="password" id="pwd" placeholder="contraseña" name="pwd"><br>
+        <input id="pwd" name="pwd" placeholder="contraseña" type="password"><br>
 
         <input type="submit" value="Iniciar Sesión">
     </form>
