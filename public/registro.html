@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="PÁGINA DE REGISTRO" name="description">
+    <meta content="Daniel Alonso Lázaro" name="author">
+    <meta content="Maksym Dovgan" name="author">
+    <meta content="Miguel Martínez Santos" name="author">
+    <meta content="Víctor Hellín Sáez" name="author">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="img/logo/logo.ico" rel="icon" type="image/x-icon">
+    <link href="css/registro-style.css" rel="stylesheet">
+    <title>REGISTRO</title>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <section>
+        <div id="registro">
+            <h2>Registro</h2>
+            <form action="#" method="post">
+                <div class="input-container">
+                    <label for="nombre_usuario"></label>
+                    <input id="nombre_usuario" name="nombre_usuario" placeholder="Nombre" required type="text">
+
+                    <label for="apellidos"></label>
+                    <input id="apellidos" name="apellidos" placeholder="Apellidos" required type="text"><br>
+                </div>
+
+                <label for="correo"></label>
+                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional"
+                       required type="email"><br>
+
+                <label for="pwd"></label>
+                <input id="pwd" name="pwd" placeholder="Contraseña" type="password"><br>
+
+                <label for="pwd2"></label>
+                <input id="pwd2" name="pwd" placeholder="Repetir contraseña" type="password"><br>
+
+                <input type="submit" value="Registrarme">
+            </form>
+        </div>
+    </section>
+    <aside>
+
+    </aside>
+    <footer>
+
+    </footer>
+</main>
+
+
+</body>
+</html>

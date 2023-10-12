@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
     <meta content="Página principal del proyecto AsyncCore" name="description">
@@ -10,7 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="img/logo/logo.ico" rel="icon" type="image/x-icon">
     <link href="css/index-style.css" rel="stylesheet">
-    <title>ASYNC CORE PROJECT INDEX</title>
+    <title>LOGIN</title>
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -21,11 +21,16 @@
         </nav>
     </header>
     <section>
-        <div>
-            <img alt="logo" src="img/logo/logo.svg">
-            <h1>Async<span>Core</span></h1>
-            <p><span id="por">Por</span> y <span id="para">para</span> alumnos</p>
-            <p><a href="index2.html">Index de trabajo</a></p>
+        <div id="login">
+            <h2>Iniciar Sesión</h2>
+            <form action="#" method="post">
+                <label for="correo"></label>
+                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional"
+                       required type="email"><br>
+                <label for="pwd"></label>
+                <input id="pwd" name="pwd" placeholder="Contraseña" type="password"><br>
+                <input type="submit" value="Iniciar Sesión">
+            </form>
         </div>
     </section>
     <aside>
