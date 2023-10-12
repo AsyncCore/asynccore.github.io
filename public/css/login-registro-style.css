@@ -21,9 +21,24 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.recordar {
+    color: #333;
+    text-decoration: none;
+    font-size: 10px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: flex-end;
+}
+
 .input-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .input-container input[type="text"] {
@@ -34,7 +49,8 @@ form {
     border-radius: 5px;
     box-sizing: border-box;
 }
-#nombre_usuario{
+
+#nombre_usuario {
     margin-right: 10px;
 }
 
@@ -56,6 +72,8 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    margin: 15px auto;
 }
 
 input[type="submit"]:hover {
