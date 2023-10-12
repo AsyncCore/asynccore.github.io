@@ -63,3 +63,8 @@ img{
     padding-left: 25px;
     animation: pulse 2s infinite;
 }
+
+div{
+    position: absolute;
+    top: 100px;
+}
