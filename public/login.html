@@ -11,7 +11,8 @@
     <link href="img/logo/logo.ico" rel="icon" type="image/x-icon">
     <link href="css/login-registro-style.css" rel="stylesheet">
     <title>LOGIN</title>
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
 </head>
 <body>
 <main>
@@ -21,20 +22,18 @@
         </nav>
     </header>
     <section>
-        <div id="login">
-            <h2>Iniciar Sesión</h2>
-            <form action="#" method="post">
-                <label for="correo"></label>
-                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional"
-                       required type="email"><br>
-                <label for="pwd"></label>
-                <input id="pwd" name="pwd" placeholder="Contraseña" type="password"><br>
-                <div>
-                    <p class="recordar"><a href="recordarContraseña.html">¿Has olvidado tu contraseña?</a></p>
-                </div>
-                <input type="submit" value="Iniciar Sesión">
-            </form>
-        </div>
+        <form class="login-form" action="#" method="post">
+            <label for="correo"></label>
+            <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional"
+                   required type="email">
+            <label for="pwd"></label>
+            <input id="pwd" class="pwd_input" name="pwd" placeholder="Contraseña" type="password" required>
+            <i class="fa-solid fa-eye show_pwd show_pwd_login" onclick="togglePasswordVisibility(this.getAttribute('class'))"></i>
+            <div class="recordar-container">
+                <p class="recordar"><a href="recordarContraseña.html">¿Has olvidado tu contraseña?</a></p>
+            </div>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
     </section>
     <aside>
 
