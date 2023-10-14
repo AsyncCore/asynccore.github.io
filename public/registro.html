@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="PÁGINA DE REGISTRO" name="description">
+    <meta content="REGÍSTRATE EN ASYNCORE" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -12,6 +12,7 @@
     <link href="css/login-registro-style.css" rel="stylesheet">
     <title>REGISTRO</title>
     <script defer src="js/main.js"></script>
+    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
 </head>
 <body>
 <main>
@@ -22,32 +23,58 @@
     </header>
     <section>
         <div id="registro">
-            <h2>Registro</h2>
             <form action="#" method="post">
                 <div class="input-container">
                     <label for="nombre_usuario"></label>
-                    <input id="nombre_usuario" name="nombre_usuario" placeholder="Nombre" required type="text">
+                    <input autofocus id="nombre_usuario" name="nombre_usuario" placeholder="Nombre" required
+                           type="text">
 
                     <label for="apellidos"></label>
-                    <input id="apellidos" name="apellidos" placeholder="Apellidos" required type="text"><br>
+                    <input id="apellidos" name="apellidos" placeholder="Apellidos" required type="text">
                 </div>
 
                 <label for="correo"></label>
-                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$" placeholder="Correo institucional"
-                       required type="email"><br>
+                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"
+                       placeholder="Correo institucional" required
+                       type="email">
 
                 <label for="pwd"></label>
-                <input id="pwd" name="pwd" placeholder="Contraseña" type="password"><br>
+                <input class="pwd_input" id="pwd" name="pwd" placeholder="Contraseña"
+                       required type="password">
+                <i class="fa-solid fa-eye show_pwd" onclick="togglePasswordVisibility(this.getAttribute('class'))"></i>
 
                 <label for="pwd2"></label>
-                <input id="pwd2" name="pwd" placeholder="Repetir contraseña" type="password"><br>
+                <input class="pwd_input2" id="pwd2" name="pwd2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                       placeholder="Repetir contraseña"
+                       required type="password">
+                <i class="fa-solid fa-eye show_pwd2" onclick=togglePasswordVisibility(this.getAttribute("class"))></i>
 
                 <div>
                     <p class="recordar">¿Ya tienes una cuenta?&nbsp;<a href="login.html">Login</a></p>
                 </div>
 
-                <input type="submit" value="Registrarme">
+                <input type="submit" value="Registrarse">
             </form>
+
+            <div class="pwd_message">
+                <h3>La contraseña debe contener:</h3>
+                <p class="invalid" id="letter">Una letra <b>minúscula</b></p>
+                <p class="invalid" id="capital">Una letra <b>MAYÚSCULA</b></p>
+                <p class="invalid" id="number">Un <b>número</b></p>
+                <p class="invalid" id="length"><b>8 caracteres</b></p>
+            </div>
+
+            <div class="pwd_message2">
+                <h3>La contraseña debe contener:</h3>
+                <p class="invalid" id="letter2">Una letra <b>minúscula</b></p>
+                <p class="invalid" id="capital2">Una letra <b>MAYÚSCULA</b></p>
+                <p class="invalid" id="number2">Un <b>número</b></p>
+                <p class="invalid" id="length2"><b>8 caracteres</b></p>
+            </div>
+
+            <div class="pwd_message3">
+                <p class="invalid" id="message"></p>
+            </div>
         </div>
     </section>
     <aside>
