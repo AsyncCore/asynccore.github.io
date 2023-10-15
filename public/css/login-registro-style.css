@@ -37,7 +37,8 @@ label {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.pwd_message3 {
+.pwd_message3,
+.mail_message {
     display: none;
     background: #fff;
     color: #333;
@@ -46,6 +47,15 @@ label {
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mail_message p:first-child{
+    font-weight: bolder;
+}
+
+.mail_message p:last-child {
+    padding-left: 13px;
+    font-size: 15px;
 }
 
 .pwd_message p,

@@ -23,7 +23,7 @@
     </header>
     <section>
         <div id="registro">
-            <form action="#" method="post">
+            <form id ="form" action="#" method="post">
                 <div class="input-container">
                     <label for="nombre_usuario"></label>
                     <input autofocus id="nombre_usuario" name="nombre_usuario" placeholder="Nombre" required
@@ -33,8 +33,8 @@
                     <input id="apellidos" name="apellidos" placeholder="Apellidos" required type="text">
                 </div>
 
-                <label for="correo"></label>
-                <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"
+                <label for="mail"></label>
+                <input id="mail" name="mail" pattern="[a-z0-9._\%\+\-]+@educa\.madrid\.org$"
                        placeholder="Correo institucional" required
                        type="email">
 
@@ -55,6 +55,11 @@
 
                 <input type="submit" value="Registrarse">
             </form>
+
+            <div class="mail_message">
+                <p class="invalid" id="mail_message">El correo no es válido</p>
+                <p id="delete_p">Debe seguir el formato "correo@educa.madrid.org"</p>
+            </div>
 
             <div class="pwd_message">
                 <h3>La contraseña debe contener:</h3>

@@ -1,8 +1,10 @@
 let pwd = document.getElementById("pwd");
 let pwd2 = document.getElementById("pwd2");
+let mail = document.getElementById("mail");
 
 validatePassword(pwd, "pwd_message");
 validatePassword(pwd2, "pwd_message2");
+validateMail(mail);
 
 /* Función para mostrar u ocultar la contraseña */
 function togglePasswordVisibility(className) {
@@ -23,6 +25,52 @@ function togglePasswordVisibility(className) {
         passwordInput2.type = passwordInput2.type === 'password' ? 'text' : 'password';
         showPasswordButton2.classList.toggle(state1);
         showPasswordButton2.classList.toggle(state2);
+    }
+}
+
+/* Función para validar el mail */
+function validateMail(mail){
+    let messageElement = document.getElementById("mail_message");
+
+    mail.onkeyup = function () {
+        if (mail.value.match("[a-z0-9._%+-]+@educa\.madrid\.org$")){
+            messageElement.innerText = "El correo es válido";
+            messageElement.classList.remove("invalid");
+            messageElement.classList.add("valid");
+            document.getElementById("delete_p").style.display = "none";
+        }else{
+            messageElement.innerText = "El correo no es válido";
+            messageElement.classList.remove("valid");
+            messageElement.classList.add("invalid");
+            document.getElementById("delete_p").style.display = "block"
+        }
+    }
+
+    mail.onfocus = function () {
+        document.getElementsByClassName("mail_message")[0].style.display = "block";
+    }
+
+    mail.onblur = function () {
+        document.getElementsByClassName("mail_message")[0].style.display = "none";
+    }
+    return false;
+}
+
+/* Evento onsubmit para comprobar los campos del formulario al ser enviados*/
+var form = document.getElementById("form");
+form.onsubmit = function (event) {
+    let nombre = document.getElementById("nombre_usuario").value;
+    let apellidos = document.getElementById("apellidos").value;
+    let pwd = document.getElementById("pwd").value;
+    let pwd2 = document.getElementById("pwd2").value;
+    event.preventDefault();
+    if (nombre.length <= 2 || apellidos.length <= 2) {
+        alert("El nombre o los apellidos no pueden ser menor de 2 caracteres");
+    } else if(pwd !== pwd2) {
+        alert("Las contraseñas no coinciden");
+    }else{
+        alert("Formulario enviado");
+        form.submit();
     }
 }
 
