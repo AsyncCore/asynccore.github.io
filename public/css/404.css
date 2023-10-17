@@ -1,12 +1,51 @@
 @import url('https://fonts.cdnfonts.com/css/nihonium113-console');
 
+/* INICIO DE LOS RESETS */
+/* CAMBIA EL MODELO DEL BOX-SIZING: PADDING Y BORDER SE AJUSTAN AL CONTENIDO */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* NORMALIZA EL MARGEN POR DEFECTO DE LOS NAVEGADORES Y
+ AÑADE UN ALTO DE LÍNEA QUE INCREMENTA LA LEGIBILIDAD */
+* {
+    margin: 0;
+    line-height: calc(1em + 0.5rem);
+}
+
+/* ELIMINA EL CURSOR DE TEXTO EXCEPTO EN ELEMENTOS INPUT */
+*:not(input) {
+    caret-color: transparent;
+}
+
+/* MEJORA EL RENDERIZADO DE TEXTO */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* MEJORA EN LOS VALORES POR DEFECTO DE LOS ELEMENTOS QUE CONTIENEN MEDIA */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* FUERZA LA HERENCIA DE FUENTES EN LOS ELEMENTOS DE FORMULARIO */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* ELIMINA LOS DESBORDAMIENTOS DE TEXTO Y AÑADE GUIONES EN LOS CASOS NECESARIOS */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+/* FIN DE LOS RESETS */
+
 body {
     background: #03045e;
     color: #fff;
     font-family: Arial, sans-serif;
     text-align: center;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
     caret-color: transparent;
@@ -23,7 +62,7 @@ header {
 header a {
     color: #fff;
     text-decoration: none;
-    padding-left: 30px;
+    padding-left: 20px;
 }
 
 footer {
@@ -44,7 +83,7 @@ footer {
 
 h1 {
     font-size: 40px;
-    margin: 10vh 0 5vh 0;
+    margin: 7vh 0 5vh 0;
 }
 
 .container p {
@@ -57,7 +96,7 @@ p{
     margin: 0;
 }
 
-.imagen{
+.img404{
     position: relative;
     justify-content: center;
     align-items: center;
@@ -66,14 +105,13 @@ p{
 .container span{
     position: absolute;
     top: 52%;
-    left: 0.5%;
-    font-size: 75px;
-    text-shadow: -7px 5px 10px #333333;
+    left: 2%;
+    font-size: 70px;
+    text-shadow: -9px 6px 8px rgba(0,0,0,1);
     color: red;
     font-family: "Nihonium113 Console", sans-serif;
     margin: 0;
     padding: 0;
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
     transform: scale(1);
     animation: pulse 5s infinite;
 }
@@ -83,11 +121,9 @@ p{
         transform: scale(0.95);
     }
 
-
     50% {
         transform: scale(1);
     }
-
 
     100% {
         transform: scale(0.95)
