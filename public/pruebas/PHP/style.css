@@ -1,0 +1,122 @@
+/* INICIO DE LOS RESETS */
+/* CAMBIA EL MODELO DEL BOX-SIZING: PADDING Y BORDER SE AJUSTAN AL CONTENIDO */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* NORMALIZA EL MARGEN POR DEFECTO DE LOS NAVEGADORES Y
+ AÑADE UN ALTO DE LÍNEA QUE INCREMENTA LA LEGIBILIDAD */
+* {
+    margin: 0;
+    line-height: calc(1em + 0.5rem);
+}
+
+/* ELIMINA EL CURSOR DE TEXTO EXCEPTO EN ELEMENTOS INPUT */
+*:not(input) {
+    caret-color: transparent;
+}
+
+/* MEJORA EL RENDERIZADO DE TEXTO */
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+/* MEJORA EN LOS VALORES POR DEFECTO DE LOS ELEMENTOS QUE CONTIENEN MEDIA */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* FUERZA LA HERENCIA DE FUENTES EN LOS ELEMENTOS DE FORMULARIO */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* ELIMINA LOS DESBORDAMIENTOS DE TEXTO Y AÑADE GUIONES EN LOS CASOS NECESARIOS */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+/* FIN DE LOS RESETS */
+
+main{
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 8vh 62vh 20vh 10vh;
+    background-color: #ccc;
+}
+
+header{
+    grid-row: 1;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+ul{
+    display: flex;
+    gap: 35px;
+}
+
+ul > li{
+    display: flex;
+    font-size: 24px;
+}
+
+ul > li a{
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #fff;
+    padding: 10px 35px;
+    border-radius: 15px;
+}
+
+ul > li a:hover{
+    background-color: #fff;
+    color: #000;
+    font-weight: bolder;
+}
+
+section{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 10fr;
+}
+
+.container{
+    grid-row: 2/4;
+}
+
+.separador{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+}
+
+h1{
+    grid-column: span 3;
+    font-size: 50px;
+    text-align: center;
+}
+
+aside {
+    grid-row: 3;
+}
+
+footer{
+    grid-row: 4;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p{
+    font-size: 20px;
+    text-align: center;
+}
