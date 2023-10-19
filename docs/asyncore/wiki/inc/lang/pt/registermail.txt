@@ -1,0 +1,10 @@
+Um novo utilizador foi registrado. Aqui estão os detalhes:
+
+Utilizador : @NEWUSER@
+Nome Completo : @NEWNAME@
+E-mail : @NEWEMAIL@
+
+Data : @DATE@
+Navegador : @BROWSER@
+Endereço IP : @IPADDRESS@
+Hostname : @HOSTNAME@
