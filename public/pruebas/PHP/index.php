@@ -11,7 +11,7 @@
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <meta property="og:title" content="PRUEBAS EN PHP">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img/logo/logo.ico">
+    <meta property="og:image" content="/../../img/logo/logo.ico">
     <meta property="og:url" content="/pruebas/PHP/index.php">
     <meta property="og:description" content="Página para probar ">
     <meta property="og:locale" content="es_ES">
@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-title" content="AsynCore">
     <meta name="application-name" content="AsynCore">
     <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="img/logo/favicon/browserconfig.xml">
+    <meta name="msapplication-config" content="/../../img/logo/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <link rel="apple-touch-icon" sizes="180x180" href="../../img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon/favicon-32x32.png">

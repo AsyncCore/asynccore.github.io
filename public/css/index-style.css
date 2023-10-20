@@ -1,43 +1,4 @@
-/* INICIO DE LOS RESETS */
-/* CAMBIA EL MODELO DEL BOX-SIZING: PADDING Y BORDER SE AJUSTAN AL CONTENIDO */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-/* NORMALIZA EL MARGEN POR DEFECTO DE LOS NAVEGADORES Y
- AÑADE UN ALTO DE LÍNEA QUE INCREMENTA LA LEGIBILIDAD */
-* {
-    margin: 0;
-    line-height: calc(1em + 0.5rem);
-}
-
-/* ELIMINA EL CURSOR DE TEXTO EXCEPTO EN ELEMENTOS INPUT */
-*:not(input) {
-    caret-color: transparent;
-}
-
-/* MEJORA EL RENDERIZADO DE TEXTO */
-body {
-    -webkit-font-smoothing: antialiased;
-}
-
-/* MEJORA EN LOS VALORES POR DEFECTO DE LOS ELEMENTOS QUE CONTIENEN MEDIA */
-img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-}
-
-/* FUERZA LA HERENCIA DE FUENTES EN LOS ELEMENTOS DE FORMULARIO */
-input, button, textarea, select {
-    font: inherit;
-}
-
-/* ELIMINA LOS DESBORDAMIENTOS DE TEXTO Y AÑADE GUIONES EN LOS CASOS NECESARIOS */
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-/* FIN DE LOS RESETS */
+@import 'reset.css';
 
 body {
     margin: auto;
