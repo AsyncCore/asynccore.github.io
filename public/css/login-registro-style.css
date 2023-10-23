@@ -1,167 +1,19 @@
 @import 'reset.css';
 
-body {
-    background-color: #f2f2f2;
-    font-family: Arial, sans-serif;
+body{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.externo{
+    width: 400px;
+    height: 700px;
+    display: flex;
+    flex-flow: wrap column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-form {
-    width: 400px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.login-form{
-    width: 350px;
-}
-
-label {
-    display: block;
-    color: #333;
-}
-
-.pwd_message,
-.pwd_message2 {
-    display: none;
-    background: #fff;
-    color: #333;
-    position: relative;
-    padding: 10px 0 10px 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.pwd_message3,
-.mail_message {
-    display: none;
-    background: #fff;
-    color: #333;
-    position: relative;
-    padding: 5px 0 5px 60px;
-    border-radius: 10px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.mail_message p:first-child{
-    font-weight: bolder;
-}
-
-.mail_message p:last-child {
-    padding-left: 13px;
-    font-size: 15px;
-}
-
-.pwd_message p,
-.pwd_message2 p {
-    padding: 0 0 0 35px;
-    margin: 2px;
-    font-size: 15px;
-}
-
-.valid {
-    color: green;
-}
-
-.valid:before {
-    position: relative;
-    left: -20px;
-    content: "\2713";
-}
-
-.invalid {
-    color: red;
-}
-
-.invalid:before {
-    position: relative;
-    left: -20px;
-    content: "\2716";
-}
-
-.recordar {
-    color: #333;
-    text-decoration: none;
-    font-size: 11px;
-    display: flex;
-    margin: 0 auto;
-    justify-content: flex-end;
-}
-
-.input-container {
-    display: flex;
-}
-
-.input-container input[type="text"] {
-    flex: 1 1;
-}
-
-#nombre_usuario {
-    margin-right: 7px;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    height: 100%;
-    padding: 10px 0 10px 10px;
-    margin-bottom: 18px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-.pwd_input,
-.pwd_input2 {
-    width: 100%;
-    padding: 10px 45px 10px 10px;
-    margin-bottom: 0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-.show_pwd,
-.show_pwd2 {
-    position: relative;
-    top: -18px;
-    left: 92%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.show_pwd_login{
-    left: 91%;
-}
-
-#pwd, #pwd2 {
-    margin-bottom: 0;
-}
-
-#message{
-    font-weight: bolder;
-}
-
-input[type="submit"] {
-    background-color: #0073e6;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    display: block;
-    margin: 20px auto;
-}
-
-input[type="submit"]:hover {
-    background-color: #005bbf;
+    border: solid 2px lightgrey;
 }
