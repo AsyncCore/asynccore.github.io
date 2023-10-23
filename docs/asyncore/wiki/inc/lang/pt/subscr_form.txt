@@ -1,3 +1,0 @@
-====== Gestor de Subscrição ======
-
-Esta página permite-lhe gerir as suas subscrições para a página e namespace atuais.
