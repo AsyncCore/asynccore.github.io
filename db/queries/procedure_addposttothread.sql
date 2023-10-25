@@ -7,3 +7,4 @@ BEGIN
     INSERT INTO POSTS (ID_HILO, USER_ID, CONTENIDO)
     VALUES (p_id_hilo, p_user_id, p_contenido);
 END
+;
