@@ -18,9 +18,16 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  background-color:#345fb3;
+  /* background-color:#345fb3; */
   padding:5px;
+  margin-right: 5px;
   border-radius: 10px;
+}
+
+.logo h1{
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: x-large;
 }
 
 .logo img {
@@ -87,11 +94,19 @@ nav {
 
 .dropdown-content a:hover {
   background-color: #f1f1f1;
+  border-radius: 5px;
 }
 
+.contenido{
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  gap: 20px;
+  background-color: whitesmoke;
+  border-radius: 12px;
+}
 
 .sidebar {
-  width: 300px;
+  width: 100%;
   background-color: #345fb3;
   color: white;
   min-height: 100vh;
@@ -113,17 +128,23 @@ nav {
   display: block;
 }
 
+.menu-item a:hover{
+  text-shadow: 2px 2px 4px #000;
+  transition: 0.2s text-shadow;
+  color: #ff5858
+}
 .has-submenu .submenu {
   display: none;
 }
 
 .has-submenu:hover .submenu {
   display: block;
+  text-shadow: 2px 2px 4px #000;
+  transition: 0.3s font-size, 0.2s text-shadow;
 }
 
 .submenu-item {
   padding: 10px;
-  background-color: #444;
 }
 
 .submenu-item a {
@@ -155,6 +176,7 @@ nav {
   align-self: center;
   text-align: center;
   margin: 10px;
+  padding: 5px;
 }
 
 .tag-box {
