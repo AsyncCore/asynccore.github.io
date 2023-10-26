@@ -1,0 +1,163 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #e1dada;
+}
+
+nav {
+  background-color:  #7894cb; 
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  background-color:#345fb3;
+  padding:5px;
+  border-radius: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.links ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.links a:hover{
+  color:#ff5858;
+  font-size: 17px;
+  text-shadow: 2px 2px 4px #000;
+  transition: 0.3s font-size, 0.2s text-shadow;
+}
+
+.links li {
+  margin-right: 20px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+}
+
+.user-menu button {
+  background-color: #345fb3; 
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.user-menu {
+  position: relative;
+}
+
+.user-menu button:hover{
+  background-color: #104cc6; 
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #9a9a9a;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  margin-top:10px;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 30% 70%;
+  gap: 20px;
+  background-color: whitesmoke;
+  margin: 20px;
+  border-radius: 12px;
+  
+}
+
+.user-box {
+  background: #345fb3;
+  color: white;
+  border-radius: 10px;
+  align-self: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  position: relative;
+}
+
+.tag-box ul {
+  list-style-type: none;
+  display: flex;
+
+}
+
+.tag-box li {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ff5858;
+  color: white;
+  border-radius: 10px;
+
+}
+
+.thread-content {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #bdceef;
+  border-radius: 10px;
+  margin: 12px;
+  width: 90%;
+}
+
+.post-content {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #efbdbd;
+  border-radius: 10px;
+  margin: 12px;
+  width: 90%;
+}
+
+.post-user-box {
+  background: #b33434;
+  color: white;
+  border-radius: 10px;
+  align-self: center;
+  text-align: center;
+  margin: 5px;
+  width: 20%;
+}
