@@ -59,7 +59,6 @@ nav {
   color: white;
 }
 
-
 .user-menu {
   position: relative;
 }
@@ -136,4 +135,74 @@ nav {
 #content {
   flex: 1;
   padding: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 30% 70%;
+  gap: 20px;
+  background-color: whitesmoke;
+  margin: 20px;
+  border-radius: 12px;
+  
+}
+
+.user-box {
+  background: #345fb3;
+  color: white;
+  border-radius: 10px;
+  align-self: center;
+  text-align: center;
+  margin: 10px;
+}
+
+.tag-box {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  position: relative;
+}
+
+.tag-box ul {
+  list-style-type: none;
+  display: flex;
+
+}
+
+.tag-box li {
+  margin: 10px;
+  padding: 10px;
+  background-color: #ff5858;
+  color: white;
+  border-radius: 10px;
+
+}
+
+.thread-content {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #bdceef;
+  border-radius: 10px;
+  margin: 12px;
+  width: 90%;
+}
+
+.post-content {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #efbdbd;
+  border-radius: 10px;
+  margin: 12px;
+  width: 90%;
+}
+
+.post-user-box {
+  background: #b33434;
+  color: white;
+  border-radius: 10px;
+  align-self: center;
+  text-align: center;
+  margin: 5px;
+  width: 20%;
 }
