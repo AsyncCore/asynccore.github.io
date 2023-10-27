@@ -39,8 +39,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'login'){
 
     $loginCheck = $_POST["loginCheck"];
 
-    echo $loginCheck . "odifhwoeuifhseoufhsoeuhf??¿?";
-
     if($loginEmailError == "" && $loginPasswordError == "" && $loginCheck == "checked"){
         header("Location: ../index.php");
         exit;
