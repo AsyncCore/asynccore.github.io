@@ -37,7 +37,7 @@
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <meta property="og:title" content="PÁGINA DE LOGIN/REGISTRO DE ASYNCORE">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="img/logo/logo.ico">
+    <meta property="og:image" content="/img/logo/logo.ico">
     <meta property="og:url" content="login-register.html">
     <meta property="og:description" content="Página de Login/Registro de AsynCore">
     <meta property="og:locale" content="es_ES">
@@ -46,20 +46,20 @@
     <meta name="apple-mobile-web-app-title" content="AsynCore">
     <meta name="application-name" content="AsynCore">
     <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="img/logo/favicon/browserconfig.xml">
+    <meta name="msapplication-config" content="/img/logo/favicon/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
-    <link href="css/mdb/mdb.min.css" rel="stylesheet">
-    <link href="css/login-registro-style.css" rel="stylesheet">
+    <link href="/css/mdb/mdb.min.css" rel="stylesheet">
+    <link href="/css/login-registro-style.css" rel="stylesheet">
     <title>LOGIN / REGISTRO</title>
     <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
-    <script defer src="js/mdb/mdb.min.js"></script>
-    <script defer src="pag-principal-max/main.js"></script>
+    <script defer src="/js/mdb/mdb.min.js"></script>
+    <script defer src="/pag-principal-max/main.js"></script>
 </head>
 <body>
 <main>
