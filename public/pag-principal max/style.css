@@ -36,25 +36,31 @@ nav {
   margin-right: 10px;
 }
 
-.links ul {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-.links a:hover{
-  color:#ff5858;
-  font-size: 17px;
-  text-shadow: 2px 2px 4px #000;
-  transition: 0.3s font-size, 0.2s text-shadow;
-}
-.links li {
-  margin-right: 20px;
+.barra-busqueda input {
+  text-decoration: none;
+  border: solid 2px black;
+  border-radius: 10px;
+  padding: 10px 15px 10px 15px;
+  width: 175px;
 }
 
-.links a {
-  text-decoration: none;
-  color: white;
+.barra-busqueda input::placeholder {
+  text-align: center;
+}
+
+.barra-busqueda input:hover {
+  animation-duration: 1s;
+  animation-name: barra;
+  animation-fill-mode: forwards;
+}
+
+@keyframes barra {
+  from {
+    width: 175px;
+  }
+  to {
+    width: 300px;
+  }
 }
 
 .user-menu button {
@@ -180,9 +186,10 @@ nav {
 
 .tag-box {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  width: 100%;
 }
 
 .tag-box ul {
