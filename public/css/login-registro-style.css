@@ -17,3 +17,11 @@ body{
     align-items: center;
     border: solid 2px lightgrey;
 }
+
+.error{
+    font-weight: bolder;
+    font-size: 0.75em;
+    color: red;
+    display: block;
+    margin-bottom: 7px;
+}
