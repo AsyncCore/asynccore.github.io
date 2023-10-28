@@ -61,11 +61,11 @@
     <script defer src="/js/mdb/mdb.min.js"></script>
 </head>
 <body>
+<header>
+    <nav>
+    </nav>
+</header>
 <main>
-    <header>
-        <nav>
-        </nav>
-    </header>
     <section>
         <div class="externo">
             <!-- SELECTOR FORMULARIO -->
@@ -260,9 +260,9 @@
     <aside>
 
     </aside>
-    <footer>
-
-    </footer>
 </main>
+<footer>
+
+</footer>
 </body>
 </html>

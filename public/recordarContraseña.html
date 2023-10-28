@@ -28,28 +28,31 @@
     <link href="/img/favicon/site.webmanifest" rel="manifest">
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
-    <link href="/css/recordarContraseña.html" rel="stylesheet">
+    <link href="/css/recordarContraseña.css" rel="stylesheet">
     <title>RECORDAR CONTRASEÑA</title>
     <script defer src="/js/main.js"></script>
 </head>
 <body>
+<header>
+    <nav>
+
+    </nav>
+</header>
 <main>
-    <header>
-        <nav>
-
-        </nav>
-    </header>
     <section>
-        <div>
-            <p>WORK IN PROGRESS :D</p>
-        </div>
+        <form action="#" class="login-form" method="post">
+            <label for="correo">Correo institucional:</label>
+            <br>
+            <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"
+                   placeholder="Correo institucional"
+                   required type="email">
+            <p class="pwd_message mail_message" id="message">El enlace de restablecimiento se enviará a su correo institucional.</p>
+            <input type="submit" value="Enviar enlace de restablecimiento">
+        </form>
     </section>
-    <aside>
-
-    </aside>
-    <footer>
-
-    </footer>
 </main>
+<footer>
+
+</footer>
 </body>
 </html>
