@@ -21,12 +21,12 @@
  * @var $registerCheck
  * @var $registerCheckError
  */
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metas de la página HTML -->
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
     <meta content="Página de Login/Registro de AsynCore" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
@@ -35,6 +35,7 @@
     <meta content="Víctor Hellín Sáez" name="author">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="copyright" name="&copy; AsynCore Project 2023">
+    <!-- Metas de Open Graph -->
     <meta property="og:title" content="PÁGINA DE LOGIN/REGISTRO DE ASYNCORE">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/img/logo/logo.ico">
@@ -43,23 +44,29 @@
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_EN">
     <meta property="og:site_name" content="www.asyncore.es">
+    <!-- Metas de Apple -->
     <meta name="apple-mobile-web-app-title" content="AsynCore">
     <meta name="application-name" content="AsynCore">
+    <!-- Metas de Microsoft -->
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="msapplication-config" content="/img/logo/favicon/browserconfig.xml">
+    <!-- Metas de Chrome -->
     <meta name="theme-color" content="#ffffff">
+    <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
     <link rel="manifest" href="/img/favicon/site.webmanifest">
     <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <!-- CSS -->
     <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
     <link href="/css/login-registro-style.css" rel="stylesheet" type="text/css">
-    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
-    <title>LOGIN / REGISTRO</title>
-    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js" type="text/javascript"></script>
+    <!-- JavaScript -->
+    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"
+            type="text/javascript"></script>
     <script defer src="/js/mdb/mdb.min.js" type="text/javascript"></script>
+    <title>LOGIN / REGISTRO</title>
 </head>
 <body>
 <header>
@@ -70,6 +77,7 @@
     <section>
         <div class="externo">
             <!-- SELECTOR FORMULARIO -->
+            <!-- LOGIN -->
             <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active"
@@ -80,6 +88,7 @@
                        aria-controls="pills-login"
                        aria-selected="true">Login</a>
                 </li>
+                <!-- REGISTRO -->
                 <li class="nav-item" role="presentation">
                     <a class="nav-link"
                        id="tab-register"
@@ -147,7 +156,7 @@
 
                             <div class="col-md-6 d-flex justify-content-center">
                                 <!-- LINK RECORDATORIO CONTRASEÑA-->
-                                <a href="recordarContraseña.html">¿Has olvidado tu contraseña?</a>
+                                <a href="/rememberPassword.html">¿Has olvidado tu contraseña?</a>
                             </div>
                         </div>
 
@@ -162,7 +171,8 @@
                                    href="#pills-register"
                                    role="tab"
                                    aria-controls="pills-register"
-                                   aria-selected="false">Regístrate</a>
+                                   aria-selected="false">Regístrate
+                                </a>
                             </p>
                         </div>
                     </form>
@@ -240,7 +250,7 @@
                             </label>
                         </div>
 
-                        <!-- Submit button -->
+                        <!-- BOTÓN DE ENVÍO -->
                         <button type="submit" class="btn btn-primary btn-block mb-3">Registrarse</button>
                         <!-- LINK AL LOGIN -->
                         <div class="text-center">
