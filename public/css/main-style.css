@@ -77,6 +77,11 @@ nav {
     position: relative;
 }
 
+.user-menu button a{
+    text-decoration: none;
+    color: white;
+}
+
 .user-menu button:hover {
     background-color: #104cc6;
 }
