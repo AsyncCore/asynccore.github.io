@@ -54,11 +54,12 @@
     <link rel="manifest" href="/img/favicon/site.webmanifest">
     <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="img/favicon/favicon.ico">
-    <link href="/css/mdb/mdb.min.css" rel="stylesheet">
-    <link href="/css/login-registro-style.css" rel="stylesheet">
+    <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/login-registro-style.css" rel="stylesheet" type="text/css">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <title>LOGIN / REGISTRO</title>
-    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
-    <script defer src="/js/mdb/mdb.min.js"></script>
+    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js" type="text/javascript"></script>
+    <script defer src="/js/mdb/mdb.min.js" type="text/javascript"></script>
 </head>
 <body>
 <header>
