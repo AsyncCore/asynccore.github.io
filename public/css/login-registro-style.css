@@ -1,6 +1,6 @@
 @import '/css/reset.css';
 
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@ body{
     height: 100vh;
 }
 
-.externo{
+.externo {
     width: 400px;
     height: 700px;
     display: flex;
@@ -18,7 +18,7 @@ body{
     border: solid 2px lightgrey;
 }
 
-.error{
+.error {
     font-weight: bolder;
     font-size: 0.75em;
     color: red;

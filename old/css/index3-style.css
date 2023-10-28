@@ -195,7 +195,7 @@ body {
     border-color: #04519b;
 }
 
-.popular-recientes{
+.popular-recientes {
     display: flex;
     background-color: lightblue;
     align-items: center;
@@ -208,11 +208,12 @@ body {
     overflow: auto;
     flex: 1 1;
 }
-.popular-recientes h2{
+
+.popular-recientes h2 {
     color: white;
 }
 
-.popular-recientes a{
+.popular-recientes a {
     display: block;
     border: solid thin black;
     text-align: center;
@@ -224,12 +225,12 @@ body {
     color: white;
 }
 
-.popular-recientes a:hover{
+.popular-recientes a:hover {
     background-color: #04519b;
     border-color: lightblue;
 }
 
-.popular-recientes::-webkit-scrollbar{
+.popular-recientes::-webkit-scrollbar {
     display: none;
 }
 

@@ -1,10 +1,10 @@
 @import '/css/reset.css';
 
-body{
+body {
     margin: 20px;
 }
 
-ul{
+ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -13,8 +13,8 @@ ul{
     align-items: stretch;
 }
 
-ul li{
-    background-color:#0077B6;
+ul li {
+    background-color: #0077B6;
     color: #333333;
     font-size: 17px;
     list-style-type: none;
@@ -25,7 +25,7 @@ ul li{
     display: flex;
 }
 
-ul li a{
+ul li a {
     color: #f2f2f2;
     text-decoration: none;
     display: flex;
@@ -35,15 +35,15 @@ ul li a{
     padding: 20px;
 }
 
-ul li a:hover{
+ul li a:hover {
     background-color: #90E0EF;
     color: #000;
 }
 
-.container{
+.container {
     text-align: center;
 }
 
-.container__inicio{
+.container__inicio {
     text-align: left;
 }

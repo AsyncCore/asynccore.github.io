@@ -3,10 +3,12 @@ BEGIN
     DECLARE user_id INT;
     DECLARE tipo_usuario INT;
 
-    SELECT USER_ID, TIPO_USUARIO INTO user_id, tipo_usuario
+    SELECT USER_ID, TIPO_USUARIO
+    INTO user_id, tipo_usuario
     FROM USERS
-    WHERE USERNAME = p_username AND PASSWORD = p_password;
-    
+    WHERE USERNAME = p_username
+      AND PASSWORD = p_password;
+
     IF user_id IS NOT NULL THEN
         SET p_success := TRUE;
     ELSE

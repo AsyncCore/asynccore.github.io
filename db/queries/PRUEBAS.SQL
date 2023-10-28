@@ -8,13 +8,17 @@ FROM POSTS
 WHERE POSTS.ID_HILO = 3
 ORDER BY POSTS.FECHA_CREACION;
 
-SELECT * FROM USERS;
+SELECT *
+FROM USERS;
 
-CALL SP_MODIFICAR_DATOS_USUARIO(5, 'Daniel.Alonso', 'DanielAlonso01', 'dalonso3@educa.madrid.org', NULL, 'Er compi 3', 3);
+CALL SP_MODIFICAR_DATOS_USUARIO(5, 'Daniel.Alonso', 'DanielAlonso01', 'dalonso3@educa.madrid.org', NULL, 'Er compi 3',
+                                3);
 
-SELECT * FROM USERS;
+SELECT *
+FROM USERS;
 
-CALL SP_MODIFICAR_DATOS_USUARIO(6, 'Marcos.Almorox', 'MarcosAlmorox01', 'marcos.almorox@educa.madrid.org', NULL, 'Er compi 4', 3);
+CALL SP_MODIFICAR_DATOS_USUARIO(6, 'Marcos.Almorox', 'MarcosAlmorox01', 'marcos.almorox@educa.madrid.org', NULL,
+                                'Er compi 4', 3);
 
 CALL SP_MODIFICAR_DATOS_USUARIO(1, 'ADMIN', 'Admin1234', 'asyncoreproject@gmail.com', NULL, 'ADMINISTRADOR', 1);
 
