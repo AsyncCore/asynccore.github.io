@@ -1,0 +1,196 @@
+@import "normalize.css";
+@import "/AsynCore.github.io/public/css/normalize.css";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background-color:  #7894cb;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    /* background-color:#345fb3; */
+    padding:5px;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.logo h1{
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.barra-busqueda input {
+    text-decoration: none;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    width: 175px;
+}
+
+.barra-busqueda input::placeholder {
+    text-align: center;
+}
+
+.barra-busqueda input:hover {
+    animation-duration: 1s;
+    animation-name: barra;
+    animation-fill-mode: forwards;
+}
+
+@keyframes barra {
+    from {
+        width: 175px;
+    }
+    to {
+        width: 300px;
+    }
+}
+
+.user-menu button {
+    background-color: #345fb3;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-menu button:hover{
+    background-color: #104cc6;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    margin-top:10px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+#contenedor-perfil {
+    display: grid;
+    grid-template-columns: 15% 55% 30%;
+    grid-template-rows: 20vh 20vh 20vh 21vh ;
+}
+
+#col1-fil-all {
+    grid-column: 2/3;
+    grid-row: 1/5;
+    margin: 20px;
+    color: white;
+}
+
+#col1-fil-all div {
+    margin: 0 0 20px 0;
+    width: 100%;
+    border: solid thin #104cc6;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #7894cb;
+}
+
+#col1-fil-all img {
+    height: 50px;
+    border-radius: 50px;
+}
+
+#col2-fil-all {
+    grid-column: 3/4;
+    grid-row: 1/5;
+}
+
+#col2-fil-all .dif {
+    margin: 20px;
+    border: solid thin #104cc6;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #7894cb;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color: #444;
+}
+
+#col2-fil-all h3 {
+    color: white;
+}
+
+hr {
+    border-color: #104cc6;
+}
+
+#col2-fil2 {
+    grid-column: 3/4;
+    grid-row: 3/5;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    padding:20px ;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .footer-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.footer-left {
+    color: #6c757d;
+    text-align: center;
+}
