@@ -1,4 +1,4 @@
-@import '/css/reset.css';
+@import 'css/normalize.css';
 
 body {
     background-color: #f2f2f2;
