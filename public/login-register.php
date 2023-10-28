@@ -59,7 +59,6 @@
     <title>LOGIN / REGISTRO</title>
     <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
     <script defer src="/js/mdb/mdb.min.js"></script>
-    <script defer src="/pag-principal-max/main.js"></script>
 </head>
 <body>
 <main>
