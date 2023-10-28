@@ -14,53 +14,65 @@ nav {
     color: white;
 }
 
-
-
-.editar-titulo {
-    text-align: center;
-    padding: 20px;
-}
-
-.edit-form {
+main {
     background-color: #fff;
-    max-width: 600px;
-    margin: 0 auto;
     padding: 20px;
+    margin: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.form-label {
+form {
+    margin: 0;
+    padding: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.form-input,
-.form-textarea {
+input[type="text"],
+textarea {
     width: 100%;
     padding: 10px;
-    margin: 5px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.form-textarea {
-    resize: vertical;
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.form-submit {
+
+select[multiple] {
+    height: 100px;
+}
+
+
+button {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
 
-.form-submit:hover {
-    background-color: #555;
-}
 
 .footer{
     position: fixed;

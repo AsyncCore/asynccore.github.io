@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="pagina para edicion de hilos" name="description">
+    <meta content="pagina para creacion de posts" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -32,7 +32,7 @@
     <link href="/css/Hilos-Posts.css" rel="stylesheet" type="text/css">
     <link href="/css/main-style.css" rel="stylesheet" type="text/css">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
-    <title>Editar Hilos</title>
+    <title>Crear Post</title>
     <script src="/js/main.js" type="text/javascript"></script>
 </head>
 <body>
@@ -56,28 +56,11 @@
     </nav>
 </header>
 <main>
-    <h2 class="editar-titulo">Editar Hilo</h2>
+    <h2 class="editar-titulo">Crear Post</h2>
     <form action="guardar_edicion.php" method="POST" class="edit-form">
-        <div class="form-group">
-            <label for="post-title">Título:</label>
-            <input type="text" id="post-title" name="post-title" required>
-        </div>
-
-        <div class="form-group">
-            <label for="post-tags">Etiquetas:</label>
-            <select id="post-tags" name="post-tags" multiple>
-                <option value="etiqueta1">Etiqueta 1</option>
-                <option value="etiqueta2">Etiqueta 2</option>
-                <option value="etiqueta3">Etiqueta 3</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="post-content">Contenido:</label>
-            <textarea id="post-content" name="post-content" rows="4" required></textarea>
-        </div>
-
-        <input type="submit" value="Guardar Cambios" class="form-submit">
+        <label for="contenido" class="form-label">Contenido:</label>
+        <textarea id="contenido" name="contenido" rows="8" required class="form-textarea"></textarea>
+        <input type="submit" value="Crear" class="form-submit">
     </form>
 </main>
 <footer class="footer">
