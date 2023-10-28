@@ -1,4 +1,5 @@
-@import 'css/normalize.css';
+@import '/css/normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
 
 body {
     font-family: Arial, sans-serif;
