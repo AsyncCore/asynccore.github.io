@@ -1,3 +1,6 @@
+@import "normalize.css";
+@import "/AsynCore.github.io/public/css/normalize.css";
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
