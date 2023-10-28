@@ -29,36 +29,49 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <link href="/css/mdb/mdb.min.css" rel="stylesheet">
-    <link href="/css/index-style.css" rel="stylesheet">
+    <link href="/css/editorHilos.css" rel="stylesheet">
+    <link href="/css/main-style.css" rel="stylesheet">
     <title>ASYNCORE PROJECT INDEX</title>
     <script src="/js/main.js"></script>
 </head>
 <body>
 <header>
     <nav>
-
+        <div class="logo">
+            <img src="/img/logo/logo.svg" alt="Logo">
+            <h1>AsynCore</h1>
+        </div>
+        <div class="barra-busqueda">
+            <label>
+                <input type="text" placeholder="🔎 Barra búsqueda">
+            </label>
+        </div>
+        <div class="user-menu">
+            <button id="boton">Usuario</button>
+            <div class="dropdown-content" id="dropdown">
+                <a href="/login-register.php">Login - Registro</a>
+            </div>
+        </div>
     </nav>
 </header>
 <main>
-
-    <section>
-        <div>
-            <a class="logo" href="/main.html"><img alt="logo" src="/img/logo/logo.svg"></a>
-            <h1>Asyn<span>Core</span></h1>
-            <p><span id="por">Por</span> y <span id="para">para</span> alumnos</p>
-        </div>
-        <br>
-        <hr>
-        <br>
-        <p><a href="/login-register.php">login-register</a></p>
-        <p>entrar como <a href="/main.html">visitante</a></p>
-    </section>
-    <aside>
-
-    </aside>
+    <h2 class="editar-titulo">Editar Post</h2>
+    <form action="guardar_edicion.php" method="POST" class="edit-form">
+        <label for="titulo" class="form-label">Título:</label>
+        <input type="text" id="titulo" name="titulo" required class="form-input">
+        <label for="contenido" class="form-label">Contenido:</label>
+        <textarea id="contenido" name="contenido" rows="8" required class="form-textarea"></textarea>
+        <input type="submit" value="Guardar Cambios" class="form-submit">
+    </form>
 </main>
-<footer>
-
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="text-muted">Copyright &copy; AsynCore 2023</span>
+            </div>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
