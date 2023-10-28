@@ -17,20 +17,26 @@ h1 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 span {
     color: red;
 }
 
-span#para{
+span#para {
     color: blue;
 }
 
-span#por{
+span#por {
     color: red;
 }
 
@@ -57,7 +63,7 @@ p {
     }
 }
 
-img{
+img {
     width: 300px;
     height: 300px;
     margin: 0;
@@ -65,6 +71,6 @@ img{
     animation: pulse 2s infinite;
 }
 
-div{
+div {
     padding-top: 100px;
 }

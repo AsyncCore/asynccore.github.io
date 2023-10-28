@@ -8,10 +8,11 @@ CREATE PROCEDURE SP_INSERT_USER(
     OUT p_success BOOLEAN
 )
 BEGIN
-    DECLARE existing_user_count INT; 
+    DECLARE existing_user_count INT;
 
     /*Comprobación de si existe el usuario*/
-    SELECT COUNT(*) INTO existing_user_count 
+    SELECT COUNT(*)
+    INTO existing_user_count
     FROM USERS
     WHERE USERNAME = p_username;
 
@@ -25,7 +26,7 @@ BEGIN
 
     SET p_success := TRUE;
     /*Si el usuario existe se usa esta etiqueta para salir (No tengo muy claro su funcionamiento.)*/
-    SP_INSERT_USER_PROC: 
+    SP_INSERT_USER_PROC:
     BEGIN
     END;
 END

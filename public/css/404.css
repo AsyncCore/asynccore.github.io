@@ -51,23 +51,23 @@ h1 {
     margin-bottom: 5vh;
 }
 
-p{
+p {
     font-size: 18px;
     margin: 0;
 }
 
-.img404{
+.img404 {
     position: relative;
     justify-content: center;
     align-items: center;
 }
 
-.container span{
+.container span {
     position: absolute;
     top: 52%;
     left: 2%;
     font-size: 70px;
-    text-shadow: -9px 6px 8px rgba(0,0,0,1);
+    text-shadow: -9px 6px 8px rgba(0, 0, 0, 1);
     color: red;
     font-family: "Nihonium113 Console", sans-serif;
     margin: 0;

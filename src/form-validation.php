@@ -16,36 +16,36 @@ function sanitize_data(string $data): string
     return htmlspecialchars($data);
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'login'){
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'login') {
     if (empty($_POST["loginEmail"])) {
         $loginEmailError = "El Email es obligatorio";
     } else {
         $loginEmail = sanitize_data($_POST["loginEmail"]);
-        if(!preg_match("/^[a-zA-Z0-9_.+-]+@educa\.madrid\.org$/",  $loginEmail)){
+        if (!preg_match("/^[a-zA-Z0-9_.+-]+@educa\.madrid\.org$/", $loginEmail)) {
             $loginEmailError = "El Email debe ser de EducaMadrid <br> Ejemplo: 'usuario@educa.madrid.org'";
         }
     }
 
-    if(empty($_POST["loginPassword"])) {
+    if (empty($_POST["loginPassword"])) {
         $loginPasswordError = "La contraseña es obligatoria";
     } else {
         $loginPassword = sanitize_data($_POST["loginPassword"]);
-        if(strlen($_POST["loginPassword"]) < 8){
+        if (strlen($_POST["loginPassword"]) < 8) {
             $loginPasswordError = "La contraseña debe tener al menos 8 caracteres";
-        }else if(strlen($_POST["loginPassword"]) > 16) {
+        } else if (strlen($_POST["loginPassword"]) > 16) {
             $loginPasswordError = "La contraseña debe tener menos de 16 caracteres";
         }
     }
 
     $loginCheck = $_POST["loginCheck"];
 
-    if($loginEmailError == "" && $loginPasswordError == "" && $loginCheck == "checked"){
+    if ($loginEmailError == "" && $loginPasswordError == "" && $loginCheck == "checked") {
         header("Location: ../index.php");
         exit;
     }
 }
 
-if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'registro') {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'registro') {
     if (empty($_POST["registerName"])) {
         $registerNameError = "El nombre es obligatorio";
     } else {
@@ -103,8 +103,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'registro') {
         $registerCheck = $_POST["registerCheck"];
     }
 
-    if($registerNameError == "" && $registerUserNameError == "" && $registerEmailError == "" &&
-        $registerPasswordError == "" && $registerRepeatPasswordError == "" && $registerCheckError == ""){
+    if ($registerNameError == "" && $registerUserNameError == "" && $registerEmailError == "" &&
+        $registerPasswordError == "" && $registerRepeatPasswordError == "" && $registerCheckError == "") {
         header("Location: ../index.php");
         exit;
     }

@@ -73,21 +73,21 @@
             <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active"
-                        id="tab-login"
-                        data-mdb-toggle="pill"
-                        href="#pills-login"
-                        role="tab"
-                        aria-controls="pills-login"
-                        aria-selected="true">Login</a>
+                       id="tab-login"
+                       data-mdb-toggle="pill"
+                       href="#pills-login"
+                       role="tab"
+                       aria-controls="pills-login"
+                       aria-selected="true">Login</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link"
-                        id="tab-register"
-                        data-mdb-toggle="pill"
-                        href="#pills-register"
-                        role="tab"
-                        aria-controls="pills-register"
-                        aria-selected="false">Regístrate</a>
+                       id="tab-register"
+                       data-mdb-toggle="pill"
+                       href="#pills-register"
+                       role="tab"
+                       aria-controls="pills-register"
+                       aria-selected="false">Regístrate</a>
                 </li>
             </ul>
             <!-- SELECTOR FORMULARIO -->
@@ -95,7 +95,7 @@
             <!-- INICIO SESIÓN BOTONES -->
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                         <input type="hidden" name="login" value="login">
                         <div class="text-center mb-3">
                             <p>Inicia sesión con:</p>
@@ -121,14 +121,16 @@
                         <!-- EMAIL INPUT -->
                         <span class="error"><?= $loginEmailError ?></span>
                         <div class="form-outline mb-4">
-                            <input type="text" id="loginEmail" class="form-control" name="loginEmail" value="<?= $loginEmail ?>">
+                            <input type="text" id="loginEmail" class="form-control" name="loginEmail"
+                                   value="<?= $loginEmail ?>">
                             <label class="form-label" for="loginEmail">Email</label>
                         </div>
 
                         <!-- PASSWORD INPUT -->
                         <span class="error"><?= $loginPasswordError ?></span>
                         <div class="form-outline mb-4">
-                            <input type="password" id="loginPassword" class="form-control" name="loginPassword" value="<?= $loginPassword ?>">
+                            <input type="password" id="loginPassword" class="form-control" name="loginPassword"
+                                   value="<?= $loginPassword ?>">
                             <label class="form-label" for="loginPassword">Contraseña</label>
                         </div>
 
@@ -137,7 +139,8 @@
                             <div class="col-md-6 d-flex justify-content-center">
                                 <!-- CHECKBOX -->
                                 <div class="form-check mb-3 mb-md-0">
-                                    <input class="form-check-input" type="checkbox" value="<?= $loginCheck ?>" id="loginCheck" name="loginCheck">
+                                    <input class="form-check-input" type="checkbox" value="<?= $loginCheck ?>"
+                                           id="loginCheck" name="loginCheck">
                                     <label class="form-check-label" for="loginCheck"> Recuérdame </label>
                                 </div>
                             </div>
@@ -166,7 +169,7 @@
                 </div>
                 <!-- FORMULARIO DE REGISTRO -->
                 <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                    <form method="post"  action="<?= htmlspecialchars($_SERVER['PHP_SELF']);?>">
+                    <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                         <div class="text-center mb-3">
                             <p>Regístrate con:</p>
                             <button type="button" class="btn btn-secondary btn-floating mx-1">
@@ -219,7 +222,8 @@
                         <!-- REPETIR PASSWORD INPUT -->
                         <span class="error"><?= $registerRepeatPasswordError ?></span>
                         <div class="form-outline mb-4">
-                            <input type="password" id="registerRepeatPassword" class="form-control" name="registerRepeatPassword">
+                            <input type="password" id="registerRepeatPassword" class="form-control"
+                                   name="registerRepeatPassword">
                             <label class="form-label" for="registerRepeatPassword">Repite la contraseña</label>
                         </div>
 
@@ -227,10 +231,10 @@
                         <span class="error"><?= $registerCheckError ?></span>
                         <div class="form-check d-flex justify-content-center mb-4">
                             <input class="form-check-input me-2"
-                                type="checkbox"
-                                value=""
-                                id="registerCheck"
-                                aria-describedby="registerCheckHelpText" name="registerCheck">
+                                   type="checkbox"
+                                   value=""
+                                   id="registerCheck"
+                                   aria-describedby="registerCheckHelpText" name="registerCheck">
                             <label class="form-check-label" for="registerCheck">
                                 He leído y acepto los términos
                             </label>
