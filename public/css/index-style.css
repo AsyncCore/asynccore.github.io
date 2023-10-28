@@ -1,9 +1,21 @@
 @import '/css/reset.css';
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    margin: auto;
-    display: flex;
     justify-content: center;
+}
+
+.logo {
+    align-content: center;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto;
 }
 
 h1 {
@@ -61,6 +73,11 @@ p {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+hr {
+    width: 30%;
+    margin: 0 auto;
 }
 
 img {
