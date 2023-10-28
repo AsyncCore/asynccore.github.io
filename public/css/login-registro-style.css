@@ -1,5 +1,5 @@
 @import 'normalize.css';
-@import '/AsyncCore.github.io/public/css/normalize-IDE.css';
+@import '/AsyncCore.github.io/public/css/normalize.css';
 
 body {
     display: flex;

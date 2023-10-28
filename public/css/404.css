@@ -1,9 +1,9 @@
 @import url('https://fonts.cdnfonts.com/css/nihonium113-console');
 @import 'normalize.css';
-@import url('/AsyncCore.github.io/public/css/normalize-IDE.css');
+@import url('/AsyncCore.github.io/public/css/normalize.css');
 
 body {
-    background: #03045e;
+    background: #345fb3;
     color: #fff;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -13,7 +13,7 @@ body {
 }
 
 header {
-    background: #0077b6;
+    background: #7894cb;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -27,7 +27,7 @@ header a {
 }
 
 footer {
-    background: #0077b6;
+    background: #7894cb;
     display: flex;
     justify-content: center;
     align-items: center;
