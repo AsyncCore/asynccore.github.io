@@ -1,4 +1,4 @@
-@import '/css/reset.css';
+@import url('/css/reset.css');
 
 body {
     display: flex;
