@@ -49,7 +49,7 @@
         <article class="separador">
             <h2>HOLA MUNDO</h2>
             <div class="container">
-                <?="<P>Hola mundo</P>"; ?>
+                <?= "<P>Hola mundo</P>"; ?>
             </div>
         </article>
 
