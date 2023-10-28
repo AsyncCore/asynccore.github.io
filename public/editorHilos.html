@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="Landing page del proyecto AsynCore" name="description">
+    <meta content="Daniel Alonso Lázaro" name="author">
+    <meta content="Maksym Dovgan" name="author">
+    <meta content="Miguel Martínez Santos" name="author">
+    <meta content="Víctor Hellín Sáez" name="author">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="copyright" name="&copy; AsynCore Project 2023">
+    <meta content="Landing page del proyecto AsynCore" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="/img/logo/logo.ico" property="og:image">
+    <meta content="/index.html" property="og:url">
+    <meta content="Landing page del proyecto AsynCore" property="og:description">
+    <meta content="es_ES" property="og:locale">
+    <meta content="en_EN" property="og:locale:alternate">
+    <meta content="www.asyncore.es" property="og:site_name">
+    <meta content="AsynCore" name="apple-mobile-web-app-title">
+    <meta content="AsynCore" name="application-name">
+    <meta content="#2d89ef" name="msapplication-TileColor">
+    <meta content="/img/logo/favicon/browserconfig.xml" name="msapplication-config">
+    <meta content="#ffffff" name="theme-color">
+    <link href="/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/img/favicon/site.webmanifest" rel="manifest">
+    <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
+    <link href="/img/favicon/favicon.ico" rel="shortcut icon">
+    <link href="/css/mdb/mdb.min.css" rel="stylesheet">
+    <link href="/css/editorHilos.css" rel="stylesheet">
+    <link href="/css/main-style.css" rel="stylesheet">
+    <title>ASYNCORE PROJECT INDEX</title>
+    <script src="/js/main.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="/img/logo/logo.svg" alt="Logo">
+            <h1>AsynCore</h1>
+        </div>
+        <div class="barra-busqueda">
+            <label>
+                <input type="text" placeholder="🔎 Barra búsqueda">
+            </label>
+        </div>
+        <div class="user-menu">
+            <button id="boton">Usuario</button>
+            <div class="dropdown-content" id="dropdown">
+                <a href="/login-register.php">Login - Registro</a>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+    <h2 class="editar-titulo">Editar Post</h2>
+    <form action="guardar_edicion.php" method="POST" class="edit-form">
+        <label for="titulo" class="form-label">Título:</label>
+        <input type="text" id="titulo" name="titulo" required class="form-input">
+        <label for="contenido" class="form-label">Contenido:</label>
+        <textarea id="contenido" name="contenido" rows="8" required class="form-textarea"></textarea>
+        <input type="submit" value="Guardar Cambios" class="form-submit">
+    </form>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-left">
+                <span class="text-muted">Copyright &copy; AsynCore 2023</span>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
