@@ -12,7 +12,7 @@ $current_path = $_SERVER['PHP_SELF'];
 $current_dir = substr($current_path, strrpos($current_path, "/"), strlen($current_path));
 $current_host = $_SERVER['HTTP_HOST'];
 if($current_dir === "/main.php") {
-    echo "https://" . $current_host . "/";
+    echo "https://" . $current_host;
 } else {
     echo "https://" . $current_host . dirname($_SERVER['PHP_SELF']);
 }
@@ -42,4 +42,3 @@ echo <<<HTML
     </nav>
 </header>
 HTML;
-
