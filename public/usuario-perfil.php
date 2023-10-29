@@ -34,41 +34,23 @@
     <script defer src="/js/main.js"></script>
 </head>
 <body>
+<?php
+include_once "../src/header.php";
+?>
 <main>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="https://www.asyncore.es">
-                    <img alt="Logo" src="/img/logo/logo.svg">
-                    <h1>AsynCore</h1>
-                </a>
-            </div>
-            <div class="barra-busqueda">
-                <label>
-                    <input placeholder="🔎 Barra búsqueda">
-                </label>
-            </div>
-            <div class="user-menu">
-                <button id="boton">Usuario</button>
-                <div class="dropdown-content" id="dropdown">
-                    <a href="/login-register.php">Login - Registro</a>
-                </div>
-            </div>
-        </nav>
-    </header>
     <section id="contenedor-perfil">
         <div id="col1-fil-all">
             <div>
-                <h3>Perfil de Redcario4444 <a href="">✏️</a></h3>
-                <p><img src="/img/pruebas/usuario-perfil/images.jpg" alt="Avatar usuario"><a href="">✏️</a></p>
-                <p>Víctor Hellín Sáez <a href="">✏️</a></p>
-                <p>Estado: Picando código. <a href="">✏️</a></p>
+                <h3>Perfil de Redcario4444 <a href="">🖊</a></h3>
+                <p><img src="/img/pruebas/usuario-perfil/images.jpg"><a href="">🖊</a></p>
+                <p>Víctor Hellín Sáez <a href="">🖊</a></p>
+                <p>Estado: Picando código. <a href="">🖊</a></p>
                 <p>Hilos creados: 420</p>
                 <p>Posts realizados: 4215</p>
                 <p>Miembro desde: 12-10-2023</p>
             </div>
             <div>
-                Sobre mi <a href="">✏️</a>
+                Sobre mi <a href="">🖊</a>
                 <ul>
                     <li>Estudiando DAW</li>
                     <li>🎵Que pasará que misterios habrá, puede ser mi gran noche🎵</li>
@@ -96,7 +78,7 @@
                 </div>
                 <hr>
                 <div>
-                    <a href="">Editar Opciones</a>
+                    <a href="/usuario-perfil-ajustes.php">Editar Opciones</a>
                 </div>
             </div>
             <div class="dif">
@@ -129,15 +111,9 @@
     <aside>
 
     </aside>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <span class="text-muted">Copyright &copy; AsynCore 2023</span>
-                </div>
-            </div>
-        </div>
-    </footer>
 </main>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>
