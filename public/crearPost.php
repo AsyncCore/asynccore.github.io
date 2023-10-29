@@ -3,8 +3,7 @@
 <head>
     <!-- Metas de la página HTML-->
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <!-- TODO RELLENAR DESCRIPCIÓN SIGNIFICATIVA -->
-    <meta content="DESCRIPCIÓN_DE_LA_PÁGINA_AQUÍ" name="description"> <!-- Máximo 150 caracteres -->
+    <meta content="Página del editor de creación de posts" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -12,14 +11,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <!-- Metas de Open Graph -->
-    <!--TODO RELLENAR TÍTULO DE LA PÁGINA -->
-    <meta content="TÍTULO_DE_LA_PÁGINA_AQUÍ" property="og:title"> <!-- Debe coincidir con la etiqueta <title> -->
+    <meta content="Crear Post" property="og:title">
     <meta content="website" property="og:type">
     <meta content="/img/logo/logo.ico" property="og:image">
-    <!--TODO RELLENAR URL DE LA PÁGINA -->
-    <meta content="URL_DE_LA_PÁGINA_AQUÍ" property="og:url"> <!-- Siempre desde la raíz /... -->
-    <!-- TODO RELLENAR DESCRIPCIÓN SIGNIFICATIVA -->
-    <meta content="DESCRIPCIÓN_DE_LA_PAGINA_AQUÍ" property="og:description"> <!-- Debe coincidir con el meta description -->
+    <meta content="/crearPost.html" property="og:url">
+    <meta content="Página del editor de creación de posts" property="og:description">
     <meta content="es_ES" property="og:locale">
     <meta content="en_EN" property="og:locale:alternate">
     <meta content="www.asyncore.es" property="og:site_name">
@@ -39,33 +35,27 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
-    <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS CSS -->
-    <link href="/css/RUTA_CSS_AQUÍ" rel="stylesheet" type="text/css"> <!-- Ruta relativa desde la raíz /... -->
-    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/Hilos-Posts-style.css" rel="stylesheet" type="text/css">
+    <link href="/css/main-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
-    <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS JS -->
-    <script defer src="/js/RUTA_JS_AQUÍ" type="text/javascript"></script> <!-- Ruta relativa desde la raíz /... -->
-    <!-- Font Awesome -->
-    <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
-    <!-- TODO RELLENAR TÍTULO DE LA PÁGINA -->
-    <title>TÍTULO DE LA PÁGINA</title>
+    <script defer src="/js/main.js" type="text/javascript"></script>
+    <title>Crear Post</title>
 </head>
 <body>
+<?php
+include_once "../src/header.php";
+?>
 <main>
-    <header>
-        <nav>
-
-        </nav>
-    </header>
-    <section>
-
-    </section>
-    <aside>
-
-    </aside>
-    <footer>
-
-    </footer>
+    <h2 class="editar-titulo">Crear Post</h2>
+    <form action="" class="edit-form" method="POST">
+        <label class="form-label" for="contenido">Contenido:</label>
+        <textarea class="form-textarea" id="contenido" name="contenido" required rows="8"></textarea>
+        <input class="form-submit" type="submit" value="Crear">
+    </form>
 </main>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>

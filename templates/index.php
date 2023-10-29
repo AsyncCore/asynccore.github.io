@@ -1,9 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <!-- Metas de la página HTML-->
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="header por separado" name="description">
+    <!-- TODO RELLENAR DESCRIPCIÓN SIGNIFICATIVA -->
+    <meta content="DESCRIPCIÓN_DE_LA_PÁGINA_AQUÍ" name="description"> <!-- Máximo 150 caracteres -->
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -11,11 +12,14 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <!-- Metas de Open Graph -->
-    <meta content="Header" property="og:title">
+    <!--TODO RELLENAR TÍTULO DE LA PÁGINA -->
+    <meta content="TÍTULO_DE_LA_PÁGINA_AQUÍ" property="og:title"> <!-- Debe coincidir con la etiqueta <title> -->
     <meta content="website" property="og:type">
     <meta content="/img/logo/logo.ico" property="og:image">
-    <meta content="/header.html" property="og:url">
-    <meta content="Header por separado" property="og:description">
+    <!--TODO RELLENAR URL DE LA PÁGINA -->
+    <meta content="URL_DE_LA_PÁGINA_AQUÍ" property="og:url"> <!-- Siempre desde la raíz /... -->
+    <!-- TODO RELLENAR DESCRIPCIÓN SIGNIFICATIVA -->
+    <meta content="DESCRIPCIÓN_DE_LA_PAGINA_AQUÍ" property="og:description"> <!-- Debe coincidir con el meta description -->
     <meta content="es_ES" property="og:locale">
     <meta content="en_EN" property="og:locale:alternate">
     <meta content="www.asyncore.es" property="og:site_name">
@@ -35,37 +39,31 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
-    <link href="/css/header-style.css" rel="stylesheet" type="text/css">
+    <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS CSS -->
+    <link href="/css/RUTA_CSS_AQUÍ" rel="stylesheet" type="text/css"> <!-- Ruta relativa desde la raíz /... -->
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
-    <script defer src="/js/main.js" type="text/javascript"></script>
+    <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS JS -->
+    <script defer src="/js/RUTA_JS_AQUÍ" type="text/javascript"></script> <!-- Ruta relativa desde la raíz /... -->
     <!-- Font Awesome -->
     <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
-    <title>Header</title>
+    <!-- TODO RELLENAR TÍTULO DE LA PÁGINA -->
+    <title>TÍTULO DE LA PÁGINA</title>
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <a href="https://www.asyncore.es">
-                <img alt="Logo" src="/img/logo/logo.svg">
-                <h1>AsynCore</h1>
-            </a>
-        </div>
-        <div class="barra-busqueda">
-            <label>
-                <input placeholder="🔎 Barra búsqueda">
-            </label>
-        </div>
-        <p><?= $success ?></p>
-        <div class="user-menu">
-            <a href="/usuario-perfil.php"><button id="boton">Usuario</button></a>
-            <div class="dropdown-content" id="dropdown">
-                <a href="/login-register.php">Login - Registro</a>
-            </div>
-        </div>
-        </div>
-    </nav>
-</header>
+<?php
+include_once "../src/header.php";
+?>
+<main>
+    <section>
+
+    </section>
+    <aside>
+
+    </aside>
+</main>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>

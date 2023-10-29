@@ -34,28 +34,10 @@
     <script defer src="/js/main.js"></script>
 </head>
 <body>
+<?php
+include_once "../src/header.php";
+?>
 <main>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="https://www.asyncore.es">
-                    <img alt="Logo" src="/img/logo/logo.svg">
-                    <h1>AsynCore</h1>
-                </a>
-            </div>
-            <div class="barra-busqueda">
-                <label>
-                    <input placeholder="🔎 Barra búsqueda">
-                </label>
-            </div>
-            <div class="user-menu">
-                <button id="boton">Usuario</button>
-                <div class="dropdown-content" id="dropdown">
-                    <a href="/login-register.php">Login - Registro</a>
-                </div>
-            </div>
-        </nav>
-    </header>
     <section id="contenedor-perfil">
         <div id="col1-fil-all">
             <div>
@@ -129,15 +111,9 @@
     <aside>
 
     </aside>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <span class="text-muted">Copyright &copy; AsynCore 2023</span>
-                </div>
-            </div>
-        </div>
-    </footer>
 </main>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>

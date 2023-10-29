@@ -3,7 +3,7 @@
 <head>
     <!-- Metas de la página HTML-->
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="Página del editor de creación de posts" name="description">
+    <meta content="Página del editor de creación de hilos" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -11,11 +11,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <!-- Metas de Open Graph -->
-    <meta content="Crear Post" property="og:title">
+    <meta content="Crear hilo" property="og:title">
     <meta content="website" property="og:type">
     <meta content="/img/logo/logo.ico" property="og:image">
-    <meta content="/crearPost.html" property="og:url">
-    <meta content="Página del editor de creación de posts" property="og:description">
+    <meta content="/crearHilo.html" property="og:url">
+    <meta content="Página del editor de creación de hilos" property="og:description">
     <meta content="es_ES" property="og:locale">
     <meta content="en_EN" property="og:locale:alternate">
     <meta content="www.asyncore.es" property="og:site_name">
@@ -40,44 +40,39 @@
     <link href="/css/main-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script defer src="/js/main.js" type="text/javascript"></script>
-    <title>Crear Post</title>
+    <title>Crear hilo</title>
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <img alt="Logo" src="/img/logo/logo.svg">
-            <h1>AsynCore</h1>
-        </div>
-        <div class="barra-busqueda">
-            <label>
-                <input placeholder="🔎 Barra búsqueda" type="text">
-            </label>
-        </div>
-        <div class="user-menu">
-            <button id="boton">Usuario</button>
-            <div class="dropdown-content" id="dropdown">
-                <a href="/login-register.php">Login - Registro</a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php
+include_once "../src/header.php";
+?>
 <main>
-    <h2 class="editar-titulo">Crear Post</h2>
+    <h2 class="editar-titulo">Crear Hilo</h2>
     <form action="" class="edit-form" method="POST">
-        <label class="form-label" for="contenido">Contenido:</label>
-        <textarea class="form-textarea" id="contenido" name="contenido" required rows="8"></textarea>
+        <div class="form-group">
+            <label for="post-title">Título:</label>
+            <input id="post-title" name="post-title" required type="text">
+        </div>
+
+        <div class="form-group">
+            <label for="post-tags">Etiquetas:</label>
+            <select id="post-tags" multiple name="post-tags">
+                <option value="etiqueta1">Etiqueta 1</option>
+                <option value="etiqueta2">Etiqueta 2</option>
+                <option value="etiqueta3">Etiqueta 3</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="post-content">Contenido:</label>
+            <textarea id="post-content" name="post-content" required rows="4"></textarea>
+        </div>
+
         <input class="form-submit" type="submit" value="Crear">
     </form>
 </main>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="text-muted">Copyright &copy; AsynCore 2023</span>
-            </div>
-        </div>
-    </div>
-</footer>
+<?php
+    include_once "../src/footer.php";
+?>
 </body>
 </html>
