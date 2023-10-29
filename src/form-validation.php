@@ -1,5 +1,4 @@
 <?php
-/*TODO añadir comentarios en el código para simplificar su lectura*/
 const METHOD = "POST";
 const ACTIVE_TAB_DEFAULT = "login";
 const ACTIVE_TAB_REGISTER = "registro";
@@ -78,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD && $_POST['form'] == ACTIVE_TAB_DEFAULT
     $loginCheck = !isset($_POST["loginCheck"]) ? UNCHECKED : CHECKED;
 
     # Comprueba si no hay errores en el formulario y si el checkbox está marcado y redirige a la página principal enviando el mail del usuario
-    if ($loginEmailError == EMPTY_STRING && $loginPasswordError == EMPTY_STRING && $activeTab == ACTIVE_TAB_DEFAULT){
-        echo "<form id='redirectForm' method='POST' action='/main.php'>
+    if ($loginEmailError == EMPTY_STRING && $loginPasswordError == EMPTY_STRING && $loginCheck === CHECKED){
+        echo "<form id='redirectForm' method='POST' action='../src/header.php'>
             <input type='hidden' name='success' value='true'>
             <input type='hidden' name='loginEmail' value='$loginEmail'>
           </form>
