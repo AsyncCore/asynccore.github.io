@@ -78,7 +78,7 @@ include_once "../src/header.php";
                 </div>
                 <hr>
                 <div>
-                    <a href="">Editar Opciones</a>
+                    <a href="/usuario-perfil-ajustes.php">Editar Opciones</a>
                 </div>
             </div>
             <div class="dif">
