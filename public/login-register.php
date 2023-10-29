@@ -35,10 +35,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET){
 if($_SERVER['REQUEST_METHOD'] == METHOD && $_POST['form'] == ACTIVE_TAB_DEFAULT){
     $loginEmail = $_POST['loginEmail'] ?? EMPTY_STRING;
     $loginPassword = $_POST['loginPassword'] ?? EMPTY_STRING;
+    $loginCheck = $_POST['loginCheck'] ?? EMPTY_STRING;
     $message = $_POST['message'] ?? EMPTY_STRING;
     # TODO THIS IS VERY USEFUL MOFO
-    /*echo "<script type='text/javascript'>console.log('loginEmail: $loginEmail');</script>";
-    echo "<script type='text/javascript'>console.log('loginPassword: $loginPassword');</script>";*/
+    /*
+    echo "<script type='text/javascript'>console.log('loginEmail: $loginEmail');</script>";
+    echo "<script type='text/javascript'>console.log('loginPassword: $loginPassword');</script>";
+    echo "<script type='text/javascript'>console.log('loginCheck: $loginCheck');</script>";
+    */
 }
 ?>
 
@@ -95,11 +99,11 @@ if($_SERVER['REQUEST_METHOD'] == METHOD && $_POST['form'] == ACTIVE_TAB_DEFAULT)
 ?>
 <main>
     <section class="pb-1 caja">
+        <div>
+            <?= $message ?>
+        </div>
         <div class="externo">
             <section class="w-100 p4 d-flex justify-content-center pb-2">
-                <div>
-                    <?= $message ?>
-                </div>
                 <div style="width: 26rem;">
                     <!-- SELECTOR FORMULARIO -->
                     <!-- LOGIN -->
