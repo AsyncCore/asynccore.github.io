@@ -43,25 +43,9 @@
     <title>Editar Post</title>
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <img alt="Logo" src="/img/logo/logo.svg">
-            <h1>AsynCore</h1>
-        </div>
-        <div class="barra-busqueda">
-            <label>
-                <input placeholder="🔎 Barra búsqueda" type="text">
-            </label>
-        </div>
-        <div class="user-menu">
-            <button id="boton">Usuario</button>
-            <div class="dropdown-content" id="dropdown">
-                <a href="/login-register.php">Login - Registro</a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php
+include_once "../src/header.php";
+?>
 <main>
     <h2 class="editar-titulo">Editar Post</h2>
     <form action="" class="edit-form" method="POST">
@@ -70,14 +54,8 @@
         <input class="form-submit" type="submit" value="Guardar Cambios">
     </form>
 </main>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="text-muted">Copyright &copy; AsynCore 2023</span>
-            </div>
-        </div>
-    </div>
-</footer>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>

@@ -63,7 +63,7 @@ $usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitad
         </div>
         <p>Bienvenido: <?= $usuario ?></p>
         <div class="user-menu">
-            <a href="/usuario-perfil.html"><button id="boton">Usuario</button></a>
+            <a href="/usuario-perfil.php"><button id="boton">Usuario</button></a>
             <div class="dropdown-content" id="dropdown">
                 <a href="/login-register.php">Login - Registro</a>
             </div>
@@ -82,10 +82,10 @@ $usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitad
                     <ul class="submenu">
                         <li><a href="#">Más populares</a></li>
                         <li><a href="#">Últimos modificados</a></li>
-                        <li><a href="/crearHilo.html">Crear Hilo</a></li>
-                        <li><a href="/editorHilos.html">Editar Hilo</a></li>
-                        <li><a href="/crearPost.html">Crear Post</a></li>
-                        <li><a href="/editarPost.html">Editar Post</a></li>
+                        <li><a href="/crearHilo.php">Crear Hilo</a></li>
+                        <li><a href="/editorHilos.php">Editar Hilo</a></li>
+                        <li><a href="/crearPost.php">Crear Post</a></li>
+                        <li><a href="/editarPost.php">Editar Post</a></li>
                     </ul>
                 </li>
                 <li class="menu-item has-submenu">
