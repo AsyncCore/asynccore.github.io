@@ -40,27 +40,31 @@ include_once "../src/header.php";
 <main>
     <section id="contenedor-perfil">
         <div id="col1-fil-all">
-            <div class="user-menu">
-                <h3>Perfil de Redcario4444 <input type="text" placeholder="Nuevo Nickname" id="nickname"></h3>
-                <p><img src="/img/pruebas/usuario-perfil/images.jpg"><a href="">🖊</a></p>
-                <p>Víctor Hellín Sáez <input type="text" placeholder="Nuevo nombre" id="nombre"></p>
-                <p>Estado: Picando código. <input type="text" placeholder="Nuevo estado" id="estado"></p>
-                <p>Hilos creados: 420</p>
-                <p>Posts realizados: 4215</p>
-                <p>Miembro desde: 12-10-2023</p>
-                <button type="submit" class="botones-envio"> Guardar</button>
-            </div>
-            <div class="user-menu">
-                Sobre mi
-                <ul>
-                    <li>Estudiando DAW</li>
-                    <li>🎵Que pasará que misterios habrá, puede ser mi gran noche🎵</li>
-                    <li>Mis cualidades son el manejo de Arrays y Bucles</li>
-                    <li>Mi página Web favorita: <a href="https://asyncore.es">asyncore.es</a></li>
-                </ul>
-                <textarea placeholder="Sobre mí" id="sobre-mi"></textarea>
-                <button type="submit" class="botones-envio"> Guardar</button>
-            </div>
+            <form action="/usuario-perfil.php">
+                <div class="user-menu">
+                    <h3>Perfil de Redcario4444 <input type="text" placeholder="Nuevo Nickname" id="nickname"></h3>
+                    <p><img src="/img/pruebas/usuario-perfil/images.jpg"><a href="">🖊</a></p>
+                    <p>Víctor Hellín Sáez <input type="text" placeholder="Nuevo nombre" id="nombre"></p>
+                    <p>Estado: Picando código. <input type="text" placeholder="Nuevo estado" id="estado"></p>
+                    <p>Hilos creados: 420</p>
+                    <p>Posts realizados: 4215</p>
+                    <p>Miembro desde: 12-10-2023</p>
+                    <button type="submit" class="botones-envio"> Guardar</button>
+                </div>
+            </form>
+            <form action="/usuario-perfil.php">
+                <div class="user-menu">
+                    Sobre mi
+                    <ul>
+                        <li>Estudiando DAW</li>
+                        <li>🎵Que pasará que misterios habrá, puede ser mi gran noche🎵</li>
+                        <li>Mis cualidades son el manejo de Arrays y Bucles</li>
+                        <li>Mi página Web favorita: <a href="https://asyncore.es">asyncore.es</a></li>
+                    </ul>
+                    <textarea placeholder="Sobre mí" id="sobre-mi"></textarea>
+                    <button type="submit" class="botones-envio"> Guardar</button>
+                </div>
+            </form>
         </div>
     </section>
     <aside>
