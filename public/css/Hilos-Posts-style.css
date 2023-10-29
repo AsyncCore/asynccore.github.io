@@ -57,6 +57,7 @@ select {
     font-size: 16px;
 }
 
+
 select[multiple] {
     height: 100px;
 }
@@ -73,10 +74,4 @@ button {
     position: absolute;
     bottom: 10px;
     right: 10px;
-}
-
-.footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
 }
