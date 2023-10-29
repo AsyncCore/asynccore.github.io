@@ -8,7 +8,8 @@ html, body {
 body {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    flex: 1 1 auto;
 }
 
 h1 {
@@ -83,8 +84,4 @@ img {
     height: 350px;
     animation: pulse 2s infinite;
     margin-left: 10px;
-}
-
-div {
-    padding-top: 200px;
 }

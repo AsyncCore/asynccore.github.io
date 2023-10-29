@@ -1,10 +1,7 @@
 <?php
-include_once "../src/form-validation.php";
-/**
- * @var $success
- */
-
-$success = $_GET['success'] ?? "";
+$success = $_POST['success'] ?? false;
+$loginEmail = $_POST['loginEmail'] ?? false;
+$usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitado";
 ?>
 
 <!DOCTYPE html>
@@ -51,25 +48,24 @@ $success = $_GET['success'] ?? "";
     <title>AsynCore</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="https://www.asyncore.es">
-                    <img alt="Logo" src="/img/logo/logo.svg">
-                    <h1>AsynCore</h1>
-                </a>
-            </div>
-            <div class="barra-busqueda">
-                <label>
-                    <input placeholder="🔎 Barra búsqueda">
-                </label>
-            </div>
-            <p><?= $success ?></p>
-            <div class="user-menu">
-                <a href="/usuario-perfil.html"><button id="boton">Usuario</button></a>
-                <div class="dropdown-content" id="dropdown">
-                    <a href="/login-register.php">Login - Registro</a>
-                </div>
+<header>
+    <nav>
+        <div class="logo">
+            <a href="https://www.asyncore.es">
+                <img alt="Logo" src="/img/logo/logo.svg">
+                <h1>AsynCore</h1>
+            </a>
+        </div>
+        <div class="barra-busqueda">
+            <label>
+                <input placeholder="🔎 Barra búsqueda">
+            </label>
+        </div>
+        <p>Bienvenido: <?= $usuario ?></p>
+        <div class="user-menu">
+            <a href="/usuario-perfil.html"><button id="boton">Usuario</button></a>
+            <div class="dropdown-content" id="dropdown">
+                <a href="/login-register.php">Login - Registro</a>
             </div>
         </div>
     </nav>
@@ -130,7 +126,7 @@ $success = $_GET['success'] ?? "";
             <div class="container">
                 <div class="thread-content">
                     <div class="user-box">
-                        <h4>User: $usuario</h4>
+                        <h4><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></h4>
                     </div>
                     <h2>Hilo de ejemplo</h2>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quos excepturi eaque quia
@@ -149,42 +145,68 @@ $success = $_GET['success'] ?? "";
                     ratione ipsa?
                     <div class="tag-box">
                         <ul>
-                            <li><h6>Tag 1</h6></li>
-                            <li><h6>Tag 2</h6></li>
-                            <li><h6>Tag 3</h6></li>
+                            <li><h6>#PHP</h6></li>
+                            <li><h6>#APACHE</h6></li>
+                            <li><h6>#MYSQL</h6></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>User: $usuario</p>
+                        <p>Triky</p>
                     </div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quos excepturi eaque quia
-                    asperiores
-                    deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
-                    aperiam
-                    nam? Minima?
+                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores explicabo harum
+                        incidunt iure, labore omnis perspiciatis quasi quo vero. Distinctio dolore iste quam quas qui
+                        quod repellendus sunt voluptatibus.
+                    </div>
+                    <div>At atque aut autem consequatur deserunt dolore earum facere fuga impedit maiores modi mollitia
+                        nam natus nisi officia quisquam saepe sapiente sint, sit unde vel, veniam veritatis vitae.
+                        Atque, repellendus.
+                    </div>
+                    <div>Accusamus aliquam architecto blanditiis culpa eum fugit ipsam iure modi, molestiae provident
+                        quam quo reprehenderit sapiente? Debitis id ipsa mollitia non optio pariatur recusandae?
+                        Adipisci explicabo molestias perferendis tempore voluptatum.
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>User: $usuario</p>
+                        <p><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></p>
                     </div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quos excepturi eaque quia
-                    asperiores
-                    deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
-                    aperiam
-                    nam? Minima?
+                    <div>A accusantium aperiam beatae commodi cumque cupiditate earum illo incidunt itaque,
+                        minus nobis placeat possimus, quaerat qui quia sapiente sequi sit, ut.
+                    </div>
+                    <div>Dolores fugit iure possimus tempora voluptate. Amet dolore ducimus ipsa libero nesciunt optio
+                        quae, quia reiciendis repellat rerum ullam vel? Aliquam consequatur dignissimos dolorem odio
+                        quis, quos recusandae repudiandae rerum.
+                    </div>
                 </div>
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>User: $usuario</p>
+                        <p>GyllenhaalSP</p>
                     </div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quos excepturi eaque quia
-                    asperiores
-                    deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
-                    aperiam
-                    nam? Minima?
+                    <div> Consectetur adipisicing elit. Aperiam asperiores explicabo harum
+                        deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
+                        aperiam
+                        nam? Minima?
+                    </div>
+                </div>
+                <div class="post-content">
+                    <div class="post-user-box">
+                        <p>xrezu</p>
+                    </div>
+                    <div>Aliquid asperiores aut cum cumque dignissimos ea, fuga incidunt iusto nemo nihil nostrum
+                        officiis optio placeat porro praesentium quaerat quam quas ratione reprehenderit sit soluta vero
+                        voluptatum! Molestiae, nulla, officia.
+                    </div>
+                    <div>Atque distinctio, magnam perferendis quibusdam tenetur voluptatem voluptatibus! Eaque fugiat
+                        nihil provident quaerat qui quo unde veritatis voluptate! Dolore dolorem ducimus error explicabo
+                        in ipsum, iure iusto molestias optio perferendis.
+                    </div>
+                    <div>Eligendi, est, nisi! Amet cum ex excepturi harum reprehenderit? Amet at beatae consectetur
+                        culpa cumque dignissimos ducimus error, esse facere, magnam necessitatibus nulla numquam omnis
+                        perferendis repellat, saepe sapiente similique.
+                    </div>
                 </div>
             </div>
         </section>
