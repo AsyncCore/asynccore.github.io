@@ -1,25 +1,27 @@
 <?php
-@include '../src/form-validation.php';
+include '../src/form-validation.php';
 /**
  * Variables del formulario de login
- * @var $loginEmailError
- * @var $loginPasswordError
- * @var $loginEmail
- * @var $loginPassword
- * @var $loginCheck
+ * @var string $loginEmailError
+ * @var string $loginPasswordError
+ * @var string $loginEmail
+ * @var string $loginPassword
+ * @var string $loginCheck
  * Variables del formulario de registro
- * @var $registerNameError
- * @var $registerUserNameError
- * @var $registerEmailError
- * @var $registerPasswordError
- * @var $registerRepeatPasswordError
- * @var $registerName
- * @var $registerUserName
- * @var $registerEmail
- * @var $registerPassword
- * @var $registerRepeatPassword
- * @var $registerCheck
- * @var $registerCheckError
+ * @var string $registerNameError
+ * @var string $registerUserNameError
+ * @var string $registerEmailError
+ * @var string $registerPasswordError
+ * @var string $registerRepeatPasswordError
+ * @var string $registerName
+ * @var string $registerUserName
+ * @var string $registerEmail
+ * @var string $registerPassword
+ * @var string $registerRepeatPassword
+ * @var string $registerCheck
+ * @var string $registerCheckError
+ *
+ * @var string $success
  */
 ?>
 
@@ -148,8 +150,7 @@
                             <div class="col-md-6 d-flex justify-content-center">
                                 <!-- CHECKBOX -->
                                 <div class="form-check mb-3 mb-md-0">
-                                    <input class="form-check-input" type="checkbox" value="<?= $loginCheck ?>"
-                                           id="loginCheck" name="loginCheck">
+                                    <input class="form-check-input" type="checkbox" value="1" id="loginCheck" name="loginCheck" <?= $loginCheck == "1" ? "checked" : "" ?>>
                                     <label class="form-check-label" for="loginCheck"> Recuérdame </label>
                                 </div>
                             </div>

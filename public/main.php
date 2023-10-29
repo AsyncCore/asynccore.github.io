@@ -1,3 +1,12 @@
+<?php
+include_once "../src/form-validation.php";
+/**
+ * @var $success
+ */
+
+$success = $_GET['success'] ?? "";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -45,16 +54,19 @@
     <header>
         <nav>
             <div class="logo">
-                <img alt="Logo" src="/img/logo/logo.svg">
-                <h1>AsynCore</h1>
+                <a href="https://www.asyncore.es">
+                    <img alt="Logo" src="/img/logo/logo.svg">
+                    <h1>AsynCore</h1>
+                </a>
             </div>
             <div class="barra-busqueda">
                 <label>
                     <input placeholder="🔎 Barra búsqueda">
                 </label>
             </div>
+            <p><?= $success ?></p>
             <div class="user-menu">
-                <button id="boton"><a href="/usuario-perfil.html">Usuario</a></button>
+                <a href="/usuario-perfil.html"><button id="boton">Usuario</button></a>
                 <div class="dropdown-content" id="dropdown">
                     <a href="/login-register.php">Login - Registro</a>
                 </div>
@@ -70,7 +82,7 @@
                     <a href="/index.html">Dashboard</a>
                 </li>
                 <li class="menu-item has-submenu">
-                    <a href="#">Hilos</a>
+                    <a href="#">Navegación<br>Hilos</a>
                     <ul class="submenu">
                         <li><a href="#">Más populares</a></li>
                         <li><a href="#">Últimos modificados</a></li>
@@ -81,7 +93,7 @@
                     </ul>
                 </li>
                 <li class="menu-item has-submenu">
-                    <a href="#">Pages</a>
+                    <a href="#">Páginas</a>
                     <ul class="submenu">
                         <li class="submenu-item has-submenu">
                             <a href="#">Archivos</a>
@@ -92,18 +104,18 @@
                         <li class="submenu-item has-submenu">
                             <a href="#">Authentication</a>
                             <ul class="submenu">
-                                <li><a href="/login-register.php">Login-Register</a></li>
-                                <li><a href="/rememberPassword.html">Forgot Password</a></li>
+                                <li><a href="/login-register.php">Login-Registro</a></li>
+                                <li><a href="/rememberPassword.html">Recordar<br>contraseña</a></li>
                             </ul>
                         </li>
                         <li class="submenu-item has-submenu">
                             <a href="#">Error</a>
                             <ul class="submenu">
-                                <li><a href="/error-pages/404.html">404 Page</a></li>
+                                <li><a href="/error-pages/404.html">404</a></li>
                             </ul>
                         <li class="submenu-item has-submenu">
                             <a href="#">¿Quiénes Somos?</a>
-                            <ul>
+                            <ul class="submenu">
                                 <li><a href="https://github.com/GyllenhaalSP">Daniel Alonso</a></li>
                                 <li><a href="https://github.com/xrezu">Maksym Dovgan</a></li>
                                 <li><a href="https://github.com/trikytrukos">Miguel Martínez</a></li>

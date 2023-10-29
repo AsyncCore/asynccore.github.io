@@ -1,5 +1,5 @@
 <?php
-
+/*TODO añadir comentarios en el código para simplificar su lectura*/
 $loginEmailError = $loginPasswordError = "";
 $loginEmail = $loginPassword = $loginCheck = "";
 
@@ -39,8 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'login') {
 
     $loginCheck = $_POST["loginCheck"];
 
-    if ($loginEmailError == "" && $loginPasswordError == "" && $loginCheck == "checked") {
-        header("Location: ../index.php");
+    if ($loginEmailError == "" && $loginPasswordError == "" && !empty($loginCheck)){
+        $success = "Bienvenido $loginEmail";
+        $dir = "http://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/main.php?success=$success";
+        header("Location:$dir", true, 302);
         exit;
     }
 }
@@ -105,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['login'] == 'registro') {
 
     if ($registerNameError == "" && $registerUserNameError == "" && $registerEmailError == "" &&
         $registerPasswordError == "" && $registerRepeatPasswordError == "" && $registerCheckError == "") {
-        header("Location: ../index.php");
+        header("Location: /index.php");
         exit;
     }
 }
