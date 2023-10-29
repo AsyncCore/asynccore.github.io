@@ -190,7 +190,6 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD && $_POST['form'] == ACTIVE_TAB_REGISTE
 
         echo "<form id='redirectForm' method='POST' action='login-register.php'>
             <input type='hidden' name='form' value='login'>
-            <input type='hidden' name='loginCheck' value='1'>
             <input type='hidden' name='loginEmail' value='$registerEmail'>
             <input type='hidden' name='loginPassword' value='$registerPassword'>
             <input type='hidden' name='message' value='$message'>
