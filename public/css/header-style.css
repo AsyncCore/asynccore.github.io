@@ -10,7 +10,7 @@ nav {
     color: white;
 }
 
-a {
+.logo a {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -21,7 +21,6 @@ a {
 .logo {
     display: flex;
     align-items: center;
-    /* background-color:#345fb3; */
     padding: 5px;
     margin-right: 5px;
     border-radius: 10px;

@@ -45,7 +45,7 @@
     <header>
         <nav>
             <ul>
-                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../index.php">Inicio</a></li>
                 <li><a href="">Cosa</a></li>
                 <li><a href="">Coso</a></li>
                 <li><a href="">Coso</a></li>

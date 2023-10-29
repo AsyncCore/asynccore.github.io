@@ -1,5 +1,7 @@
 @import 'normalize.css';
-@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import 'footer-style.css';
+/*@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');*/
 
 html, body {
     height: 100%;
@@ -9,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex: 1 1 auto;
 }
 

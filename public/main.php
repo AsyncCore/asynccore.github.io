@@ -1,7 +1,8 @@
 <?php
-$success = $_POST['success'] ?? false;
-$loginEmail = $_POST['loginEmail'] ?? false;
-$usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitado";
+/**
+ * Variables de header.php
+ * @var string $usuario
+ */
 ?>
 
 <!DOCTYPE html>
@@ -48,44 +49,25 @@ $usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitad
     <title>AsynCore</title>
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <a href="https://www.asyncore.es">
-                <img alt="Logo" src="/img/logo/logo.svg">
-                <h1>AsynCore</h1>
-            </a>
-        </div>
-        <div class="barra-busqueda">
-            <label>
-                <input placeholder="🔎 Barra búsqueda">
-            </label>
-        </div>
-        <p>Bienvenido: <?= $usuario ?></p>
-        <div class="user-menu">
-            <a href="/usuario-perfil.php"><button id="boton">Usuario</button></a>
-            <div class="dropdown-content" id="dropdown">
-                <a href="/login-register.php">Login - Registro</a>
-            </div>
-        </div>
-    </nav>
-</header>
+<?php
+include_once "../src/header.php";
+?>
 <main>
     <div class="contenido">
         <aside class="sidebar">
             <ul class="menu">
                 <li class="menu-item">
-                    <a href="/index.html">Dashboard</a>
+                    <a href="/main.php">INICIO</a>
                 </li>
                 <li class="menu-item has-submenu">
                     <a href="#">Navegación<br>Hilos</a>
                     <ul class="submenu">
                         <li><a href="#">Más populares</a></li>
                         <li><a href="#">Últimos modificados</a></li>
-                        <li><a href="/crearHilo.php">Crear Hilo</a></li>
-                        <li><a href="/editorHilos.php">Editar Hilo</a></li>
-                        <li><a href="/crearPost.php">Crear Post</a></li>
-                        <li><a href="/editarPost.php">Editar Post</a></li>
+                        <li><a href="/crearHilo.html">Crear Hilo</a></li>
+                        <li><a href="/editorHilos.html">Editar Hilo</a></li>
+                        <li><a href="/crearPost.html">Crear Post</a></li>
+                        <li><a href="/editarPost.html">Editar Post</a></li>
                     </ul>
                 </li>
                 <li class="menu-item has-submenu">
@@ -212,14 +194,8 @@ $usuario = $success ? substr($loginEmail, 0, strpos($loginEmail, "@")): "Invitad
         </section>
     </div>
 </main>
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-content">
-            <div class="footer-left">
-                <span class="text-muted">Copyright &copy; AsynCore 2023</span>
-            </div>
-        </div>
-    </div>
-</footer>
+<?php
+include_once "../src/footer.php";
+?>
 </body>
 </html>

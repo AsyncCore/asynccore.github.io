@@ -63,7 +63,9 @@
     </aside>
 </main>
 <footer>
-
+    <?php
+        include_once "../src/footer.php";
+    ?>
 </footer>
 </body>
 </html>
