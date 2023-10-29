@@ -83,6 +83,10 @@ nav {
     background-color: #104cc6;
 }
 
+div .botones-envio {
+    width: 100%;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
@@ -109,7 +113,7 @@ nav {
 #contenedor-perfil {
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 25vh 25vh 25vh 20vh 10vh;
+    grid-template-rows: 25vh 25vh 25vh 20vh 15vh;
 }
 
 #col1-fil-all {
@@ -150,6 +154,7 @@ hr {
     height: 100px;
     width: 98%;
     resize: none;
+    margin-bottom: 15px;
 }
 
 .footer {
