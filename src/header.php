@@ -29,7 +29,7 @@ echo <<<HTML
         </div>
         
         <div class="user-menu">
-            <a href="/usuario-perfil.html"><button class="boton">
+            <a href="/usuario-perfil.php"><button class="boton">
 HTML;
 echo $usuario;
 echo <<<HTML
@@ -42,3 +42,4 @@ echo <<<HTML
     </nav>
 </header>
 HTML;
+

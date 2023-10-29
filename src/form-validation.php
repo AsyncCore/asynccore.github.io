@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD && $_POST['form'] == ACTIVE_TAB_DEFAULT
 
     # Comprueba si no hay errores en el formulario y si el checkbox está marcado y redirige a la página principal enviando el mail del usuario
     if ($loginEmailError == "" && $loginPasswordError == "" /*&& $loginCheck === CHECKED*/){
-        echo "<form id='redirectForm' method='POST' action='header.php'>
+        echo "<form id='redirectForm' method='POST' action='/header.php'>
             <input type='hidden' name='success' value='true'>
             <input type='hidden' name='loginEmail' value='$loginEmail'>
           </form>
