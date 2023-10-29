@@ -1,16 +1,28 @@
+@import 'normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
 }
 
 nav {
     background-color: #7894cb;
-    padding: 5px;
+    padding: 5px 25px 5px 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
+}
+
+.logo a  {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    color: white;
+    height: 55px;
 }
 
 .logo {
@@ -38,12 +50,14 @@ nav {
     text-decoration: none;
     border: solid 2px black;
     border-radius: 10px;
-    padding: 10px 15px 10px 15px;
-    width: 175px;
+    padding: 5px 7px 5px 7px;
+    width: 165px;
 }
 
 .barra-busqueda input::placeholder {
-    text-align: center;
+    text-align: left;
+    font-family: monospace;
+    font-size: 14px;
 }
 
 .barra-busqueda input:hover {
@@ -54,10 +68,10 @@ nav {
 
 @keyframes barra {
     from {
-        width: 175px;
+        width: 165px;
     }
     to {
-        width: 300px;
+        width: 350px;
     }
 }
 
@@ -74,7 +88,7 @@ nav {
     position: relative;
 }
 
-.user-menu button a{
+.user-menu button a {
     text-decoration: none;
     color: white;
 }
@@ -109,7 +123,7 @@ nav {
 
 .contenido {
     display: grid;
-    grid-template-columns: 25% 1fr;
+    grid-template-columns: 15% 1fr;
     gap: 20px;
     background-color: whitesmoke;
     border-radius: 12px;
@@ -119,7 +133,8 @@ nav {
     width: 100%;
     background-color: #345fb3;
     color: white;
-    min-height: 100vh;
+    min-height: 90vh;
+    max-width: 370px;
 }
 
 .menu {
@@ -164,6 +179,14 @@ nav {
     display: block;
 }
 
+.submenu {
+    padding-left: 15px;
+}
+
+.submenu-item.has-submenu {
+    padding: 0 0 10px 0;
+}
+
 /* #content {
   flex: 1;
   padding: 20px;
@@ -175,7 +198,7 @@ nav {
     grid-template-columns: 30% 70%;
     gap: 20px;
     background-color: whitesmoke;
-    margin: 20px;
+    margin: 20px 100px 0 80px;
     border-radius: 12px;
 }
 
@@ -210,7 +233,6 @@ nav {
     background-color: #ff5858;
     color: white;
     border-radius: 10px;
-
 }
 
 .thread-content {
@@ -258,6 +280,9 @@ nav {
     background-color: #f8f9fa;
     padding: 20px;
     width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .footer .footer-container {

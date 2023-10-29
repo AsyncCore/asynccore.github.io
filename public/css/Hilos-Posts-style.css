@@ -1,3 +1,6 @@
+@import 'normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
@@ -71,11 +74,4 @@ button {
     position: absolute;
     bottom: 10px;
     right: 10px;
-}
-
-
-.footer{
-    position: fixed;
-    bottom: 0;
-    left: 0;
 }

@@ -1,26 +1,22 @@
+@import 'normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+
 html, body {
     height: 100%;
-    margin: 0;
 }
 
 body {
+    display: flex;
     justify-content: center;
-}
-
-.logo {
-    align-content: center;
-}
-
-.logo img {
-    display: block;
-    margin: 0 auto;
+    align-items: center;
+    flex: 1 1 auto;
 }
 
 h1 {
     text-align: center;
     font-size: 60px;
     font-weight: bold;
-    margin: 0;
+    margin: 25px 0 0 0;
     padding: 0;
     color: blue;
     animation: pulse 2s infinite;
@@ -74,18 +70,18 @@ p {
 }
 
 hr {
-    width: 30%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 25px 0 25px 0;
+}
+
+.entrar{
+    font-size: 28px;
+    color: #4f4f4f;
 }
 
 img {
-    width: 300px;
-    height: 300px;
-    margin: 0;
-    padding-left: 25px;
+    width: 350px;
+    height: 350px;
     animation: pulse 2s infinite;
-}
-
-div {
-    padding-top: 100px;
+    margin-left: 10px;
 }

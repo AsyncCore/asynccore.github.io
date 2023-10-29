@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
     <!-- Metas de la página HTML-->
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="Landing page del proyecto AsynCore" name="description">
+    <meta content="header por separado" name="description">
     <meta content="Daniel Alonso Lázaro" name="author">
     <meta content="Maksym Dovgan" name="author">
     <meta content="Miguel Martínez Santos" name="author">
@@ -11,11 +11,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="copyright" name="&copy; AsynCore Project 2023">
     <!-- Metas de Open Graph -->
-    <meta content="Landing page del proyecto AsynCore" property="og:title">
+    <meta content="Header" property="og:title">
     <meta content="website" property="og:type">
     <meta content="/img/logo/logo.ico" property="og:image">
-    <meta content="/index.html" property="og:url">
-    <meta content="Landing page del proyecto AsynCore" property="og:description">
+    <meta content="/header.html" property="og:url">
+    <meta content="Header por separado" property="og:description">
     <meta content="es_ES" property="og:locale">
     <meta content="en_EN" property="og:locale:alternate">
     <meta content="www.asyncore.es" property="og:site_name">
@@ -35,35 +35,37 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
-    <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/index-style.css" rel="stylesheet" type="text/css">
+    <link href="/css/header-style.css" rel="stylesheet" type="text/css">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
-    <script src="/js/main.js" type="text/javascript"></script>
-    <title>ASYNCORE PROJECT INDEX</title>
+    <script defer src="/js/main.js" type="text/javascript"></script>
+    <!-- Font Awesome -->
+    <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
+    <title>Header</title>
 </head>
 <body>
 <header>
     <nav>
-
+        <div class="logo">
+            <a href="https://www.asyncore.es">
+                <img alt="Logo" src="/img/logo/logo.svg">
+                <h1>AsynCore</h1>
+            </a>
+        </div>
+        <div class="barra-busqueda">
+            <label>
+                <input placeholder="🔎 Barra búsqueda">
+            </label>
+        </div>
+        <p><?= $success ?></p>
+        <div class="user-menu">
+            <a href="/usuario-perfil.html"><button id="boton">Usuario</button></a>
+            <div class="dropdown-content" id="dropdown">
+                <a href="/login-register.php">Login - Registro</a>
+            </div>
+        </div>
+        </div>
     </nav>
 </header>
-<main>
-    <section>
-        <div>
-            <a class="logo" href="/main.php"><img alt="AsynCore Logo" src="/img/logo/logo.svg"></a>
-            <h1>Asyn<span>Core</span></h1>
-            <p><span id="por">Por</span> y <span id="para">para</span> alumnos</p>
-        </div>
-        <hr>
-        <p><a href="/login-register.php">Login / Registro</a></p><br>
-        <p><span class="entrar">Entrar como</span> <br><a href="/main.php">Visitante</a></p>
-    </section>
-    <aside>
-
-    </aside>
-</main>
-<footer>
-
-</footer>
 </body>
 </html>
