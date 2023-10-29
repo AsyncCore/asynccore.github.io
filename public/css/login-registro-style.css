@@ -10,8 +10,9 @@ body {
 }
 
 .externo {
-    width: 400px;
-    height: 700px;
+    width: 500px;
+    height: auto;
+    padding: 70px 20px 70px 20px;
     display: flex;
     flex-flow: wrap column;
     justify-content: center;

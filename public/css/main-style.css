@@ -17,7 +17,7 @@ nav {
     color: white;
 }
 
-a {
+.logo a  {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
