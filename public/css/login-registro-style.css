@@ -1,23 +1,44 @@
 @import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
 @import '/AsyncCore.github.io/public/css/normalize.css';
+@import '/AsyncCore.github.io/public/css/header-style.css';
+@import '/AsyncCore.github.io/public/css/footer-style.css';
 
-body {
+html{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+}
+
+main{
     display: flex;
-    flex-direction: column;
+    flex-flow: wrap row;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
+}
+
+.caja {
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
 }
 
 .externo {
-    width: 500px;
+    width: auto;
     height: auto;
     padding: 70px 20px 70px 20px;
     display: flex;
     flex-flow: wrap column;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
     border: solid 2px lightgrey;
+    border-radius: 10px;
 }
 
 .error {
