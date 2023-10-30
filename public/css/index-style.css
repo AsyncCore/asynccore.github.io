@@ -1,10 +1,17 @@
 @import 'normalize.css';
 @import 'footer-style.css';
-/*@import url('/AsyncCore.github.io/public/css/normalize.css');
-@import url('/AsyncCore.github.io/public/css/footer-style.css');*/
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');
 
-html, body {
+html{
+    display: flex;
     height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    margin-top: -20px;
 }
 
 body {
@@ -17,9 +24,9 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 60px;
+    font-size: 55px;
     font-weight: bold;
-    margin: 25px 0 0 0;
+    margin: 20px 0 0 0;
     padding: 0;
     color: blue;
     animation: pulse 2s infinite;
@@ -51,7 +58,7 @@ span#por {
 
 p {
     text-align: center;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bold;
     opacity: 0;
     margin: 0;
@@ -74,17 +81,17 @@ p {
 
 hr {
     width: 100%;
-    margin: 25px 0 25px 0;
+    margin: 20px 0 20px 0;
 }
 
 .entrar{
-    font-size: 28px;
+    font-size: 37px;
     color: #4f4f4f;
 }
 
 img {
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     animation: pulse 2s infinite;
     margin-left: 10px;
 }
