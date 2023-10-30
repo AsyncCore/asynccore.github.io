@@ -1,20 +1,13 @@
 @import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
 @import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/header-style.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');
 
 body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
-}
-
-nav {
-    background-color: #7894cb;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
 }
 
 main {
@@ -23,7 +16,9 @@ main {
     margin: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 form {
@@ -57,21 +52,18 @@ select {
     font-size: 16px;
 }
 
-
 select[multiple] {
     height: 100px;
 }
 
-
-button {
-    background-color: #333;
+.form-submit {
+    background-color: #345fb3;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     font-size: 18px;
     cursor: pointer;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
+    float: right;
+    margin-top: 13px;
 }

@@ -37,7 +37,6 @@
     <!-- CSS -->
     <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
     <link href="/css/Hilos-Posts-style.css" rel="stylesheet" type="text/css">
-    <link href="/css/main-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script defer src="/js/main.js" type="text/javascript"></script>
     <title>Crear Post</title>
