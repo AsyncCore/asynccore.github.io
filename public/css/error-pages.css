@@ -1,0 +1,66 @@
+@import 'normalize.css';
+@import '../error-pages/prism.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/error-pages/prism.css');
+@import url("https://fonts.googleapis.com/css?family=Bevan");
+
+body {
+    background: rgb(40,40,40);
+    overflow: hidden;
+}
+
+.http{
+    color:#345fb3;
+}
+
+.num-error{
+    color:#ff5858;
+}
+
+code.cloned {
+    position: absolute;
+    pointer-events: none;
+}
+
+p {
+    font-family: "Bevan", cursive;
+    font-size:  calc(60px + 2vw);
+    margin: 8vh 0 8vh 0;
+    text-align: center;
+    letter-spacing: 5px;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    & span {
+        font-size: 1.2em;
+    }
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+div code {
+    text-align: left;
+}
+
+a {
+    color: #8abeb7;
+    font-family: monospace;
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+@media screen and (max-width: 600px) {
+    p {
+        font-size: calc(10px + 3vw);
+    }
+}

@@ -11,11 +11,8 @@ HTML;
 $current_path = $_SERVER['PHP_SELF'];
 $current_dir = substr($current_path, strrpos($current_path, "/"), strlen($current_path));
 $current_host = $_SERVER['HTTP_HOST'];
-if($current_dir === "/main.php") {
-    echo "https://" . $current_host;
-} else {
-    echo "https://" . $current_host . dirname($_SERVER['PHP_SELF']);
-}
+$target_url = $current_dir == '/main.php' ? "https://" . $current_host . "/index.php" : "https://" . $current_host . "/main.php";
+echo $target_url;
 echo <<<HTML
                                                        ">
                 <img alt="Logo" src="/img/logo/logo.svg">

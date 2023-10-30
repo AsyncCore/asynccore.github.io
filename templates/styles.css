@@ -1,0 +1,9 @@
+@import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/header-style.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');
+/*TODO IMPORTAR ARCHIVOS ADICIONALES SI ES NECESARIO*/
+@import 'ESTILO-BOINO.css'; /* cambiar nombre del archivo al que se necesite*/
+@import url('/AsyncCore.github.io/public/RUTA-ESTILO-BOINO.css');/* cambiar ruta del archivo a la que se necesite*/

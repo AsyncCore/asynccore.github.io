@@ -1,5 +1,9 @@
-@import "normalize.css";
-@import "/AsynCore.github.io/public/css/normalize.css";
+@import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/header-style.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');
 
 body {
     font-family: Arial, sans-serif;
@@ -9,105 +13,31 @@ body {
     flex-direction: column;
 }
 
-nav {
-    background-color:  #7894cb;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    /* background-color:#345fb3; */
-    padding:5px;
-    margin-right: 5px;
-    border-radius: 10px;
-}
-
-.logo h1{
-    color: whitesmoke;
-    font-weight: bold;
-    font-size: x-large;
-}
-
-.logo img {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
-}
-
-.barra-busqueda input {
-    text-decoration: none;
-    border: solid 2px black;
-    border-radius: 10px;
-    padding: 10px 15px 10px 15px;
-    width: 175px;
-}
-
-.barra-busqueda input::placeholder {
-    text-align: center;
-}
-
-.barra-busqueda input:hover {
-    animation-duration: 1s;
-    animation-name: barra;
-    animation-fill-mode: forwards;
-}
-
-@keyframes barra {
-    from {
-        width: 175px;
-    }
-    to {
-        width: 300px;
-    }
-}
-
-.user-menu button {
-    background-color: #345fb3;
+.editar-user button,
+.editar-user input,
+textarea,
+li{
     border: none;
-    padding: 10px 15px;
+    padding: 5px 15px;
     border-radius: 5px;
     cursor: pointer;
+    margin: 5px;
+}
+.editar-user button{
+    background-color: #345fb3;
     color: white;
 }
 
-.user-menu {
+.editar-user {
     position: relative;
 }
 
-.user-menu button:hover{
+.editar-user button:hover{
     background-color: #104cc6;
 }
 
 div .botones-envio {
     width: 100%;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 5px;
-    margin-top:10px;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    border-radius: 5px;
 }
 
 #contenedor-perfil {
@@ -150,36 +80,13 @@ hr {
     border-color: #104cc6;
 }
 
+p {
+    margin: 5px;
+}
+
 #sobre-mi {
     height: 100px;
     width: 98%;
     resize: none;
     margin-bottom: 15px;
-}
-
-.footer {
-    background-color: #f8f9fa;
-    padding:20px ;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
-
-.footer .footer-container {
-    width: 100%;
-    max-width: none;
-    padding-left: 10px;
-}
-
-.footer-content {
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    font-size: 14px;
-}
-
-.footer-left {
-    color: #6c757d;
-    text-align: center;
 }

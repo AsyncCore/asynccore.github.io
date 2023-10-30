@@ -41,7 +41,7 @@ include_once "../src/header.php";
     <section id="contenedor-perfil">
         <div id="col1-fil-all">
             <form action="/usuario-perfil.php">
-                <div class="user-menu">
+                <div class="editar-user">
                     <h3>Perfil de Redcario4444 <input type="text" placeholder="Nuevo Nickname" id="nickname"></h3>
                     <p><img src="/img/pruebas/usuario-perfil/images.jpg"><a href="">🖊</a></p>
                     <p>Víctor Hellín Sáez <input type="text" placeholder="Nuevo nombre" id="nombre"></p>
