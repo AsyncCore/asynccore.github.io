@@ -7,6 +7,7 @@ include '../src/form-validation.php';
  * @var string $loginEmail
  * @var string $loginPassword
  * @var string $loginCheck
+ *
  * Variables del formulario de registro
  * @var string $registerNameError
  * @var string $registerUserNameError
@@ -20,6 +21,7 @@ include '../src/form-validation.php';
  * @var string $registerRepeatPassword
  * @var string $registerCheck
  * @var string $registerCheckError
+ *
  * Variable de la pestaña activa
  * @var string $activeTab
  */
@@ -32,17 +34,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET){
     $activeTab = 'registro';
 }
 
-if($_SERVER['REQUEST_METHOD'] == METHOD && $_POST['form'] == ACTIVE_TAB_DEFAULT){
+if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEFAULT){
     $loginEmail = $_POST['loginEmail'] ?? EMPTY_STRING;
     $loginPassword = $_POST['loginPassword'] ?? EMPTY_STRING;
     $loginCheck = $_POST['loginCheck'] ?? EMPTY_STRING;
     $message = $_POST['message'] ?? EMPTY_STRING;
-    # TODO THIS IS VERY USEFUL MOFO
-    /*
-    echo "<script type='text/javascript'>console.log('loginEmail: $loginEmail');</script>";
-    echo "<script type='text/javascript'>console.log('loginPassword: $loginPassword');</script>";
-    echo "<script type='text/javascript'>console.log('loginCheck: $loginCheck');</script>";
-    */
 }
 ?>
 
