@@ -64,10 +64,10 @@ include_once "../src/header.php";
                     <ul class="submenu">
                         <li><a href="#">Más populares</a></li>
                         <li><a href="#">Últimos modificados</a></li>
-                        <li><a href="/crearHilo.html">Crear Hilo</a></li>
-                        <li><a href="/editorHilos.html">Editar Hilo</a></li>
-                        <li><a href="/crearPost.html">Crear Post</a></li>
-                        <li><a href="/editarPost.html">Editar Post</a></li>
+                        <li><a href="/crearHilo.php">Crear Hilo</a></li>
+                        <li><a href="/editorHilos.php">Editar Hilo</a></li>
+                        <li><a href="/crearPost.php">Crear Post</a></li>
+                        <li><a href="/editarPost.php">Editar Post</a></li>
                     </ul>
                 </li>
                 <li class="menu-item has-submenu">
@@ -107,10 +107,12 @@ include_once "../src/header.php";
         <section>
             <div class="container">
                 <div class="thread-content">
-                    <div class="user-box">
-                        <h4><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></h4>
+                    <div class="header-content">
+                        <div class="user-box">
+                            <h4 class="user-tag"><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></h4>
+                        </div>
+                        <h2>Hilo de ejemplo</h2>
                     </div>
-                    <h2>Hilo de ejemplo</h2>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quos excepturi eaque quia
                     asperiores
                     deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
@@ -136,7 +138,7 @@ include_once "../src/header.php";
 
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>Triky</p>
+                        <p class="user-tag">Triky</p>
                     </div>
                     <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores explicabo harum
                         incidunt iure, labore omnis perspiciatis quasi quo vero. Distinctio dolore iste quam quas qui
@@ -153,7 +155,7 @@ include_once "../src/header.php";
                 </div>
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></p>
+                        <p class="user-tag"><?= $usuario == "Invitado" ? "Redcario4444" : $usuario ?></p>
                     </div>
                     <div>A accusantium aperiam beatae commodi cumque cupiditate earum illo incidunt itaque,
                         minus nobis placeat possimus, quaerat qui quia sapiente sequi sit, ut.
@@ -165,7 +167,7 @@ include_once "../src/header.php";
                 </div>
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>GyllenhaalSP</p>
+                        <p class="user-tag">GyllenhaalSP</p>
                     </div>
                     <div> Consectetur adipisicing elit. Aperiam asperiores explicabo harum
                         deserunt et voluptatem veritatis, in dolorem sint quam cupiditate reiciendis minus at, autem
@@ -175,7 +177,7 @@ include_once "../src/header.php";
                 </div>
                 <div class="post-content">
                     <div class="post-user-box">
-                        <p>xrezu</p>
+                        <p class="user-tag">xrezu</p>
                     </div>
                     <div>Aliquid asperiores aut cum cumque dignissimos ea, fuga incidunt iusto nemo nihil nostrum
                         officiis optio placeat porro praesentium quaerat quam quas ratione reprehenderit sit soluta vero

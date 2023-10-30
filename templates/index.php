@@ -41,7 +41,6 @@
     <!-- CSS -->
     <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS CSS -->
     <link href="/css/RUTA_CSS_AQUÍ" rel="stylesheet" type="text/css"> <!-- Ruta relativa desde la raíz /... -->
-    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <!-- TODO INTRODUCIR RUTA DE LOS ARCHIVOS JS -->
     <script defer src="/js/RUTA_JS_AQUÍ" type="text/javascript"></script> <!-- Ruta relativa desde la raíz /... -->
