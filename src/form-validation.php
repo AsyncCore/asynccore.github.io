@@ -40,24 +40,6 @@ $activeTab = $_POST['form'] ?? ACTIVE_TAB_DEFAULT;
 
 $success = $_POST['registerSuccess'] ?? false;
 
-# Pop-up de registro correcto que se muestra al registrarse correctamente.
-$message = <<<HTML
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                </symbol>
-            </svg>
-            <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div style="margin-left: 20px;">
-                    Usuario <b>
-            HTML . $registerUserName . <<<HTML
-                        </b> registrado correctamente.<br>Inicia sesión para continuar...
-                    </div>
-                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            HTML;
-
 /**
  * Función para sanear los datos del formulario.
  * @param string $data Datos que se van a sanear.
@@ -197,6 +179,24 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_RE
 
     if ($registerNameError == EMPTY_STRING && $registerUserNameError == EMPTY_STRING && $registerEmailError == EMPTY_STRING &&
         $registerPasswordError == EMPTY_STRING && $registerRepeatPasswordError == EMPTY_STRING && $registerCheckError == EMPTY_STRING && $registerCheck === CHECKED) {
+
+        # Pop-up de registro correcto que se muestra al registrarse correctamente.
+        $message = <<<HTML
+            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                </symbol>
+            </svg>
+            <div class="alert alert-success d-flex align-items-center alert-dismissible" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div style="margin-left: 20px;">
+                    Usuario <b>
+            HTML . $registerUserName . <<<HTML
+                        </b> registrado correctamente.<br>Inicia sesión para continuar...
+                    </div>
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            HTML;
 
         echo "<form id='redirectForm' method='POST' action='login-register.php'>
             <input type='hidden' name='form' value='login'>
