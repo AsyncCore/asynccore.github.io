@@ -1,0 +1,84 @@
+/* Configuración general de fondo y color de texto para todo el bloque de código */
+code[class*=language-],
+pre[class*=language-] {
+    color: #fff; /* Letras blancas */
+    background: rgb(40, 40, 40); /* Fondo oscuro */
+    text-shadow: 0 1px #888; /* Sombra de texto negra */
+    font-size: 14px; /* Tamaño de letra */
+}
+
+/* Configuración de los colores de selección de texto */
+code[class*=language-] ::-moz-selection,
+code[class*=language-] ::selection,
+pre[class*=language-] ::-moz-selection,
+pre[class*=language-] ::selection {
+    background: #b3d4fc; /* Color de fondo al seleccionar */
+    color: #000; /* Color de texto al seleccionar */
+}
+
+/* Configuración específica para varios tokens */
+.token.cdata,
+.token.comment,
+.token.doctype,
+.token.prolog,
+.token.operator,
+.token.punctuation {
+    color: #777; /* Gris claro */
+}
+
+.token.boolean,
+.token.constant,
+.token.deleted,
+.token.property,
+.token.symbol,
+.token.important,
+.token.tag{
+    color: #ce5edd; /*Lavanda  */
+}
+
+.token.attr-name,
+.token.builtin,
+.token.char,
+.token.inserted,
+.token.selector,
+.token.string {
+    color: #a2f8a2; /* Verde claro */
+}
+
+.language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.url,
+.token.variable {
+    color: #fff;
+    background: rgb(40, 40, 40); /* Fondo oscuro */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #ce5edd; /* Lavanda */
+}
+
+.token.class-name,
+.token.function {
+    color: #61afef; /* Azul */
+}
+
+.token.regex,
+.token.number{
+    color: #e90;
+}
+
+.token.bold,
+.token.important {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}

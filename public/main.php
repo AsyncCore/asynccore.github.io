@@ -62,8 +62,8 @@ include_once "../src/header.php";
                 <li class="menu-item has-submenu">
                     <a href="#">Navegación<br>Hilos</a>
                     <ul class="submenu">
-                        <li><a href="#">Más populares</a></li>
-                        <li><a href="#">Últimos modificados</a></li>
+                        <li><a href="/error-pages/500.php">Más populares</a></li>
+                        <li><a href="/error-pages/403.php">Últimos modificados</a></li>
                         <li><a href="/crearHilo.php">Crear Hilo</a></li>
                         <li><a href="/editorHilos.php">Editar Hilo</a></li>
                         <li><a href="/crearPost.php">Crear Post</a></li>
@@ -89,7 +89,7 @@ include_once "../src/header.php";
                         <li class="submenu-item has-submenu">
                             <a href="#">Error</a>
                             <ul class="submenu">
-                                <li><a href="/error-pages/404.html">404</a></li>
+                                <li><a href="/error-pages/404.php">404</a></li>
                             </ul>
                         <li class="submenu-item has-submenu">
                             <a href="#">¿Quiénes Somos?</a>
