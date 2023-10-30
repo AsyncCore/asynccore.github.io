@@ -1,6 +1,8 @@
 ## ASYNCORE PROJECT
 
-Este es el repositorio del proyecto final de la primera evaluación de la asignatura `Desarrollo Web Entorno Servidor` del ciclo formativo de Grado Superior de Desarrollo de Aplicaciones Web del IES Juan de la Cierva de Madrid para el curso 2023-2024.
+Este es el repositorio del proyecto final de la primera evaluación de la asignatura `Desarrollo Web Entorno Servidor`
+del ciclo formativo de Grado Superior de Desarrollo de Aplicaciones Web del IES Juan de la Cierva de Madrid para el
+curso 2023-2024.
 
 ![](https://img.shields.io/github/forks/AsyncCore/asynccore.github.io.svg)
 ![](https://img.shields.io/github/stars/AsyncCore/asynccore.github.io.svg)
@@ -15,9 +17,12 @@ Este es el repositorio del proyecto final de la primera evaluación de la asigna
 
 ## Descripción del proyecto
 
-Como idea básica, el proyecto consiste en una aplicación web que permite a los usuarios registrados (alumnos de DAW/DAM) acceder a un foro donde pueden publicar preguntas y respuestas sobre los contenidos de las asignaturas de los grados de DAW y DAM. 
+Como idea básica, el proyecto consiste en una aplicación web que permite a los usuarios registrados (alumnos de DAW/DAM)
+acceder a un foro donde pueden publicar preguntas y respuestas sobre los contenidos de las asignaturas de los grados de
+DAW y DAM.
 
-Está pensado como un complemento a las clases presenciales, donde los alumnos puedan resolver sus dudas y compartir conocimientos en un entorno virtual, colaborativo y seguro.
+Está pensado como un complemento a las clases presenciales, donde los alumnos puedan resolver sus dudas y compartir
+conocimientos en un entorno virtual, colaborativo y seguro.
 
 ## Paleta de colores
 
@@ -32,6 +37,7 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 ## Tecnologías utilizadas
 
 ### Frontend
+
 [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/multipage/)
 [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
@@ -67,12 +73,9 @@ Está pensado como un complemento a las clases presenciales, donde los alumnos p
 - [Miguel Martínez Santos](https://github.com/trikytrukos)
 - [Víctor Hellín Sáez](https://github.com/Redcario4444)
 
-
 ## Contacto
 
-
 [![](https://img.shields.io/discord/1161416338653331546?color=7289da&label=Discord&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/ZzjtQ2Tb)
-
 
 ## Licencia
 

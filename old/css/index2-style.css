@@ -1,0 +1,50 @@
+@import '/css/normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+
+body {
+    margin: 20px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+ul li {
+    background-color: #0077B6;
+    color: #333333;
+    font-size: 17px;
+    list-style-type: none;
+    border: solid;
+    border-radius: 10px;
+    font-weight: bold;
+    margin: 10px;
+    display: flex;
+}
+
+ul li a {
+    color: #f2f2f2;
+    text-decoration: none;
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+ul li a:hover {
+    background-color: #90E0EF;
+    color: #000;
+}
+
+.container {
+    text-align: center;
+}
+
+.container__inicio {
+    text-align: left;
+}

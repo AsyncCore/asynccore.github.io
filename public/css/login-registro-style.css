@@ -1,19 +1,50 @@
-@import 'reset.css';
+@import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
+@import '/AsyncCore.github.io/public/css/normalize.css';
+@import '/AsyncCore.github.io/public/css/header-style.css';
+@import '/AsyncCore.github.io/public/css/footer-style.css';
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+html{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
 }
 
-.externo{
-    width: 400px;
-    height: 700px;
+main{
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.caja {
     display: flex;
     flex-flow: wrap column;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
+}
+
+.externo {
+    width: auto;
+    height: auto;
+    padding: 70px 20px 70px 20px;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 auto;
     border: solid 2px lightgrey;
+    border-radius: 10px;
+}
+
+.error {
+    font-weight: bolder;
+    font-size: 0.75em;
+    color: red;
+    display: block;
+    margin-bottom: 7px;
 }

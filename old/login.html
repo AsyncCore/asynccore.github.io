@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metas de la página HTML-->
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="Página de login para el proyecto AsynCore" name="description">
+    <meta content="Daniel Alonso Lázaro" name="author">
+    <meta content="Maksym Dovgan" name="author">
+    <meta content="Miguel Martínez Santos" name="author">
+    <meta content="Víctor Hellín Sáez" name="author">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="copyright" name="&copy; AsynCore Project 2023">
+    <!-- Metas de Open Graph -->
+    <meta content="Login de Asyncore" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="/img/logo/logo.ico" property="og:image">
+    <meta content="/login.html" property="og:url">
+    <meta content="Página de login para el proyecto AsynCore" property="og:description">
+    <meta content="es_ES" property="og:locale">
+    <meta content="en_EN" property="og:locale:alternate">
+    <meta content="www.asyncore.es" property="og:site_name">
+    <!-- Metas de Apple -->
+    <meta content="AsynCore" name="apple-mobile-web-app-title">
+    <meta content="AsynCore" name="application-name">
+    <!-- Metas de Microsoft -->
+    <meta content="#2d89ef" name="msapplication-TileColor">
+    <meta content="/img/logo/favicon/browserconfig.xml" name="msapplication-config">
+    <!-- Metas de Chrome -->
+    <meta content="#ffffff" name="theme-color">
+    <!-- Favicon -->
+    <link href="/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="/img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/img/favicon/site.webmanifest" rel="manifest">
+    <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
+    <link href="/img/favicon/favicon.ico" rel="shortcut icon">
+    <!-- CSS -->
+    <link href="css/login-registro-style-old.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script defer src="js/main.js"></script>
+    <!-- FontAwesome -->
+    <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/9e6ce9bbf3.js"></script>
+    <title>LOGIN</title>
+</head>
+<body>
+<main>
+    <header>
+        <nav>
+
+        </nav>
+    </header>
+    <section>
+        <form action="#" class="login-form" method="post">
+            <label for="correo"></label>
+            <input id="correo" name="correo" pattern="[a-z0-9._%+-]+@educa\.madrid\.org$"
+                   placeholder="Correo institucional"
+                   required type="email">
+            <label for="pwd"></label>
+            <input class="pwd_input" id="pwd" name="pwd" placeholder="Contraseña" required type="password">
+            <i class="fa-solid fa-eye show_pwd show_pwd_login"
+               onclick="togglePasswordVisibility(this.getAttribute('class'))"></i>
+            <div class="recordar-container">
+                <p class="recordar"><a href="recordarContraseña.html">¿Has olvidado tu contraseña?</a></p>
+            </div>
+            <input type="submit" value="Iniciar Sesión">
+        </form>
+    </section>
+    <aside>
+
+    </aside>
+    <footer>
+
+    </footer>
+</main>
+</body>
+</html>

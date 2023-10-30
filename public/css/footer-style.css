@@ -1,0 +1,27 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .footer-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 10px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    position: sticky;
+}
+
+.footer-left {
+    color: #6c757d;
+    text-align: center;
+}

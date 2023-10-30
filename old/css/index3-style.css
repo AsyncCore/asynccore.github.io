@@ -1,0 +1,262 @@
+@import '/css/normalize.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: lightgray;
+}
+
+#main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 8vh 1vh 41vh 41vh 1vh 8vh;
+}
+
+#cabecera {
+    display: grid;
+    grid-column: 1/6;
+    grid-row: 1/2;
+}
+
+.barra-nav-sup {
+    display: flex;
+    align-items: center;
+    border-bottom: solid black thin;
+    background-color: lightblue;
+}
+
+.izquierda {
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.izquierda img {
+    text-decoration: none;
+    border: solid thin black;
+    border-radius: 50px;
+    margin: 0 10px 0 10px;
+    max-height: 50px;
+}
+
+.derecha a,
+.izquierda a {
+    text-decoration: none;
+    border: solid thin black;
+    border-radius: 10px;
+    max-height: 50px;
+    color: white;
+    padding: 10px 15px 10px 15px;
+    margin: 10px;
+    background-color: #1d9ce5;
+}
+
+.izquierda a:hover,
+.derecha a:hover {
+    background-color: #04519b;
+    border-color: lightblue;
+}
+
+.medio {
+    margin: auto;
+}
+
+.barra-nav-sup input {
+    text-decoration: none;
+    border: solid 2px black;
+    border-radius: 20px;
+    margin: auto;
+    padding: 10px 15px 10px 15px;
+    background-color: #1d9ce5;
+    color: white;
+    width: 175px;
+}
+
+.barra-nav-sup input::placeholder {
+    text-align: center;
+    color: white;
+}
+
+.barra-nav-sup input:hover {
+    animation-duration: 1s;
+    animation-name: barra;
+    animation-fill-mode: forwards;
+}
+
+@keyframes barra {
+    from {
+        width: 175px;
+    }
+    to {
+        width: 300px;
+    }
+}
+
+.derecha {
+    display: flex;
+    align-items: center;
+    float: right;
+}
+
+.menu-navegar {
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 3/5;
+    background-color: #7a6032;
+}
+
+#principal {
+    display: grid;
+    grid-column: 2/5;
+    grid-row: 3/5;
+    flex: 1 1;
+}
+
+.post {
+    max-width: 800px;
+    max-height: 300px;
+    margin: 15px auto;
+    padding: 10px 15px 10px 15px;
+    border-radius: 20px;
+    border: black solid thin;
+    background-color: lightblue;
+}
+
+.post h2 {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+}
+
+.post-sup {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    text-align: center;
+}
+
+.post-sup img {
+    max-height: 40px;
+    border: solid thin black;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-sup span {
+    max-height: 40px;
+    border: solid thin black;
+    border-radius: 10px;
+    align-items: center;
+    align-content: center;
+    padding: 10px 15px 10px 15px;
+    background-color: #1d9ce5;
+    color: white;
+    margin-right: 10px;
+}
+
+.post-med {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin: 20px auto auto;
+}
+
+.post-med span {
+    max-height: 100px;
+    border: solid thin black;
+    border-radius: 10px;
+    padding: 10px 15px 10px 15px;
+    background-color: #1d9ce5;
+    color: white;
+    overflow: hidden;
+    flex: 1 1;
+}
+
+.post-inf {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+}
+
+.post-inf button {
+    max-height: 40px;
+    border: solid thin black;
+    border-radius: 10px;
+    margin-left: 80%;
+    padding: 10px 15px 10px 15px;
+    background-color: #1d9ce5;
+    color: white;
+}
+
+.post-inf button:hover {
+    background-color: #04519b;
+    border-color: #04519b;
+}
+
+.popular-recientes {
+    display: flex;
+    background-color: lightblue;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    border: black solid thin;
+    border-radius: 20px;
+    overflow: auto;
+    flex: 1 1;
+}
+
+.popular-recientes h2 {
+    color: white;
+}
+
+.popular-recientes a {
+    display: block;
+    border: solid thin black;
+    text-align: center;
+    text-decoration: none;
+    padding: 4%;
+    margin: 3%;
+    border-radius: 5px;
+    background-color: #1d9ce5;
+    color: white;
+}
+
+.popular-recientes a:hover {
+    background-color: #04519b;
+    border-color: lightblue;
+}
+
+.popular-recientes::-webkit-scrollbar {
+    display: none;
+}
+
+.populares {
+    grid-column: 5/6;
+    grid-row: 3/4;
+}
+
+.recientes {
+    grid-column: 5/6;
+    grid-row: 4/5;
+}
+
+.cap {
+    font-size: 20px;
+    color: black;
+}
+
+#pie {
+    display: grid;
+    grid-column: 1/6;
+    grid-row: 6/7;
+    background-color: #1d9ce5;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    border-top: solid thin darkblue;
+}
