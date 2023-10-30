@@ -38,6 +38,8 @@ $registerRepeatPassword = $registerCheck = EMPTY_STRING;
 # Establece la pestaña activa en el formulario dependiendo de la que se haya pulsado al enviarlo
 $activeTab = $_POST['form'] ?? ACTIVE_TAB_DEFAULT;
 
+$success = $_POST['registerSuccess'] ?? false;
+
 # Pop-up de registro correcto que se muestra al registrarse correctamente.
 $message = <<<HTML
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -142,7 +144,7 @@ function validate_name(string $name, string $type): string
  * @param string $mail Mail del usuario
  * @return void
  */
-function js_redirect_main($mail) : void
+function js_redirect_main(string $mail) : void
 {
     echo "<form id='redirectForm' method='POST' action='/main.php'>
             <input type='hidden' name='success' value='true'>
@@ -163,7 +165,7 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DE
     # Establece el valor del checkbox a 0 si no está marcado
     $loginCheck = !isset($_POST["loginCheck"]) ? UNCHECKED : CHECKED;
 
-    if ($loginEmailError == EMPTY_STRING && $loginPasswordError == EMPTY_STRING /*&& $loginCheck === CHECKED*/){
+    if ($loginEmailError == EMPTY_STRING && $loginPasswordError == EMPTY_STRING && !$success){
         js_redirect_main($loginEmail);
         exit;
     }
@@ -198,6 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_RE
 
         echo "<form id='redirectForm' method='POST' action='login-register.php'>
             <input type='hidden' name='form' value='login'>
+            <input type='hidden' name='registerSuccess' value='true'>
             <input type='hidden' name='loginEmail' value='$registerEmail'>
             <input type='hidden' name='loginPassword' value='$registerPassword'>
             <input type='hidden' name='message' value='$message'>
