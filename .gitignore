@@ -4,6 +4,7 @@
 
 .idea/
 public/docencia-23-24/
+config/dbConfig.php
 
 # User-specific stuff
 .idea/**/workspace.xml
