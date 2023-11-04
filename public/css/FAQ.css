@@ -11,6 +11,10 @@ main {
     padding: 20px;
 }
 
+ul {
+    list-style: none;
+}
+
 .faq li {
     margin-bottom: 20px;
     border: 2px solid #0078d4;
