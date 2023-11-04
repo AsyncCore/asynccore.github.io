@@ -1,0 +1,48 @@
+@import 'normalize.css';
+@import 'header-style.css';
+@import 'footer-style.css';
+@import url('/AsyncCore.github.io/public/css/normalize.css');
+@import url('/AsyncCore.github.io/public/css/header-style.css');
+@import url('/AsyncCore.github.io/public/css/footer-style.css');
+
+main {
+    max-width: 800px;
+    margin: 0 auto 61.99px;
+    padding: 20px;
+}
+
+.faq li {
+    margin-bottom: 20px;
+    border: 2px solid #0078d4;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s;
+}
+
+.faq li:hover {
+    background-color: #0078d4;
+    color: #fff;
+}
+
+.faq h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #0078d4;
+}
+
+
+.faq p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+.faq li:hover h3 {
+    color: #fff;
+}
+
+.faq li:hover p {
+    color: #fff;
+}

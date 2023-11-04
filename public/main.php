@@ -77,6 +77,7 @@ include_once "../src/header.php";
                             <a href="#">Archivos</a>
                             <ul class="submenu">
                                 <li><a href="https://files.asyncore.es">Files</a></li>
+                                <li><a href="/FAQ.php">FAQ</a></li>
                             </ul>
                         </li>
                         <li class="submenu-item has-submenu">
