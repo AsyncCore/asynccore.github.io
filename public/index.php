@@ -42,11 +42,6 @@
     <title>ASYNCORE PROJECT INDEX</title>
 </head>
 <body>
-<header>
-    <nav>
-
-    </nav>
-</header>
 <main>
     <section>
         <div>
@@ -58,13 +53,10 @@
         <p><a href="/login-register.php">Login / Registro</a></p><br>
         <p><span class="entrar">Entrar como</span> <br><a href="/main.php">Visitante</a></p>
     </section>
-    <aside>
-
-    </aside>
 </main>
 <footer>
     <?php
-        include_once "../src/footer.php";
+    include_once "../src/footer.php";
     ?>
 </footer>
 </body>

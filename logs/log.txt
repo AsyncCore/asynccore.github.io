@@ -1,0 +1,75 @@
+[02/11/2023 04:22:44] [C:\Users\wizar\OneDrive - Consejería de Educación (Comunidad de Madrid)\2DAW\AsyncCore.github.io\src\utils\autoloader.php] [DEBUG] Buscando src\db\DatabaseConfig en: 'C:\Users\wizar\OneDriveInstituto\2DAW\AsyncCore.github.io\src\db\DatabaseConfig.php'
+[02/11/2023 04:24:17] [\src\utils\autoloader.php] [DEBUG] Buscando src\db\DatabaseConfig en: 'C:\Users\wizar\OneDriveInstituto\2DAW\AsyncCore.github.io\src\db\DatabaseConfig.php'
+[02/11/2023 04:25:27] [\src\utils\autoloader.php] [DEBUG] Buscando src\db\DatabaseConfig en: 'C:\Users\wizar\OneDriveInstituto\2DAW\AsyncCore.github.io\src\db\DatabaseConfig.php'
+[02/11/2023 04:29:04] [] [DEBUG] Buscando src\db\DatabaseConfig en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:31:39] [] [DEBUG] Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:33:30] [\src\utils\autoloader.php] [DEBUG] Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:34:16] [\src\utils\autoloader.php] [DEBUG] [MENSAJE] Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:35:26] [ARCHIVO][\src\utils\autoloader.php] [DEBUG] ''Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'''
+[02/11/2023 04:35:26] [ARCHIVO][\src\utils\autoloader.php] [DEBUG] ''Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'''
+[02/11/2023 04:35:27] [ARCHIVO][\src\utils\autoloader.php] [DEBUG] ''Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'''
+[02/11/2023 04:35:54] [ARCHIVO][\src\utils\autoloader.php] [DEBUG] Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:36:18] [ARCHIVO][\src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:36:51] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'
+[02/11/2023 04:37:19] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en: '\src\db\DatabaseConfig.php'.
+[02/11/2023 09:20:36] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 14:17:33] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 14:17:37] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:04:32] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:04:36] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:04:36] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:04:40] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:06:05] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:06:09] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:18:55] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:18:59] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:20:21] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:20:25] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:20:27] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:20:31] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:21:00] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:21:04] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:21:40] [ARCHIVO => \src\utils\autoloader.php] [DEBUG] => Buscando 'src\db\DatabaseConfig' en '\src\db\DatabaseConfig.php'.
+[02/11/2023 19:21:44] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:33:08] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:33:13] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:33:17] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:33:22] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:33:26] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:34:32] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:34:36] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:34:41] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:34:45] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:34:50] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:36:24] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:36:29] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:36:35] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:36:46] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:37:39] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:37:43] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:37:48] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:37:52] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 19:45:16] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:30:47] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:35:42] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:35:47] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:35:51] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:36:55] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:37:00] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:33] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:41] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:46] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:50] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:55] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:38:59] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:39:04] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:39:37] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:40:35] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:40:39] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:40:44] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:40:48] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:41:19] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:41:23] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:41:58] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:42:02] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[02/11/2023 23:42:07] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.

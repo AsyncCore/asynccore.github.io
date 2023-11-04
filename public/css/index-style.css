@@ -11,15 +11,11 @@ html{
 body {
     height: 100%;
     display: flex;
-    margin-top: -20px;
-}
-
-body {
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex: 1 1 auto;
+    margin-top: -20px;
 }
 
 h1 {
@@ -90,8 +86,8 @@ hr {
 }
 
 img {
-    width: 300px;
-    height: 300px;
+    width: 30vw;
+    height: auto;
     animation: pulse 2s infinite;
     margin-left: 10px;
 }
