@@ -7,7 +7,8 @@ $currentPath = $_SERVER['PHP_SELF'];
 $currentDir = substr($currentPath, strrpos($currentPath, "/"), strlen($currentPath));
 $currentRoot = $_SERVER['HTTP_HOST'];
 $target_url = $currentDir == '/main.php' ? "https://" . $currentRoot . "/index.php" : "https://" . $currentRoot . "/main.php";
-echo $target_url;
+session_start();
+$user = $_SESSION['username'] ?? "Invitado";
 echo <<<HTML
                                                        ">
                 <img alt="Logo" src="/img/logo/logo.svg">
@@ -21,7 +22,9 @@ echo <<<HTML
         </div>
         
         <div class="user-menu">
-            <a href="/usuario-perfil.php"><button class="boton">Perfil</button></a>
+            <a href="/usuario-perfil.php"><button class="boton">
+HTML . $user . <<<HTML
+            </button></a>
             <div class="dropdown-content" id="dropdown">
                 <a href="/login-register.php">Login - Registro</a>
             </div>
