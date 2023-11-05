@@ -1,7 +1,8 @@
 <?php
 
     require __DIR__ . '/../src/utils/autoloader.php';
-    include_once __DIR__ . '/../config/databaseQueries.php';
+    require __DIR__ . '/../vendor/autoload.php';
+    #include_once __DIR__ . '/../config/databaseQueries.php';
     include_once __DIR__ . "/../src/utils/utils.php";
 
     /**
