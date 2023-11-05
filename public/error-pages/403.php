@@ -35,6 +35,7 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
+    <link href="/css/footer-style.css" rel="stylesheet" type="text/css">
     <link href="/css/error-pages.css" rel="stylesheet" type="text/css">
     <link href="prism.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
@@ -48,31 +49,32 @@
 
 <main>
     <main>
-        <div>
-            <p>
-                <span class="http">HTTP: </span><span class="num-error">403</span></p></div>
-        <div style="text-align:center;">
-        <pre style="display:inline-block; text-align:left; white-space: pre;">
-        <code class="language-php">/* 403.php */</code>
-        <code class="language-php">&lt;?php</code>
-            <code class="language-php">$usuario = "Tú";</code>
-            <code class="language-php">$acceso_permitido = false;</code>
+        <div class="titulo"><p><span class="http">HTTP: </span><span class="num-error">403</span></p>
+        </div>
+        <div class="codigo" style="text-align:center;">
+            <pre style="display:inline-block; text-align:left; white-space: pre;">
+                <code class="language-php">/* 403.php */</code>
+                <code class="language-php">&lt;?php</code>
+                    <code class="language-php">$usuario = "Tú";</code>
+                    <code class="language-php">$acceso_permitido = false;</code>
 
-            <code class="language-php">if ($usuario !== "admin") {</code>
-                <code class="language-php">echo "ERROR 403 - ACCESO DENEGADO";</code>
-            <code class="language-php">} else {</code>
-                <code class="language-php">echo "¡Bienvenido, admin!.";</code>
-            <code class="language-php">}</code>
+                    <code class="language-php">if ($usuario !== "admin") {</code>
+                        <code class="language-php">echo "ERROR 403 - ACCESO DENEGADO";</code>
+                    <code class="language-php">} else {</code>
+                        <code class="language-php">echo "¡Bienvenido, admin!.";</code>
+                    <code class="language-php">}</code>
 
-            <code class="language-php">if (!$acceso_permitido) {</code>
-                <code class="language-php">echo "¡UYUYUY! !Alguien se ha dejado el sudo en casa¡";</code>
-            <code class="language-php">}</code>
-        <code class="language-php">?&gt;</code>
-        </pre>
+                    <code class="language-php">if (!$acceso_permitido) {</code>
+                        <code class="language-php">echo "¡UYUYUY! !Alguien se ha dejado el sudo en casa¡";</code>
+                    <code class="language-php">}</code>
+                <code class="language-php">?&gt;</code>
+            </pre>
         </div>
         <a href="https://www.asyncore.es/main.php" class="center-link">Intentar con superpoderes</a>
     </main>
 </main>
-
+<?php
+    include_once '../../src/footer.php';
+?>
 </body>
 </html>

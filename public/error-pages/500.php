@@ -35,6 +35,7 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
+    <link href="/css/footer-style.css" rel="stylesheet" type="text/css">
     <link href="/css/error-pages.css" rel="stylesheet" type="text/css">
     <link href="prism.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
@@ -46,26 +47,30 @@
 </head>
 <body>
 <main>
-    <div><p><span class="http">HTTP: </span><span class="num-error">500</span></p></div>
+    <div><p><span class="http">HTTP: </span><span class="num-error">500</span></p>
+    </div>
     <div style="text-align:center;">
         <pre style="display:inline-block; text-align:left; white-space: pre;">
-        <code class="language-php">/* 500.php */</code>
-        <code class="language-php">&lt;?php</code>
-            <code class="language-php">$servidor = "un poco cansado";</code>
+            <code class="language-php">/* 500.php */</code>
+            <code class="language-php">&lt;?php</code>
+                <code class="language-php">$servidor = "un poco cansado";</code>
 
-            <code class="language-php">echo "ERROR 500 - ERROR INTERNO DEL SERVIDOR";</code>
+                <code class="language-php">echo "ERROR 500 - ERROR INTERNO DEL SERVIDOR";</code>
 
-            <code class="language-php">if ($servidor === "un poco cansado") {</code>
-                <code class="language-php">echo "Nuestro servidor está con el Kit-Kat.";</code>
-                <code class="language-php">echo "¡Vuelve en un rato!";</code>
-            <code class="language-php">} else {</code>
-                <code class="language-php">echo "Todo está funcionando perfectamente...";</code>
-                <code class="language-php">echo "Es broma... Algo va realmente mal...";</code>
-            <code class="language-php">}</code>
-        <code class="language-php">?&gt;</code>
+                <code class="language-php">if ($servidor === "un poco cansado") {</code>
+                    <code class="language-php">echo "Nuestro servidor está con el Kit-Kat.";</code>
+                    <code class="language-php">echo "¡Vuelve en un rato!";</code>
+                <code class="language-php">} else {</code>
+                    <code class="language-php">echo "Todo está funcionando perfectamente...";</code>
+                    <code class="language-php">echo "Es broma... Algo va realmente mal...";</code>
+                <code class="language-php">}</code>
+            <code class="language-php">?&gt;</code>
         </pre>
     </div>
     <a href="https://www.asyncore.es/main.php" class="center-link">Volver a la página donde no hay llamas...</a>
 </main>
+<?php
+    include_once '../../src/footer.php';
+?>
 </body>
 </html>

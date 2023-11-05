@@ -1,45 +1,52 @@
 <?php
-include '../src/form-validation.php';
-/**
- * Variables del formulario de login
- * @var string $loginEmailError
- * @var string $loginPasswordError
- * @var string $loginEmail
- * @var string $loginPassword
- * @var string $loginCheck
- *
- * Variables del formulario de registro
- * @var string $registerNameError
- * @var string $registerUserNameError
- * @var string $registerEmailError
- * @var string $registerPasswordError
- * @var string $registerRepeatPasswordError
- * @var string $registerName
- * @var string $registerUserName
- * @var string $registerEmail
- * @var string $registerPassword
- * @var string $registerRepeatPassword
- * @var string $registerCheck
- * @var string $registerCheckError
- *
- * Variable de la pestaña activa
- * @var string $activeTab
- */
+    include '../src/formValidation.php';
 
-$message = "";
+    /**
+     * Variables del formulario de login
+     *
+     * @var string $loginEmailError
+     * @var string $loginPasswordError
+     * @var string $loginEmail
+     * @var string $loginPassword
+     * @var string $loginCheck
+     */
 
-$registerGET = $_GET['register'] ?? false;
+    /**
+     * Variables del formulario de registro
+     * @var string $registerNameError
+     * @var string $registerUserNameError
+     * @var string $registerEmailError
+     * @var string $registerPasswordError
+     * @var string $registerRepeatPasswordError
+     * @var string $registerName
+     * @var string $registerUserName
+     * @var string $registerEmail
+     * @var string $registerPassword
+     * @var string $registerRepeatPassword
+     * @var string $registerCheck
+     * @var string $registerCheckError
+     */
 
-if($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET){
-    $activeTab = 'registro';
-}
+     /** Variable de la pestaña activa
+     * @var string $activeTab
+     */
 
-if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEFAULT){
-    $loginEmail = $_POST['loginEmail'] ?? EMPTY_STRING;
-    $loginPassword = $_POST['loginPassword'] ?? EMPTY_STRING;
-    $loginCheck = $_POST['loginCheck'] ?? EMPTY_STRING;
-    $message = $_POST['message'] ?? EMPTY_STRING;
-}
+    $message = "";
+    $autofocus = EMPTY_STRING;
+
+    $registerGET = $_GET['register']??FALSE;
+
+    if($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET){
+        $activeTab = 'registro';
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEFAULT){
+        $loginEmail = $_POST['loginEmail']??EMPTY_STRING;
+        $autofocus = $_POST['loginEmail']??EMPTY_STRING;
+        $loginPassword = $_POST['loginPassword']??EMPTY_STRING;
+        $loginCheck = $_POST['loginCheck']??EMPTY_STRING;
+        $message = $_POST['message']??EMPTY_STRING;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -159,7 +166,7 @@ if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEF
                                 <span class="error"><?= $loginEmailError ?></span>
                                 <div class="form-outline mb-4">
                                     <input type="text" id="loginEmail" class="form-control" name="loginEmail"
-                                           value="<?= $loginEmail ?>" <?= $loginEmail ? 'autofocus' : 'autofocus' ?>>
+                                           value="<?= $loginEmail ?>" <?= $autofocus ?>>
                                     <label class="form-label" for="loginEmail">Email</label>
                                 </div>
 
@@ -303,7 +310,7 @@ if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEF
     </aside>
 </main>
 <?php
-include_once "../src/footer.php";
+    include_once "../src/footer.php";
 ?>
 </body>
 </html>
