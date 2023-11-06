@@ -1,12 +1,9 @@
 <?php
     /**
-     * Autoloader para cargar las clases del proyecto de forma automática.
+     * Autoloader
      *
-     * @param string $class Nombre de la clase que se quiere cargar.
-     *
-     * @return void
+     * Este archivo contiene el autoloader de la aplicación que se encarga de cargar las clases de forma automática.
      */
-
     spl_autoload_register(function($class){
         $prefix = str_replace('\\', DIRECTORY_SEPARATOR, $class);
         $file = $_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $prefix . '.php';
@@ -14,10 +11,3 @@
             include_once $file;
         }
     });
-
-
-
-
-
-
-

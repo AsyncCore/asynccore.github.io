@@ -1,5 +1,8 @@
 <?php
+
     require __DIR__ . '/../src/utils/autoloader.php';
+    require __DIR__ . '/../vendor/autoload.php';
+    #include_once __DIR__ . '/../config/databaseQueries.php';
     include_once __DIR__ . "/../src/utils/utils.php";
 
     /**
@@ -7,6 +10,11 @@
 	 * @var array  $resultado_hilos /config/databaseQueries.php
 	 * @var array  $resultado_posts /config/databaseQueries.php
 	 */
+
+    if (!isset($resultado_hilos)){
+        $resultado_hilos = [];
+        $resultado_posts = [];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +118,6 @@
 		</aside>
 		<section>
 			<?php
-                include_once __DIR__ . '/../config/databaseQueries.php';
 				$user_hilo = $resultado_hilos[0]['USERNAME'];
 				$titulo_hilo = $resultado_hilos[0]['TITULO'];
 				$contenido_hilo = $resultado_hilos[0]['CONTENIDO'];

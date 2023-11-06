@@ -1,13 +1,17 @@
 <?php
-include '../src/form-validation.php';
+include '../src/formValidation.php';
+
 /**
  * Variables del formulario de login
+ *
  * @var string $loginEmailError
  * @var string $loginPasswordError
  * @var string $loginEmail
  * @var string $loginPassword
  * @var string $loginCheck
- *
+ */
+
+/**
  * Variables del formulario de registro
  * @var string $registerNameError
  * @var string $registerUserNameError
@@ -21,25 +25,37 @@ include '../src/form-validation.php';
  * @var string $registerRepeatPassword
  * @var string $registerCheck
  * @var string $registerCheckError
- *
- * Variable de la pestaña activa
+ */
+
+/** Variable de la pestaña activa
  * @var string $activeTab
  */
 
-$message = "";
+$message = EMPTY_STRING;
+$autofocus = EMPTY_STRING;
 
-$registerGET = $_GET['register'] ?? false;
+$registerGET = $_GET['register'] ?? FALSE;
 
-if($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET){
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET) {
     $activeTab = 'registro';
 }
 
-if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEFAULT){
+if ($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEFAULT) {
     $loginEmail = $_POST['loginEmail'] ?? EMPTY_STRING;
+    $autofocus = $_POST['loginEmail'] ?? EMPTY_STRING;
     $loginPassword = $_POST['loginPassword'] ?? EMPTY_STRING;
     $loginCheck = $_POST['loginCheck'] ?? EMPTY_STRING;
     $message = $_POST['message'] ?? EMPTY_STRING;
 }
+
+session_start();
+$fail = $_SESSION['failedLogin']?? FALSE;
+if ($fail){
+    $message = "<div class='alert alert-danger' role='alert'>El usuario o la contraseña son incorrectos</div>";
+}else{
+    $message = EMPTY_STRING;
+}
+session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEF
 </head>
 <body>
 <?php
-    include_once "../src/header.php";
+include_once "../src/header.php";
 ?>
 <main>
     <section class="pb-1 caja">
@@ -159,7 +175,7 @@ if($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DEF
                                 <span class="error"><?= $loginEmailError ?></span>
                                 <div class="form-outline mb-4">
                                     <input type="text" id="loginEmail" class="form-control" name="loginEmail"
-                                           value="<?= $loginEmail ?>" <?= $loginEmail ? 'autofocus' : 'autofocus' ?>>
+                                           value="<?= $loginEmail ?>" <?= $autofocus ? 'autofocus': EMPTY_STRING ?>>
                                     <label class="form-label" for="loginEmail">Email</label>
                                 </div>
 

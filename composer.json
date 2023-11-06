@@ -1,0 +1,32 @@
+{
+  "name": "vendor_name/asyncore",
+  "description": "Proyecto del primer trimestre de 2º de DAW para la asignatura de Desarrollo Web en Entorno Servidor",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+        "name": "AsynCore Project",
+        "email": "asyncoreproject@gmail.com"
+    },
+    {
+      "name": "Daniel Alonso Lázaro",
+      "email": "dalonsolaz@gmail.com"
+    },
+    {
+      "name": "Maksym Dovgan",
+      "email": "maxdovgan959@gmail.com"
+    },
+    {
+      "name": "Miguel Martínez Santos",
+      "email": "miguelmartinezsantos2003@gmail.com"
+    },
+    {
+      "name": "Víctor Hellín Sáez",
+      "email": "victorhellinsaez@gmail.com"
+    }
+  ],
+  "require": {
+    "phpmailer/phpmailer": "^v6.8.1",
+    "ext-pdo": "*"
+  }
+}

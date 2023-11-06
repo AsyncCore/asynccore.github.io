@@ -32,8 +32,8 @@
     use PDO;
     use PDOException;
     use src\db\DatabaseConfig;
-    use src\utils\Logger;
-    use src\utils\LogLevels;
+    use src\Logger;
+    use src\LogLevels;
 
     include_once __DIR__ . "/../src/utils/utils.php";
 
@@ -41,7 +41,6 @@
 
     try{
         $config = DatabaseConfig::getInstance()->getConfigItem('dev');
-
         // Si no se ha podido cargar la configuración, se lanza una excepción.
         if(!$config){
             Logger::log(ERROR, getFilePath(__FILE__), LogLevels::ERROR);
@@ -54,12 +53,7 @@
             throw new Exception(ERROR);
         }
 
-        $host = $config['host'];
-        $username = $config['username'];
-        $password = $config['password'];
-        $database = $config['database'];
-
-        $connection = new PDO('mysql:host=' . $host . ';dbname=' . $database . ';charset=utf8', $username, $password);
+        $connection = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['database'] . ';charset=utf8', $config['username'], $config['password']);
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $consulta = $connection->prepare("SELECT USERS.USERNAME, USERS.FIRMA, HILOS.TITULO, HILOS.CONTENIDO, HILOS.FECHA_CREACION 

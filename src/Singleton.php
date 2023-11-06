@@ -4,13 +4,12 @@
 
 	use Exception;
 
-	/**
+    /**
 	 * Singleton es una clase que implementa el patrón Singleton.<br>
 	 * Esto es, solo se puede crear una instancia de esta clase o de sus subclases.
 	 * Para ello, se utiliza el método estático getInstance().
 	 * No permite ni la creación ni la clonación de objetos Singleton.
-	 * Además, si se intenta deserializar un objeto Singleton, se lanza una excepción que se escribe en el log como
-	 * EXCEPTION.
+	 * Además, si se intenta deserializar un objeto Singleton, se lanza una excepción.
 	 *
 	 * @see     Logger
 	 * @link     https://es.wikipedia.org/wiki/Singleton

@@ -1,9 +1,23 @@
 <?php
 	/** @noinspection PhpPossiblePolymorphicInvocationInspection */
 
-	namespace src\utils;
+	namespace src;
 
-	use src\Singleton;
+    /**
+     * Clase para escribir mensajes de log en un archivo de texto.
+     *
+     * Logger es una clase que implementa el patrón Singleton.<br>
+     * Esto es, solo se puede crear una instancia de esta clase.
+     * Para ello, se utiliza el método estático getInstance().
+     *
+     * @see     Singleton
+     * @link     https://es.wikipedia.org/wiki/Singleton
+     *           https://www.php.net/manual/es/language.oop5.patterns.php
+     *
+     * @access public
+     * @author Daniel Alonso Lázaro <dalonsolaz@gmail.com>
+     * @package src
+     */
 
 	class Logger extends Singleton
 	{
@@ -25,7 +39,7 @@
 
 		/**
 		 * Función que busca crear o recuperar el objeto Logger y escribir en el archivo de texto el mensaje de log con
-		 * el formato [fecha] [archivo que genera el log] mensaje.
+         * el formato [fecha] [ARCHIVO ⇒ path del archivo qu genera el log] [Tipo de log] ⇒ mensaje.
 		 *
 		 * @see Singleton::getInstance()
 		 */
@@ -49,6 +63,6 @@
 		protected function writeLog(LogLevels $type, $from, string $message): void
 		{
 			$now = date("d/m/Y H:i:s");
-			fwrite($this->logFile, "[$now] [ARCHIVO => $from] [$type->value] => $message.\n");
+			fwrite($this->logFile, "[$now] [ARCHIVO ⇒ $from] [$type->value] ⇒ $message.\n");
 		}
 	}
