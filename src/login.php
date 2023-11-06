@@ -15,7 +15,7 @@ if (!$loginResult) {
     header('Location: /login-register.php');
 } else {
     $_SESSION['username'] = $loginResult['username'];
-    header('Location: /AsyncCore.github.io/public/main.php');
+    header('Location: /main.php');
 }
 
 

@@ -34,7 +34,7 @@
 		protected function __construct()
 		{
 			parent::__construct();
-			$this->logFile = fopen(__DIR__ . "/../../logs/log.txt", "a");
+			$this->logFile = fopen(__DIR__ . "/../logs/log.txt", "a");
 		}
 
 		/**
