@@ -168,7 +168,7 @@ include_once "../src/header.php";
                                         <i class="fab fa-github"></i>
                                     </button>
                                 </div>
-
+                                <?= $_SERVER['HTTP_HOST']?>
                                 <p class="text-center">o:</p>
 
                                 <!-- EMAIL INPUT -->

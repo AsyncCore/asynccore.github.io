@@ -77,3 +77,5 @@
 [06/11/2023 11:37:56] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Daniel01' for key 'USERNAME'.
 [06/11/2023 11:46:15] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
 [06/11/2023 15:02:29] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
+[06/11/2023 13:42:50] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
+[06/11/2023 13:42:56] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
