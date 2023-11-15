@@ -73,3 +73,7 @@
 [02/11/2023 23:41:58] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
 [02/11/2023 23:42:02] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
 [02/11/2023 23:42:07] [ARCHIVO => ] [EXCEPTION] => SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[06/11/2023 11:30:51] [ARCHIVO ⇒ ] [ERROR] ⇒ Error al conectar a la B.D.SQLSTATE[HY000] [1130] Host 'dwes2324' is not allowed to connect to this MariaDB server.
+[06/11/2023 11:37:56] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Daniel01' for key 'USERNAME'.
+[06/11/2023 11:46:15] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
+[06/11/2023 15:02:29] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
