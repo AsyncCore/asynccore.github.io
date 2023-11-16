@@ -8,7 +8,7 @@ use src\Logger;
 use src\LogLevels;
 use src\Singleton;
 
-include_once __DIR__ . "/../utils/utils.php";
+include_once "../utils/utils.php";
 
 class DatabaseConnection extends Singleton
 {

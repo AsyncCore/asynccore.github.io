@@ -6,7 +6,7 @@
 	 *
 	 * @return string Fecha en formato d/m/Y H:i:s.
 	 */
-	function formatDate(string $date): string
+	function formatDate(string|null $date): string
 	{
 		return date_format(date_create($date), 'd/m/Y H:i:s');
 	}

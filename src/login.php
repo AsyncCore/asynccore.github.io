@@ -2,8 +2,6 @@
 
 use src\db\DatabaseOperations;
 
-include "../src/utils/autoloader.php";
-
 $mail = $_POST['loginEmail'];
 $password = $_POST['loginPassword'];
 
@@ -13,7 +11,8 @@ session_start();
 if (!$loginResult) {
     $_SESSION['failedLogin'] = true;
     header('Location: /login-register.php');
-} else {
+}
+if($loginResult) {
     $_SESSION['username'] = $loginResult['username'];
     header('Location: /main.php');
 }

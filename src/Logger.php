@@ -26,7 +26,7 @@
 		 */
 		private $logFile;
 
-		/**
+        /**
 		 * Construye un objeto Logger y abre el archivo de texto donde se almacenarán los mensajes de log.
 		 *
 		 * @see Singleton
@@ -50,16 +50,14 @@
 			$logger->writeLog($type, getFilePath($from), $message);
 		}
 
-		/**
-		 * Función que escribe en el archivo de texto el mensaje de log.
-		 *
-		 * @param LogLevels $type    Tipo de mensaje de log.
-		 *
-		 * @param string    $message Mensaje de log.
-		 *
-		 * @return void
-		 * @see LogLevels
-		 */
+        /**
+         * Función que escribe en el archivo de texto el mensaje de log.
+         * @param LogLevels $type Tipo de mensaje de log.
+         * @param $from
+         * @param string $message Mensaje de log.
+         * @return void
+         * @see LogLevels
+         */
 		protected function writeLog(LogLevels $type, $from, string $message): void
 		{
 			$now = date("d/m/Y H:i:s");

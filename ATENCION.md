@@ -23,5 +23,3 @@ Los cambios que se vayan realizando en la rama DEV, se podrán probar contra el 
 Si no sabes cómo utilizar el servidor de desarrollo, pregunta. 
 
 No damos soporte a VSCode, así que si usas VSCode, espera sentado.
-
-
