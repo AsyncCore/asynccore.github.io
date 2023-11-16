@@ -35,12 +35,12 @@
     use src\Logger;
     use src\LogLevels;
 
-    include_once __DIR__ . "/../src/utils/utils.php";
+    include_once "../src/utils/utils.php";
 
     const ERROR = "No se ha podido cargar la configuración de la base de datos.";
 
     try{
-        $config = DatabaseConfig::getInstance()->getConfigItem('dev');
+        $config = DatabaseConfig::getInstance()->getConfigItem('prod');
         // Si no se ha podido cargar la configuración, se lanza una excepción.
         if(!$config){
             Logger::log(ERROR, getFilePath(__FILE__), LogLevels::ERROR);

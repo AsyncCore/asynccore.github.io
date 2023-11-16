@@ -1,39 +1,36 @@
 <?php
 include '../src/formValidation.php';
-
 /**
- * Variables del formulario de login
- *
- * @var string $loginEmailError
- * @var string $loginPasswordError
- * @var string $loginEmail
- * @var string $loginPassword
- * @var string $loginCheck
+ * Variables del formulario de login.
+ * @var string $loginEmailError Error del email
+ * @var string $loginPasswordError Error de la Password<br>
+ * @var string $loginEmail Email del usuario
+ * @var string $loginPassword Password del usuario
+ * @var string $loginCheck Checkbox de recordar usuario
  */
 
 /**
- * Variables del formulario de registro
- * @var string $registerNameError
- * @var string $registerUserNameError
- * @var string $registerEmailError
- * @var string $registerPasswordError
- * @var string $registerRepeatPasswordError
- * @var string $registerName
- * @var string $registerUserName
- * @var string $registerEmail
- * @var string $registerPassword
- * @var string $registerRepeatPassword
- * @var string $registerCheck
- * @var string $registerCheckError
+ * Variables del formulario de registro. <br>
+ * @var string $registerNameError Error del nombre
+ * @var string $registerUserNameError Error del nombre de usuario
+ * @var string $registerEmailError Error del email
+ * @var string $registerPasswordError Error de la Password
+ * @var string $registerRepeatPasswordError Error de la Password que no ha sido repetida
+ * @var string $registerCheckError Error del checkbox de aceptar términos<br>
+ * @var string $registerName Nombre y apellidos del usuario
+ * @var string $registerUserName Nombre de usuario
+ * @var string $registerEmail Email del usuario
+ * @var string $registerPassword Password del usuario
+ * @var string $registerRepeatPassword Password del usuario repetida
+ * @var string $registerCheck Checkbox de aceptar términos
  */
 
-/** Variable de la pestaña activa
+/** Variable de la pestaña activa. <br>
  * @var string $activeTab
  */
 
 $message = EMPTY_STRING;
 $autofocus = EMPTY_STRING;
-
 $registerGET = $_GET['register'] ?? FALSE;
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && $registerGET) {
@@ -56,57 +53,11 @@ if ($fail){
     $message = EMPTY_STRING;
 }
 session_destroy();
-?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <!-- Metas de la página HTML -->
-    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-    <meta content="Página de Login/Registro de AsynCore" name="description">
-    <meta content="Daniel Alonso Lázaro" name="author">
-    <meta content="Maksym Dovgan" name="author">
-    <meta content="Miguel Martínez Santos" name="author">
-    <meta content="Víctor Hellín Sáez" name="author">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="copyright" name="&copy; AsynCore Project 2023">
-    <!-- Metas de Open Graph -->
-    <meta property="og:title" content="PÁGINA DE LOGIN/REGISTRO DE ASYNCORE">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="/img/logo/logo.ico">
-    <meta property="og:url" content="login-register.html">
-    <meta property="og:description" content="Página de Login/Registro de AsynCore">
-    <meta property="og:locale" content="es_ES">
-    <meta property="og:locale:alternate" content="en_EN">
-    <meta property="og:site_name" content="www.asyncore.es">
-    <!-- Metas de Apple -->
-    <meta name="apple-mobile-web-app-title" content="AsynCore">
-    <meta name="application-name" content="AsynCore">
-    <!-- Metas de Microsoft -->
-    <meta name="msapplication-TileColor" content="#2d89ef">
-    <meta name="msapplication-config" content="/img/logo/favicon/browserconfig.xml">
-    <!-- Metas de Chrome -->
-    <meta name="theme-color" content="#ffffff">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="img/favicon/favicon.ico">
-    <!-- CSS -->
-    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/login-registro-style.css" rel="stylesheet" type="text/css">
-    <!-- JavaScript -->
-    <script defer crossorigin="anonymous" src="https://kit.fontawesome.com/9e6ce9bbf3.js"
-            type="text/javascript"></script>
-    <script defer src="/js/bootstrap/bootstrap.bundle.js" type="text/javascript"></script>
-    <script defer src="/js/mdb/mdb.min.js" type="text/javascript"></script>
-    <title>LOGIN / REGISTRO</title>
-</head>
-<body>
-<?php
+$descripcion = 'Página de Login/Registro de AsynCore';
+$titulo = 'LOGIN / REGISTRO';
+$css = ["/css/bootstrap/bootstrap.min.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
+$js = ['js/main-main.js', '/js/bootstrap/bootstrap.bundle.js', '/js/mdb/mdb.min.js'];
+$cdn = "<script defer crossorigin='anonymous' src='https://kit.fontawesome.com/9e6ce9bbf3.js' type='text/javascript'></script>";
 include_once "../src/header.php";
 ?>
 <main>

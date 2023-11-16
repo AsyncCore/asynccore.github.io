@@ -1,7 +1,5 @@
 @import 'normalize.css';
 @import 'footer-style.css';
-@import url('/AsyncCore.github.io/public/css/normalize.css');
-@import url('/AsyncCore.github.io/public/css/footer-style.css');
 
 html{
     display: flex;

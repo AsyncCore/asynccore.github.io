@@ -36,7 +36,7 @@
     <link href="/img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
     <link href="/css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
-    <link href="/css/Hilos-Posts-style.css" rel="stylesheet" type="text/css">
+    <link href="/css/hilos-posts-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script src="/js/main.js" type="text/javascript"></script>
     <!-- Título de la página -->
