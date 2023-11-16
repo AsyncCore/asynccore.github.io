@@ -17,7 +17,6 @@ class DatabaseConnection extends Singleton
     protected function __construct()
     {
         parent::__construct();
-        /*$_SERVER['HTTP_HOST'] == ('dev.asyncore.es' | 'dev.asyncore.org' | 'dev.asyncore.net' | 'dev.asyncore.eu')  ? $type = 'dev' : $type = 'prod';*/
         $config = DatabaseConfig::getInstance()->getConfigItem('prod');
         try{
             $this->connection = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['database'] . ';charset=utf8', $config['username'], $config['password']);
