@@ -1,9 +1,6 @@
 @import 'normalize.css';
 @import 'header-style.css';
 @import 'footer-style.css';
-@import '/AsyncCore.github.io/public/css/normalize.css';
-@import '/AsyncCore.github.io/public/css/header-style.css';
-@import '/AsyncCore.github.io/public/css/footer-style.css';
 
 html{
     user-select: none;

@@ -1,9 +1,24 @@
 <?php
+    /**
+     * @var string $currentRoot
+    * @var string $descripcion
+    * @var string $titulo
+    * @var string $css
+    * @var string $js
+    * @var string $mdb
+    * @var array $resultado_hilos
+    */
 
-    require __DIR__ . '/../src/utils/autoloader.php';
-    require __DIR__ . '/../vendor/autoload.php';
-    #include_once __DIR__ . '/../config/databaseQueries.php';
-    include_once __DIR__ . "/../src/utils/utils.php";
+    require '../src/utils/autoloader.php';
+    require '../vendor/autoload.php';
+    include_once '../config/databaseQueries.php';
+    include_once "../src/utils/utils.php";
+
+    $user_hilo = $resultado_hilos[0]['USERNAME'];
+    $titulo_hilo = $resultado_hilos[0]['TITULO'];
+    $contenido_hilo = $resultado_hilos[0]['CONTENIDO'];
+    $firma_hilo = $resultado_hilos[0]['FIRMA'];
+    $fecha_creacion_hilo = formatDate($resultado_hilos[0]['FECHA_CREACION']);
 
     /**
 	 * @var string $usuario         /src/header.php
@@ -15,53 +30,11 @@
         $resultado_hilos = [];
         $resultado_posts = [];
     }
-?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<!-- Metas de la página HTML-->
-	<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
-	<meta content="Página principal de AsynCore" name="description">
-	<meta content="Daniel Alonso Lázaro" name="author">
-	<meta content="Maksym Dovgan" name="author">
-	<meta content="Miguel Martínez Santos" name="author">
-	<meta content="Víctor Hellín Sáez" name="author">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="copyright" name="&copy; AsynCore Project 2023">
-	<!-- Metas de Open Graph -->
-	<meta content="AsynCore" property="og:title">
-	<meta content="website" property="og:type">
-	<meta content="/img/logo/logo.ico" property="og:image">
-	<meta content="/index.html" property="og:url">
-	<meta content="Página principal de AsynCore" property="og:description">
-	<meta content="es_ES" property="og:locale">
-	<meta content="en_EN" property="og:locale:alternate">
-	<meta content="www.asyncore.es" property="og:site_name">
-	<!-- Metas de Apple -->
-	<meta content="AsynCore" name="apple-mobile-web-app-title">
-	<meta content="AsynCore" name="application-name">
-	<!-- Metas de Microsoft -->
-	<meta content="#2d89ef" name="msapplication-TileColor">
-	<meta content="/img/logo/favicon/browserconfig.xml" name="msapplication-config">
-	<!-- Metas de Chrome -->
-	<meta content="#ffffff" name="theme-color">
-	<!-- Favicon -->
-	<link href="/img/favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
-	<link href="/img/favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
-	<link href="/img/favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
-	<link href="/img/favicon/site.webmanifest" rel="manifest">
-	<link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
-	<link href="/img/favicon/favicon.ico" rel="shortcut icon">
-	<!-- CSS -->
-	<link href="/css/main-style.css" rel="stylesheet" type="text/css">
-	<!-- JavaScript -->
-	<script defer src="/js/main-main.js" type="text/javascript"></script>
-	<script defer src="/js/mdb/mdb.min.js" type="text/javascript"></script>
-	<title>AsynCore</title>
-</head>
-<body>
-<?php
+    $descripcion = "Página principal de AsynCore";
+    $titulo = "AsynCore";
+    $css = ["css/main-style.css"];
+    $js = ["js/main-main.js", 'js/mdb/mdb.min.js'];
 	include_once "../src/header.php";
 ?>
 <main>
@@ -117,13 +90,6 @@
 			</ul>
 		</aside>
 		<section>
-			<?php
-				$user_hilo = $resultado_hilos[0]['USERNAME'];
-				$titulo_hilo = $resultado_hilos[0]['TITULO'];
-				$contenido_hilo = $resultado_hilos[0]['CONTENIDO'];
-				$firma_hilo = $resultado_hilos[0]['FIRMA'];
-				$fecha_creacion_hilo = formatDate($resultado_hilos[0]['FECHA_CREACION']);
-			?>
 			<div class="container">
 				<div class="thread-content">
 					<div class="header-content">
@@ -147,7 +113,7 @@
 					</div>
 				</div>
 				<?php foreach($resultado_posts as $post): ?>
-					<?php $fecha_post = formatDate($post["FECHA_CREACION"]); ?>
+					<?php $fecha_post = isset($fecha_post) ? formatDate($post["FECHA_CREACION"]) : ""; ?>
 					<div class="post-content">
 						<div class="post-user-box">
 							<p class="user-tag"><?= $post["USERNAME"] ?></p>
@@ -166,5 +132,3 @@
 <?php
 	include_once "../src/footer.php";
 ?>
-</body>
-</html>

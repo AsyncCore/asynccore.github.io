@@ -1,7 +1,5 @@
 @import 'normalize.css';
 @import '../error-pages/prism.css';
-@import url('/AsyncCore.github.io/public/css/normalize.css');
-@import url('/AsyncCore.github.io/public/error-pages/prism.css');
 @import url("https://fonts.googleapis.com/css?family=Bevan");
 
 /* TODO Hay qu reworkear el css para que se vea bien en todos los dispositivos y para que se vea bien en general */
