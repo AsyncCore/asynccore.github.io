@@ -41,15 +41,18 @@ conocimientos en un entorno virtual, colaborativo y seguro.
 [![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/multipage/)
 [![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-%237952B3?style=for-the-badge)](https://getbootstrap.com/docs/5.2/about/brand/)
+[![Material Design For Bootstrap](https://img.shields.io/badge/Material_Design%20-%20%23757575?style=for-the-badge)](https://mdbootstrap.com/)
 
 ### Backend
 
 [![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
-[![MySQL](https://img.shields.io/badge/mysql-%23007.svg?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com)
+[![MariaDB](https://img.shields.io/badge/mariadb-%23003545.svg?style=for-the-badge&logo=mariadb&logoColor=white)](https://mariadb.org/)
 
 ### Servidor
 
 [![Apache](https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white)](https://httpd.apache.org)
+[![Nginx](https://img.shields.io/badge/NGINX-%23009639?style=for-the-badge&logo=nginx&cacheSeconds=3600)](https://www.nginx.com)
 
 ### Control de versiones
 
