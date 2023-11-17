@@ -25,8 +25,11 @@ include '../src/formValidation.php';
  * @var string $registerCheck Checkbox de aceptar términos
  */
 
-/** Variable de la pestaña activa. <br>
- * @var string $activeTab
+/** Otras variables <br>
+ * @var string $activeTab Pestaña activa
+ * @var string $message Mensaje de error o de éxito
+ * @var string $autofocus Autofocus en el email
+ * @var string $registerGET GET desde registro
  */
 
 $message = EMPTY_STRING;
@@ -45,14 +48,14 @@ if ($_SERVER['REQUEST_METHOD'] == METHOD_POST && $_POST['form'] == ACTIVE_TAB_DE
     $message = $_POST['message'] ?? EMPTY_STRING;
 }
 
-session_start();
-$fail = $_SESSION['failedLogin']?? FALSE;
+/*session_start();
+$fail = $_SESSION['failedLogin'] ?? FALSE;
 if ($fail){
     $message = "<div class='alert alert-danger' role='alert'>El usuario o la contraseña son incorrectos</div>";
 }else{
     $message = EMPTY_STRING;
 }
-session_destroy();
+session_destroy();*/
 $descripcion = 'Página de Login/Registro de AsynCore';
 $titulo = 'LOGIN / REGISTRO';
 $css = ["/css/bootstrap/bootstrap.min.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
@@ -174,7 +177,7 @@ include_once "../src/header.php";
                              id="pills-register"
                              role="tabpanel" aria-labelledby="tab-register">
                             <form method="post" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                                <input type="hidden" name="form" value="registro">
+                                <input type="hidden" name="form" value="register">
                                 <div class="text-center mb-3">
                                     <p>Regístrate con:</p>
                                     <button type="button" class="btn btn-secondary btn-floating mx-1">
@@ -266,11 +269,8 @@ include_once "../src/header.php";
         </div>
     </section>
     <aside>
-
     </aside>
 </main>
 <?php
 include_once "../src/footer.php";
 ?>
-</body>
-</html>

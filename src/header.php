@@ -15,7 +15,7 @@ $currentPath = $_SERVER['PHP_SELF']; // /main.php
 $currentDir = substr($currentPath, strrpos($currentPath, '/'), strlen($currentPath)); // /main.php
 $currentRoot = $_SERVER['HTTP_HOST']; //dev.asyncore.es
 $target_url = $currentDir == '/main.php' ? 'https://' . $currentRoot . '/index.php' : 'https://' . $currentRoot . '/main.php'; //https://dev.asyncore.es/index.php
-session_start();
+
 $user = $_SESSION['username'] ?? 'Invitado';
 
 ?>
@@ -85,7 +85,9 @@ $user = $_SESSION['username'] ?? 'Invitado';
             </label>
         </div>
         <div class="user-menu">
-            <a href="usuario-perfil.php"><button class="boton"><?=$user?></button></a>
+            <a href="usuario-perfil.php">
+                <button class="boton"><?=$user?></button>
+            </a>
             <div class="dropdown-content" id="dropdown">
                 <a href="login-register.php">Login - Registro</a>
             </div>

@@ -80,3 +80,11 @@
 [06/11/2023 13:42:50] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
 [06/11/2023 13:42:56] [ARCHIVO ⇒ /src] [EXCEPTION] ⇒ SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'daniel@educa.madrid.org' for key 'EMAIL'.
 [15/11/2023 15:17:47] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+[16/11/2023 19:21:36] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:22:09] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:22:23] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:22:59] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:23:22] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:24:31] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:24:45] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+[16/11/2023 19:25:29] [ARCHIVO ⇒ ] [EXCEPTION] ⇒ SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.

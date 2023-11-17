@@ -1,35 +1,35 @@
 <?php
     /**
-     * @var string $currentRoot
-    * @var string $descripcion
-    * @var string $titulo
-    * @var string $css
-    * @var string $js
-    * @var string $mdb
-    * @var array $resultado_hilos
+    * @var string $currentRoot /src/header.php
+    * @var string $descripcion /src/header.php
+    * @var string $titulo /src/header.php
+    * @var string $css /src/header.php
+    * @var string $js /src/header.php
     */
 
     require '../src/utils/autoloader.php';
     require '../vendor/autoload.php';
     include_once '../config/databaseQueries.php';
-    include_once "../src/utils/utils.php";
+    include_once '../src/utils/utils.php';
+
+    /**
+    * @var array  $resultado_hilos /config/databaseQueries.php
+    * @var array  $resultado_posts /config/databaseQueries.php
+    */
 
     $user_hilo = $resultado_hilos[0]['USERNAME'];
     $titulo_hilo = $resultado_hilos[0]['TITULO'];
     $contenido_hilo = $resultado_hilos[0]['CONTENIDO'];
     $firma_hilo = $resultado_hilos[0]['FIRMA'];
-    $fecha_creacion_hilo = formatDate($resultado_hilos[0]['FECHA_CREACION']);
-
-    /**
-	 * @var string $usuario         /src/header.php
-	 * @var array  $resultado_hilos /config/databaseQueries.php
-	 * @var array  $resultado_posts /config/databaseQueries.php
-	 */
+    $fecha_creacion_hilo = formatDate($resultado_hilos[0]['FECHA_CREACION'], 'd/m/Y H:i:s');
 
     if (!isset($resultado_hilos)){
         $resultado_hilos = [];
         $resultado_posts = [];
+        $fecha_creacion_hilo = "";
     }
+    session_start();
+    $user = $_SESSION['username'] ?? 'Invitado';
 
     $descripcion = "Página principal de AsynCore";
     $titulo = "AsynCore";

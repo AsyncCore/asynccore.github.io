@@ -34,7 +34,8 @@
 		protected function __construct()
 		{
 			parent::__construct();
-			$this->logFile = fopen(__DIR__ . "/../logs/log.txt", "a");
+            echo
+			$this->logFile = fopen(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'logs/log.txt', "a");
 		}
 
 		/**
@@ -47,7 +48,7 @@
 		{
 			$type = $type??LogLevels::INFO;
 			$logger = self::getInstance();
-			$logger->writeLog($type, getFilePath($from), $message);
+			$logger->writeLog($type, $from, $message);
 		}
 
         /**

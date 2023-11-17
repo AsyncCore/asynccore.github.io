@@ -43,13 +43,13 @@
         $config = DatabaseConfig::getInstance()->getConfigItem('prod');
         // Si no se ha podido cargar la configuración, se lanza una excepción.
         if(!$config){
-            Logger::log(ERROR, getFilePath(__FILE__), LogLevels::ERROR);
+            Logger::log(ERROR, __FILE__, LogLevels::ERROR);
             throw new Exception(ERROR);
         }
 
         // Si alguno de ellos no está definido, se lanza una excepción.
         if(!isset($config['host']) || !isset($config['username']) || !isset($config['password']) || !isset($config['database'])){
-            Logger::log(ERROR, getFilePath(__FILE__), LogLevels::ERROR);
+            Logger::log(ERROR, __FILE__, LogLevels::ERROR);
             throw new Exception(ERROR);
         }
 
@@ -72,5 +72,5 @@
         $consulta->execute();
         $resultado_posts = $consulta->fetchAll();
     }catch(PDOException|Exception $e){
-        Logger::log($e->getMessage(), getFilePath(__FILE__), LogLevels::EXCEPTION);
+        Logger::log($e->getMessage(), __FILE__, LogLevels::EXCEPTION);
     }
