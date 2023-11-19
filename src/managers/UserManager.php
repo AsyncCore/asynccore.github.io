@@ -1,13 +1,16 @@
 <?php
 
-namespace src;
+namespace src\managers;
 
 use PDO;
+use src\Logger;
+use PDOException;
+use src\LogLevels;
 
 /**
  * La clase UserManager se encarga de gestionar los usuarios de AsynCore.
  *
- * Esta clase se encarga de gestionar los usuarios de AsynCore, tanto de la base de datos como de la sesión.<br>
+ * Esta clase se encarga de gestionar las acciones de los usuarios, tanto de la base de datos como de la sesión.<br>
  * Ofrece múltiples métodos para lidiar con las operaciones más comunes de los usuarios.<br>
  * @package src
  * @version 1.0.0
@@ -15,7 +18,7 @@ use PDO;
  */
 class UserManager {
     private PDO $db;
-    private const REGISTRO = 'INSERT INTO USERS (USERNAME, PASSWORD, EMAIL, FECHA_REGISTRO) VALUES (:username, :password, :mail, NOW())';
+    private const REGISTRO = 'INSERT INTO USERS (NAME, USERNAME, PASSWORD, EMAIL, FECHA_REGISTRO) VALUES (:name, :username, :password, :mail, NOW())';
     private const LOGIN = 'SELECT * FROM USERS WHERE USERS.EMAIL = :loginEmail';
     private const UPDATE_USERMAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID';
     private const UPDATE_USERPASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID';
@@ -32,7 +35,7 @@ class UserManager {
      * @return void
      */
     public function __construct(PDO $db) {
-        $this->$db = $db;
+        $this->db = $db;
     }
 
     /**
@@ -44,18 +47,28 @@ class UserManager {
      * @see https://www.php.net/manual/es/function.password-hash.php
      * @see https://www.php.net/manual/es/password.constants.php
      * @see https://www.php.net/manual/es/password.constants.php#password.constants.options
+     * @param $name string nombre del usuario desde el formulario de registro.
      * @param $username string nombre del usuario desde el formulario de registro.
      * @param $mail string email del usuario
      * @param $password string contraseña.
-     * @return void
+     * @return bool
      */
-    public function register(string $username, string $mail, string $password): void {
-        $consulta = $this->db->prepare(self::REGISTRO);
-        $consulta->bindParam(':username', $username);
-        $consulta->bindParam(':mail', $mail);
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $consulta->bindParam(':password', $password);
-        $consulta->execute();
+    public function register(string $name, string $username, string $mail, string $password): bool {
+        try{
+            $consulta = $this->db->prepare(self::REGISTRO);
+            $consulta->bindParam(':name', $name);
+            $consulta->bindParam(':username', $username);
+            $consulta->bindParam(':mail', $mail);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $consulta->bindParam(':password', $password);
+            $consulta->execute();
+            Logger::log("Usuario " . $username . " registrado correctamente", __FILE__, LogLevels::INFO);
+            return true;
+        }catch (PDOException $e){
+            Logger::log("Error al registrar el usuario " . $username . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
+            $_SESSION['USERMANAGER_SQL_ERROR'] = $e->getMessage();
+            return false;
+        }
     }
 
     /**
@@ -66,24 +79,26 @@ class UserManager {
      * Si existe, comprueba si la contraseña coincide con la contraseña encriptada de la base de datos.
      * Si coincide, devuelve el usuario.
      * Si no coincide, devuelve false.
-     * @param $loginEmail
-     * @param $loginPassword
+     * @param string $loginEmail
+     * @param string $loginPassword
      * @return false|mixed
      */
     public function login(string $loginEmail, string $loginPassword): false|array {
-        $consulta = $this->db->prepare(self::LOGIN);
-        $consulta->bindParam(':loginEmail', $loginEmail);
-        $consulta->execute();
-
-        $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
-        if (!$usuario) {
+        try{
+            $consulta = $this->db->prepare(self::LOGIN);
+            $consulta->bindParam(':loginEmail', $loginEmail);
+            $consulta->execute();
+            $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+            Logger::log("Usuario " . $loginEmail . " logueado correctamente", __FILE__, LogLevels::INFO);
+        }catch (PDOException $e){
+            Logger::log("Error al obtener el usuario con email " . $loginEmail . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
             return false;
         }
-
-        if (password_verify($loginPassword, $usuario['password'])) {
-            return $usuario;
-        } else {
+        
+        if(!$usuario || !(password_verify($loginPassword, $usuario['PASSWORD']))){
             return false;
+        }else{
+            return $usuario;
         }
     }
 }
