@@ -1,3 +1,7 @@
+<?php
+    include_once "../src/utils/sessionInit.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,7 +43,7 @@
     <link href="css/index-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script src="js/main.js" type="text/javascript"></script>
-    <script src="'https://friconix.com/cdn/friconix.js'" type="text/javascript"></script>
+    <script src="https://friconix.com/cdn/friconix.js" type="text/javascript"></script>
     <title>ASYNCORE PROJECT</title>
 </head>
 <body>
@@ -51,7 +55,7 @@
             <p><span id="por">Por</span> y <span id="para">para</span> alumnos</p>
         </div>
         <hr>
-        <p><a href="login-register.php">Login / Registro</a></p><br>
+        <p class="bottom-p"><a href="login-register.php">Login / Registro</a></p>
         <p><span class="entrar">Entrar como</span> <br><a href="main.php">Visitante</a></p>
     </section>
 </main>

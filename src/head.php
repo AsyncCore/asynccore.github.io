@@ -49,11 +49,11 @@
         <link href='/img/favicon/favicon.ico' rel='shortcut icon'>
         <!-- CSS -->
         <?php foreach ($css as $cssFile): ?>
-            <link href='<?=$cssFile?>' rel='stylesheet' type='text/css'>
+            <link href="<?=$cssFile?>" rel='stylesheet' type='text/css'>
         <?php endforeach; ?>
         <!-- JavaScript -->
         <?php foreach ($js as $jsFile): ?>
-            <script defer src='<?=$jsFile?>' type='text/javascript'></script>
+            <script defer src="<?=$jsFile?>" type='text/javascript'></script>
         <?php endforeach; ?>
         <!-- CDN -->
         <?php if (isset($cdn) && is_array($cdn)) {

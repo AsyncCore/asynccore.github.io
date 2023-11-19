@@ -11,6 +11,7 @@
     width: 100%;
     max-width: none;
     padding-left: 10px;
+    position: relative;
 }
 
 .footer-content {
@@ -18,10 +19,21 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    position: sticky;
 }
 
 .footer-left {
     color: #6c757d;
     text-align: center;
+}
+
+.footer-right{
+    color: #6c757d;
+    position: absolute;
+    right: 0;
+}
+
+.friconix{
+    font-size: 12px;
+    margin: 0 5px;
+    text-decoration: none;
 }

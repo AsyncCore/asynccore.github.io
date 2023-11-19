@@ -94,19 +94,19 @@
                                     <div class="text-center mb-3">
                                         <p>Inicia sesión con:</p>
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                            <i class="fi-onsux3-facebook" style="color: #0866FF"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
+                                            <i class="fi-onsux3-google-logo" style='color: #4285F4'></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
+                                            <i class="fi-onsux3-twitter-solid" style="color: #1D9BF0"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                            <i class="fi-onsux3-github-alt" style="color: #181717"></i>
                                         </button>
                                     </div>
                                     <?= $_SERVER['HTTP_HOST'] ?>
@@ -168,20 +168,20 @@
                                     <input type="hidden" name="form" value="register">
                                     <div class="text-center mb-3">
                                         <p>Regístrate con:</p>
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-facebook' style='color: #0866FF'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-google-logo' style='color: #4285F4'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-twitter-solid' style='color: #1D9BF0'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-github-alt' style='color: #181717'></i>
                                         </button>
                                     </div>
 
