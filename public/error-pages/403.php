@@ -23,7 +23,7 @@
                     <code class="language-php">}</code>
 
                     <code class="language-php">if (!$acceso_permitido) {</code>
-                        <code class="language-php">echo "¡UYUYUY! !Alguien se ha dejado el sudo en casa¡";</code>
+                        <code class="language-php">echo "¡UYUYUY! ¡Alguien se ha dejado el sudo en casa!";</code>
                     <code class="language-php">}</code>
                 <code class="language-php">?&gt;</code>
             </pre>
