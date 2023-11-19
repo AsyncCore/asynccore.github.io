@@ -16,7 +16,6 @@ include_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'utils/utils.php';
  * Es una subclase de Singleton y, por tanto, solo puede tener una instancia.<br>
  * Utiliza la clase DatabaseConfig para obtener los datos de conexión a la base de datos.<br>
  * También utiliza la clase Logger para registrar las conexiones efectivas y los errores.<br>
- * @var PDO $connection Objeto de la clase PDO que contiene la conexión a la base de datos.
  * @package src\db
  * @version 1.0.0
  * @see Singleton
@@ -26,6 +25,11 @@ include_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'utils/utils.php';
  */
 class DatabaseConnection extends Singleton
 {
+    /**
+     * Objeto de la clase PDO que contiene la conexión a la base de datos.
+     * @var PDO $connection
+     * @package src\db
+     */
     private PDO $connection;
 
     /**
@@ -48,8 +52,8 @@ class DatabaseConnection extends Singleton
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             Logger::log("Conexión a la B.D. establecida", __FILE__, LogLevels::INFO);
         }catch(PDOException $e){
-            Logger::log("Error al conectar a la B.D." . $e->getMessage(), __FILE__, LogLevels::ERROR);
-            die("Error al conectar a la B.D." . $e->getMessage());
+            Logger::log("Error al conectar a la B.D." . $e->getMessage() . " con número de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
+            die;
         }
     }
 
