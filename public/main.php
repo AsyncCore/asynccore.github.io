@@ -1,41 +1,26 @@
 <?php
     /**
-    * @var string $currentRoot /src/header.php
     * @var string $descripcion /src/header.php
     * @var string $titulo /src/header.php
     * @var string $css /src/header.php
     * @var string $js /src/header.php
     */
-
-    require '../src/utils/autoloader.php';
-    require '../vendor/autoload.php';
-    include_once '../config/databaseQueries.php';
-    include_once '../src/utils/utils.php';
-
-    /**
-    * @var array  $resultado_hilos /config/databaseQueries.php
-    * @var array  $resultado_posts /config/databaseQueries.php
-    */
-
-    $user_hilo = $resultado_hilos[0]['USERNAME'];
-    $titulo_hilo = $resultado_hilos[0]['TITULO'];
-    $contenido_hilo = $resultado_hilos[0]['CONTENIDO'];
-    $firma_hilo = $resultado_hilos[0]['FIRMA'];
-    $fecha_creacion_hilo = formatDate($resultado_hilos[0]['FECHA_CREACION'], 'd/m/Y H:i:s');
-
-    if (!isset($resultado_hilos)){
-        $resultado_hilos = [];
-        $resultado_posts = [];
-        $fecha_creacion_hilo = "";
-    }
+    
     session_start();
-    $user = $_SESSION['username'] ?? 'Invitado';
-
+    require '../src/utils/sessionInit.php';
+    require DIR . '/src/utils/autoloader.php';
+    require DIR . '/vendor/autoload.php';
+    include_once DIR . '/config/databaseQueries.php';
+    include_once DIR . '/src/utils/utils.php';
+    
+    unsetLoginRegister();
+    
     $descripcion = "Página principal de AsynCore";
     $titulo = "AsynCore";
     $css = ["css/main-style.css"];
-    $js = ["js/main-main.js", 'js/mdb/mdb.min.js'];
-	include_once "../src/header.php";
+    $js = ["js/main-main.js", 'js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js'];
+	include_once DIR . '/src/head.php';
+    include_once DIR . '/src/header.php';
 ?>
 <main>
 	<div class="contenido">
@@ -90,20 +75,20 @@
 			</ul>
 		</aside>
 		<section>
-			<div class="container">
+			<!--<div class="container">
 				<div class="thread-content">
 					<div class="header-content">
 						<div class="user-box">
-							<h4 class="user-tag"><?= $user_hilo ?></h4>
+							<h4 class="user-tag"><?php /*= $user_hilo */?></h4>
 						</div>
-						<h2><?= $titulo_hilo ?></h2>
+						<h2><?php /*= $titulo_hilo */?></h2>
 					</div>
 					<div>
-						<?= $contenido_hilo ?>
+						<?php /*= $contenido_hilo */?>
 					</div>
 					<div class="tag-box">
 						<div>
-							Firma: <?= $firma_hilo ?> - Creado el <?= $fecha_creacion_hilo ?>
+							Firma: <?php /*= $firma_hilo */?> - Creado el <?php /*= $fecha_creacion_hilo */?>
 						</div>
 						<ul>
 							<li><h6>#PHP</h6></li>
@@ -112,23 +97,23 @@
 						</ul>
 					</div>
 				</div>
-				<?php foreach($resultado_posts as $post): ?>
-					<?php $fecha_post = isset($fecha_post) ? formatDate($post["FECHA_CREACION"]) : ""; ?>
+				<?php /*foreach($resultado_posts as $post): */?>
+					<?php /*$fecha_post = isset($fecha_post) ? formatDate($post["FECHA_CREACION"]) : ""; */?>
 					<div class="post-content">
 						<div class="post-user-box">
-							<p class="user-tag"><?= $post["USERNAME"] ?></p>
+							<p class="user-tag"><?php /*= $post["USERNAME"] */?></p>
 						</div>
 						<div>
-							<?= $post["CONTENIDO"] ?>
+							<?php /*= $post["CONTENIDO"] */?>
 							<div class="fecha">
-								Firma: <?= $post["FIRMA"] ?> - Fecha de posteo: <?= $fecha_post ?>
+								Firma: <?php /*= $post["FIRMA"] */?> - Fecha de posteo: <?php /*= $fecha_post */?>
 							</div>
 						</div>
 					</div>
-				<?php endforeach; ?>
-		</section>
+				<?php /*endforeach; */?>
+		</section>-->
 	</div>
 </main>
 <?php
-	include_once "../src/footer.php";
+	include_once DIR . "/src/footer.php";
 ?>
