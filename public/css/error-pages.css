@@ -1,15 +1,15 @@
 @import 'normalize.css';
-@import '../error-pages/prism.css';
 @import url("https://fonts.googleapis.com/css?family=Bevan");
 
-/* TODO Hay qu reworkear el css para que se vea bien en todos los dispositivos y para que se vea bien en general */
+/* TODO Hay que reworkear el css para que se vea bien en todos los dispositivos y para que se vea bien en general */
 
 body {
     background: rgb(40,40,40);
     overflow: hidden;
 }
 
-.http{
+.http,
+.db{
     color:#345fb3;
 }
 
