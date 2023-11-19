@@ -39,6 +39,7 @@
     <link href="css/index-style.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script src="js/main.js" type="text/javascript"></script>
+    <script src="'https://friconix.com/cdn/friconix.js'" type="text/javascript"></script>
     <title>ASYNCORE PROJECT</title>
 </head>
 <body>
