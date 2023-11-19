@@ -15,7 +15,7 @@ function type(t) {
         codeElement.textContent = ''; // Limpiar el contenido inicial
         codeElement.style.display = 'inline'; // Mostrar el bloque de código
 
-        var se = setInterval(function() {
+        let se = setInterval(function () {
             i++;
             codeElement.textContent = text.slice(0, i);
             if (i === text.length) {
