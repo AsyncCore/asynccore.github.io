@@ -1,0 +1,39 @@
+.footer {
+    background-color: #353535;
+    padding: 1.2rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.footer .footer-container {
+    width: 100%;
+    max-width: none;
+    padding-left: 10px;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.footer-left {
+    color: #ccc;
+    text-align: center;
+}
+
+.footer-right{
+    color: #ccc;
+    position: absolute;
+    right: 0;
+}
+
+.friconix{
+    font-size: 0.7rem;
+    margin: 0 5px;
+    text-decoration: none;
+}

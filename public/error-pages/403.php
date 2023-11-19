@@ -1,7 +1,7 @@
 <?php
     $descripcion = 'PÁGINA DE ERROR 403 - ACCESO DENEGADO';
     $titulo = 'ERROR 403';
-    $css = ['../css/footer-style.css', '../js/prism.css', '../css/error-pages.css'];
+    $css = ['../css/error-footer-style.css', '../css/prism.css', '../css/error-pages.css'];
     $js = ['../js/prism.js', '../js/error-pages.js', 'https://friconix.com/cdn/friconix.js'];
     $url = $_SERVER['HTTP_HOST'];
     include_once dirname(__DIR__, 2) . '/src/head.php';
@@ -12,7 +12,7 @@
         <div class="codigo" style="text-align:center;">
             <pre style="display:inline-block; text-align:left; white-space: pre;">
                 <code class="language-php">/* 403.php */</code>
-                <code class="language-php">&lt;?php</code>
+                <code class="language-php token important">&lt;?php</code>
                     <code class="language-php">$usuario = "Tú";</code>
                     <code class="language-php">$acceso_permitido = false;</code>
 

@@ -4,17 +4,17 @@
 /* TODO Hay que reworkear el css para que se vea bien en todos los dispositivos y para que se vea bien en general */
 
 body {
-    background: rgb(40,40,40);
+    background: rgb(40, 40, 40);
     overflow: hidden;
 }
 
 .http,
-.db{
-    color:#345fb3;
+.db {
+    color: #345fb3;
 }
 
-.num-error{
-    color:#ff5858;
+.num-error {
+    color: #ff5858;
 }
 
 code.cloned {
@@ -24,18 +24,13 @@ code.cloned {
 
 p {
     font-family: "Bevan", cursive;
-    font-size:  calc(60px + 2vw);
-    margin: 8vh 0 8vh 0;
+    margin: 4vh 0 4vh 0;
     text-align: center;
-    letter-spacing: 5px;
+    letter-spacing: 0.32rem;
     color: transparent;
     text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
     -webkit-background-clip: text;
     background-clip: text;
-
-    & span {
-        font-size: 1.2em;
-    }
 }
 
 div {
@@ -52,15 +47,104 @@ div code {
 a {
     color: #8abeb7;
     font-family: monospace;
-    font-size: 20px;
     text-decoration: none;
     display: block;
     text-align: center;
-    margin-bottom: 120px;
+    margin: 0.5rem auto;
 }
 
-@media screen and (max-width: 600px) {
-    p {
-        font-size: calc(10px + 3vw);
+@media screen and (min-width: 18.75rem) {
+    p span {
+        font-size: 2.5rem;
+    }
+    .language-php {
+        font-size: 0.4rem !important;
+    }
+    a {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 28.125rem) {
+    p span {
+        font-size: 3rem;
+    }
+    .language-php {
+        font-size: 0.502rem !important;
+    }
+    a {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 37.5rem) {
+    p span {
+        font-size: 3rem;
+    }
+    .language-php {
+        font-size: 0.6rem !important;
+    }
+    a {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 46.875rem) {
+    p span {
+        font-size: 4rem;
+    }
+    .language-php {
+        font-size: 0.6rem !important;
+    }
+    a {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 56.25rem) {
+    p span {
+        font-size: 5rem;
+    }
+    .language-php {
+        font-size: 0.7rem !important;
+    }
+    a {
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 68.75rem) {
+    p span {
+        font-size: 6rem;
+    }
+    .language-php {
+        font-size: 0.9rem !important;
+    }
+    a {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (min-width: 93.75rem) {
+    p span {
+        font-size: 8rem;
+    }
+    .language-php {
+        font-size: 1rem !important;
+    }
+    a {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 120rem) {
+    p span {
+        font-size: 10rem;
+    }
+    .language-php {
+        font-size: 1.5rem !important;
+    }
+    a {
+        font-size: 2.5rem;
     }
 }
