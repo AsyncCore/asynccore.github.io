@@ -34,7 +34,6 @@
 		protected function __construct()
 		{
 			parent::__construct();
-            echo
 			$this->logFile = fopen(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'logs/log.txt', "a");
 		}
 
