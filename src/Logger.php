@@ -5,6 +5,8 @@
     
     use Exception;
     
+    include_once "utils/sessionInit.php";
+    
     /**
      * Clase para escribir mensajes de log en un archivo de texto.
      *
