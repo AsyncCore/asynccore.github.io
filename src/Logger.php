@@ -1,66 +1,106 @@
 <?php
-	/** @noinspection PhpPossiblePolymorphicInvocationInspection */
-
-	namespace src;
-
+    /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+    
+    namespace src;
+    
+    use Exception;
+    
     /**
      * Clase para escribir mensajes de log en un archivo de texto.
      *
-     * Logger es una clase que implementa el patrón Singleton.<br>
-     * Esto es, solo se puede crear una instancia de esta clase.
-     * Para ello, se utiliza el método estático getInstance().
+     * Implementa el patrón Singleton para asegurar una única instancia por archivo de log.
      *
-     * @see     Singleton
-     * @link     https://es.wikipedia.org/wiki/Singleton
-     *           https://www.php.net/manual/es/language.oop5.patterns.php
-     *
-     * @access public
-     * @author Daniel Alonso Lázaro <dalonsolaz@gmail.com>
      * @package src
+     * @see     Singleton
+     * @see     LogLevels
+     * @link    https://es.wikipedia.org/wiki/Singleton
+     * @author  Daniel Alonso Lázaro <dalonsolaz@gmail.com>
      */
-
-	class Logger extends Singleton
-	{
-		/**
-		 * @var false|resource $logFile Archivo de texto donde se almacenarán los mensajes de log.
-		 */
-		private $logFile;
-
+    class Logger extends Singleton
+    {
         /**
-		 * Construye un objeto Logger y abre el archivo de texto donde se almacenarán los mensajes de log.
-		 *
-		 * @see Singleton
-		 */
-		protected function __construct()
-		{
-			parent::__construct();
-			$this->logFile = fopen(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'logs/log.txt', "a");
-		}
-
-		/**
-		 * Función que busca crear o recuperar el objeto Logger y escribir en el archivo de texto el mensaje de log con
-         * el formato [fecha] [ARCHIVO ⇒ path del archivo qu genera el log] [Tipo de log] ⇒ mensaje.
-		 *
-		 * @see Singleton::getInstance()
-		 */
-		public static function log(string $message, string $from, ?LogLevels $type = NULL): void
-		{
-			$type = $type??LogLevels::INFO;
-			$logger = self::getInstance();
-			$logger->writeLog($type, $from, $message);
-		}
-
-        /**
-         * Función que escribe en el archivo de texto el mensaje de log.
-         * @param LogLevels $type Tipo de mensaje de log.
-         * @param $from
-         * @param string $message Mensaje de log.
-         * @return void
-         * @see LogLevels
+         * Archivo de texto donde se almacenarán los mensajes de log.
+         *
+         * @var false|resource $logFile
          */
-		protected function writeLog(LogLevels $type, $from, string $message): void
-		{
-			$now = date("d/m/Y H:i:s");
-			fwrite($this->logFile, "[$now] [ARCHIVO ⇒ $from] [$type->value] ⇒ $message.\n");
-		}
-	}
+        private $logFile;
+        
+        /**
+         * Constructor que abre el archivo de texto para almacenar los mensajes de log.
+         *
+         * @param string $file Nombre del archivo de log.
+         *
+         * @throws Exception Si falla la apertura del archivo.
+         */
+        protected function __construct($file)
+        {
+            parent::__construct();
+            $this->logFile = fopen(DIR . DIRECTORY_SEPARATOR . "logs/" . $file, "a");
+            if (!$this->logFile) {
+                throw new Exception("Error al abrir el archivo de log.");
+            }
+        }
+        
+        /**
+         * Destructor de la clase Logger.
+         *
+         * Cierra el archivo de log si está abierto.
+         * @access public
+         */
+        public function __destruct()
+        {
+            $this->closeLogFile();
+        }
+        
+        /**
+         * Cierra el archivo de log si está abierto.
+         * @access public
+         * @return void
+         */
+        public function closeLogFile(): void
+        {
+            if (is_resource($this->logFile)) {
+                fclose($this->logFile);
+                $this->logFile = null;
+            }
+        }
+        
+        /**
+         * Escribe un mensaje de log.
+         *
+         * Crea o recupera el objeto Logger y escribe el mensaje en el archivo de log.<br>
+         * <b>[fecha] [ARCHIVO ⇒ path del archivo qu genera el log] [Tipo de log] ⇒ mensaje.</b>
+         *
+         * @param string         $message Mensaje de log.
+         * @param string         $from    Ruta del archivo que genera el log.
+         * @param LogLevels|null $type    Tipo de mensaje de log. Por defecto, LogLevels::INFO.
+         *
+         * @access public
+         * @return void
+         * @see    Singleton::getInstance()
+         * @see    LogLevels
+         */
+        public static function log(string $message, string $from, ?LogLevels $type = LogLevels::DEFAULT): void
+        {
+            $logger = self::getInstance($type->value);
+            $logger->writeLog($type, $from, $message);
+        }
+        
+        /**
+         * Función que escribe el mensaje de log en el archivo de texto.
+         *
+         * @param LogLevels $type    Tipo de mensaje de log.
+         * @param string    $from    Path del archivo que genera el log.
+         * @param string    $message Mensaje de log.
+         *
+         * @access protected
+         *
+         * @return void
+         * @see    LogLevels
+         */
+        protected function writeLog(LogLevels $type, string $from, string $message): void
+        {
+            $now = date("d/m/Y H:i:s");
+            fwrite($this->logFile, "[$now] [ARCHIVO ⇒ $from] [$type->value] ⇒ $message.\n");
+        }
+    }
