@@ -1,0 +1,201 @@
+/*
+-----PROPIEDADES A ELEMENTOS-----
+Propiedades de body
+    3-6 24-28 2128-2132 2217-2241
+Propiedades de resize
+    8-10
+Propiedades de img
+    30-33
+Propiedades de figure
+    35-39
+Propiedades de figcaption
+    41-45
+Propiedades de textarea
+    725-727
+Propiedades de span
+    729-745
+Propiedades de h1
+    803-805
+Propiedades de h2
+    813-815
+Propiedades de h1,h2,h3,h4,h5
+    2243-2249
+Propiedades de ul li li>a p figure
+    2251-2269
+Propiedades de ul
+    918-921
+Propiedades de input
+    1291-1293 1403-1408
+Propiedades de form
+    1295-1297
+Propiedades de button
+    1410-1412 1414-1416 1438-1442 1738-1740
+Propiedades de a
+    2202-2215
+Propiedades de section
+    2509-2511
+Propiedades de hr
+    2533-2539
+
+
+-----PROPIEDADES A CLASES-----
+Propiedades de .list-title, .list-title a y list-title a:hover
+    47-66
+Imágenes de avatar
+    68-71
+Propiedades de .forum-list y .forum-listing y derivados
+    73-98 106-178
+Propiedades de .thread-list y derivados
+    180-221
+Propiedades de .reactions y derivados
+    223-282
+Propiedades de .pagination y derivados
+    284-322
+    318 --> keyframe "shake" 324-337
+Propiedades de .post y .user-info y derivados
+    343-352 360-372 385-408 427-471 481-523 533-582 592-612
+Propiedades de .profile-card y derivados
+    620-644
+Propiedades de .activity y derivados
+    658-663 675-693 701-723
+Propiedades de .header
+    747-754
+Propiedades de .logo
+    765-767
+Propiedades de .svg-logo
+    769-772
+Propiedades de .wrap-right
+    788-791
+Propiedades de .text-xlarge y derivados
+    876-878 886-916
+Propiedades de .navbar y derivados
+    923-952 960-967 998-1041
+Propiedades de .btn-hamburger y derivados
+    1043-1091
+Propiedades de .title
+    1108-1139
+Propiedades de .subtitle
+    1145-1161
+Propiedades de #userdropdown y derivados
+    1171-1242
+Propiedades de .mentionlist y derivados
+    1244-1289
+Propiedades de .form-input y derivados
+    1299-1436
+Propiedades de .btn-"derivados"
+    1471-1693
+Propiedades de .icon-arrow y derivados
+    1695-1723
+Propiedades de .link y derivados
+    1728-1736
+Propiedades de .form-actions y derivados
+    1742-1736
+Propiedades de .space-between
+    1765-1767
+Propiedades de .alert y derivados
+    1769-1799
+Propiedades de .close y derivados
+    1801-1818
+Propiedades de .avatar y derivados
+    1820-1860
+Propiedades de .card y derivados
+    1862-1897
+Propiedades de .striped y derivados
+    1899-1911
+Propiedades de .sidebar y derivados
+    1913-1944
+Propiedades de .breadcrumbs y derivados
+    1946-1973
+Propiedades de #moderation y derivados
+    1975-2126
+Propiedades de #modal-container y derivados
+    2134-2200
+Propiedades de .flex-"derivados"
+    2271-2300
+Propiedades de .align-center
+    2302-2304 1458-1461
+Propiedades de .col y derivados
+    2306-2405 2422-2456
+Propiedades de .container
+    2416-1420
+Propiedades de .justify y derivados
+    2463-2477
+Propiedades de .hide y derivados
+    2491-2507
+Propiedades de .push-top .no-margin .link.white -link-unstyled
+    2513-2527
+Propiedades de .fa-btn
+    2541-2543
+Propiedades de #app
+    2545-2548
+
+-----AGLOMERADOS DE CLASES-----
+    799-801 823-827 835-838 846-848 856-858 866-868 1444 1469 2479-2483 2529-2531
+-----MEDIAS QUERIES-----
+Media query min-width: 1024px
+    12-16 HTMl
+Media query min-width: 240px and width: 1023px
+    18-22 HTML
+Media query min-width: 240px and max-width: 720px
+    100-104 .forum-list .forum-listing .forum-details
+Media query max-width: 820px
+    354-358 .post
+Media query max-width: 820px
+    374-383 .post .user-info
+Media query max-width: 820px
+    410-419 .post .post-date
+Media query max-width: 720px
+    421-425 .post
+Media query max-width: 820px
+    473-479 .post-content
+Media query max-width: 820px
+    525-530 .post-content
+Media query max-width: 820px
+    584-590 .post-content
+Media query max-width: 820px
+    614-618 .profile-card
+Media query max-width: 720px
+    646-650 .profile-header
+Media query min-width: 1024px
+    652-656 .activity-list
+Media query max-width: 720px
+    665-673 .activity-list .activity
+Media query max-width: 720px
+    695-699 .activity-list .activity .activity-header .title
+Media query min-width: 240px and max-width: 720px
+    756-763 .header
+Media query min-width: 240px and max-width: 720px
+    774-779 .svg-logo
+Media query min-width: 240px and max-width: 400px
+    781-786 .svg-logo
+Media query min-width: 240px and max-width: 720px
+    793-797 .wrap-right
+Media query min-width: 240px and max-width: 720px
+    807-811 h1
+Media query min-width: 240px and max-width: 720px
+    817-821 h2
+Media query min-width: 240px and max-width: 720px
+    817-821 clases
+Media query min-width: 240px and max-width: 720px
+    840-844 clases
+Media query min-width: 240px and max-width: 720px
+    850-854 clases
+Media query min-width: 240px and max-width: 720px
+    860-864 clases
+Media query min-width: 240px and max-width: 720px
+    870-874 clases
+Media query min-width: 240px and max-width: 720px
+    880-884 text-xlarge, .btn-xlarge
+Media query min-width: 240px and max-width: 720px
+    954-958 .navbar-item a, .navbar-mobile-item a
+Media query min-width: 240px and max-width: 720px
+    969-975 .navbar-item, .navbar-mobile-item
+Media query min-width: 240px and max-width: 720px
+    977-988 .navbar
+Media query min-width: 240px and max-width: 720px
+    990-1009 .navbar.open y derivados
+Media query min-width: 240px and max-width: 720px
+    1065-1069 .btn-hamburger
+Media query min-width: 240px and max-width: 720px
+    1097-1101 header > a.logo
+*/
