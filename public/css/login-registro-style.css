@@ -17,31 +17,27 @@ main{
     height: 90vh;
 }
 
-.caja {
-    display: flex;
-    flex-flow: wrap column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
-}
-
-.externo {
-    width: auto;
-    height: auto;
-    padding: 70px 20px 70px 20px;
-    display: flex;
-    flex-flow: wrap column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
-    border: solid 2px lightgrey;
-    border-radius: 10px;
+.container {
+    padding: 1.5rem 2rem;
+    border: solid 0.125rem lightgrey;
+    border-radius: 1.6rem;
 }
 
 .error {
     font-weight: bolder;
-    font-size: 0.75em;
+    font-size: 0.80rem;
     color: red;
     display: block;
-    margin-bottom: 7px;
+    margin-bottom: 0.15rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    padding: 0;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
 }
