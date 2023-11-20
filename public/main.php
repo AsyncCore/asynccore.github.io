@@ -6,11 +6,9 @@
     * @var string $js /src/header.php
     */
     
-    session_start();
     require '../src/utils/sessionInit.php';
     require DIR . '/src/utils/autoloader.php';
     require DIR . '/vendor/autoload.php';
-    include_once DIR . '/config/databaseQueries.php';
     include_once DIR . '/src/utils/utils.php';
     
     unsetLoginRegister();

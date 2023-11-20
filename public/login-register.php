@@ -1,4 +1,16 @@
 <?php
+    /**
+     * @file login-register.php<br><br>
+     * Página de Autenticación de AsynCore
+     *
+     * Maneja tanto el inicio de sesión como el registro de usuarios.
+     * Incluye formularios para ambas funciones y procesa las solicitudes de login y registro.<br><br>
+     *
+     * Dependencias:<pre>
+     *      - sessionInit.php: Inicialización de la sesión y definición de constantes globales.
+     *      - autoloader.php: Carga automática de clases.
+     *      - processForm.php: Procesamiento de formularios de inicio de sesión y registro.</pre>
+     */
     include_once '../src/utils/sessionInit.php';
     require DIR . '/src/utils/autoloader.php';
     include DIR . '/src/processForm.php';
@@ -10,10 +22,28 @@
      * @var string  $autofocus                   Autofocus en el email
      */
     
+    /**
+     * Pestaña activa por defecto.
+     * Se utiliza para mostrar el formulario de inicio de sesión por defecto en el primer acceso a la página.
+     */
+    $activeTab = ACTIVE_TAB_DEFAULT;
+    
+    /**
+     * Almacena mensajes de retroalimentación para el usuario.
+     * Se utiliza para mostrar mensajes de éxito o error después de intentos de inicio de sesión o registro.
+     */
     $message = EMPTY_STRING;
+    
+    /**
+     * Controla el enfoque automático en el formulario de inicio de sesión.
+     * Se utiliza para mejorar la experiencia del usuario al navegar entre diferentes formularios.
+     */
     $autofocus = EMPTY_STRING;
     
-    
+    /**
+     * Verifica los parámetros GET para determinar si se debe mostrar un mensaje de error o éxito.
+     * Los mensajes se basan en las acciones de inicio de sesión o registro y se muestran en función del resultado.
+     */
     if (isset($_GET['error'])) {
         if (isset($_GET['login'])) {
             $message = printLoginFail();
@@ -29,11 +59,14 @@
             $_SESSION['EXPLODE_NAME'] = strpos($_SESSION['NAME'], " ") ? $_SESSION['NAME'] : explode(' ', $_SESSION['NAME'])[0];
             $message = printLoginSuccess($_SESSION['EXPLODE_NAME']);
             unsetLoginRegister();
-            header('Refresh: 5; url=https://'.$_SERVER['HTTP_HOST'].'/main.php');
+            header('Refresh: 5; url=https://'. URL_BASE .'/main.php');
         }
     }
     
-    /* Permite el cambio entre formularios */
+    /**
+     * Maneja el cambio entre los formularios de inicio de sesión y registro.
+     * Establece la pestaña activa y el enfoque automático en función de los parámetros GET.
+     */
     if(isset($_GET['registerTab'])) {
         $activeTab = ACTIVE_TAB_REGISTER;
         $autofocus = EMPTY_STRING;
@@ -45,21 +78,21 @@
     $descripcion = 'Página de Login/Registro de AsynCore';
     $titulo = 'LOGIN / REGISTRO';
     $css = ["/css/bootstrap/bootstrap.min.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
-    $js = ['js/main-main.js', '/js/bootstrap/bootstrap.bundle.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js'];
+    $js = ['/js/main-main.js', '/js/bootstrap/bootstrap.bundle.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js', '/js/login-register-main.js'];
     include_once DIR. '/src/head.php';
     include_once DIR . '/src/header.php';
 ?>
     <main>
-        <section class="pb-1 caja">
+        <section>
             <div>
                 <?= $message ?>
             </div>
-            <div class="externo">
-                <section class="w-100 p4 d-flex justify-content-center pb-2">
-                    <div style="width: 26rem;">
+            <div class="container">
+                <section class="w-100 h-100 p4 d-flex justify-content-center pb-2">
+                    <div style="width: 20rem;">
                         <!-- SELECTOR FORMULARIO -->
                         <!-- LOGIN -->
-                        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+                        <ul class="nav nav-pills nav-justified mb-3" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link <?= $activeTab == 'login' ? 'active' : '' ?>"
                                    id="tab-login"
@@ -94,19 +127,19 @@
                                     <div class="text-center mb-3">
                                         <p>Inicia sesión con:</p>
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                            <i class="fi-onsux3-facebook" style="color: #0866FF"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
+                                            <i class="fi-onsux3-google-logo" style='color: #4285F4'></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
+                                            <i class="fi-onsux3-twitter-solid" style="color: #1D9BF0"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                            <i class="fi-onsux3-github-alt" style="color: #181717"></i>
                                         </button>
                                     </div>
                                     <?= $_SERVER['HTTP_HOST'] ?>
@@ -127,11 +160,15 @@
                                                name="loginPassword"
                                                value="<?= $_SESSION['loginPassword'] ?>">
                                         <label class="form-label" for="loginPassword">Contraseña</label>
+                                        <button type='button' class='toggle-password'
+                                                onclick="togglePasswordVisibility('loginPassword', 'loginToggle')">
+                                            <i class='fi-xnsuxx-eye' id='loginToggle' style='color: #386bc0'></i>
+                                        </button>
                                     </div>
 
-                                    <!-- 2 COLUMN GRID LAYOUT -->
+                                    <!-- COLUMNA ÚNICA -->
                                     <div class="row mb-4">
-                                        <div class="col-md-6 d-flex justify-content-center">
+                                        <div class="col-12 d-flex justify-content-center">
                                             <!-- CHECKBOX -->
                                             <div class="form-check mb-3 mb-md-0">
                                                 <input class="form-check-input" type="checkbox" id="loginCheck"
@@ -140,9 +177,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6 d-flex justify-content-center">
+                                        <div class="col-12 d-flex justify-content-center">
                                             <!-- LINK RECORDATORIO CONTRASEÑA-->
-                                            <a href="/rememberPassword.html">¿Has olvidado tu contraseña?</a>
+                                            <a href="/rememberPassword.html">¿Olvidaste tu contraseña?</a>
                                         </div>
                                     </div>
 
@@ -168,20 +205,20 @@
                                     <input type="hidden" name="form" value="register">
                                     <div class="text-center mb-3">
                                         <p>Regístrate con:</p>
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-facebook' style='color: #0866FF'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-google-logo' style='color: #4285F4'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-twitter-solid' style='color: #1D9BF0'></i>
                                         </button>
 
-                                        <button type="button" class="btn btn-secondary btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                        <button type='button' class='btn btn-secondary btn-floating mx-1'>
+                                            <i class='fi-onsux3-github-alt' style='color: #181717'></i>
                                         </button>
                                     </div>
 
@@ -219,6 +256,10 @@
                                                name="registerPassword"
                                                value="<?= $_SESSION['registerPassword'] ?>">
                                         <label class="form-label" for="registerPassword">Contraseña</label>
+                                        <button type='button' class='toggle-password'
+                                                onclick="togglePasswordVisibility('registerPassword', 'registerToggle')">
+                                            <i class='fi-xnsuxx-eye' id='registerToggle' style="color: #386bc0"></i>
+                                        </button>
                                     </div>
 
                                     <!-- REPETIR PASSWORD INPUT -->
@@ -228,6 +269,10 @@
                                                name="registerRepeatPassword" value="<?= $_SESSION['registerRepeatPassword'] ?>">
                                         <label class="form-label" for="registerRepeatPassword">Repite la
                                             contraseña</label>
+                                        <button type='button' class='toggle-password'
+                                                onclick="togglePasswordVisibility('registerRepeatPassword', 'registerToggle2')">
+                                            <i class='fi-xnsuxx-eye' id='registerToggle2' style='color: #386bc0'></i>
+                                        </button>
                                     </div>
 
                                     <!-- CHECKBOX -->
@@ -238,7 +283,7 @@
                                                name="registerCheck"
                                             <?= $_SESSION['registerCheck'] == "1" ? "checked" : "" ?>>
                                         <label class="form-check-label" for="registerCheck">
-                                            He leído y acepto los términos
+                                            He leído y acepto los términos.
                                         </label>
                                     </div>
 

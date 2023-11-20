@@ -1,6 +1,6 @@
 .footer {
-    background-color: #f8f9fa;
-    padding: 20px;
+    background-color: #353535;
+    padding: 1.2rem;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -18,22 +18,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .footer-left {
-    color: #6c757d;
+    color: #ccc;
     text-align: center;
 }
 
 .footer-right{
-    color: #6c757d;
+    color: #ccc;
     position: absolute;
     right: 0;
 }
 
 .friconix{
-    font-size: 12px;
+    font-size: 0.7rem;
     margin: 0 5px;
     text-decoration: none;
 }

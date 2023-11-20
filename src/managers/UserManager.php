@@ -89,15 +89,16 @@ class UserManager {
             $consulta->bindParam(':loginEmail', $loginEmail);
             $consulta->execute();
             $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
-            Logger::log("Usuario " . $loginEmail . " logueado correctamente", __FILE__, LogLevels::INFO);
         }catch (PDOException $e){
             Logger::log("Error al obtener el usuario con email " . $loginEmail . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
             return false;
         }
         
         if(!$usuario || !(password_verify($loginPassword, $usuario['PASSWORD']))){
+            Logger::log('El usuario con el mail ' . $loginEmail . ' se ha intentado loguear pero no existe en la base de datos.', __FILE__, LogLevels::INFO);
             return false;
         }else{
+            Logger::log('El usuario con el mail ' . $loginEmail . ' se ha encontrado. Procediendo al sistema de logueo.', __FILE__, LogLevels::INFO);
             return $usuario;
         }
     }

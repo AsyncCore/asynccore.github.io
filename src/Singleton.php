@@ -1,68 +1,73 @@
 <?php
-
-	namespace src;
-
-	use Exception;
-
+    
+    namespace src;
+    
+    use Exception;
+    
     /**
-	 * Singleton es una clase que implementa el patrón Singleton.<br>
-	 * Esto es, solo se puede crear una instancia de esta clase o de sus subclases.
-	 * Para ello, se utiliza el método estático getInstance().
-	 * No permite ni la creación ni la clonación de objetos Singleton.
-	 * Además, si se intenta deserializar un objeto Singleton, se lanza una excepción.
-	 *
-	 * @see     Logger
-	 * @link     https://es.wikipedia.org/wiki/Singleton
-	 * @author  Daniel Alonso Lázaro <dalonsolaz@gmail.com>
-	 * @access  public
-	 * @package src
-	 */
-	class Singleton
-	{
-		/**
-		 * @var array $instancias Array donde se almacenarán las instancias de la clase o de las subclases.
-		 */
-		private static array $instancias = [];
-
-		/**
-		 * Constructor vacío que impide que se cree una instancia de Singleton con el operador new.
-		 *
-		 * @return void
-		 */
-		protected function __construct(){}
-
-		/**
-		 * Función que devuelve una instancia de esta clase o de sus subclases.
-		 * Si no existe la instancia, la crea y la devuelve.
-		 * Si ya existe, la devuelve.
-		 *
-		 * @return Singleton
-		 */
-		public static function getInstance(): Singleton
-		{
-			$subclase = static::class;
-			if(!isset(self::$instancias[$subclase])){
-				self::$instancias[$subclase] = new static();
-			}
-			return self::$instancias[$subclase];
-		}
-
-		/**
-		 * Función que se ejecuta cuando se intenta deserializar el objeto Singleton y que lanza una excepción para
-		 * impedirlo. Además, escribe un mensaje de error en el log.
-		 *
-		 * @throws Exception
-		 */
-		public function __wakeup()
-		{
-			throw new Exception("No se puede deserializar un objeto singleton.");
-		}
-
-		/**
-		 * Función vacía que impide que se clone el objeto Singleton.
-		 *
-		 * @return void
-		 */
-		protected function __clone(): void{}
-	}
+     * Clase base para implementar el patrón de diseño Singleton.
+     * Impide la creación directa, clonación y deserialización de sus instancias.
+     * Utiliza getInstance() para obtener o crear instancias basadas en argumentos.
+     *
+     * @see     Logger
+     * @access  public
+     * @package src
+     * @author  Daniel Alonso Lázaro
+     * @link    https://es.wikipedia.org/wiki/Singleton
+     */
+    class Singleton
+    {
+        /**
+         * Almacena instancias de la clase o sus subclases.
+         *
+         * @var array
+         */
+        private static array $instancias = [];
+        
+        /**
+         * Constructor protegido para prevenir la instanciación directa.
+         *
+         * @param mixed $args Argumentos para la construcción de la instancia.
+         */
+        protected function __construct(...$args)
+        {
+        }
+        
+        /**
+         * Devuelve una instancia de la clase o subclase llamada.
+         * Crea la instancia si no existe, o devuelve la existente.
+         *
+         * @param mixed ...$args Argumentos para la construcción de la instancia.
+         *
+         * @return static Instancia de la clase llamada.
+         */
+        public static function getInstance(...$args): Singleton
+        {
+            $subclase = static::class;
+            $key = $subclase . ':' . serialize($args);
+            if (!isset(self::$instancias[$key])) {
+                self::$instancias[$key] = new static(...$args);
+            }
+            return self::$instancias[$key];
+        }
+        
+        /**
+         * Impide la deserialización de instancias para mantener la unicidad y seguridad.
+         * Registra un intento de deserialización como una excepción en el log.
+         *
+         * @throws Exception Si se intenta deserializar la instancia.
+         */
+        public function __wakeup()
+        {
+            Logger::log("No se puede deserializar un objeto singleton.", __FILE__, LogLevels::EXCEPTION);
+            throw new Exception("No se puede deserializar un objeto singleton.");
+        }
+        
+        /**
+         * Impide la clonación de la instancia para mantener la unicidad.
+         */
+        protected function __clone(): void
+        {
+        }
+    }
 

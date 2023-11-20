@@ -3,9 +3,10 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 .idea/
-public/docencia-23-24/
 config/dbConfig.php
 /config/confFiles.conf
+/bin/clearTokens.sh
+/logs/
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -179,4 +180,3 @@ fabric.properties
 # Editor-based Rest Client
 
 # Android studio 3.1+ serialized cache file
-

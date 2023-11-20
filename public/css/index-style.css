@@ -1,26 +1,24 @@
 @import 'normalize.css';
 @import 'footer-style.css';
 
-html{
+html {
     display: flex;
     height: 100%;
 }
 
 body {
-    height: 100%;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     flex: 1 1 auto;
-    margin-top: -20px;
 }
 
 h1 {
     text-align: center;
-    font-size: 55px;
     font-weight: bold;
-    margin: 20px 0 0 0;
+    margin: 0;
     padding: 0;
     color: blue;
     animation: pulse 2s infinite;
@@ -52,14 +50,14 @@ span#por {
 
 p {
     text-align: center;
-    font-size: 35px;
+    font-size: 2.1875rem;
     font-weight: bold;
     opacity: 0;
     margin: 0;
     padding: 0;
     transform: translateX(-100%);
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    animation: izquierda 0.5s ease-in-out 3s forwards;
+    animation: izquierda 0.5s ease-in-out 1.5s forwards;
 }
 
 @keyframes izquierda {
@@ -75,17 +73,175 @@ p {
 
 hr {
     width: 100%;
-    margin: 20px 0 20px 0;
+    margin: 0.7rem 0;
 }
 
-.entrar{
-    font-size: 37px;
+.entrar {
     color: #4f4f4f;
 }
 
 img {
-    width: 30vw;
     height: auto;
     animation: pulse 2s infinite;
-    margin-left: 10px;
+}
+
+@media (min-width: 18.75rem) {
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    p {
+        font-size: 1.375rem;
+    }
+
+    .bottom-p {
+        margin-bottom: 1rem;
+    }
+
+    .entrar {
+        font-size: 1.45rem;
+    }
+
+    img {
+        width: 70vw;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 28.125rem) {
+    h1 {
+        font-size: 2.125rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    .bottom-p {
+        margin-bottom: 1.125rem;
+    }
+
+    .entrar {
+        font-size: 1.65rem;
+    }
+
+    img {
+        width: 45vw;
+        margin-bottom: 1.125rem;
+    }
+}
+
+@media (min-width: 37.5rem) {
+    h1 {
+        font-size: 2.375rem;
+    }
+
+    p {
+        font-size: 1.625rem;
+    }
+
+    .bottom-p {
+        margin-bottom: 1.25rem;
+    }
+
+    .entrar {
+        font-size: 1.85rem;
+    }
+
+    img {
+        width: 40vw;
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (min-width: 46.875rem) {
+    h1 {
+        font-size: 2.625rem;
+    }
+
+    p {
+        font-size: 1.75rem;
+    }
+
+    .entrar {
+        font-size: 2.05rem;
+    }
+
+    img {
+        width: 40vw;
+    }
+}
+
+@media (min-width: 56.25rem) {
+    h1 {
+        font-size: 2.875rem;
+    }
+
+    p {
+        font-size: 1.875rem;
+    }
+
+    .entrar {
+        font-size: 2.25rem;
+    }
+
+    img {
+        width: 30vw;
+    }
+}
+
+@media (min-width: 68.75rem) {
+    h1 {
+        font-size: 3.125rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    .entrar {
+        font-size: 2.45rem;
+    }
+
+    img {
+        width: 20vw;
+    }
+}
+
+@media (min-width: 93.75rem) {
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    p {
+        font-size: 2.125rem;
+    }
+
+    .entrar {
+        font-size: 2.6rem;
+    }
+
+    img {
+        width: 20vw;
+    }
+}
+
+@media (min-width: 120rem) {
+    h1 {
+        margin-top: 3rem;
+        font-size: 3.4375rem;
+    }
+
+    p {
+        font-size: 2.1875rem;
+    }
+
+    .entrar {
+        font-size: 2.3125rem;
+    }
+
+    img {
+        width: 30vw;
+        margin-left: 0.625rem;
+    }
 }
