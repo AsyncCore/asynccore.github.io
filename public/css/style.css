@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import "normalize.css";
+@import "footer-style.css";
 
 body {
     background-color: #CAF0F8;
