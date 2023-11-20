@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" rel="stylesheet">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+<header class="header" id="header">
+
+    <a class="logo" href="index.html">
+        <img alt="AsynCore Logo" src="/img/logo/logo.svg">
+    </a>
+
+    <div class="btn-hamburger">
+        <!-- use .btn-humburger-active to open the menu -->
+        <span class="top bar"></span>
+        <span class="middle bar"></span>
+        <span class="bottom bar"></span>
+    </div>
+
+    <!-- use .navbar-open to open nav -->
+    <nav class="navbar">
+    <ul>
+            <li class="navbar-user">
+                <a href="#">
+                    <img 
+                         class="avatar-small" src="$img-loged-user" alt="$img-loged-user">
+                    <span>
+                        $loged-user
+                        <img alt="" class="icon-profile" src="../../img/icons/arrow-profile.svg">
+                    </span>
+                </a>
+
+                <!-- dropdown menu -->
+                <!-- add class "active-drop" to show the dropdown -->
+                <div id="user-dropdown">
+                    <div class="triangle-drop"></div>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
+                        <li class="dropdown-menu-item"><a href="#">Log out</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+        <ul>
+            <li class="navbar-item">
+                <a href="index.html">Inicio</a>
+            </li>
+            <li class="navbar-item">
+                <a href="category.html">Hilos</a>
+            </li>
+            <li class="navbar-item">
+                <a href="forum.html">Forum</a>
+            </li>
+            <li class="navbar-item">
+                <a href="thread.html">Asyncore Files</a>
+            </li>
+            <li class="navbar-item">
+                <a href="thread.html">¿Quien somos?</a>
+            </li>
+            <!-- Show these option only on mobile-->
+            <li class="navbar-item mobile-only">
+                <a href="profile.html">My Profile</a>
+            </li>
+            <li class="navbar-item mobile-only">
+                <a href="#">Logout</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="col-full">
+        <div class="forum-list">
+
+            <h2 class="list-title">
+                <a href="category.html">Últimos Hilos</a>
+            </h2>
+
+            <div class="forum-listing">
+                <div class="forum-details">
+                    <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                    <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
+                </div>
+
+                <div class="threads-count">
+                    <p><span class="count">$n-posts</span>posts</p>
+                </div>
+
+                <div class="last-thread">
+                    <img alt=""
+                         class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
+                    <div class="last-thread-details">
+                        <a href="thread.html">$tag</a>
+                        <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forum-listing">
+                <div class="forum-details">
+                    <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                    <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
+                </div>
+
+                <div class="threads-count">
+                    <p><span class="count">$n-posts</span>posts</p>
+                </div>
+
+                <div class="last-thread">
+                    <img alt=""
+                         class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
+                    <div class="last-thread-details">
+                        <a href="thread.html">$tag</a>
+                        <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                    </div>
+                </div>
+            </div>
+
+        <div class="forum-list">
+
+            <h2 class="list-title">
+                <a href="category.html">Hilos populares</a>
+            </h2>
+
+            <div class="forum-listing">
+                <div class="forum-details">
+                    <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                    <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
+                </div>
+
+                <div class="threads-count">
+                    <p><span class="count">$n-posts</span>posts</p>
+                </div>
+
+                <div class="last-thread">
+                    <img alt=""
+                         class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
+                    <div class="last-thread-details">
+                        <a href="thread.html">$tag</a>
+                        <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forum-listing">
+                <div class="forum-details">
+                    <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                    <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
+                </div>
+
+                <div class="threads-count">
+                    <p><span class="count">$n-posts</span>posts</p>
+                </div>
+
+                <div class="last-thread">
+                    <img alt=""
+                         class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
+                    <div class="last-thread-details">
+                        <a href="thread.html">$tag</a>
+                        <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forum-listing">
+
+                <div class="forum-details">
+                    <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                    <!-- TODO: Bucle para cargar todos los tags del hilo usando PHP -->
+                    <ul class="subforums">
+                        <li><a href="#">$tag</a></li>
+                        <li><a href="#">$tag</a></li>
+                        <li><a href="#">$tag</a></li>
+                        <li><a href="#">$tag</a></li>
+                    </ul>
+
+                </div>
+
+
+                <div class="threads-count">
+                    <p class="count">$n-posts</p>posts
+                </div>
+
+                <div class="last-thread">
+                    <img alt=""
+                         class="avatar"
+                         src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e">
+                <div class="last-thread-details">
+                            <a href="thread.html">$tag</a>
+                            <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="forum-stats desktop-only">
+    <hr>
+    <ul>
+        <li><i class="fa fa-user-circle-o"></i>$count-active-users online</li>
+        <li><i class="fa fa-user-o"></i>$count-users registered</li>
+        <li><i class="fa fa-comments-o"></i>$count-threads threads</li>
+        <li><i class="fa fa-comment-o"></i>$count-posts posts</li>
+    </ul>
+</div>
+
+<div class="footer-asyncore">
+    Asyncore &copy; 2023
+</div>
+
+</body>
+</html>
