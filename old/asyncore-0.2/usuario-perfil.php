@@ -78,7 +78,7 @@ include_once "../src/logged-header.php";
                 </div>
                 <hr>
                 <div>
-                    <a href="/usuario-perfil-ajustes.php">Editar Opciones</a>
+                    <a href="/old/asyncore-0.2/usuario-perfil-ajustes.phperfil-ajustes.php">Editar Opciones</a>
                 </div>
             </div>
             <div class="dif">

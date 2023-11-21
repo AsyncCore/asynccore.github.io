@@ -40,7 +40,7 @@ include_once "../src/logged-header.php";
 <main>
     <section id="contenedor-perfil">
         <div id="col1-fil-all">
-            <form action="/usuario-perfil.php">
+            <form action="/old/asyncore-0.2/usuario-perfil.phpsuario-perfil.php">
                 <div class="editar-user">
                     <h3>Perfil de Redcario4444 <input type="text" placeholder="Nuevo Nickname" id="nickname"></h3>
                     <p><img src="/img/pruebas/usuario-perfil/images.jpg"><a href="">🖊</a></p>
@@ -52,7 +52,7 @@ include_once "../src/logged-header.php";
                     <button type="submit" class="botones-envio"> Guardar</button>
                 </div>
             </form>
-            <form action="/usuario-perfil.php">
+            <form action="/old/asyncore-0.2/usuario-perfil.phpsuario-perfil.php">
                 <div class="user-menu">
                     Sobre mi
                     <ul>
