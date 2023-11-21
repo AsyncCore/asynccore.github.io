@@ -175,9 +175,9 @@
     {
         $url = 'https://' . $_SERVER['HTTP_HOST'] . '/' . 'main.php';
         $message = <<<HTML
-                    <div class="mb-3" style="margin-left: 20px;">¡Bienvenido <b>$username</b>!</div>
-                    <div style="margin-left: 20px;">Redirigiendo a la página principal...<br>
-                        <span class="small">Si no se redirige en 10 segundos, pulsa <a href="$url">aquí</a></span>
+                    <div class="mb-4">¡Bienvenido <b>$username</b>!</div>
+                    <div>Redirigiendo a la página principal...<br>
+                        <span class="small">Si no se redirige en 5 segundos, pulsa <a href="$url">aquí</a></span>
                     </div>
                     HTML;
         return SUCCESS_SVG . PHP_EOL . str_replace('{message}', $message, SUCCESS);
@@ -190,7 +190,7 @@
      */
     function printLoginFail(): string
     {
-        $message = '<div style="margin-left: 20px;">Nombre de usuario o contraseña incorrectos.</div>';
+        $message = '<div>Nombre de usuario o contraseña incorrectos.</div>';
         return ALERT_SVG . PHP_EOL . str_replace('{message}', $message, DANGER);
     }
     
@@ -207,7 +207,7 @@
     function printRegisterFail(string $username): string {
         $sqlError = returnSQLError();
         $message = <<<HTML
-                    <div style="margin-left: 20px;">
+                    <div>
                         No se ha podido registrar al usuario <b>$username</b>.<br>
                         $sqlError
                     </div>
@@ -225,7 +225,7 @@
      */
     function printRegisterSuccess(string $username): string {
         $message = <<<HTML
-                    <div style="margin-left: 20px;">
+                    <div>
                         Usuario <b>$username</b> registrado correctamente.<br>
                         Inicia sesión para continuar...
                     </div>
