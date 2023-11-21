@@ -5,6 +5,17 @@ html{
     -moz-user-select: none;
 }
 
+.container a {
+    color: #386bc0;
+    text-decoration: none;
+}
+
+.container a:hover {
+    color: #295090;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
 main{
     display: flex;
     flex-flow: wrap row;
