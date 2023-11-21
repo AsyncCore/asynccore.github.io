@@ -1,81 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Category: Discussions</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<?php
+    /**
+    * @var string $descripcion /src/logged-header.php
+    * @var string $titulo /src/logged-header.php
+    * @var string $css /src/logged-header.php
+    * @var string $js /src/logged-header.php
+    */
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    require '../src/utils/sessionInit.php';
+    require DIR . '/src/utils/autoloader.php';
+    require DIR . '/vendor/autoload.php';
+    include_once DIR . '/src/utils/utils.php';
 
-    <script defer src="js/script.js"></script>
-</head>
-<body>
-<header class="header" id="header">
+    unsetLoginRegister();
 
-    <a class="logo" href="index.php">
-        <img alt="AsynCore Logo" src="/img/logo/logo.svg">
-    </a>
-
-    <div class="btn-hamburger">
-        <!-- use .btn-humburger-active to open the menu -->
-        <span class="top bar"></span>
-        <span class="middle bar"></span>
-        <span class="bottom bar"></span>
-    </div>
-
-    <!-- use .navbar-open to open nav -->
-    <nav class="navbar">
-        <ul>
-            <li class="navbar-user">
-                <a href="#">
-                    <img
-                            class="avatar-small" src="$img-loged-user" alt="$img-loged-user">
-                    <span>
-                        $loged-user
-                        <img alt="" class="icon-profile" src="../../img/icons/arrow-profile.svg">
-                    </span>
-                </a>
-
-                <!-- dropdown menu -->
-                <!-- add class "active-drop" to show the dropdown -->
-                <div id="user-dropdown">
-                    <div class="triangle-drop"></div>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
-                        <li class="dropdown-menu-item"><a href="#">Log out</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-
-        <ul>
-            <li class="navbar-item">
-                <a href="index.php">Inicio</a>
-            </li>
-            <li class="navbar-item">
-                <a href="category.html">Hilos</a>
-            </li>
-            <li class="navbar-item">
-                <a href="forum.html">Forum</a>
-            </li>
-            <li class="navbar-item">
-                <a href="thread.html">Asyncore Files</a>
-            </li>
-            <li class="navbar-item">
-                <a href="thread.html">¿Quien somos?</a>
-            </li>
-            <!-- Show these option only on mobile-->
-            <li class="navbar-item mobile-only">
-                <a href="profile.html">My Profile</a>
-            </li>
-            <li class="navbar-item mobile-only">
-                <a href="#">Logout</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
+    $descripcion = "Página para las categorías de AsynCore";
+    $titulo = "AsynCore";
+    $css = ["css/style.css"];
+    $js = ["js/script.js"];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
+	include_once DIR . '/src/head.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
+?>
   <div class="container">
       <div class="col-full push-top">
           <h1>Discussions</h1>
@@ -105,7 +54,7 @@
                       <img class="avatar" src="https://i.imgur.com/WPSrfGm.jpg" alt="">
                       <div class="last-thread-details">
                           <a href="thread.html">What is the best animal joke y...</a>
-                          <p class="text-xsmall">By <a href="profile.html">Blossom</a>, 16 hours ago</p>
+                          <p class="text-xsmall">By <a href="profile.php">Blossom</a>, 16 hours ago</p>
                       </div>
                   </div>
 
@@ -128,7 +77,7 @@
                       <img class="avatar" src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e" alt="">
                       <div class="last-thread-details">
                           <a href="thread.html">Do you know what FIAT stands f...</a>
-                          <p class="text-xsmall">By <a href="profile.html">Ray-Nathan James</a>, three weeks ago</p>
+                          <p class="text-xsmall">By <a href="profile.php">Ray-Nathan James</a>, three weeks ago</p>
                       </div>
                   </div>
 
@@ -156,7 +105,7 @@
                       <img class="avatar" src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e" alt="">
                       <div class="last-thread-details">
                           <a href="thread.html">What is the most exciting fish...</a>
-                          <p class="text-xsmall">By <a href="profile.html">Ray-Nathan James</a>, 3 hours ago</p>
+                          <p class="text-xsmall">By <a href="profile.php">Ray-Nathan James</a>, 3 hours ago</p>
                       </div>
                   </div>
 
@@ -181,7 +130,7 @@
                       <img class="avatar" src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png" alt="">
                       <div class="last-thread-details">
                           <a href="thread.html">How can I chop onions without...</a>
-                          <p class="text-xsmall">By <a href="profile.html">Bruce Wayne</a>, last week</p>
+                          <p class="text-xsmall">By <a href="profile.php">Bruce Wayne</a>, last week</p>
                       </div>
                   </div>
 
@@ -207,21 +156,6 @@
       </div>
 
   </div>
-
-
-  <div class="forum-stats desktop-only">
-    <hr>
-    <ul>
-        <li><i class="fa fa-user-circle-o"></i>$count-active-users online</li>
-        <li><i class="fa fa-user-o"></i>$count-users registered</li>
-        <li><i class="fa fa-comments-o"></i>$count-threads threads</li>
-        <li><i class="fa fa-comment-o"></i>$count-posts posts</li>
-    </ul>
-</div>
-
-<div class="footer-asyncore">
-    Asyncore &copy; 2023
-</div>
-
-</body>
-</html>
+<?php
+    include_once DIR . '/src/footer.php';
+?>

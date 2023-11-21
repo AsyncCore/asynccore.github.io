@@ -41,7 +41,7 @@
                 <div id='user-dropdown'>
                     <div class='triangle-drop'></div>
                     <ul class='dropdown-menu'>
-                        <li class='dropdown-menu-item'><a href='../public/pruebas/new/profile.html'>Perfil</a></li>
+                        <li class='dropdown-menu-item'><a href='../public/pruebas/new/profile.php'>Perfil</a></li>
                         <li class='dropdown-menu-item'><a href='#'>Logout</a></li>
                         <!-- TODO AQUI VA EL LINK DEL LOGOUT -->
                     </ul>
@@ -54,20 +54,20 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/category.html'>Hilos</a>
+                <a href='../public/pruebas/new/category.php'>Hilos</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/forum.html'>Forum</a>
+                <a href='../public/pruebas/new/forum.php'>Forum</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/thread.html'>Asyncore Files</a>
+                <a href='../public/pruebas/new/thread.php'>Asyncore Files</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/thread.html'>¿Quiénes somos?</a>
+                <a href='../public/pruebas/new/thread.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
-                <a href='../public/pruebas/new/profile.html'>Perfil</a>
+                <a href='../public/pruebas/new/profile.php'>Perfil</a>
             </li>
             <li class='navbar-item mobile-only'>
                 <a href='../public/pruebas/new/login-header.php'>Logout</a>

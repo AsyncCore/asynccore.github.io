@@ -42,7 +42,7 @@
                 <div id="user-dropdown">
                     <div class="triangle-drop"></div>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
+                        <li class="dropdown-menu-item"><a href="profile.php">View profile</a></li>
                         <li class="dropdown-menu-item"><a href="#">Log out</a></li>
                     </ul>
                 </div>
@@ -54,10 +54,10 @@
                 <a href="index.php">Inicio</a>
             </li>
             <li class="navbar-item">
-                <a href="category.html">Hilos</a>
+                <a href="category.php">Hilos</a>
             </li>
             <li class="navbar-item">
-                <a href="forum.html">Forum</a>
+                <a href="forum.php">Forum</a>
             </li>
             <li class="navbar-item">
                 <a href="thread.html">Asyncore Files</a>
@@ -67,7 +67,7 @@
             </li>
             <!-- Show these option only on mobile-->
             <li class="navbar-item mobile-only">
-                <a href="profile.html">My Profile</a>
+                <a href="profile.php">My Profile</a>
             </li>
             <li class="navbar-item mobile-only">
                 <a href="#">Logout</a>
@@ -108,16 +108,6 @@
         </div>
     </div>
 </div>
-
-<div class="forum-stats desktop-only push-top">
-    <hr>
-    <ul>
-        <li><i class="fa fa-user-circle-o"></i>47 users online</li>
-        <li><i class="fa fa-user-o"></i>497 users registered</li>
-        <li><i class="fa fa-comments-o"></i>49 threads</li>
-        <li><i class="fa fa-comment-o"></i>763 posts</li>
-    </ul>
-</div>
-
-</body>
-</html>
+<?php
+    include_once DIR . '/src/footer.php';
+?>
