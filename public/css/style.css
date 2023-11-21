@@ -47,7 +47,7 @@ figcaption {
 }
 
 .footer-asyncore{
-    padding: 20px;
+    padding: 1rem;
     text-align: center;
     width: 100%;
     margin: 0;
@@ -128,7 +128,7 @@ figcaption {
 
 .forum-list .forum-listing .forum-details ul.subforums.subforums li:not(:last-of-type)::after {
     content: '\f111';
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome', monospace;
     font-size: 4px;
     position: relative;
     top: -3px;
@@ -265,7 +265,7 @@ figcaption {
 
 .reactions button.add-reaction .emoji {
     margin-left: 3px;
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .reactions ul {
@@ -280,7 +280,7 @@ figcaption {
     font-size: 28px;
     display: flex;
     align-items: center;
-    padding: 0px 5px;
+    padding: 0 5px;
     opacity: 0.7;
 }
 
@@ -305,7 +305,7 @@ figcaption {
     align-items: center;
     justify-content: center;
     margin: 0 15px;
-    padding: 0px;
+    padding: 0;
     height: 35px;
     width: 35px;
     font-size: 22px;
@@ -354,8 +354,7 @@ figcaption {
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: white;
-    padding: 20px 10px;
-    padding-bottom: 7px;
+    padding: 20px 10px 7px;
     box-shadow: 2px 2px 1px rgba(136, 136, 136, 0.09);
     margin-bottom: 20px;
 }
@@ -387,8 +386,7 @@ figcaption {
         justify-content: flex-start;
         background: rgba(73, 89, 96, 0.06);
         margin-right: 0;
-        padding: 5px;
-        padding-left: 10px;
+        padding: 5px 5px 5px 10px;
     }
 
     .post .user-info .avatar-large {
@@ -423,13 +421,13 @@ figcaption {
         background: rgba(73, 89, 96, 0.06);
         padding-right: 10px;
         padding-top: 16px;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 }
 
 @media (max-width: 720px) {
     .post {
-        padding: 0px;
+        padding: 0;
     }
 }
 
@@ -461,7 +459,7 @@ figcaption {
 }
 
 .post-content blockquote {
-    margin: 25px 0px;
+    margin: 25px 0;
 }
 
 .post-content blockquote.big {
@@ -474,7 +472,7 @@ figcaption {
     top: -25px;
     left: -25px;
     font-size: 42px;
-    font-family: FontAwesome;
+    font-family: "FontAwesome", monospace;
     content: "\f10e";
     color: #263959;
 }
@@ -526,7 +524,7 @@ figcaption {
     top: -20px;
     left: -20px;
     font-size: 42px;
-    font-family: FontAwesome;
+    font-family: "FontAwesome", monospace;
     content: "\f10e";
     color: #263959;
 }
@@ -573,11 +571,11 @@ figcaption {
 
 .post-content blockquote.simple {
     position: relative;
-    padding: 0px 10px 0px 20px;
+    padding: 0 10px 0 20px;
     font-weight: 100;
     font-style: italic;
     font-size: 17px;
-    letter-spacing: .15px;
+    letter-spacing: 0.0094rem;
 }
 
 .post-content blockquote.simple::before {
@@ -585,7 +583,7 @@ figcaption {
     top: -25px;
     left: -25px;
     font-size: 42px;
-    font-family: FontAwesome;
+    font-family: "FontAwesome", monospace;
     content: "\f10e";
     color: #263959;
 }
@@ -632,7 +630,7 @@ figcaption {
 
 .profile-card .stats {
     display: flex;
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
 .profile-card .stats span {
@@ -649,7 +647,7 @@ figcaption {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 0 0px;
+    padding: 0;
 }
 
 @media (max-width: 720px) {
@@ -660,7 +658,7 @@ figcaption {
 
 @media (min-width: 1024px) {
     .activity-list {
-        padding: 0px 10px;
+        padding: 0 10px;
     }
 }
 
@@ -715,7 +713,7 @@ figcaption {
 .activity-list .activity div.post-content {
     display: block;
     padding-right: 10px;
-    margin: 12px 0px;
+    margin: 12px 0;
     word-break: break-word;
 }
 
@@ -736,7 +734,7 @@ textarea#user_bio {
 }
 
 span.offline::before {
-    font-family: FontAwesome;
+    font-family: "FontAwesome", monospace;
     content: "\f1db";
     font-size: 14px;
     margin-right: 5px;
@@ -747,7 +745,7 @@ span.online {
 }
 
 span.online::before {
-    font-family: FontAwesome;
+    font-family: "FontAwesome", monospace;
     content: "\f2be";
     font-size: 14px;
     margin-right: 5px;
@@ -962,7 +960,7 @@ ul .navbar-item:last-child, ul .navbar-mobile-item:last-child {
 
 @media (min-width: 240px) and (max-width: 720px) {
     .navbar-item a, .navbar-mobile-item a {
-        padding: 10px 0px;
+        padding: 10px 0;
     }
 }
 
@@ -1359,7 +1357,7 @@ form {
 textarea.form-input {
     padding-top: 7px;
     padding-right: 2px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     min-height: 110px;
 }
 
@@ -1399,8 +1397,8 @@ textarea.form-input {
     color: #767676;
 }
 
-.form-label-password, .form-group > label-password {
-    margin-bottom: 0px;
+.form-label-password, .form-group > .label-password {
+    margin-bottom: 0;
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
@@ -1504,7 +1502,7 @@ button {
     width: 60px;
     background: #C82543;
     border-radius: 50%;
-    padding: 0px;
+    padding: 0;
     font-size: 36px;
     display: flex;
     justify-content: center;
@@ -1560,7 +1558,7 @@ button {
 
 .btn-blue-outlined {
     color: #263959;
-    box-shadow: inset 0px 0px 0px 1.6px #263959;
+    box-shadow: inset 0 0 0 0.1rem #263959;
 }
 
 .btn-blue-outlined:hover {
@@ -1580,7 +1578,7 @@ button {
 
 .btn-brown-outlined {
     color: #bf9268;
-    box-shadow: inset 0px 0px 0px 1.6px #bf9268;
+    box-shadow: inset 0 0 0 0.1rem #bf9268;
 }
 
 .btn-brown-outlined:hover {
@@ -1600,7 +1598,7 @@ button {
 
 .btn-green-outlined {
     color: #57AD8D;
-    box-shadow: inset 0px 0px 0px 1.6px #57AD8D;
+    box-shadow: inset 0 0 0 0.1rem #57AD8D;
 }
 
 .btn-green-outlined:hover {
@@ -1620,7 +1618,7 @@ button {
 
 .btn-red-outlined {
     color: #C82543;
-    box-shadow: inset 0px 0px 0px 1.6px #C82543;
+    box-shadow: inset 0 0 0 0.1rem #C82543;
 }
 
 .btn-red-outlined:hover {
@@ -1725,8 +1723,7 @@ button {
 .icon-arrow-left {
     width: 28px;
     height: 21px;
-    transform: translate(0, 0);
-    transform: rotate(180deg);
+    transform: translate(0, 0) rotate(180deg);
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
@@ -1929,8 +1926,7 @@ button {
     .sidebar {
         display: flex;
         flex-basis: 29%;
-        margin: 0 0.5%;
-        margin-top: 118px;
+        margin: 118px 0.5% 0;
         flex-direction: column;
     }
 
@@ -1962,14 +1958,14 @@ ul.breadcrumbs {
 
 ul.breadcrumbs li {
     display: inline-block;
-    padding: 5px 0px;
+    padding: 5px 0;
     font-weight: 100;
 }
 
 ul.breadcrumbs li:not(:last-of-type)::after {
     content: '\f105';
-    font-family: FontAwesome;
-    margin: 0px 4px;
+    font-family: "FontAwesome", monospace;
+    margin: 0 4px;
     opacity: 0.6;
 }
 
@@ -2003,7 +1999,7 @@ ul.breadcrumbs li a:hover {
     flex-wrap: wrap;
     position: fixed;
     bottom: 20px;
-    box-shadow: 0px 0px 300px #ADADAD;
+    box-shadow: 0 0 300px #ADADAD;
     padding: 0 5px;
     border-radius: 5px;
     background-color: #313131;
@@ -2050,7 +2046,7 @@ ul.breadcrumbs li a:hover {
 
 #moderation ul.toolbar a .fa {
     opacity: 0.5;
-    margin: 0px 8px;
+    margin: 0 8px;
 }
 
 #moderation ul.toolbar a:focus {
@@ -2084,7 +2080,7 @@ ul.breadcrumbs li a:hover {
 
     #moderation ul.toolbar li.close-toolbar .fa::before {
         content: '\f107';
-        font-family: FontAwesome;
+        font-family: "FontAwesome", monospace;
     }
 }
 
@@ -2131,7 +2127,7 @@ ul.breadcrumbs li a:hover {
 
     #moderation ul.toolbar-collapsed li.open-toolbar a::before {
         content: '\f106';
-        font-family: FontAwesome;
+        font-family: "FontAwesome", monospace;
         font-size: 30px;
     }
 }
@@ -2253,10 +2249,7 @@ body a:hover {
 
 h1, h2, h3, h4, h5 {
     font-weight: 700;
-    margin-bottom: 10px;
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0 0 10px;
 }
 
 ul {
@@ -2544,8 +2537,7 @@ section {
 hr {
     border: 0;
     height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #F7F9FE, #D1D3D7, #F7F9FE);
+    background: #333 linear-gradient(to right, #F7F9FE, #D1D3D7, #F7F9FE);
     margin-bottom: 20px;
 }
 
