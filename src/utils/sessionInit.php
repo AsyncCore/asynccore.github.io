@@ -14,7 +14,7 @@
     /**
      * @const URL_BASE URL base del proyecto.
      */
-    define('URL_BASE', 'https://' . $_SERVER['HTTP_HOST'] ?? "www.asyncore.es" . '/');
+    define('URL_BASE', 'https://' . ($_SERVER['HTTP_HOST'] ?? 'www.asyncore.es') . '/');
     
     /**
      * Inicialización de sesiones con comprobación de si ya hay una sesión iniciada.
