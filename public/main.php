@@ -16,9 +16,14 @@
     $descripcion = "Página principal de AsynCore";
     $titulo = "AsynCore";
     $css = ["css/style.css"];
-    $js = ["js/script.js", "https://friconix.com/cdn/friconix.js"];
+    $js = ["js/script.js"];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
 	include_once DIR . '/src/head.php';
-    include_once DIR . '/src/logged-header.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 ?>
 <main>
     <div class="container">
