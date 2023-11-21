@@ -1026,6 +1026,8 @@ ul .navbar-item:last-child, ul .navbar-mobile-item:last-child {
 .icon-profile {
     width: 10px;
     height: 8px;
+    transform: rotate(90deg);
+    margin-left: 5px;
 }
 
 .navbar-user {
@@ -1040,7 +1042,7 @@ ul .navbar-item:last-child, ul .navbar-mobile-item:last-child {
 
 .navbar-user a:hover .icon-profile {
     transition: all .4s ease;
-    transform: rotate(-180deg);
+    transform: rotate(0deg);
 }
 
 .navbar-user img {
