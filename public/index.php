@@ -1,5 +1,6 @@
 <?php
     include_once "../src/utils/sessionInit.php";
+    include_once "../src/utils/autoloader.php";
 ?>
 <!DOCTYPE html>
 <html lang="es">

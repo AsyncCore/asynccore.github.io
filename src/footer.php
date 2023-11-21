@@ -1,13 +1,22 @@
 <?php
-
-echo <<<HTML
+    
+    use src\utils\Online;
+    
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    $usersOnline = Online::who();
+    $countUsersRegistered = '0';
+    $countThreads = '0';
+    $countPosts = '0';
+    
+    echo <<<HTML
     <footer class="footer">
         <div class="forum-stats desktop-only">
             <ul>
-                <li><i class="fa fa-user-circle-o"></i>$count-active-users online</li>
-                <li><i class="fa fa-user-o"></i>$count-users registered</li>
-                <li><i class="fa fa-comments-o"></i>$count-threads threads</li>
-                <li><i class="fa fa-comment-o"></i>$count-posts posts</li>
+                <li><i class="fa fa-user-circle-o"></i> {$usersOnline} online</li>
+                <li><i class="fa fa-user-o"></i> {$countUsersRegistered} registered</li>
+                <li><i class="fa fa-comments-o"></i> {$countThreads} threads</li>
+                <li><i class="fa fa-comment-o"></i> {$countPosts} posts</li>
             </ul>
         </div>
         <div class="footer-container">
@@ -21,6 +30,6 @@ echo <<<HTML
             </div>
         </div>
     </footer>
-</body>
-</html>
+    </body>
+    </html>
 HTML;

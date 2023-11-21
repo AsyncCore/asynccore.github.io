@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Agrega un controlador de eventos para el desplegable del usuario
     let userTrigger = document.querySelector('.navbar-user a');
+    if (userTrigger == null) {
+        return;
+    }
     userTrigger.addEventListener('click', function (e) {
         e.preventDefault(); // Previene la acción predeterminada del enlace
         userDropdown.classList.toggle('active-drop');
