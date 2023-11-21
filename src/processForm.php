@@ -81,7 +81,6 @@
     $errores = [];
     $cookieName = EMPTY_STRING;
     $cookieValue = EMPTY_STRING;
-    $success = false;
     
     /* Variables del formulario de login */
     $_SESSION['loginEmail'] = $_SESSION['loginEmail'] ?? EMPTY_STRING;
@@ -145,7 +144,7 @@
         
     } else if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['form'] == 'register') {
         $_SESSION['registerName'] = sanitizeData($_POST['registerName'], true);
-        $_SESSION['registerUserName'] = sanitizeData($_POST['registerUserName']);
+        $_SESSION['registerUserName'] = sanitizeData($_POST['registerUserName'], true);
         $_SESSION['registerEmail'] = sanitizeData($_POST['registerEmail']);
         $_SESSION['registerPassword'] = sanitizeData($_POST['registerPassword']);
         $_SESSION['registerRepeatPassword'] = sanitizeData($_POST['registerRepeatPassword']);
