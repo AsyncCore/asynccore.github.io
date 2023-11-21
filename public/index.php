@@ -1,7 +1,6 @@
 <?php
     include_once "../src/utils/sessionInit.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -49,13 +48,23 @@
 <main>
     <section>
         <div>
-            <a class="logo" href="main.php"><img alt="AsynCore Logo" src="img/logo/logo.svg"></a>
+            <a class="logo" href="main.php">
+                <img alt="AsynCore Logo" src="img/logo/logo.svg">
+            </a>
             <h1>Asyn<span>Core</span></h1>
-            <p><span id="por">Por</span> y <span id="para">para</span> alumnos</p>
+            <p>
+                <span id="por">Por</span> y <span id="para">para</span> alumnos
+            </p>
         </div>
         <hr>
-        <p class="bottom-p"><a href="login-register.php">Login / Registro</a></p>
-        <p><span class="entrar">Entrar como</span> <br><a href="main.php">Visitante</a></p>
+        <p class="bottom-p">
+            <a href="login-register.php">Login / Registro</a>
+        </p>
+        <p>
+            <span class="entrar">Entrar como</span>
+            <br>
+            <a href="main.php">Visitante</a>
+        </p>
     </section>
 </main>
 <?php
