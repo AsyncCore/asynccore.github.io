@@ -56,11 +56,11 @@
             <script defer src="<?=$jsFile?>" type='text/javascript'></script>
         <?php endforeach; ?>
         <!-- CDN -->
-        <?php if (isset($cdn) && is_array($cdn)) {
-            foreach ($cdn as $cdn_item) {
-                echo $cdn_item;
-            }
-        } ?>
+        <?php if (isset($cdn) && is_array($cdn)): ?>
+            <?php foreach ($cdn as $cdn_item): ?>
+                <script defer src="<?=$cdn_item?>" type='text/javascript'></script>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <!-- Título de la página -->
         <title><?=$titulo?></title>
     </head>
