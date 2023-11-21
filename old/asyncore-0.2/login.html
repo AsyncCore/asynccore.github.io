@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-     <meta charset="UTF-8">
-    <title>Cooking Forum</title>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -10,6 +10,7 @@
 
     <script defer src="js/script.js"></script>
 </head>
+<body>
 <header class="header" id="header">
 
     <a class="logo" href="index.php">
@@ -41,7 +42,7 @@
                 <div id="user-dropdown">
                     <div class="triangle-drop"></div>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
+                        <li class="dropdown-menu-item"><a href="profile.php">View profile</a></li>
                         <li class="dropdown-menu-item"><a href="#">Log out</a></li>
                     </ul>
                 </div>
@@ -53,10 +54,10 @@
                 <a href="index.php">Inicio</a>
             </li>
             <li class="navbar-item">
-                <a href="category.html">Hilos</a>
+                <a href="category.php">Hilos</a>
             </li>
             <li class="navbar-item">
-                <a href="forum.html">Forum</a>
+                <a href="forum.php">Forum</a>
             </li>
             <li class="navbar-item">
                 <a href="thread.html">Asyncore Files</a>
@@ -66,7 +67,7 @@
             </li>
             <!-- Show these option only on mobile-->
             <li class="navbar-item mobile-only">
-                <a href="profile.html">My Profile</a>
+                <a href="profile.php">My Profile</a>
             </li>
             <li class="navbar-item mobile-only">
                 <a href="#">Logout</a>
@@ -75,31 +76,38 @@
     </nav>
 </header>
 
-  <div class="container">
+<div class="container">
 
-      <div class="col-full push-top">
+    <div class="flex-grid justify-center">
+        <div class="col-2">
 
-          <h1>Create new thread in <i>Cooking</i></h1>
+            <form action="" class="card card-form">
+                <h1 class="text-center">Login</h1>
 
-          <form action="">
-              <div class="form-group">
-                <label for="thread_title">Title:</label>
-                <input type="text" id="thread_title" class="form-input" name="title" >
-              </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" class="form-input">
+                </div>
 
-              <div class="form-group">
-                <label for="thread_content">Content:</label>
-                <textarea id="thread_content" class="form-input" name="content" rows="8" cols="140"></textarea>
-              </div>
+                <div class="push-top">
+                    <button type="submit" class="btn-blue btn-block">Log in</button>
+                </div>
 
-              <div class="btn-group">
-                <button class="btn btn-ghost">Cancel</button>
-                <button class="btn btn-blue" type="submit" name="Publish">Publish </button>
-              </div>
-          </form>
-      </div>
+                <div class="form-actions text-right">
+                    <a href="register.html">Create an account?</a>
+                </div>
+            </form>
 
-  </div>
-
-</body>
-</html>
+            <div class="push-top text-center">
+                <button  class="btn-red btn-xsmall"><i class="fa fa-google fa-btn"></i>Sign in with Google</button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+    include_once DIR . '/src/footer.php';
+?>
