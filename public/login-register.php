@@ -59,7 +59,7 @@
             $_SESSION['EXPLODE_NAME'] = strpos($_SESSION['NAME'], " ") ? $_SESSION['NAME'] : explode(' ', $_SESSION['NAME'])[0];
             $message = printLoginSuccess($_SESSION['EXPLODE_NAME']);
             unsetLoginRegister();
-            header('Refresh: 5; url=https://'. URL_BASE .'/main.php');
+            header('Refresh: 5; url=' . URL_BASE .'main.php', true, 302);
         }
     }
     
@@ -78,9 +78,14 @@
     $descripcion = 'Página de Login/Registro de AsynCore';
     $titulo = 'LOGIN / REGISTRO';
     $css = ["/css/style.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
-    $js = ['/js/script.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js', '/js/login-register-main.js'];
+    $js = ['/js/script.js', '/js/mdb/mdb.min.js', '/js/login-register-main.js'];
+    $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once DIR. '/src/head.php';
-    include_once DIR . '/src/logged-header.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 ?>
     <main>
         <section>
