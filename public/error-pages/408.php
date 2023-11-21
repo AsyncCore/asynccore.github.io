@@ -2,8 +2,9 @@
     include_once '../../src/utils/sessionInit.php';
     $descripcion = 'PÁGINA DE ERROR 403 - TIMEOUT';
     $titulo = 'ERROR 408';
-    $css = ['../css/error-footer.css', '../css/prism.css', '../css/error-pages.css'];
-    $js = ['../js/prism.js', '../js/error-pages.js', 'https://friconix.com/cdn/friconix.js'];
+    $css = ['/css/error-footer.css', '/css/prism.css', '/css/error-pages.css'];
+    $js = ['/js/prism.js', '/js/error-pages.js'];
+    $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once dirname(__DIR__, 2) . '/src/head.php';
 ?>
     <main>
@@ -34,5 +35,5 @@
         <a href="<?= URL_BASE . 'main.php'?>" class="center-link">Intentar con superpoderes</a>
     </main>
 <?php
-    include_once '../../src/footer.php';
+    include_once '../../src/error-footer.php';
 ?>

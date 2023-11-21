@@ -1,8 +1,9 @@
 <?php
     $descripcion = 'PÁGINA DE ERROR 403 - ACCESO DENEGADO';
     $titulo = 'ERROR 403';
-    $css = ['../css/error-footer.css', '../css/prism.css', '../css/error-pages.css'];
-    $js = ['../js/prism.js', '../js/error-pages.js', 'https://friconix.com/cdn/friconix.js'];
+    $css = ['/css/error-footer.css', '/css/prism.css', '/css/error-pages.css'];
+    $js = ['/js/prism.js', '/js/error-pages.js'];
+    $cdn = ['https://friconix.com/cdn/friconix.js'];
     $url = $_SERVER['HTTP_HOST'];
     include_once dirname(__DIR__, 2) . '/src/head.php';
 ?>
@@ -31,5 +32,5 @@
         <a href="https://<?=$url?>/main.php" class="center-link">Intentar con superpoderes</a>
     </main>
 <?php
-    include_once '../../src/footer.php';
+    include_once '../../src/error-footer.php';
 ?>
