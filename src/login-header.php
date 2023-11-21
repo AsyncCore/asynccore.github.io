@@ -35,16 +35,14 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='category.html'>Hilos</a>
+                <a href='category.php'>Hilos</a>
             </li>
             <li class='navbar-item'>
-                <a href='forum.html'>Foro</a>
+                <a href='forum.php'>Foro</a>
             </li>
+            <!-- TODO CREAR LA PAGINA ¿QUIENES SOMOS?-->
             <li class='navbar-item'>
-                <a href='thread.html'>Asyncore Files</a>
-            </li>
-            <li class='navbar-item'>
-                <a href='thread.html'>¿Quiénes somos?</a>
+                <a href='quienes-somos.php'>¿Quiénes somos?</a>
             </li>
         </ul>
     </nav>

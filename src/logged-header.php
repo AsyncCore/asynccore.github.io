@@ -60,9 +60,6 @@
                 <a href='../public/pruebas/new/forum.php'>Forum</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/thread.php'>Asyncore Files</a>
-            </li>
-            <li class='navbar-item'>
                 <a href='../public/pruebas/new/thread.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
