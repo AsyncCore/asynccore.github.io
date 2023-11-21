@@ -5,13 +5,15 @@
      * @var string $currentRoot
      */
     
-    $target_url = $currentDir == '/main.php' ? 'https://' . $currentRoot . '/index.php' : 'https://' . $currentRoot . '/main.php';
+    $target_url = $currentDir == '/main.php'
+        ? 'https://' . $currentRoot . '/index.php'
+        : 'https://' . $currentRoot . '/main.php';
 ?>
 
 <body>
 <header class='header' id='header'>
     
-    <a class='logo' href='<?=$target_url?>>'>
+    <a class='logo' href='<?=$target_url?>'>
         <img alt='AsynCore Logo' src='/img/logo/logo.svg'>
     </a>
     
@@ -26,13 +28,12 @@
     <nav class='navbar'>
         <ul>
             <li class='navbar-user'>
-                <a href='#'>
-                    <img
-                        class='avatar-small' src="<?=$_SESSION['AVATAR']?>>" alt="Avatar usuario <?=$_SESSION['USERNAME']?>">
+                <a href='#'> <!--TODO AQUÍ VA LA DIRECCIÓN DE LA PÁGINA DE USUARIO-->
+                    <img class='avatar-small' src="<?=$_SESSION['AVATAR']?>" alt="Avatar de <?=$_SESSION['USERNAME']?>">
                     <span>
                         <?= $_SESSION['USERNAME'] ?? 'Invitado' ?>
-                        <img alt='' class='icon-profile' src='/img/icons/arrow-profile.svg'>
                     </span>
+                    <img alt='Arrow Profile' class='icon-profile' src='/img/icons/arrow-profile.svg'>
                 </a>
                 
                 <!-- dropdown menu -->
@@ -40,8 +41,9 @@
                 <div id='user-dropdown'>
                     <div class='triangle-drop'></div>
                     <ul class='dropdown-menu'>
-                        <li class='dropdown-menu-item'><a href='../public/pruebas/new/profile.html'>View profile</a></li>
-                        <li class='dropdown-menu-item'><a href='#'>Log out</a></li>
+                        <li class='dropdown-menu-item'><a href='../public/pruebas/new/profile.html'>Perfil</a></li>
+                        <li class='dropdown-menu-item'><a href='#'>Logout</a></li>
+                        <!-- TODO AQUI VA EL LINK DEL LOGOUT -->
                     </ul>
                 </div>
             </li>
@@ -61,14 +63,14 @@
                 <a href='../public/pruebas/new/thread.html'>Asyncore Files</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/thread.html'>¿Quien somos?</a>
+                <a href='../public/pruebas/new/thread.html'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
-                <a href='../public/pruebas/new/profile.html'>My Profile</a>
+                <a href='../public/pruebas/new/profile.html'>Perfil</a>
             </li>
             <li class='navbar-item mobile-only'>
-                <a href='../public/pruebas/new/navbar-login.html'>Logout</a>
+                <a href='../public/pruebas/new/login-header.php'>Logout</a>
             </li>
         </ul>
     </nav>
