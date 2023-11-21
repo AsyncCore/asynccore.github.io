@@ -40,10 +40,9 @@
     <link href="img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
     <link href="css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
-    <link href="css/index-style.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
-    <script src="js/main.js" type="text/javascript"></script>
-    <script src="https://friconix.com/cdn/friconix.js" type="text/javascript"></script>
+    <script defer src="https://friconix.com/cdn/friconix.js" type="text/javascript"></script>
     <title>ASYNCORE PROJECT</title>
 </head>
 <body>

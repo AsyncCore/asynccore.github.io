@@ -1,6 +1,6 @@
 @charset "UTF-8";
-@import "normalize.css";
-@import "footer-style.css";
+@import 'normalize.css';
+@import 'footer.css';
 
 body {
     background-color: #CAF0F8;
@@ -165,10 +165,10 @@ figcaption {
 }
 
 .forum-stats ul {
-    font-size: 0px;
+    font-size: 0;
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .forum-stats ul li {

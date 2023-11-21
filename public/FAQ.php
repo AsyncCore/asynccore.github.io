@@ -45,7 +45,7 @@
 </head>
 <body>
 <?php
-include_once "../src/header.php";
+include_once "../src/logged-header.php";
 ?>
 <main>
   <section class="faq">

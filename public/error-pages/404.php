@@ -1,7 +1,7 @@
 <?php
     $descripcion = 'PÁGINA DE ERROR 404 - NO ENCONTRADO';
     $titulo = 'ERROR 404';
-    $css = ['../css/error-footer-style.css', '../css/prism.css', '../css/error-pages.css'];
+    $css = ['../css/error-footer.css', '../css/prism.css', '../css/error-pages.css'];
     $js = ['../js/prism.js', '../js/error-pages.js', 'https://friconix.com/cdn/friconix.js'];
     $url = $_SERVER['HTTP_HOST'];
     include_once dirname(__DIR__, 2) . '/src/head.php';

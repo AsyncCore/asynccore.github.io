@@ -49,7 +49,7 @@
 <body>
 <header>
     <?php
-		include_once "../src/header.php";
+		include_once "../src/logged-header.php";
 	?>
 </header>
 <div class='container'>

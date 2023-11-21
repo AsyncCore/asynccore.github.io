@@ -77,10 +77,10 @@
     
     $descripcion = 'Página de Login/Registro de AsynCore';
     $titulo = 'LOGIN / REGISTRO';
-    $css = ["/css/bootstrap/bootstrap.min.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
-    $js = ['/js/main-main.js', '/js/bootstrap/bootstrap.bundle.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js', '/js/login-register-main.js'];
+    $css = ["/css/style.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
+    $js = ['/js/script.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js', '/js/login-register-main.js'];
     include_once DIR. '/src/head.php';
-    include_once DIR . '/src/header.php';
+    include_once DIR . '/src/logged-header.php';
 ?>
     <main>
         <section>

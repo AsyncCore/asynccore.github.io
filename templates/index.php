@@ -5,7 +5,7 @@ $css = ['/css/bootstrap/bootstrap.min.css', '/css/mdb/mdb.min.css', '/css/login-
 $js = ['js/main-main.js', '/js/bootstrap/bootstrap.bundle.js', '/js/mdb/mdb.min.js', 'https://friconix.com/cdn/friconix.js'];
 $url = $_SERVER['HTTP_HOST'];
 include_once '../src/head.php';
-include_once '../src/header.php';
+include_once '../src/logged-header.php';
 ?>
 <main>
     <section>

@@ -1,6 +1,6 @@
 @import 'normalize.css';
 @import 'header-style.css';
-@import 'footer-style.css';
+@import 'footer.css';
 
 html{
     font-size: 14px;

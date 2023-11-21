@@ -43,7 +43,7 @@
 </head>
 <body>
 <?php
-include_once "../src/header.php";
+include_once "../src/logged-header.php";
 ?>
 <main>
     <h2 class="editar-titulo">Crear Hilo</h2>

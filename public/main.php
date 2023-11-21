@@ -1,9 +1,9 @@
 <?php
     /**
-    * @var string $descripcion /src/header.php
-    * @var string $titulo /src/header.php
-    * @var string $css /src/header.php
-    * @var string $js /src/header.php
+    * @var string $descripcion /src/logged-header.php
+    * @var string $titulo /src/logged-header.php
+    * @var string $css /src/logged-header.php
+    * @var string $js /src/logged-header.php
     */
     
     require '../src/utils/sessionInit.php';
@@ -18,7 +18,7 @@
     $css = ["css/style.css"];
     $js = ["js/script.js", "https://friconix.com/cdn/friconix.js"];
 	include_once DIR . '/src/head.php';
-    include_once DIR . '/src/header.php';
+    include_once DIR . '/src/logged-header.php';
 ?>
 <main>
     <div class="container">

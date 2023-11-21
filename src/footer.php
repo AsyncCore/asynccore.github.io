@@ -3,7 +3,6 @@
 echo <<<HTML
     <footer class="footer">
     <div class="forum-stats desktop-only">
-        <hr>
         <ul>
             <li><i class="fa fa-user-circle-o"></i>$count-active-users online</li>
             <li><i class="fa fa-user-o"></i>$count-users registered</li>
