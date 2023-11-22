@@ -2,10 +2,11 @@
     namespace src\managers;
     
     use PDO;
+    use PDOException;
     use src\Logger;
     use src\LogLevels;
     
-    class ThreadsManager
+    class ThreadManager
     {
         private PDO $db;
         private const CREATE_THREAD = 'INSERT INTO HILOS (USER_ID, TITULO, SUBTITULO, CONTENIDO, CAT_ID) VALUES (:userID, :titulo, :subtitulo, :contenido, :catID)';
@@ -15,7 +16,7 @@
             $this->db = $dbConnection;
         }
         
-        public function createThread($userId, $title, $subtitulo, $contenido, $catID)
+        public function createThread($userId, $title, $subtitulo, $contenido, $catID): bool|string
         {
             try {
                 $consulta = $this->db->prepare(self::CREATE_THREAD);
@@ -26,7 +27,7 @@
                 $consulta->bindParam(':catID', $catID);
                 $consulta->execute();
                 return $this->db->lastInsertId();
-            } catch (\PDOException $e) {
+            } catch (PDOException $e) {
                 Logger::log("Error al crear hilo: " . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }

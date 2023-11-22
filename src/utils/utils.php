@@ -73,6 +73,36 @@
         return date_format(date_create($date), $format);
     }
     
+    function timeAgo(string $datetime): string
+    {
+        $timeAgo = strtotime($datetime);
+        $currentTime = time();
+        $timeDifference = $currentTime - $timeAgo;
+        $seconds = $timeDifference;
+        $minutes = round($seconds / 60);
+        $hours = round($seconds / 3600);
+        $days = round($seconds / 86400);
+        $weeks = round($seconds / 604800);
+        $months = round($seconds / 2629440);
+        $years = round($seconds / 31553280);
+        
+        if ($seconds <= 60) {
+            return 'hace menos de un minuto';
+        } else if ($minutes <= 60) {
+            return $minutes == 1 ? 'hace un minuto' : "hace $minutes minutos";
+        } else if ($hours <= 24) {
+            return $hours == 1 ? 'hace una hora' : "hace $hours horas";
+        } else if ($days <= 7) {
+            return $days == 1 ? 'ayer' : "hace $days días";
+        } else if ($weeks <= 4.3) {
+            return $weeks == 1 ? 'hace una semana' : "hace $weeks semanas";
+        } else if ($months <= 12) {
+            return $months == 1 ? 'hace un mes' : "hace $months meses";
+        } else {
+            return $years == 1 ? 'hace un año' : "hace $years años";
+        }
+    }
+    
     /**
      * Función para sanear los datos del formulario.
      *

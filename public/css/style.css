@@ -51,12 +51,6 @@ figcaption {
     text-align: center;
     width: 100%;
     margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #f8f9fa;
 }
 
 .list-title {
@@ -190,6 +184,12 @@ figcaption {
 
 .forum-stats ul li .fa-comments-o {
     font-size: 26px;
+}
+
+.forum-icon {
+    height: 50px;
+    width: 50px;
+    margin-right: 2rem;
 }
 
 .thread-list {
@@ -1424,7 +1424,7 @@ button {
 }
 
 button {
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }

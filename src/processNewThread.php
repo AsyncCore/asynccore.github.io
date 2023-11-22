@@ -4,7 +4,7 @@
     use src\LogLevels;
     use src\managers\TagManager;
     use src\db\DatabaseConnection;
-    use src\managers\ThreadsManager;
+    use src\managers\ThreadManager;
     
     require 'utils/sessionInit.php';
     require_once 'utils/utils.php';
@@ -29,11 +29,11 @@
     
     $db = DatabaseConnection::getInstance()->getConnection();
     $tagManager = new TagManager($db);
-    $threadManager = new ThreadsManager($db);
+    $threadManager = new ThreadManager($db);
     
     $errors = [];
     
-    $catId = $_GET['CAT_ID'];
+    $catId = htmlspecialchars($_GET['CAT_ID']);
     
     // Comprobar si el formulario ha sido enviado
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {

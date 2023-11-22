@@ -25,6 +25,7 @@ class UserManager {
     private const UPDATE_USER_PASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
     private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
     private const DELETE_USER = 'DELETE FROM USERS WHERE USERS.USER_ID = :userID';
+    private const GET_USER_AVATAR_BY_ID = 'SELECT USERS.AVATAR FROM USERS WHERE USERS.USER_ID = :userID';
 
     /**
      * Constructor de la clase UserManager.
@@ -117,6 +118,18 @@ class UserManager {
         }catch (PDOException $e){
             Logger::log("Error al obtener el número de usuarios: " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
             return -1;
+        }
+    }
+    
+    public function getUserAvatarById(string $userId): bool|string {
+        try{
+            $consulta = $this->db->prepare(self::GET_USER_AVATAR_BY_ID);
+            $consulta->bindParam(':userID', $userId);
+            $consulta->execute();
+            return $consulta->fetchColumn();
+        }catch (PDOException $e){
+            Logger::log("Error al obtener el avatar del usuario con ID " . $userId . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
+            return false;
         }
     }
 }
