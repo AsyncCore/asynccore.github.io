@@ -31,4 +31,24 @@
                 return false;
             }
         }
+        
+        public function getThread($threadId)
+        {
+        }
+        
+        public function getAllThreads()
+        {
+        }
+        
+        public function updateThread($threadId, $newTitle, $newContent)
+        {
+        }
+        
+        public function deleteThread($threadId)
+        {
+        }
+        
+        public function associateTagWithThread(bool|string $threadId, mixed $tagId)
+        {
+        }
     }

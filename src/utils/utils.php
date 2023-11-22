@@ -12,6 +12,7 @@
      */
     
     /* CONSTANTES CON EL HTML PARA LOS MODALES DE INFO, ÉXITO Y ALERTA */
+    
     const INFO_SVG = '<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                         <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
                             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
@@ -94,6 +95,52 @@
         $data = stripslashes($data);
         return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     }
+    
+    function validateTitle($data): string
+    {
+        if (empty($data)) {
+            return TITLE_EMPTY_ERROR;
+        } else {
+            $length = strlen($data);
+            if ($length < TITLE_MIN_LENGTH) {
+                return TITLE_MIN_LENGTH_ERROR;
+            } else if ($length > TITLE_MAX_LENGTH) {
+                return TITLE_MAX_LENGTH_ERROR;
+            }
+            return EMPTY_STRING;
+        }
+    }
+    
+    function validateSubtitle($data): string
+    {
+        if (empty($data)) {
+            return SUBTITLE_EMPTY_ERROR;
+        } else {
+            $length = strlen($data);
+            if ($length < SUBTITLE_MIN_LENGTH) {
+                return SUBTITLE_MIN_LENGTH_ERROR;
+            } else if ($length > SUBTITLE_MAX_LENGTH) {
+                return SUBTITLE_MAX_LENGTH_ERROR;
+            }
+            return EMPTY_STRING;
+        }
+    }
+    
+    function validateContent($data): string
+    {
+        if (empty($data)) {
+            return CONTENT_EMPTY_ERROR;
+        } else {
+            $length = strlen($data);
+            if ($length < CONTENT_MIN_LENGTH) {
+                return CONTENT_MIN_LENGTH_ERROR;
+            } else if ($length > CONTENT_MAX_LENGTH) {
+                return CONTENT_MAX_LENGTH_ERROR;
+            }
+            return EMPTY_STRING;
+        }
+    }
+    
     
     /**
      * Función para validar el email que comprueba si está vacío y si no lo está comprueba que sea de EducaMadrid.
