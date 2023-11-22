@@ -25,7 +25,7 @@
         include_once DIR . '/src/login-header.php';
     }
 ?>
-  <div class="container">
+<div class="container">
     <div class="flex-grid">
           <div class="col-3 push-top">
 
@@ -36,25 +36,26 @@
                            class="avatar-xlarge">
                   </p>
 
-                  <h1 class="title">joker</h1>
+                  <h1 class="title">$username</h1>
 
-                  <p class="text-lead">Joseph Kerr</p>
+                  <p class="text-lead">$name</p>
 
                   <p class="text-justify">
-                      No bio specified.
+                      $firma
                   </p>
 
-                  <span class="online">joker is online</span>
+                  <span class="online">$username is online</span>
 
-
+                    <!--TODO ACTUALIZAR BASE DE DATOS PARA AÑADIR ESTOS CAMPOS-->
                   <div class="stats">
-                      <span>116 posts</span>
-                      <span>73 threads</span>
+                      <span>$cant-posts posts</span>
+                      <span>$cant-hilos threads</span>
                   </div>
 
                   <hr>
 
-                  <p class="text-large text-center"><i class="fa fa-globe"></i> <a href="#">batman.com</a></p>
+                  <span>email</span>
+                  <p class="text-large text-center"><i class="fa fa-globe"></i>$correo-educamadrid</p>
 
               </div>
 
@@ -62,16 +63,18 @@
 
               <div class="text-center">
                 <hr>
-                <a href="edit-profile.html" class="btn-green btn-small">Edit Profile</a>
+                <a href="edit-profile.php" class="btn-green btn-small">Edit Profile</a>
               </div>
 
           </div>
-
-          <div class="col-7 push-top">
+        <!--AQUI SE MUESTRA LA ACTIVIDAD RECIENTE DE ESTE USUARIO Y ESTOS SON EJEMPLOS DE COSAS QUE PUED EHABER HECHO COMO CREAR HILOS O RESPONDER A POSTS-->
+        <!--TODO LO QUE ESTÁ ENTRE PARENTESIS EN LOS HILSO/POSTS ES SOLO TEXTO DE EJEMPLO Y HAY QUE QUITARLO -->
+        <!--TODO HACER LA PAGINA EN LA QUE SE MUESTRAN UNICAMENTE TODOS LOS HILOS QUE HA CREADO EL USUARIO(SEE ONLU STARTEDTHREADS)-->
+        <div class="col-7 push-top">
 
               <div class="profile-header">
                   <span class="text-lead">
-                      Joker's recent activity
+                      $username's recent activity
                   </span>
                   <a href="#">See only started threads?</a>
               </div>
@@ -83,15 +86,15 @@
                       <div class="activity-header">
                           <img src="https://i.imgur.com/OqlZN48.jpg" alt="" class="hide-mobile avatar-small">
                           <p class="title">
-                              How can I chop onions without crying?
-                              <span>Joker started a topic in Cooking</span>
+                              $titulo-hilo
+                              <span>$username started a topic in $categoria</span>
                           </p>
 
                       </div>
 
                       <div class="post-content">
                         <div>
-                          <p>I absolutely love onions, but they hurt my eyes! Is there a way where you can chop onions without crying?</p>
+                          <p>$contenido(I absolutely love onions, but they hurt my eyes! Is there a way where you can chop onions without crying?)</p>
                         </div>
                       </div>
 
@@ -107,8 +110,8 @@
                               <img src="http://i.imgur.com/s0AzOkO.png" alt="" class="hide-mobile avatar-small">
 
                               <p class="title">
-                                  Wasabi vs horseraddish?
-                                  <span>Joker replied to Robin's topic in Cooking</span>
+                                  $titulo-hilo/post-al-que-responde
+                                  <span>$username replied to $username-propietario topic in $categoria</span>
                               </p>
 
                           </div>
@@ -117,17 +120,17 @@
                             <div>
                               <blockquote class="small">
                                   <div class="author">
-                                      <a href="/user/robin" class=""> robin</a>
+                                      <a href="/user/robin" class="">$username-propietario</a>
                                       <span class="time">a month ago</span>
                                       <i class="fa fa-caret-down"></i>
                                   </div>
 
                                   <div class="quote">
-                                    <p>Is horseradish and Wasabi the same thing? I&amp;#39;ve heard so many different things.</p>
+                                    <p>$contenido-hilo/post-al-que-responde(Is horseradish and Wasabi the same thing? I&amp;#39;ve heard so many different things.)</p>
                                   </div>
                               </blockquote>
 
-                              <p>They're not the same!</p>
+                              <p>$contenido-de-la-respuesta(They're not the same!)</p>
                             </div>
                           </div>
 
@@ -141,8 +144,8 @@
                       <div class="activity-header">
                           <img src="https://i.imgur.com/OqlZN48.jpg" alt="" class="hide-mobile avatar-small">
                           <p class="title">
-                              Where is the sign in button??????!?!?!?!
-                              <span>Joker replied to his own topic in Questions & Feedback</span>
+                              $titulo-hilo/post-al-que-responde
+                              <span>$username replied to his own topic in $categoria</span>
                           </p>
 
                       </div>

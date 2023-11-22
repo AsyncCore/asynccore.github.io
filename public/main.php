@@ -35,16 +35,16 @@ if (isset($_SESSION['USER_ID'])) {
                 <div class="thread">
                     <div>
                         <p>
-                            <a href="thread.php">How can I chop onions without crying?</a>
+                            <a href="thread.php">$Título-hilo</a>
                         </p>
                         <p class="text-faded text-xsmall">
-                            By <a href="profile.php">Joseph Kerr</a>, yesterday.
+                            By <a href="profile.php">$username-propietario</a>, yesterday($fecha-creacion?).
                         </p>
                     </div>
 
                     <div class="activity">
                         <p class="replies-count">
-                            1 reply
+                            $cant-reply
                         </p>
 
                         <img class="avatar-medium"
@@ -53,7 +53,7 @@ if (isset($_SESSION['USER_ID'])) {
 
                         <div>
                             <p class="text-xsmall">
-                                <a href="profile.php">Bruce Wayne</a>
+                                <a href="profile.php">$username-last-response</a>
                             </p>
                             <p class="text-xsmall text-faded">2 hours ago</p>
                         </div>
@@ -63,48 +63,46 @@ if (isset($_SESSION['USER_ID'])) {
                 <div class="thread">
                     <div>
                         <p>
-                            <a href="thread.php">Wasabi vs horseraddish?</a>
+                            <a href="thread.php">$Título-hilo</a>
                         </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">Robin</a>, 8 hours ago</p>
+                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours ago($fecha-creacion?)</p>
                     </div>
 
                     <div class="activity">
                         <p class="replies-count">
-                            3 replies
+                            $cant-reply
                         </p>
 
                         <img class="avatar-medium"
                              src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
                              alt="">
                         <span>
-                          <a class="text-xsmall" href="profile.php">Ray-Nathan James</a>
+                          <a class="text-xsmall" href="profile.php">$username-last-response</a>
                           <p class="text-faded text-xsmall">3 hours ago</p>
                       </span>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
-        <div class="col-full">
+        <div class="col-full push-top" >
             <div class="thread-list">
 
-                <h2 class="list-title">Últimos Hilos</h2>
+                <h2 class="list-title">Hilos populares</h2>
 
                 <div class="thread">
                     <div>
                         <p>
-                            <a href="thread.php">How can I chop onions without crying?</a>
+                            <a href="thread.php">$Título-hilo</a>
                         </p>
                         <p class="text-faded text-xsmall">
-                            By <a href="profile.php">Joseph Kerr</a>, yesterday.
+                            By <a href="profile.php">$username-propietario</a>, yesterday($fecha-creacion?).
                         </p>
                     </div>
 
                     <div class="activity">
                         <p class="replies-count">
-                            1 reply
+                            $cant-reply
                         </p>
 
                         <img class="avatar-medium"
@@ -113,7 +111,7 @@ if (isset($_SESSION['USER_ID'])) {
 
                         <div>
                             <p class="text-xsmall">
-                                <a href="profile.php">Bruce Wayne</a>
+                                <a href="profile.php">$username-last-response</a>
                             </p>
                             <p class="text-xsmall text-faded">2 hours ago</p>
                         </div>
@@ -123,27 +121,28 @@ if (isset($_SESSION['USER_ID'])) {
                 <div class="thread">
                     <div>
                         <p>
-                            <a href="thread.php">Wasabi vs horseraddish?</a>
+                            <a href="thread.php">$Título-hilo</a>
                         </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">Robin</a>, 8 hours ago</p>
+                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours ago($fecha-creacion?)</p>
                     </div>
 
                     <div class="activity">
                         <p class="replies-count">
-                            3 replies
+                            $cant-reply
                         </p>
 
                         <img class="avatar-medium"
                              src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
                              alt="">
                         <span>
-                          <a class="text-xsmall" href="profile.php">Ray-Nathan James</a>
+                          <a class="text-xsmall" href="profile.php">$username-last-response</a>
                           <p class="text-faded text-xsmall">3 hours ago</p>
                       </span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </main>
 <?php
 include_once DIR . '/src/footer.php';
