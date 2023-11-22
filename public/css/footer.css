@@ -1,5 +1,13 @@
 body {
-    margin-bottom: 109px!important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
@@ -12,6 +20,7 @@ body {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
     background-color: #f8f9fa;
 }
 
@@ -44,7 +53,6 @@ body {
 .friconix{
     font-size: 14px;
     margin: 0;
-    width: 20%;
     text-decoration: none;
 }
 
@@ -57,7 +65,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    width: 20%;
 }
 
 .footer-stats ul{

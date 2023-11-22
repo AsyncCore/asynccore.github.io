@@ -25,6 +25,7 @@ if (isset($_SESSION['USER_ID'])) {
   include_once DIR . '/src/login-header.php';
 }
 ?>
+
 <main>
     <div class="container">
         <div class="col-full push-top">
