@@ -16,19 +16,19 @@
     $countPosts = '0';
     
     echo <<<HTML
-    <footer class="footer">
+   <footer class="footer">
         <div class="forum-stats desktop-only">
             <ul>
-                <li><i class="fa fa-user-circle-o"></i> {$usersOnline}</li>
-                <li><i class="fa fa-user-o"></i> {$countUsersRegistered}</li>
-                <li><i class="fa fa-comments-o"></i> {$countThreads} threads</li>
-                <li><i class="fa fa-comment-o"></i> {$countPosts} posts</li>
+                <li><i class="fi-cnsuxl-user-circle"></i> {$usersOnline}</li>
+                <li><i class="fi-xnsuxl-user-solid"></i> {$countUsersRegistered}</li>
+                <li><i class="fi-xnsuxl-comment-dots-solid"></i> {$countThreads} threads</li>
+                <li><i class="fi-xnluxl-comment"></i> {$countPosts} posts</li>
             </ul>
         </div>
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <span class="text-muted">Copyright &copy; AsynCore 2023</span>
+                    <span class="footer-title">Copyright &copy; AsynCore 2023</span>
                 </div>
                 <div class="footer-right">
                     <a href="https://friconix.com/" target="_blank" rel="noopener noreferrer" class="friconix">Friconix</a>

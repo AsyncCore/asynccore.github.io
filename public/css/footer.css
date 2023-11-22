@@ -3,12 +3,16 @@ body {
 }
 
 .footer {
-    position: fixed;
-    background-color: #f8f9fa;
-    padding: 20px;
+    padding: 1rem;
+    text-align: center;
     width: 100%;
-    bottom: 0;
-    left: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #f8f9fa;
 }
 
 .footer .footer-container {
@@ -60,7 +64,7 @@ body {
     display: flex;
     font-size: 14px;
     justify-content: space-around;
-    align-items: space-around;
+    align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -73,5 +77,4 @@ body {
 .footer-title{
     font-size: 16px;
     font-weight: bold;
-    width: 60%;
 }
