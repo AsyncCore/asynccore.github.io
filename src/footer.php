@@ -17,6 +17,7 @@
     
     echo <<<HTML
    <footer class="footer">
+        <div class="footer-container">
         <div class="forum-stats desktop-only">
             <ul>
                 <li><i class="fi-cnsuxl-user-circle"></i> {$usersOnline}</li>
@@ -25,10 +26,11 @@
                 <li><i class="fi-xnluxl-comment"></i> {$countPosts} posts</li>
             </ul>
         </div>
+        </div>
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <span class="footer-title">Copyright &copy; AsynCore 2023</span>
+                    <span>Copyright &copy; AsynCore 2023</span>
                 </div>
                 <div class="footer-right">
                     <a href="https://friconix.com/" target="_blank" rel="noopener noreferrer" class="friconix">Friconix</a>
