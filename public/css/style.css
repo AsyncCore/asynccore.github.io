@@ -3,7 +3,7 @@
 @import 'footer.css';
 
 body {
-    background-color: #CAF0F8;
+    background-color: #f2f2f2;
     min-height: 100vh;
 }
 
@@ -933,14 +933,15 @@ ul {
     padding: 0;
 }
 
-.navbar {
+.navbar1 {
     width: 100%!important;
     display:flex!important;
     flex-direction: row-reverse!important;
     justify-content: space-between!important;
 }
 
-.navbar ul {
+.navbar1 ul {
+    margin: 0!important;
     display: flex!important;
     align-items: center!important;
     justify-content: flex-start!important;
@@ -988,7 +989,7 @@ ul .navbar-item:last-child, ul .navbar-mobile-item:last-child {
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
-    .navbar {
+    .navbar1 {
         display: none!important;
         position: absolute!important;
         z-index: 10!important;

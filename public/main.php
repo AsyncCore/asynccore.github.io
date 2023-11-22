@@ -31,12 +31,12 @@
             <div class="forum-list">
     
                 <h2 class="list-title">
-                    <a href="category.html">Últimos Hilos</a>
+                    <a href="category.php">Últimos Hilos</a>
                 </h2>
     
                 <div class="forum-listing">
                     <div class="forum-details">
-                        <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                        <a class="text-xlarge" href="forum.php">$titulo-hilo</a>
                         <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
                     </div>
     
@@ -48,15 +48,15 @@
                         <img alt=""
                              class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
                         <div class="last-thread-details">
-                            <a href="thread.html">$tag</a>
-                            <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                            <a href="thread.php">$tag</a>
+                            <p class="text-xsmall">De <a href="profile.php">$user</a>, $time-ago</p>
                         </div>
                     </div>
                 </div>
     
                 <div class="forum-listing">
                     <div class="forum-details">
-                        <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                        <a class="text-xlarge" href="forum.php">$titulo-hilo</a>
                         <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
                     </div>
     
@@ -68,8 +68,8 @@
                         <img alt=""
                              class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
                         <div class="last-thread-details">
-                            <a href="thread.html">$tag</a>
-                            <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                            <a href="thread.php">$tag</a>
+                            <p class="text-xsmall">De <a href="profile.php">$user</a>, $time-ago</p>
                         </div>
                     </div>
                 </div>
@@ -77,12 +77,12 @@
             <div class="forum-list">
     
                 <h2 class="list-title">
-                    <a href="category.html">Hilos populares</a>
+                    <a href="category.php">Hilos populares</a>
                 </h2>
     
                 <div class="forum-listing">
                     <div class="forum-details">
-                        <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                        <a class="text-xlarge" href="forum.php">$titulo-hilo</a>
                         <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
                     </div>
     
@@ -94,15 +94,15 @@
                         <img alt=""
                              class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
                         <div class="last-thread-details">
-                            <a href="thread.html">$tag</a>
-                            <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                            <a href="thread.php">$tag</a>
+                            <p class="text-xsmall">De <a href="profile.php">$user</a>, $time-ago</p>
                         </div>
                     </div>
                 </div>
     
                 <div class="forum-listing">
                     <div class="forum-details">
-                        <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                        <a class="text-xlarge" href="forum.php">$titulo-hilo</a>
                         <p>$subtitulo-hilo(no estoy seguro de que exista)</p>
                     </div>
     
@@ -114,8 +114,8 @@
                         <img alt=""
                              class="avatar" src="https://pbs.twimg.com/profile_images/719242842598699008/Nu43rQz1_400x400.jpg">
                         <div class="last-thread-details">
-                            <a href="thread.html">$tag</a>
-                            <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                            <a href="thread.php">$tag</a>
+                            <p class="text-xsmall">De <a href="profile.php">$user</a>, $time-ago</p>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
                 <div class="forum-listing">
     
                     <div class="forum-details">
-                        <a class="text-xlarge" href="forum.html">$titulo-hilo</a>
+                        <a class="text-xlarge" href="forum.php">$titulo-hilo</a>
                         <!-- TODO: Bucle para cargar todos los tags del hilo usando PHP -->
                         <ul class="subforums">
                             <li><a href="#">$tag</a></li>
@@ -144,8 +144,8 @@
                              class="avatar"
                              src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e">
                     <div class="last-thread-details">
-                                <a href="thread.html">$tag</a>
-                                <p class="text-xsmall">De <a href="profile.html">$user</a>, $time-ago</p>
+                                <a href="thread.php">$tag</a>
+                                <p class="text-xsmall">De <a href="profile.php">$user</a>, $time-ago</p>
                             </div>
                     </div>
                 </div>

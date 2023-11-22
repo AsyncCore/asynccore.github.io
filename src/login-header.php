@@ -24,7 +24,7 @@
     </div>
 
     <!-- use .navbar-open to open nav -->
-    <nav class='navbar'>
+    <nav class='navbar1'>
         <ul>
             <li class='navbar-item'>
                 <a href='login-register.php'>Login / Registro</a>
@@ -35,10 +35,16 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='category.php'>Hilos</a>
+                <a href='category.php'>categorias</a>
             </li>
             <li class='navbar-item'>
                 <a href='forum.php'>Foro</a>
+            </li>
+            <li class='navbar-item'>
+                <a href='thread.php'>Hilos</a>
+            </li>
+            <li class='navbar-item'>
+                <a href='FAQ.php'>FAQ</a>
             </li>
             <!-- TODO CREAR LA PAGINA ¿QUIENES SOMOS?-->
             <li class='navbar-item'>

@@ -25,10 +25,10 @@
     </div>
     
     <!-- use .navbar-open to open nav -->
-    <nav class='navbar'>
+    <nav class='navbar1'>
         <ul>
             <li class='navbar-user'>
-                <a href='#'> <!--TODO AQUÍ VA LA DIRECCIÓN DE LA PÁGINA DE USUARIO-->
+                <a href='profile.php'> <!--TODO AQUÍ VA LA DIRECCIÓN DE LA PÁGINA DE USUARIO-->
                     <img class='avatar-small' src="<?=$_SESSION['AVATAR']?>" alt="Avatar de <?=$_SESSION['USERNAME']?>">
                     <span>
                         <?= $_SESSION['USERNAME'] ?? 'Invitado' ?>
@@ -41,7 +41,7 @@
                 <div id='user-dropdown'>
                     <div class='triangle-drop'></div>
                     <ul class='dropdown-menu'>
-                        <li class='dropdown-menu-item'><a href='../public/pruebas/new/profile.php'>Perfil</a></li>
+                        <li class='dropdown-menu-item'><a href='profile.php'>Perfil</a></li>
                         <li class='dropdown-menu-item'><a href='#'>Logout</a></li>
                         <!-- TODO AQUI VA EL LINK DEL LOGOUT -->
                     </ul>
@@ -54,20 +54,23 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/category.php'>Hilos</a>
+                <a href='category.php'>Hilos</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/forum.php'>Forum</a>
+                <a href='forum.php'>Forum</a>
             </li>
             <li class='navbar-item'>
-                <a href='../public/pruebas/new/thread.php'>¿Quiénes somos?</a>
+                <a href='FAQ.php'>FAQ</a>
+            </li>
+            <li class='navbar-item'>
+                <a href='thread.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
-                <a href='../public/pruebas/new/profile.php'>Perfil</a>
+                <a href='profile.php'>Perfil</a>
             </li>
             <li class='navbar-item mobile-only'>
-                <a href='../public/pruebas/new/login-header.php'>Logout</a>
+                <a href='login-header.php'>Logout</a>
             </li>
         </ul>
     </nav>

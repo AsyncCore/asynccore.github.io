@@ -27,14 +27,14 @@ if (isset($_SESSION['USER_ID'])) {
 ?>
 <div class="container">
     <div class="col-full push-top">
-        <h1>Discussions</h1>
+        <h1>Categorias</h1>
     </div>
 
     <div class="col-full">
         <div class="forum-list">
 
             <h2 class="list-title">
-                <a href="category.php">Discussions</a>
+                <span>Categorias</span>
             </h2>
             <!--TODO LAS CATEGORIAS SE INTRODUCEN DE LA BASE DE DATOS CON PHP-->
             <div class="forum-listing">
