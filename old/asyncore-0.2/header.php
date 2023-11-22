@@ -9,7 +9,7 @@
         <span class="middle bar"></span>
         <span class="bottom bar"></span>   
     </div>    
-    <nav class="navbar">
+    <nav class="navbar1">
     <ul>
             <li class="navbar-user">
                 <a href="#">

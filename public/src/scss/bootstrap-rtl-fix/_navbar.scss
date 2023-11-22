@@ -3,7 +3,7 @@
 // Provide a static navbar from which we expand to create full-width, fixed, and
 // other navbar variations.
 
-.navbar {
+.navbar1 {
   // scss-docs-start navbar-css-vars
   --#{$prefix}navbar-padding-x: #{if($navbar-padding-x == null, 0, $navbar-padding-x)};
   --#{$prefix}navbar-padding-y: #{$navbar-padding-y};

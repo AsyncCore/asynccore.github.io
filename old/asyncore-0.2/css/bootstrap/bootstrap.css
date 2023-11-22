@@ -3947,7 +3947,7 @@ textarea.form-control-lg {
   display: block;
 }
 
-.navbar {
+.navbar1 {
   --bs-navbar-padding-x: 0;
   --bs-navbar-padding-y: 0.5rem;
   --bs-navbar-color: rgba(var(--bs-emphasis-color-rgb), 0.65);
@@ -3975,13 +3975,13 @@ textarea.form-control-lg {
   justify-content: space-between;
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
-.navbar > .container,
-.navbar > .container-fluid,
-.navbar > .container-sm,
-.navbar > .container-md,
-.navbar > .container-lg,
-.navbar > .container-xl,
-.navbar > .container-xxl {
+.navbar1 > .container,
+.navbar1 > .container-fluid,
+.navbar1 > .container-sm,
+.navbar1 > .container-md,
+.navbar1 > .container-lg,
+.navbar1 > .container-xl,
+.navbar1 > .container-xxl {
   display: flex;
   flex-wrap: inherit;
   align-items: center;
@@ -4359,7 +4359,7 @@ textarea.form-control-lg {
 }
 
 .navbar-dark,
-.navbar[data-bs-theme=dark] {
+.navbar1[data-bs-theme=dark] {
   --bs-navbar-color: rgba(255, 255, 255, 0.55);
   --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
   --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);

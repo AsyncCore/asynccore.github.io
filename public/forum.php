@@ -38,7 +38,7 @@
                   <h1>Cooking</h1>
                   <p class="text-lead">Discuss your passion for food and cooking</p>
               </div>
-              <a href="new-thread.php" class="btn-green btn-small">Start a thread</a>
+              <a href="crearHilo.php" class="btn-green btn-small">Start a thread</a>
           </div>
       </div>
 
