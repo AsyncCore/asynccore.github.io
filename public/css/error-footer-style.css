@@ -1,8 +1,12 @@
+body {
+    margin-bottom: 109px!important;
+}
+
 .footer {
-    background-color: #353535;
-    padding: 1.2rem;
-    width: 100%;
     position: fixed;
+    background-color: #f8f9fa;
+    padding: 20px;
+    width: 100%;
     bottom: 0;
     left: 0;
 }

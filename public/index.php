@@ -39,8 +39,9 @@
     <link color="#5bbad5" href="/img/favicon/safari-pinned-tab.svg" rel="mask-icon">
     <link href="img/favicon/favicon.ico" rel="shortcut icon">
     <!-- CSS -->
-    <link href="css/mdb/mdb.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
+    <link href="css/footer.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script defer src="https://friconix.com/cdn/friconix.js" type="text/javascript"></script>
     <title>ASYNCORE PROJECT</title>
@@ -68,6 +69,3 @@
         </p>
     </section>
 </main>
-<?php
-include_once "../src/footer.php";
-?>

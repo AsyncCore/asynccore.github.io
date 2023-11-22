@@ -24,6 +24,11 @@ h1 {
     animation: pulse 2s infinite;
 }
 
+body a {
+    text-decoration: none;
+    color: blue!important;
+}
+
 @keyframes pulse {
     0% {
         transform: scale(1);
