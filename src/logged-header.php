@@ -63,7 +63,7 @@
                 <a href='FAQ.php'>FAQ</a>
             </li>
             <li class='navbar-item'>
-                <a href='thread.php'>¿Quiénes somos?</a>
+                <a href='about-us.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
