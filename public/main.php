@@ -27,7 +27,7 @@ if (isset($_SESSION['USER_ID'])) {
 ?>
 
 <main>
-    <div class="container">
+    <div class="container ">
         <div class="col-full push-top">
             <div class="thread-list">
 

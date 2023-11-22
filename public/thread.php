@@ -26,7 +26,7 @@ if (isset($_SESSION['USER_ID'])) {
 }
 ?>
 <main>
-    <div class="container">
+    <div class="container page-content">
 
         <div class="col-large push-top">
 
