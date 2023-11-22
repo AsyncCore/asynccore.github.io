@@ -32,6 +32,10 @@ if (isset($_SESSION['USER_ID'])) {
       <li>
         <h3>1. ¿Cómo puedo registrarme en el foro?</h3>
         <p>Para registrarte en el foro, sigue los siguientes pasos...</p>
+        <p>Haz clic en el apartado Login/registro ubicado la parte superior derecha,
+        cuando estes en la página te saldrá una caja ubicada en el centro de la pantalla, tendrás que clicar en el botón
+        "Registrarse" ubicado en la parte superior derecha.
+        Introduce tus datos y podrás disfrutar de AsynCore en su totalidad.</p>
       </li>
       <li>
         <h3>2. ¿Cómo publico una pregunta en el foro?</h3>
