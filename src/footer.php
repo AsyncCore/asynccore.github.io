@@ -1,11 +1,17 @@
 <?php
     
     use src\utils\Online;
+    use src\managers\UserManager;
+    use src\db\DatabaseConnection;
     
+    $db = DatabaseConnection::getInstance()->getConnection();
+    $userManager = new UserManager($db);
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
     $usersOnline = Online::who();
-    $countUsersRegistered = '0';
+    $usersOnline = $usersOnline == 1 ? $usersOnline . ' usuario online' : $usersOnline . ' usuarios online';
+    $countUsersRegistered = $userManager->userCount();
+    $countUsersRegistered = $countUsersRegistered == 1 ? $countUsersRegistered . ' usuario registrado' : $countUsersRegistered . ' usuarios registrados';
     $countThreads = '0';
     $countPosts = '0';
     
@@ -13,8 +19,8 @@
     <footer class="footer">
         <div class="forum-stats desktop-only">
             <ul>
-                <li><i class="fa fa-user-circle-o"></i> {$usersOnline} online</li>
-                <li><i class="fa fa-user-o"></i> {$countUsersRegistered} registered</li>
+                <li><i class="fa fa-user-circle-o"></i> {$usersOnline}</li>
+                <li><i class="fa fa-user-o"></i> {$countUsersRegistered}</li>
                 <li><i class="fa fa-comments-o"></i> {$countThreads} threads</li>
                 <li><i class="fa fa-comment-o"></i> {$countPosts} posts</li>
             </ul>

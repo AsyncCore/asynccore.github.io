@@ -134,8 +134,8 @@
                 $_SESSION['EMAIL'] = $usuario['EMAIL'];
                 $_SESSION['USER_ID'] = $usuario['USER_ID'];
                 $_SESSION['AVATAR'] = $usuario['AVATAR'];
-                $_SESSION['FECHA_REGISTRO'] = $usuario['FECHA_REGISTRO'];
-                $_SESSION['TIPO_USUARIO'] = $usuario['TIPO_USUARIO'];
+                $_SESSION['F_REG'] = $usuario['F_REG'];
+                $_SESSION['USER_TYPE'] = $usuario['USER_TYPE'];
                 unsetLoginRegister();
                 header('Location: login-register.php?loginTab&success&login');
             }

@@ -20,6 +20,7 @@ class UserManager {
     private PDO $db;
     private const REGISTRO = 'INSERT INTO USERS (NAME, USERNAME, PASSWORD, EMAIL, FECHA_REGISTRO) VALUES (:name, :username, :password, :mail, NOW())';
     private const LOGIN = 'SELECT * FROM USERS WHERE USERS.EMAIL = :loginEmail';
+    private const GET_USER_COUNT = 'SELECT COUNT(*) FROM USERS';
     private const UPDATE_USERMAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID';
     private const UPDATE_USERPASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID';
     private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
@@ -42,7 +43,7 @@ class UserManager {
      * Método para registrar un usuario.
      *
      * Recibe el nombre de usuario, el email y la contraseña.<br>
-     * La password se encripta con password_hash() y la constante de encriptación PASSWORD_DEFAULT, que usa BCrypt.<br>
+     * La 'password' se encripta con password_hash() y la constante de encriptación PASSWORD_DEFAULT, que usa BCrypt.<br>
      * También se pueden usar las constantes PASSWORD_BCRYPT, PASSWORD_ARGON2I o PASSWORD_ARGON2ID.<br>
      * @see https://www.php.net/manual/es/function.password-hash.php
      * @see https://www.php.net/manual/es/password.constants.php
@@ -89,6 +90,7 @@ class UserManager {
             $consulta->bindParam(':loginEmail', $loginEmail);
             $consulta->execute();
             $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+            Logger::log("Usuario " . $loginEmail . " logueado correctamente", __FILE__, LogLevels::INFO);
         }catch (PDOException $e){
             Logger::log("Error al obtener el usuario con email " . $loginEmail . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
             return false;
@@ -100,6 +102,23 @@ class UserManager {
         }else{
             Logger::log('El usuario con el mail ' . $loginEmail . ' se ha encontrado. Procediendo al sistema de logueo.', __FILE__, LogLevels::INFO);
             return $usuario;
+        }
+    }
+    
+    /**
+     * Método para obtener el número total de usuarios registrados.
+     *
+     * Devuelve el número total de usuarios registrados en la base de datos.<br>
+     * @return int
+     * @throws PDOException
+     */
+    public function userCount(): int {
+        try{
+            $consulta = $this->db->query(self::GET_USER_COUNT);
+            return $consulta->fetchColumn();
+        }catch (PDOException $e){
+            Logger::log("Error al obtener el número de usuarios: " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
+            return -1;
         }
     }
 }
