@@ -67,7 +67,7 @@
             </li>
             <!-- TODO CREAR LA PAGINA ¿QUIENES SOMOS?-->
             <li class='navbar-item'>
-                <a href='quienes-somos.php'>¿Quiénes somos?</a>
+                <a href='about-us.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
