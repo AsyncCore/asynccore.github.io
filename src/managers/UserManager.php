@@ -18,14 +18,12 @@ use src\LogLevels;
  */
 class UserManager {
     private PDO $db;
-    private const REGISTRO = 'INSERT INTO USERS (NAME, USERNAME, PASSWORD, EMAIL, FECHA_REGISTRO) VALUES (:name, :username, :password, :mail, NOW())';
+    private const REGISTRO = 'INSERT INTO USERS (NAME, USERNAME, PASSWORD, EMAIL, F_REG) VALUES (:name, :username, :password, :mail, NOW())';
     private const LOGIN = 'SELECT * FROM USERS WHERE USERS.EMAIL = :loginEmail';
     private const GET_USER_COUNT = 'SELECT COUNT(*) FROM USERS';
-    private const UPDATE_USERMAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID';
-    private const UPDATE_USERPASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID';
+    private const UPDATE_USER_MAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
+    private const UPDATE_USER_PASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
     private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
-    private const GET_USER_BY_USERNAME = 'SELECT * FROM USERS WHERE USERS.USERNAME = :userName';
-    private const GET_USER_BY_EMAIL = 'SELECT * FROM USERS WHERE USERS.EMAIL = :email';
     private const DELETE_USER = 'DELETE FROM USERS WHERE USERS.USER_ID = :userID';
 
     /**
