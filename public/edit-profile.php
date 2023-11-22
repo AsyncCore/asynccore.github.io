@@ -44,31 +44,22 @@
             </div>
 
             <div class="form-group">
-                <label for="user_bio">Bio</label>
+                <label for="user_bio">firma</label>
                 <textarea class="form-input" id="user_bio" placeholder="Write a few words about yourself."></textarea>
             </div>
 
             <div class="stats">
-                <span>116 posts</span>
-                <span>73 threads</span>
+                <span>$cant-posts posts</span>
+                <span>$cant-hilos threads</span>
             </div>
 
             <hr>
-
-            <div class="form-group">
-                <label class="form-label" for="user_website">Website</label>
-                <input autocomplete="off" class="form-input" id="user_website" value="batman.com">
-            </div>
 
             <div class="form-group">
                 <label class="form-label" for="user_email">Email</label>
                 <input autocomplete="off" class="form-input" id="user_email" value="joker@batmail.com">
             </div>
 
-            <div class="form-group">
-                <label class="form-label" for="user_location">Location</label>
-                <input autocomplete="off" class="form-input" id="user_location" value="You wish!">
-            </div>
 
             <div class="btn-group space-between">
                 <button class="btn-ghost">Cancel</button>

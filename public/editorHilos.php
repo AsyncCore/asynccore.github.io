@@ -32,7 +32,10 @@ if (isset($_SESSION['USER_ID'])) {
             <label for="post-title">Título:</label>
             <input id="post-title" name="post-title" required type="text">
         </div>
-
+        <div class="form-group">
+            <label for="post-title">Subtítulo:</label>
+            <input id="post-title" name="post-title" required type="text">
+        </div>
         <div class="form-group">
             <label for="post-tags">Etiquetas:</label>
             <select id="post-tags" multiple name="post-tags">

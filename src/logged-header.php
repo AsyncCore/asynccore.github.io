@@ -54,16 +54,20 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='category.php'>Hilos</a>
+                <a href='category.php'>Categorias</a>
             </li>
             <li class='navbar-item'>
-                <a href='forum.php'>Forum</a>
+                <a href='forum.php'>Foro</a>
+            </li>
+            <li class='navbar-item'>
+                <a href='thread.php'>Hilos</a>
             </li>
             <li class='navbar-item'>
                 <a href='FAQ.php'>FAQ</a>
             </li>
+            <!-- TODO CREAR LA PAGINA ¿QUIENES SOMOS?-->
             <li class='navbar-item'>
-                <a href='thread.php'>¿Quiénes somos?</a>
+                <a href='quienes-somos.php'>¿Quiénes somos?</a>
             </li>
             <!-- Show these option only on mobile-->
             <li class='navbar-item mobile-only'>
