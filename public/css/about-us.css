@@ -173,9 +173,10 @@ body #scene #left-zone .list li.item input[type=radio] ~ .content.content_strawb
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
+    border: solid 4px #499CE8;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_strawberry h1 {
-    color: #D64541;
+    color: #499CE8;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_banana .picto {
     height: 100px;
@@ -185,9 +186,10 @@ body #scene #left-zone .list li.item input[type=radio] ~ .content.content_banana
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
+    border: solid 4px #9010C7;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_banana h1 {
-    color: #F5D76E;
+    color: #9010C7;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_apple .picto {
     height: 100px;
@@ -197,6 +199,7 @@ body #scene #left-zone .list li.item input[type=radio] ~ .content.content_apple 
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
+    border: solid 4px #00B16A;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_apple h1 {
     color: #00B16A;
@@ -209,9 +212,10 @@ body #scene #left-zone .list li.item input[type=radio] ~ .content.content_orange
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 50%;
+    border: solid 4px #ec4444;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_orange h1 {
-    color: #F27935;
+    color: #ec4444;
 }
 body #scene #left-zone .list li.item input[type=radio] ~ .content h1:first-letter {
     text-transform: uppercase;
@@ -225,21 +229,21 @@ body #scene #left-zone .list li.item input[type=radio]:checked ~ label {
     -webkit-animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_strawberry {
-    color: #D64541;
-    border-right: solid 4px #D64541;
+body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_strawberry, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_strawberry:before {
+    color: #499CE8;
+    border-right: solid 4px #499CE8;
 }
-body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_banana {
-    color: #F5D76E;
-    border-right: solid 4px #F5D76E;
+body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_banana, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_banana:before {
+    color: #9010C7;
+    border-right: solid 4px #9010C7;
 }
-body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_apple {
+body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_apple, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_apple:before {
     color: #00B16A;
     border-right: solid 4px #00B16A;
 }
-body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_orange {
-    color: #F27935;
-    border-right: solid 4px #F27935;
+body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_orange, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_orange:before {
+    color: #ec4444;
+    border-right: solid 4px #ec4444;
 }
 body #scene #left-zone .list li.item input[type=radio]:checked ~ .content {
     -webkit-animation-duration: 1500ms;
