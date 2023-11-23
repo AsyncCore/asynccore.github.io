@@ -77,7 +77,7 @@
     
     $descripcion = 'Página de Login/Registro de AsynCore';
     $titulo = 'LOGIN / REGISTRO';
-    $css = ["/css/style.css", "/css/mdb/mdb.min.css", "/css/login-registro-style.css"];
+    $css = ["/css/style.css", "/css/mdb-custom.css", "/css/login-register.css"];
     $js = ['/js/script.js', '/js/mdb/mdb.min.js', '/js/login-register-main.js'];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once DIR. '/src/head.php';
