@@ -106,3 +106,7 @@ textarea {
     float: right;
     margin-top: 13px;
 }
+
+.boton-submit{
+    background-color: #345fb3!important;
+}

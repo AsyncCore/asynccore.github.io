@@ -31,7 +31,7 @@
     $tags = $tagManager->getAllTags();
 ?>
     <main>
-        <h2 class="editar-titulo">Crear Hilo</h2>
+        <h1>Nuevo hilo en <i>$categoria</i></h1>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="create-form" method="POST">
             <div class="form-group">
                 <label for="post-title">Título:</label>
@@ -63,7 +63,10 @@
                 <textarea id="post-content" name="post-content" required rows="4"></textarea>
             </div>
 
-            <input class="form-submit" type="submit" value="Crear Hilo">
+            <div class="btn-group">
+                <button class="btn btn-red">Cancel</button>
+                <button class="btn btn-blue" type="submit" name="Publish">Publish </button>
+            </div>
         </form>
     </main>
 <?php
