@@ -96,6 +96,19 @@ body #scene #left-zone .list li.item input[type=radio] ~ label:hover {
     opacity: 0.75;
     cursor: pointer;
 }
+body #scene #left-zone .list li.item input[type=radio] ~ label.label_straw:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    background-image: url("https://dev.asyncore.es/img/logo/logo.svg");
+    background-position: center;
+    background-size: 75% 75%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
 body #scene #left-zone .list li.item input[type=radio] ~ label.label_strawberry:before {
     content: " ";
     display: block;
@@ -165,6 +178,19 @@ body #scene #left-zone .list li.item input[type=radio] ~ .content {
     justify-content: center;
     flex-direction: column;
 }
+body #scene #left-zone .list li.item input[type=radio] ~ .content.content_straw .picto {
+    height: 100px;
+    width: 100px;
+    background-image: url("https://dev.asyncore.es/img/logo/logo.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: solid 4px #0058C0;
+}
+body #scene #left-zone .list li.item input[type=radio] ~ .content.content_straw h1 {
+    color: #0058C0;
+}
 body #scene #left-zone .list li.item input[type=radio] ~ .content.content_strawberry .picto {
     height: 100px;
     width: 100px;
@@ -228,6 +254,10 @@ body #scene #left-zone .list li.item input[type=radio]:checked ~ label {
     opacity: 1;
     -webkit-animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     animation: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_straw, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_straw:before {
+    color: #0058C0;
+    border-right: solid 4px #0058C0;
 }
 body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_strawberry, body #scene #left-zone .list li.item input[type=radio]:checked ~ label.label_strawberry:before {
     color: #499CE8;

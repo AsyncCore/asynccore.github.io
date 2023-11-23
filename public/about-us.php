@@ -31,10 +31,23 @@ if (isset($_SESSION['USER_ID'])) {
             <ul class='list'>
                 <li class='item'>
                     <input type='radio'
+                           id='Asyncore'
+                           name='basic_carousel'
+                           value='AsynCore'
+                           checked='checked'/>
+                    <label class='label_straw'
+                           for='Asyncore'>AsynCore</label>
+                    <div class='content content_straw'><span class='picto'></span>
+                        <h1>Asyncore</h1>
+                        <p>Nosotros somos AsynCore</p>
+                    </div>
+                </li>
+                <li class='item'>
+                    <input type='radio'
                            id='radio_The garden strawberry (or simply strawberry /ˈstrɔːbᵊri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)'
                            name='basic_carousel'
                            value='The garden strawberry (or simply strawberry /ˈstrɔːbᵊri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)'
-                           checked='checked'/>
+                           />
                     <label class='label_strawberry'
                            for='radio_The garden strawberry (or simply strawberry /ˈstrɔːbᵊri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)'>Daniel
                         Alonso</label>
