@@ -38,7 +38,7 @@
 	<link color='#5bbad5' href='/img/favicon/safari-pinned-tab.svg' rel='mask-icon'>
 	<link href='/img/favicon/favicon.ico' rel='shortcut icon'>
 	<!-- CSS -->
-	<link href='/css/forum-style.css' rel='stylesheet' type='text/css'>
+	<link href='/css/forum.css' rel='stylesheet' type='text/css'>
 	<!-- JavaScript -->
 	<script defer src='/js/main.js' type='text/javascript'></script>
 	<!-- Font Awesome -->

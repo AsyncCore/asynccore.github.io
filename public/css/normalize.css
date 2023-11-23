@@ -11,11 +11,6 @@
     line-height: calc(1em + 0.5rem);
 }
 
-/* ELIMINA EL CURSOR DE TEXTO EXCEPTO EN ELEMENTOS INPUT */
-*:not(input) {
-    caret-color: transparent;
-}
-
 /* MEJORA EL RENDERIZADO DE TEXTO */
 body {
     -webkit-font-smoothing: antialiased;

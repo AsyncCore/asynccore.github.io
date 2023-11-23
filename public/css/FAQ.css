@@ -1,6 +1,4 @@
 @import 'normalize.css';
-@import '../../old/asyncore-0.2/css/header-style.css';
-@import 'footer-style.css';
 
 main {
     max-width: 800px;
