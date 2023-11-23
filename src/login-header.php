@@ -35,9 +35,6 @@
                 <a href='main.php'>Inicio</a>
             </li>
             <li class='navbar-item'>
-                <a href='category.php'>Categorias</a>
-            </li>
-            <li class='navbar-item'>
                 <a href='forum.php'>Foro</a>
             </li>
             <li class='navbar-item'>
