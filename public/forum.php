@@ -16,8 +16,6 @@
     require DIR . '/vendor/autoload.php';
     include_once DIR . '/src/utils/utils.php';
     
-    include DIR . '/src/utils/errorReporting.php';
-    
     $descripcion = "Foro de AsynCore. Un foro de programación para estudiantes de DAW y DAM.";
     $titulo = "Foro de AsynCore";
     $css = ["css/style.css", "css/footer.css"];
@@ -47,7 +45,12 @@
                         <span>Categorías</span>
                     </h2>
                     <?php foreach ($categories as $category): ?>
-                        <?php $lastThread = $categoryManager->getLastThreadByCategoryWithUser($category['CAT_ID']);?>
+                        <?php
+                            $lastThread = $threadManager->getLastThreadByCategoryWithUser($category['CAT_ID']);
+                            if($lastThread){
+                                $user = $userManager->getUserById($lastThread['USER_ID']);
+                            }
+                        ?>
                         <div class="forum-listing">
                             <div class="forum-icon">
                                 <img src="https://<?= $_SERVER['HTTP_HOST'] . $category['ICONO'] ?>" alt="Icono de la categoría <?=$category['TITULO']?>">
@@ -59,14 +62,14 @@
                             </div>
     
                             <div class="threads-count">
-                                <p class="count"><?= $categoryManager->getThreadCountByCategory($category['CAT_ID']) ?></p>
+                                <p class="count"><?= $threadManager->getThreadCountByCategory($category['CAT_ID']) ?></p>
                                 hilos
                             </div>
                             <?php if ($lastThread): ?>
                             <div class="last-thread">
                                 <img class='avatar'
-                                     src="<?= htmlspecialchars($userManager->getUserAvatarById($lastThread['USER_ID'])) ?? 'path/to/default/avatar.jpg' ?>"
-                                     alt='User Avatar'>
+                                     src="<?= $user['AVATAR']?>"
+                                     alt="AVATAR DEL USUARIO <?= $user['USERNAME']?>">
                                 <div class="last-thread-details">
                                     <a href="thread.php?c=<?= $category['CAT_ID'] ?>&t=<?=$lastThread['THREAD_ID']?>"><?= $lastThread['TITULO'] ?? 'Título del hilo' ?></a>
                                     <p class="text-xsmall">By <a href="profile.php&UID=<?= $lastThread['USER_ID'] ?>"><?= $lastThread['USERNAME']?></a>, <?= timeAgo($lastThread['F_CRE'])?></p>

@@ -132,4 +132,16 @@ class UserManager {
             return false;
         }
     }
+    
+    public function getUserById(string $userId){
+        try{
+            $consulta = $this->db->prepare(self::GET_USER_BY_ID);
+            $consulta->bindParam(':userID', $userId);
+            $consulta->execute();
+            return $consulta->fetch();
+        }catch (PDOException $e){
+            Logger::log("Error al obtener el usuario con ID " . $userId . ": " . $e->getMessage() . " con código de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
+            return false;
+        }
+    }
 }

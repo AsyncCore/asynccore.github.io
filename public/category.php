@@ -1,110 +1,120 @@
 <?php
-/**
- * @var string $descripcion /src/logged-header.php
- * @var string $titulo /src/logged-header.php
- * @var string $css /src/logged-header.php
- * @var string $js /src/logged-header.php
- */
+    /**
+     * @var string $descripcion /src/logged-header.php
+     * @var string $titulo      /src/logged-header.php
+     * @var string $css         /src/logged-header.php
+     * @var string $js          /src/logged-header.php
+     */
+    
+    use src\managers\UserManager;
+    use src\db\DatabaseConnection;
+    use src\managers\PostsManager;
+    use src\managers\ThreadManager;
+    use src\managers\CategoryManager;
+    
+    require '../src/utils/sessionInit.php';
+    require DIR . '/src/utils/autoloader.php';
+    require DIR . '/vendor/autoload.php';
+    include_once DIR . '/src/utils/utils.php';
+    
+    include DIR . '/src/utils/errorReporting.php';
+    
+    if (!isset($_GET['c']) || !is_numeric(intval($_GET['c']))) {
+        header('Location: /forum.php');
+        die;
+    } else {
+        $getCategory = htmlspecialchars($_GET['c']);
+        $db = DatabaseConnection::getInstance()->getConnection();
+        $categoryManager = new CategoryManager($db);
+        $threadManager = new ThreadManager($db);
+        $postManager = new PostsManager($db);
+        $userManager = new UserManager($db);
+        $category = $categoryManager->getCategory($getCategory);
+        if (!$category) {
+            header('Location: /forum.php');
+            die;
+        }
+        $threads = $threadManager->getAllThreadsByCategory($getCategory);
+    }
+    
+    $descripcion = "FORO DE ASYNCORE - ";
+    $titulo = "Categoría ";
+    $css = ["css/style.css", "css/footer.css"];
+    $js = ["js/script.js"];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
+    include_once DIR . '/src/head.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 
-require '../src/utils/sessionInit.php';
-require DIR . '/src/utils/autoloader.php';
-require DIR . '/vendor/autoload.php';
-include_once DIR . '/src/utils/utils.php';
-
-unsetLoginRegister();
-
-$descripcion = "Página de foros de AsynCore";
-$titulo = "AsynCore";
-$css = ["css/style.css"];
-$js = ["js/script.js"];
-$cdn = ["https://friconix.com/cdn/friconix.js"];
-include_once DIR . '/src/head.php';
-if (isset($_SESSION['USER_ID'])) {
-  include_once DIR . '/src/logged-header.php';
-} else {
-  include_once DIR . '/src/login-header.php';
-}
 ?>
 <main>
     <div class="container">
         <div class="col-full push-top">
             <ul class="breadcrumbs">
                 <li><a href="/index.php"><i class="fa fa-home fa-btn"></i>Home</a></li>
-                <li><a href="/category.php">Discussions</a></li>
-                <li class="active"><a href="#">$titulo-categoria</a></li>
+                <li><a href="/forum.php">Forum</a></li>
+                <li class="active"><a
+                            href="/category.php?c=<?= htmlspecialchars($_GET['c']) ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a>
+                </li>
             </ul>
 
             <div class="forum-header">
                 <div class="forum-details">
-                    <h1>$titulo-categoria</h1>
-                    <p class="text-lead">$subtitulo-categoria</p>
+                    <h1><?= $category['TITULO'] ?></h1>
+                    <p class="text-lead"><?= $category['SUBTITULO'] ?></p>
                 </div>
-                <a href="crearHilo.php" class="btn-green btn-small">Start a thread</a>
+                <a href="crearHilo.php?c=<?= $getCategory ?>" class="btn-green btn-small">Crear un hilo</a>
             </div>
         </div>
 
 
-
-        <div class="col-full push-top" >
+        <div class="col-full push-top">
             <div class="thread-list">
-
-                <h2 class="list-title">Threads</h2>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">
-                            By <a href="profile.php">$username-propietario</a>, yesterday($fecha-creacion?).
-                        </p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png"
-                             alt="">
-
+                <h2 class="list-title">Hilos</h2>
+                
+                <?php foreach ($threads as $thread): ?>
+                    <?php
+                    $threadUser = $userManager->getUserById($thread['USER_ID']);
+                    $post = $postManager->getLastPostByThread($thread['THREAD_ID']);
+                    $postUser = $userManager->getUserById($post['USER_ID']);
+                    
+                    ?>
+                    <div class="thread">
                         <div>
-                            <p class="text-xsmall">
-                                <a href="profile.php">$username-last-response</a>
+                            <p>
+                                <a href="thread.php?t=<?= $thread['THREAD_ID'] ?>"><?= $thread['TITULO'] ?></a>
                             </p>
-                            <p class="text-xsmall text-faded">2 hours ago</p>
+                            <p class="text-faded text-xsmall">
+                                By
+                                <a href="profile.php?UID=<?= $thread['USER_ID'] ?>"><?= $threadUser['USERNAME'] ?></a>, <?= timeAgo($thread['F_CRE']) ?>.
+                            </p>
+                        </div>
+
+                        <div class="activity">
+                            <p class="replies-count">
+                                <?= $postManager->getPostCountByThread($thread['THREAD_ID']) ?>
+                            </p>
+
+                            <img class="avatar-medium"
+                                 src="<?=$threadUser['AVATAR']?>"
+                                 alt="AVATAR DE <?=$threadUser['USERNAME']?>">
+
+                            <div>
+                                <p class="text-xsmall">
+                                    <a href="profile.php?UID=<?=$post['USER_ID']?>"><?=$postUser['USERNAME']?></a>
+                                </p>
+                                <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours ago($fecha-creacion?)</p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
-                             alt="">
-                        <span>
-                          <a class="text-xsmall" href="profile.php">$username-last-response</a>
-                          <p class="text-faded text-xsmall">3 hours ago</p>
-                      </span>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-
     </div>
 </main>
 <?php
-include_once DIR . '/src/footer.php';
+    include_once DIR . '/src/footer.php';
 ?>

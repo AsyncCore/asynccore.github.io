@@ -50,7 +50,7 @@ class DatabaseConnection extends Singleton
         try{
             $this->connection = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['database'] . ';charset=utf8', $config['username'], $config['password']);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            Logger::log("Conexión a la B.D. establecida", __FILE__, LogLevels::INFO);
+            # Logger::log("Conexión a la B.D. establecida", __FILE__, LogLevels::INFO);
         }catch(PDOException $e){
             Logger::log("Error al conectar a la B.D." . $e->getMessage() . " con número de error " . $e->getCode(), __FILE__, LogLevels::ERROR);
             die;
