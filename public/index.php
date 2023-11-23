@@ -41,7 +41,6 @@
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/index.css" rel="stylesheet" type="text/css">
-    <link href="css/footer.css" rel="stylesheet" type="text/css">
     <!-- JavaScript -->
     <script defer src="https://friconix.com/cdn/friconix.js" type="text/javascript"></script>
     <title>ASYNCORE PROJECT</title>
@@ -50,7 +49,7 @@
 <main>
     <section>
         <div>
-            <a class="logo" href="main.php">
+            <a href="main.php">
                 <img alt="AsynCore Logo" src="img/logo/logo.svg">
             </a>
             <h1>Asyn<span>Core</span></h1>
@@ -69,3 +68,5 @@
         </p>
     </section>
 </main>
+</body>
+</html>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     let btnHamburger = document.querySelector('.btn-hamburger');
-    let navbar = document.querySelector('.navbar1');
+    let navbar = document.querySelector('.navbar444');
     let userDropdown = document.getElementById('user-dropdown');
 
     btnHamburger.addEventListener('click', function () {

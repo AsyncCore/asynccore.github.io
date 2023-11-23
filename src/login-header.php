@@ -24,7 +24,7 @@
     </div>
 
     <!-- use .navbar-open to open nav -->
-    <nav class='navbar1'>
+    <nav class='navbar444'>
         <ul>
             <li class='navbar-item'>
                 <a href='login-register.php'>Login / Registro</a>
