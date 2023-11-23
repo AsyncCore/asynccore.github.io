@@ -38,7 +38,7 @@ if (isset($_SESSION['USER_ID'])) {
                     <label class='label_straw'
                            for='Asyncore'>AsynCore</label>
                     <div class='content content_straw'><span class='picto'></span>
-                        <h1>Asyncore</h1>
+                        <h1>AsynCore</h1>
                         <p>Nosotros somos AsynCore</p>
                     </div>
                 </li>

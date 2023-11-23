@@ -1176,51 +1176,51 @@ header > a.logo {
 }
 
 #user-dropdown {
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    z-index: 6;
-    display: none;
+    position: absolute!important;
+    top: 50px!important;
+    right: 20px!important;
+    z-index: 6!important;
+    display: none!important;
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
     #user-dropdown {
-        position: relative;
-        width: 100%;
-        right: 0;
-        z-index: 10;
-        top: 98px;
+        position: relative!important;
+        width: 100%!important;
+        right: 0!important;
+        z-index: 10!important;
+        top: 98px!important;
     }
 }
 
 #user-dropdown.active-drop {
-    display: block;
+    display: block!important;
 }
 
 .active-drop {
-    display: block;
+    display: block!important;
 }
 
 .dropdown-menu, #user-dropdown > .dropdown-menu {
-    display: block;
-    background: white;
-    padding: 20px;
-    position: relative;
+    display: block!important;
+    background: white!important;
+    padding: 20px!important;
+    position: relative!important;
 }
 
 .dropdown-menu-item, #user-dropdown > .dropdown-menu > .dropdown-menu-item {
-    margin-bottom: 5px;
+    margin-bottom: 5px!important;
 }
 
 .dropdown-menu-item a, #user-dropdown > .dropdown-menu > .dropdown-menu-item a {
-    display: block;
-    color: #03045E;
-    font-size: 16px;
-    transition: all ease 0.6s;
+    display: block!important;
+    color: #03045E!important;
+    font-size: 16px!important;
+    transition: all ease 0.6s!important;
 }
 
 .dropdown-menu-item a:hover, #user-dropdown > .dropdown-menu > .dropdown-menu-item a:hover {
-    color: #ff0000;
+    color: #ff0000!important;
 }
 
 .triangle-drop {
@@ -1242,18 +1242,18 @@ header > a.logo {
 }
 
 #user-dropdown a {
-    color: #03045E;
-    text-decoration: none;
-    transition: all .6s ease;
+    color: #03045E!important;
+    text-decoration: none!important;
+    transition: all .6s ease!important;
 }
 
 #user-dropdown a:hover {
-    color: #ff0000;
-    cursor: pointer;
+    color: #ff0000!important;
+    cursor: pointer!important;
 }
 
 #user-dropdown ul {
-    display: block;
+    display: block!important;
 }
 
 .mentionsList {
