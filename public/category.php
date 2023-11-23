@@ -17,10 +17,8 @@
     require DIR . '/vendor/autoload.php';
     include_once DIR . '/src/utils/utils.php';
     
-    include DIR . '/src/utils/errorReporting.php';
-    
     if (!isset($_GET['c']) || !is_numeric(intval($_GET['c']))) {
-        header('Location: /forum.php');
+        header('Location: /forum.php?c=e');
         die;
     } else {
         $getCategory = htmlspecialchars($_GET['c']);
@@ -31,7 +29,7 @@
         $userManager = new UserManager($db);
         $category = $categoryManager->getCategory($getCategory);
         if (!$category) {
-            header('Location: /forum.php');
+            header('Location: /forum.php?c=nf');
             die;
         }
         $threads = $threadManager->getAllThreadsByCategory($getCategory);
@@ -39,7 +37,7 @@
     
     $descripcion = "FORO DE ASYNCORE - ";
     $titulo = "Categoría ";
-    $css = ["css/style.css", "css/footer.css"];
+    $css = ['css/style.css', 'css/footer.css'];
     $js = ["js/script.js"];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
@@ -57,7 +55,7 @@
                 <li><a href="/index.php"><i class="fa fa-home fa-btn"></i>Home</a></li>
                 <li><a href="/forum.php">Forum</a></li>
                 <li class="active"><a
-                            href="/category.php?c=<?= htmlspecialchars($_GET['c']) ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a>
+                            href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a>
                 </li>
             </ul>
 
@@ -85,7 +83,7 @@
                     <div class="thread">
                         <div>
                             <p>
-                                <a href="thread.php?t=<?= $thread['THREAD_ID'] ?>"><?= $thread['TITULO'] ?></a>
+                                <a href="thread.php?c=<?=$getCategory?>&t=<?= $thread['THREAD_ID'] ?>"><?= $thread['TITULO'] ?></a>
                             </p>
                             <p class="text-faded text-xsmall">
                                 By

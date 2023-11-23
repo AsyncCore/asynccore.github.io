@@ -9,12 +9,84 @@
     class PostsManager
     {
         private PDO $db;
+        private const CREATE_POST = 'INSERT INTO POSTS (USER_ID, THREAD_ID, CONTENIDO, F_CRE, REPLY_ID) VALUES (:userID, :threadID, :contenido, NOW(), :replyID)';
+        private const GET_POST = 'SELECT * FROM POSTS WHERE POST_ID = :postID';
+        private const GET_ALL_POSTS = 'SELECT * FROM POSTS';
+        private const GET_ALL_POSTS_BY_THREAD = 'SELECT * FROM POSTS WHERE THREAD_ID = :threadID';
         private const GET_POST_COUNT_BY_THREAD = 'SELECT COUNT(*) FROM POSTS WHERE THREAD_ID = :threadID';
         private const GET_LAST_POST_BY_THREAD = 'SELECT * FROM POSTS WHERE THREAD_ID = :threadID ORDER BY F_CRE DESC LIMIT 1';
+        private const GET_POST_COUNT_BY_USER = 'SELECT DISTINCT COUNT(*) FROM POSTS WHERE USER_ID = :userID';
         
         public function __construct($db)
         {
             $this->db = $db;
+        }
+        
+        public function createPost($userId, $threadId, $content, $replyId = null): bool|string
+        {
+            try {
+                $consulta = $this->db->prepare(self::CREATE_POST);
+                $consulta->bindParam(':userID', $userId);
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->bindParam(':contenido', $content);
+                $consulta->bindParam(':replyID', $replyId);
+                $consulta->execute();
+                return $this->db->lastInsertId();
+            } catch (PDOException $e) {
+                Logger::log('Error al crear post: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        /**
+         * @param $postId
+         *
+         * @return false|mixed
+         */
+        public function getPost($postId): mixed
+        {
+            try{
+                $consulta = $this->db->prepare(self::GET_POST);
+                $consulta->bindParam(':postID', $postId);
+                $consulta->execute();
+                return $consulta->fetch();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener post: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        /**
+         * @return bool|array
+         */
+        public function getAllPosts(): bool|array
+        {
+            try{
+                $consulta = $this->db->prepare(self::GET_ALL_POSTS);
+                $consulta->execute();
+                return $consulta->fetchAll();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener todos los posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        /**
+         * @param string $threadId
+         *
+         * @return array|false
+         */
+        public function getAllPostsByThread(string $threadId): bool|array
+        {
+            try{
+                $consulta = $this->db->prepare(self::GET_ALL_POSTS_BY_THREAD);
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->execute();
+                return $consulta->fetchAll();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener todos los posts del hilo ' . $threadId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
         }
         
         public function getPostCountByThread($threadId)
@@ -25,7 +97,20 @@
                 $consulta->execute();
                 return $consulta->fetchColumn();
             } catch (PDOException $e) {
-                Logger::log('Error al obtener el total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                Logger::log('Error al obtener el número total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getPostCountByUser($userId)
+        {
+            try {
+                $consulta = $this->db->prepare(self::GET_POST_COUNT_BY_USER);
+                $consulta->bindParam(':userID', $userId);
+                $consulta->execute();
+                return $consulta->fetchColumn();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el número total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
@@ -37,10 +122,8 @@
                 $consulta->execute();
                 return $consulta->fetch();
             } catch (PDOException $e) {
-                Logger::log('Error al obtener el último post: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                Logger::log('Error al obtener el último post del hilo ' . $threadId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
-        
-        
     }

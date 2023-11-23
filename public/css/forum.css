@@ -1,0 +1,13 @@
+@import 'normalize.css';
+@import 'footer.css';
+
+.alert a {
+    color: #386bc0!important;
+    text-decoration: none!important;
+}
+
+.alert a:hover {
+    color: #295090!important;
+    cursor: pointer!important;
+    transition: all .3s ease!important;
+}

@@ -10,6 +10,7 @@
     {
         private PDO $db;
         private const CREATE_THREAD = 'INSERT INTO HILOS (USER_ID, TITULO, SUBTITULO, CONTENIDO, CAT_ID) VALUES (:userID, :titulo, :subtitulo, :contenido, :catID)';
+        private const GET_THREAD = 'SELECT * FROM HILOS WHERE THREAD_ID = :threadID';
         private const GET_LAST_THREAD_BY_CATEGORY = 'SELECT * FROM HILOS WHERE CAT_ID = :catID ORDER BY F_CRE DESC LIMIT 1';
         private const GET_THREAD_COUNT_BY_CATEGORY = 'SELECT COUNT(*) FROM HILOS WHERE CAT_ID = :catID';
         private const GET_LAST_THREAD_BY_CATEGORY_WITH_USER = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID WHERE H.CAT_ID = :catID ORDER BY H.F_CRE DESC LIMIT 1';
@@ -39,6 +40,15 @@
         
         public function getThread($threadId)
         {
+            try{
+                $consulta = $this->db->prepare(self::GET_THREAD);
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->execute();
+                return $consulta->fetch();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener hilo: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
         }
         
         public function getAllThreads()

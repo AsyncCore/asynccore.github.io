@@ -1,29 +1,60 @@
 <?php
-/**
- * @var string $descripcion /src/logged-header.php
- * @var string $titulo /src/logged-header.php
- * @var string $css /src/logged-header.php
- * @var string $js /src/logged-header.php
- */
-
-require '../src/utils/sessionInit.php';
-require DIR . '/src/utils/autoloader.php';
-require DIR . '/vendor/autoload.php';
-include_once DIR . '/src/utils/utils.php';
-
-unsetLoginRegister();
-
-$descripcion = "Página de hilo de AsynCore";
-$titulo = "AsynCore";
-$css = ["css/style.css"];
-$js = ["js/script.js",];
-$cdn = ["https://friconix.com/cdn/friconix.js"];
-include_once DIR . '/src/head.php';
-if (isset($_SESSION['USER_ID'])) {
-  include_once DIR . '/src/logged-header.php';
-} else {
-  include_once DIR . '/src/login-header.php';
-}
+    /**
+     * @var string $descripcion /src/logged-header.php
+     * @var string $titulo      /src/logged-header.php
+     * @var string $css         /src/logged-header.php
+     * @var string $js          /src/logged-header.php
+     */
+    
+    use src\managers\UserManager;
+    use src\db\DatabaseConnection;
+    use src\managers\PostsManager;
+    use src\managers\ThreadManager;
+    use src\managers\CategoryManager;
+    
+    require '../src/utils/sessionInit.php';
+    require DIR . '/src/utils/autoloader.php';
+    require DIR . '/vendor/autoload.php';
+    include_once DIR . '/src/utils/utils.php';
+    
+    include DIR . '/src/utils/errorReporting.php';
+    
+    if (!isset($_GET['t']) || !is_numeric($_GET['t'])) {
+        header('Location: /forum.php?t=e');
+        die;
+    } else if (!isset($_GET['c']) || !is_numeric($_GET['c'])){
+        header('Location: /forum.php?c=e');
+        die;
+    } else {
+        $getThread = htmlspecialchars($_GET['t']);
+        $getCategory = htmlspecialchars($_GET['c']);
+        $db = DatabaseConnection::getInstance()->getConnection();
+        $categoryManager = new CategoryManager($db);
+        $threadManager = new ThreadManager($db);
+        $postManager = new PostsManager($db);
+        $userManager = new UserManager($db);
+        $thread = $threadManager->getThread($getThread);
+        if (!$thread) {
+            header('Location: /forum.php?t=nf');
+            die;
+        }
+        $category = $categoryManager->getCategory($getCategory);
+        $thread = $threadManager->getThread($getThread);
+        $posts = $postManager->getAllPostsByThread($getThread);
+        $threadUser = $userManager->getUserById($thread['USER_ID']);
+    }
+    
+    $descripcion = "Página de hilo de AsynCore";
+    $titulo = "AsynCore";
+    $css = ["css/style.css", "css/footer.css"];
+    $js = ["js/script.js",];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
+    include_once DIR . '/src/head.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 ?>
 <main>
     <div class="container page-content">
@@ -31,16 +62,16 @@ if (isset($_SESSION['USER_ID'])) {
         <div class="col-large push-top">
 
             <ul class="breadcrumbs">
-                <li><a href="#"><i class="fa fa-home fa-btn"></i>Home</a></li>
-                <li><a href="category.php">Discussions</a></li>
-                <li class="active"><a href="#">Cooking</a></li>
+                <li><a href="/main.php"><i class="fa fa-home fa-btn"></i>Home</a></li>
+                <li><a href="forum.php">Forum</a></li>
+                <li class="active"><a href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a></li>
             </ul>
 
-            <h1>$titulo-hilo</h1>
+            <h1><?= $thread['TITULO']?></h1>
 
             <p>
-                By <a href="profile.php" class="link-unstyled">$username-propietario-hilo</a>, 2 hours ago.
-                <span style="float:right; margin-top: 2px;" class="hide-mobile text-faded text-small">3 replies by 3 contributors</span>
+                By <a href="profile.php?UID=<?= $thread['USER_ID']?>" class="link-unstyled"><?=$threadUser['USERNAME']?>></a>, <?= timeAgo($thread['F_CRE'])?>.
+                <span style="float:right; margin-top: 2px;" class="hide-mobile text-faded text-small"><?= count($posts)?> respuestas de </span>
             </p>
 
             <div class="post-list">
@@ -176,5 +207,5 @@ if (isset($_SESSION['USER_ID'])) {
     </div>
 </main>
 <?php
-include_once DIR . '/src/footer.php';
+    include_once DIR . '/src/footer.php';
 ?>

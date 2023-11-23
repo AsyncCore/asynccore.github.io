@@ -311,6 +311,11 @@
         return SUCCESS_SVG . PHP_EOL . str_replace('{message}', $message, SUCCESS);
     }
     
+    function printCategoryFail(string $message): string
+    {
+        return ALERT_SVG . PHP_EOL . str_replace('{message}', $message, DANGER);
+    }
+    
     /**
      * Devuelve un mensaje de error específico basado en el error de SQL ocurrido.
      *
