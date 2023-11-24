@@ -39,7 +39,10 @@
             die;
         }
         $category = $categoryManager->getCategory($getCategory);
-        $thread = $threadManager->getThread($getThread);
+        if(!$category){
+            header('Location: /forum.php?c=nf');
+            die;
+        }
         $posts = $postManager->getAllPostsByThread($getThread);
         $threadUser = $userManager->getUserById($thread['USER_ID']);
     }
@@ -93,14 +96,11 @@
                         <p class="desktop-only text-small"><?= $numThreads == 1 ? $numThreads . ' Hilo' : $numThreads . ' Hilos'?></p>
 
                         <span class="user-status <?= $online ? 'online' : 'offline' ?>">
-                                <?= $online ? 'Ahora online' : 'Offline' ?>
+                                <?= $online ? 'Online' : 'Offline' ?>
                         </span>
                     </div>
 
                     <div class="post-content">
-                        <div>
-                            <blockquote style="visibility: hidden;"></blockquote>
-                        </div>
                         <div>
                             <p>
                                 <?=htmlspecialchars($thread['CONTENIDO'])?>
@@ -144,7 +144,7 @@
                             <p class="desktop-only text-small"><?= $numThreads == 1 ? $numThreads . ' Hilo' : $numThreads . ' Hilos' ?></p>
 
                             <span class="user-status <?= $online ? 'online' : 'offline' ?>">
-                            <?= $online ? 'Ahora online' : 'Offline' ?>
+                            <?= $online ? 'Online' : 'Offline' ?>
                         </span>
                         </div>
                         <div class="post-content">
