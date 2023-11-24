@@ -744,9 +744,9 @@ span.offline::before {
     font-size: 14px;
     margin-right: 5px;
 }
-
+/* TODO color de links*/
 span.online {
-    color: #ff0000;
+    color: #4e9c7f;
 }
 
 span.online::before {
@@ -1970,9 +1970,10 @@ ul.breadcrumbs li {
     font-weight: 100;
 }
 
+/*TODO elegir fuente y linkearla y poner bien los content de toda la página*/
 ul.breadcrumbs li:not(:last-of-type)::after {
-    content: '\f105';
-    font-family: "FontAwesome", monospace;
+    content: '\203A';
+    font-family: "Open Sans", monospace;
     margin: 0 4px;
     opacity: 0.6;
 }
