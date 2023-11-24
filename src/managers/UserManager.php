@@ -26,6 +26,7 @@ class UserManager {
     private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
     private const DELETE_USER = 'DELETE FROM USERS WHERE USERS.USER_ID = :userID';
     private const GET_USER_AVATAR_BY_ID = 'SELECT USERS.AVATAR FROM USERS WHERE USERS.USER_ID = :userID';
+    private const IS_USER_ONLINE = 'SELECT COUNT(*) FROM USERS WHERE USERS.USER_ID = :userID AND LAST_SEEN > DATE_SUB(NOW(), INTERVAL 5 MINUTE)';
 
     /**
      * Constructor de la clase UserManager.
@@ -144,4 +145,19 @@ class UserManager {
             return false;
         }
     }
+    
+    public function isUserOnline(string $userId): bool
+    {
+        try {
+            $consulta = $this->db->prepare(self::IS_USER_ONLINE);
+            $consulta->bindParam(':userID', $userId);
+            $consulta->execute();
+            $fila = $consulta->fetch(PDO::FETCH_ASSOC);
+            return !empty($fila) && $fila['COUNT(*)'] > 0;
+        } catch (PDOException $e) {
+            Logger::log('Error al comprobar si el usuario con ID ' . $userId . ' está online: ' . $e->getMessage() . ' con código de error ' . $e->getCode(), __FILE__, LogLevels::ERROR);
+            return false;
+        }
+    }
+    
 }
