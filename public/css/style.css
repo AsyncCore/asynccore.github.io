@@ -445,6 +445,7 @@ figcaption {
     text-align: justify;
     line-height: 1.5;
     word-break: break-word;
+    min-width: 800px;
 }
 
 .post-content h1, .post-content h2, .post-content h3 {
@@ -483,6 +484,9 @@ figcaption {
 }
 
 @media (max-width: 820px) {
+    .post-content {
+        min-width: 0;
+    }
     .post-content blockquote.big::before {
         top: -15px;
         left: -18px;
@@ -609,6 +613,12 @@ figcaption {
 
 .post-content blockquote.simple .author .time {
     margin-left: 10px;
+}
+
+@media (max-width: 1025px) {
+    .post-content{
+        min-width: 0;
+    }
 }
 
 .post-listing-editor {
@@ -2299,12 +2309,17 @@ figure {
     margin: 0 auto;
     max-width: 1200px;
     flex-grow: 1;
-    flex-wrap: wrap;
 }
 
 @media (min-width: 1360px) {
     .flex-grid {
         max-width: 1300px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .flex-grid {
+        flex-wrap: wrap;
     }
 }
 

@@ -70,7 +70,7 @@
             <h1><?= $thread['TITULO']?></h1>
 
             <p>
-                By <a href="profile.php?UID=<?= $thread['USER_ID']?>" class="link-unstyled"><?=$threadUser['USERNAME']?>></a>, <?= timeAgo($thread['F_CRE'])?>.
+                By <a href="profile.php?UID=<?= $thread['USER_ID']?>" class="link-unstyled"><?=$threadUser['USERNAME']?></a>, <?= timeAgo($thread['F_CRE'])?>.
                 <span style="float:right; margin-top: 2px;" class="hide-mobile text-faded text-small"><?= count($posts)?> respuestas de <?=$postManager->getPostCountByUniqueUser($thread['THREAD_ID'])?> usuarios</span>
             </p>
 
@@ -95,120 +95,96 @@
                         <span class="user-status <?= $online ? 'online' : 'offline' ?>">
                                 <?= $online ? 'Ahora online' : 'Offline' ?>
                         </span>
-
                     </div>
 
                     <div class="post-content">
                         <div>
-                            <p>
-                                $contenido-hilo
-                            </p>
+                            <blockquote style="visibility: hidden;"></blockquote>
                         </div>
-                        <a href="#" style="margin-left: auto;" class="link-unstyled" title="Make a change"><i
-                                    class="fa fa-pencil"></i></a>
-                    </div>
-
-
-                    <div class="post-date text-faded">
-                        6 hours ago
-                    </div>
-
-                    <div class="reactions">
-                        <a href="crearPost.php" class="btn-green btn-small">responder</a>
-                    </div>
-
-                </div>
-
-                <div class="post">
-
-                    <div class="user-info">
-                        <a href="profile.php#profile-details" class="user-name">$username-respuesta</a>
-
-                        <a href="profile.php#profile-details">
-                            <img class="avatar-large" src="https://i.imgur.com/OqlZN48.jpg" alt="">
-                        </a>
-
-                        <p class="desktop-only text-small">$num-posts</p>
-
-                        <p class="desktop-only text-small">$num-threads</p>
-
-                        <span class="online desktop-only">$online</span>
-
-                    </div>
-
-                    <div class="post-content">
-                        <div>
-                            <blockquote class="small">
-                                <div class="author">
-                                    <a href="/user/robin" class="">$username-al-que-responde</a>
-                                    <!--Este es el propietario del post al que se está respondiendo-->
-                                    <span class="time">a month ago</span>
-                                    <i class="fa fa-caret-down"></i>
-                                </div>
-
-                                <div class="quote"><!--Este es como una previo del hilo/post al que responde-->
-                                    <p>$post/hilo--al-que-responde</p>
-                                </div>
-                            </blockquote>
-                            <p>$contenido</p>
-                        </div>
-                        <a class="edit-post link-unstyled"><i class="fa fa-pencil"></i></a>
-                    </div>
-
-
-                    <div class="post-date text-faded">
-                        6 hours ago
-                    </div>
-
-                    <div class="reactions">
-                        <a href="crearPost.php" class="btn-green btn-small">responder</a>
-                    </div>
-
-                </div>
-
-                <div class="post">
-
-                    <div class="user-info">
-                        <a href="profile.php#profile-details" class="user-name">$username-respuesta</a>
-
-                        <a href="profile.php#profile-details">
-                            <img class="avatar-large"
-                                 src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
-                                 alt="">
-                        </a>
-
-                        <p class="desktop-only text-small">$num-posts</p>
-
-                        <p class="desktop-only text-small">$num-threads</p>
-
-                        <span class="offline desktop-only">$offline</span>
-
-                    </div>
-
-                    <div class="post-content">
                         <div>
                             <p>
-                                <!--A continuacion separo contenido respuesta del contenido post por que no tengo muy claro como va a ser y en la plantilla parecen ser 2 cosas separadas-->
-                                <a href="/user/Joker" class="">@$username-al-que-responde</a>$contenido-respuesta
-                            </p>
-                            <p>
-                                $contenido-post
+                                <?=htmlspecialchars($thread['CONTENIDO'])?>
                             </p>
                         </div>
+                        <a href="/editar.php?t=<?=$thread['THREAD_ID']?>" style="margin-left: auto;" class="link-unstyled" title="Editar el post">
+                            <i class='fi-xwsux2-pen'></i></a>
                     </div>
 
+
                     <div class="post-date text-faded">
-                        6 hours ago
+                        <?= timeAgo($thread['F_CRE'])?>
                     </div>
 
                     <div class="reactions">
-                        <a href="crearPost.php" class="btn-green btn-small">responder</a>
+                        <a href="reply.php?t=<?=$thread['THREAD_ID']?>" class="btn-green btn-small">Responder</a>
                     </div>
-
                 </div>
+                
+                <?php foreach ($posts as $post): ?>
+                    <?php
+                    $postUser = $userManager->getUserById($post['USER_ID']);
+                    ?>
+                    <div class="post">
+                        <div class="user-info">
+                            <a href="profile.php?UID=<?= $post['USER_ID'] ?>"
+                               class="user-name"><?= $postUser['USERNAME'] ?></a>
+
+                            <a href="profile.php?UID=<?= $post['USER_ID'] ?>">
+                                <img class="avatar-large" src="<?= $postUser['AVATAR'] ?>"
+                                     alt="AVATAR DE <?= $postUser['USERNAME'] ?>">
+                            </a>
+                            <?php
+                                $numPosts = $postManager->getPostCountByUserId($post['USER_ID']);
+                                $numThreads = $threadManager->getThreadCountByUserId($post['USER_ID']);
+                                $online = $userManager->isUserOnline($post['USER_ID']);
+                                $offline = !$online;
+                            ?>
+                            <p class="desktop-only text-small"><?= $numPosts == 1 ? $numPosts . ' Post' : $numPosts . ' Posts' ?></p>
+
+                            <p class="desktop-only text-small"><?= $numThreads == 1 ? $numThreads . ' Hilo' : $numThreads . ' Hilos' ?></p>
+
+                            <span class="user-status <?= $online ? 'online' : 'offline' ?>">
+                            <?= $online ? 'Ahora online' : 'Offline' ?>
+                        </span>
+                        </div>
+                        <div class="post-content">
+                            <div>
+                                <?php if ($post['REPLY_ID'] != null): ?>
+                                    <?php
+                                    $reply = $postManager->getPost($post['REPLY_ID']);
+                                    $replyUser = $userManager->getUserById($reply['USER_ID']);
+                                    ?>
+                                    <blockquote class="small">
+                                        <div class="author">
+                                            <a href="profile.php?UID=<?= $reply['USER_ID'] ?? '' ?>"
+                                               class=""><?= $replyUser['USERNAME'] ?? '' ?></a>
+                                            <span class="time"><?= timeAgo($reply['F_CRE']) ?? '' ?></span>
+                                            <i class="fa fa-caret-down"></i>
+                                        </div>
+
+                                        <div class="quote">
+                                            <p><?= htmlspecialchars($reply['CONTENIDO']) ?? '' ?></p>
+                                        </div>
+                                    </blockquote>
+                                <?php endif; ?>
+                                <p>
+                                    <?= htmlspecialchars($post['CONTENIDO']) ?>
+                                </p>
+                            </div>
+                            <a href="/editar.php?p=<?= $post['POST_ID'] ?>" style="margin-left: auto;"
+                               class="link-unstyled" title="Editar el post">
+                                <i class='fi-xwsux2-pen'></i></a>
+                        </div>
+                        <div class="post-date text-faded">
+                            <?= timeAgo($post['F_CRE']) ?>
+                        </div>
+                        <div class='reactions'>
+                            <a href='reply.php?t=<?= $post['POST_ID'] ?>' class='btn-green btn-small'>Responder</a>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-
     </div>
 </main>
 <?php

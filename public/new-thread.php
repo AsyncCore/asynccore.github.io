@@ -8,6 +8,7 @@
     
     use src\managers\TagManager;
     use src\db\DatabaseConnection;
+    use src\managers\CategoryManager;
     
     require '../src/utils/sessionInit.php';
     require DIR . '/src/utils/autoloader.php';
@@ -26,12 +27,27 @@
     } else {
         include_once DIR . '/src/login-header.php';
     }
+    $categories = ['1', '2', '3', '4', '5'];
     
-    $tagManager = new TagManager(DatabaseConnection::getInstance()->getConnection());
-    $tags = $tagManager->getAllTags();
+    if (!isset($_GET['c']) || !array_filter($categories, fn($cat) => $cat == $_GET['c'])) {
+        header('Location: /forum.php?c=e');
+        die;
+    } else {
+        $db = DatabaseConnection::getInstance()->getConnection();
+        $tagManager = new TagManager($db);
+        $tags = $tagManager->getAllTags();
+        $categoryManager = new CategoryManager($db);
+        $categoria = $categoryManager->getCategory(htmlspecialchars($_GET['c']));
+        if (!$categoria) {
+            header('Location: /forum.php?c=nf');
+            die;
+        }
+        
+        
+    }
 ?>
     <main>
-        <h1>Nuevo hilo en <i>$categoria</i></h1>
+        <h1>Nuevo hilo en <i><?=$categoria?></i></h1>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="create-form" method="POST">
             <div class="form-group">
                 <label for="post-title">Título:</label>
@@ -64,8 +80,8 @@
             </div>
 
             <div class="btn-group">
-                <button class="btn btn-red">Cancel</button>
-                <button class="btn btn-blue" type="submit" name="Publish">Publish </button>
+                <button class="btn btn-red">Cancelar</button>
+                <button class="btn btn-blue" type="submit" name="Publish">Publicar</button>
             </div>
         </form>
     </main>
