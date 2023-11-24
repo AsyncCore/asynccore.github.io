@@ -14,6 +14,7 @@
     include_once '../src/utils/sessionInit.php';
     require DIR . '/src/utils/autoloader.php';
     include DIR . '/src/processForm.php';
+    include DIR . '/src/utils/errorPrinting.php';
     
     /**
      * Otras variables
@@ -46,20 +47,24 @@
      */
     if (isset($_GET['error'])) {
         if (isset($_GET['login'])) {
-            $message = printLoginFail();
-        } elseif (isset($_GET['register'])) {
-            $message = isset($_SESSION['registerUserName']) ? printRegisterFail($_SESSION['registerUserName']) : '';
+            $message = printMessage('login_fail', ERROR_MESSAGES);
+        } else if (isset($_GET['register'])) {
+            $message = isset($_SESSION['registerUserName'])
+                ? printMessage('register_fail', ERROR_MESSAGES, [$_SESSION['registerUserName'], returnSQLError()])
+                : '';
         }
     }
     
-    if(isset($_GET['success'])) {
+    if (isset($_GET['success'])) {
         if (isset($_GET['register'])) {
-            $message = printRegisterSuccess($_SESSION['registerUserName']);
-        }else if (isset($_GET['login']) && isset($_SESSION['NAME'])) {
-            $_SESSION['EXPLODE_NAME'] = strpos($_SESSION['NAME'], " ") ? $_SESSION['NAME'] : explode(' ', $_SESSION['NAME'])[0];
-            $message = printLoginSuccess($_SESSION['EXPLODE_NAME']);
+            $message = printMessage('register_success', ERROR_MESSAGES, [$_SESSION['registerUserName']]);
+        } else if (isset($_GET['login']) && isset($_SESSION['NAME'])) {
+            $_SESSION['EXPLODE_NAME'] = str_contains($_SESSION['NAME'], ' ')
+                ? explode(' ', $_SESSION['NAME'])[0]
+                : $_SESSION['NAME'];
+            $message = printMessage('login_success', ERROR_MESSAGES, [$_SESSION['EXPLODE_NAME']]);
             unsetLoginRegister();
-            header('Refresh: 5; url=' . URL_BASE .'main.php', true, 302);
+            header('Refresh: 5; url=' . URL_BASE . 'main.php', true, 302);
         }
     }
     
