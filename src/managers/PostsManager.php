@@ -13,9 +13,11 @@
         private const GET_POST = 'SELECT * FROM POSTS WHERE POST_ID = :postID';
         private const GET_ALL_POSTS = 'SELECT * FROM POSTS';
         private const GET_ALL_POSTS_BY_THREAD = 'SELECT * FROM POSTS WHERE THREAD_ID = :threadID';
+        private const GET_POST_COUNT = 'SELECT COUNT(*) FROM POSTS';
+        private const GET_POST_COUNT_BY_UNIQUE_USER = 'SELECT COUNT(DISTINCT USER_ID) FROM POSTS WHERE THREAD_ID = :threadID';
+        private const GET_POST_COUNT_BY_USER_ID = 'SELECT COUNT(*) FROM POSTS WHERE USER_ID = :userID';
         private const GET_POST_COUNT_BY_THREAD = 'SELECT COUNT(*) FROM POSTS WHERE THREAD_ID = :threadID';
         private const GET_LAST_POST_BY_THREAD = 'SELECT * FROM POSTS WHERE THREAD_ID = :threadID ORDER BY F_CRE DESC LIMIT 1';
-        private const GET_POST_COUNT_BY_USER = 'SELECT DISTINCT COUNT(*) FROM POSTS WHERE USER_ID = :userID';
         
         public function __construct($db)
         {
@@ -89,6 +91,18 @@
             }
         }
         
+        
+        public function getPostCount(): bool|int
+        {
+            try{
+                $consulta = $this->db->query(self::GET_POST_COUNT);
+                return $consulta->fetchColumn();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el número total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
         public function getPostCountByThread($threadId)
         {
             try {
@@ -97,20 +111,33 @@
                 $consulta->execute();
                 return $consulta->fetchColumn();
             } catch (PDOException $e) {
-                Logger::log('Error al obtener el número total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                Logger::log('Error al obtener el número total de posts en el hilo '. $threadId.': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
         
-        public function getPostCountByUser($userId)
+        public function getPostCountByUniqueUser($threadId)
         {
             try {
-                $consulta = $this->db->prepare(self::GET_POST_COUNT_BY_USER);
+                $consulta = $this->db->prepare(self::GET_POST_COUNT_BY_UNIQUE_USER);
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->execute();
+                return $consulta->fetchColumn();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el número total de posts por usuario único: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getPostCountByUserId($userId)
+        {
+            try {
+                $consulta = $this->db->prepare(self::GET_POST_COUNT_BY_USER_ID);
                 $consulta->bindParam(':userID', $userId);
                 $consulta->execute();
                 return $consulta->fetchColumn();
             } catch (PDOException $e) {
-                Logger::log('Error al obtener el número total de posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                Logger::log('Error al obtener el número total de posts del usuario ' . $userId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
