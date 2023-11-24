@@ -42,12 +42,10 @@
             header('Location: /forum.php?c=nf');
             die;
         }
-        
-        
     }
 ?>
     <main>
-        <h1>Nuevo hilo en <i><?=$categoria?></i></h1>
+        <h1>Nuevo hilo en <i><?=$categoria['TITULO']?></i></h1>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="create-form" method="POST">
             <div class="form-group">
                 <label for="post-title">Título:</label>
