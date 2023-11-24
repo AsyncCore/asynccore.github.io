@@ -56,5 +56,3 @@ if (isset($_SESSION['USER_ID'])) {
 <?php
 include_once "../src/footer.php";
 ?>
-</body>
-</html>
