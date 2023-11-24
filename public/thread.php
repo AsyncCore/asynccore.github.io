@@ -62,7 +62,7 @@
         <div class="col-large push-top">
 
             <ul class="breadcrumbs">
-                <li><a href="/main.php"><i class="fa fa-home fa-btn"></i>Home</a></li>
+                <li><a href="/main.php"><i class='fi-xnsuxl-house-solid'></i>Home</a></li>
                 <li><a href="forum.php">Forum</a></li>
                 <li class="active"><a href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a></li>
             </ul>
@@ -71,25 +71,30 @@
 
             <p>
                 By <a href="profile.php?UID=<?= $thread['USER_ID']?>" class="link-unstyled"><?=$threadUser['USERNAME']?>></a>, <?= timeAgo($thread['F_CRE'])?>.
-                <span style="float:right; margin-top: 2px;" class="hide-mobile text-faded text-small"><?= count($posts)?> respuestas de </span>
+                <span style="float:right; margin-top: 2px;" class="hide-mobile text-faded text-small"><?= count($posts)?> respuestas de <?=$postManager->getPostCountByUniqueUser($thread['THREAD_ID'])?> usuarios</span>
             </p>
 
             <div class="post-list">
-
                 <div class="post">
-                    <!--TODO LINKEAR LAS VARIABLES DEL USUARIO DE POSTS Y THREADS DE LA BASE DE DATOS-->
                     <div class="user-info">
-                        <a href="profile.php#profile-details" class="user-name">$username-propietario-hilo</a>
+                        <a href="profile.php?UID=<?=$thread['USER_ID']?>" class="user-name"><?=$threadUser['USERNAME']?></a>
 
-                        <a href="profile.php#profile-details">
-                            <img class="avatar-large" src="http://i.imgur.com/s0AzOkO.png" alt="">
+                        <a href=profile.php?UID=<?=$thread['USER_ID']?>">
+                            <img class="avatar-large" src="<?=$threadUser['AVATAR']?>" alt="AVATAR DE <?=$threadUser['USERNAME']?>">
                         </a>
+                        <?php
+                            $numPosts = $postManager->getPostCountByUserId($thread['USER_ID']);
+                            $numThreads = $threadManager->getThreadCountByUserId($thread['USER_ID']);
+                            $online = $userManager->isUserOnline($thread['USER_ID']);
+                            $offline = !$online;
+                        ?>
+                        <p class="desktop-only text-small"><?= $numPosts == 1 ? $numPosts . ' Post' : $numPosts . ' Posts'?></p>
 
-                        <p class="desktop-only text-small">$num-posts</p>
+                        <p class="desktop-only text-small"><?= $numThreads == 1 ? $numThreads . ' Hilo' : $numThreads . ' Hilos'?></p>
 
-                        <p class="desktop-only text-small">$num-threads</p>
-
-                        <span class="online desktop-only">$online</span>
+                        <span class="user-status <?= $online ? 'online' : 'offline' ?>">
+                                <?= $online ? 'Ahora online' : 'Offline' ?>
+                        </span>
 
                     </div>
 
