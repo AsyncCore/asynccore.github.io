@@ -12,6 +12,8 @@
         private const CREATE_THREAD = 'INSERT INTO HILOS (USER_ID, TITULO, SUBTITULO, CONTENIDO, CAT_ID) VALUES (:userID, :titulo, :subtitulo, :contenido, :catID)';
         private const GET_THREAD = 'SELECT * FROM HILOS WHERE THREAD_ID = :threadID';
         private const GET_LAST_THREAD_BY_CATEGORY = 'SELECT * FROM HILOS WHERE CAT_ID = :catID ORDER BY F_CRE DESC LIMIT 1';
+        private const GET_THREAD_COUNT = 'SELECT COUNT(*) FROM HILOS';
+        private const GET_THREAD_COUNT_BY_USER_ID = 'SELECT COUNT(*) FROM HILOS WHERE USER_ID = :userID';
         private const GET_THREAD_COUNT_BY_CATEGORY = 'SELECT COUNT(*) FROM HILOS WHERE CAT_ID = :catID';
         private const GET_LAST_THREAD_BY_CATEGORY_WITH_USER = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID WHERE H.CAT_ID = :catID ORDER BY H.F_CRE DESC LIMIT 1';
         private const GET_ALL_THREADS_BY_CATEGORY = 'SELECT * FROM HILOS WHERE CAT_ID = :catID';
@@ -107,6 +109,28 @@
             } catch (PDOException $e) {
                 Logger::log('Error al obtener el último hilo de la categoría ' . $categoryId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return null;
+            }
+        }
+        
+        public function getThreadCount(){
+            try {
+                $consulta = $this->db->query(self::GET_THREAD_COUNT);
+                return $consulta->fetchColumn();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el número total de hilos: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getThreadCountByUserId($userId){
+            try{
+                $consulta = $this->db->prepare(self::GET_THREAD_COUNT_BY_USER_ID);
+                $consulta->bindParam(':userID', $userId);
+                $consulta->execute();
+                return $consulta->fetchColumn();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el número total de hilos del usuario ' . $userId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
             }
         }
         
