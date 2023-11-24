@@ -1,5 +1,5 @@
 <?php
-    include_once '../../src/utils/sessionInit.php';
+    require 'src/init.php';
     $descripcion = 'PÁGINA DE ERROR 403 - TIMEOUT';
     $titulo = 'ERROR 408';
     $css = ['/css/error-footer.css', '/css/prism.css', '/css/error-pages.css'];

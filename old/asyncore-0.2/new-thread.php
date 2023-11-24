@@ -6,7 +6,7 @@
     * @var string $js /src/logged-header.php
     */
 
-    require '../src/utils/sessionInit.php';
+    require '../src/utils/sessions.php';
     require DIR . '/src/utils/autoloader.php';
     require DIR . '/vendor/autoload.php';
     include_once DIR . '/src/utils/utils.php';
