@@ -171,7 +171,6 @@
         }
     }
     
-    
     /**
      * Función para validar el email que comprueba si está vacío y si no lo está comprueba que sea de EducaMadrid.
      *
