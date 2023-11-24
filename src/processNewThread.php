@@ -6,8 +6,7 @@
     use src\db\DatabaseConnection;
     use src\managers\ThreadManager;
     
-    require 'utils/sessionInit.php';
-    require_once 'utils/utils.php';
+    require 'src/init.php';
     
     const TITLE_MIN_LENGTH = 1;
     const TITLE_MAX_LENGTH = 255;

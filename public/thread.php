@@ -12,11 +12,7 @@
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require '../src/utils/sessionInit.php';
-    require DIR . '/src/utils/autoloader.php';
-    require DIR . '/vendor/autoload.php';
-    include_once DIR . '/src/utils/utils.php';
-    
+    require 'src/init.php';
     include DIR . '/src/utils/errorReporting.php';
     
     if (!isset($_GET['t']) || !is_numeric($_GET['t'])) {

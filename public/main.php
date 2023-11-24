@@ -1,29 +1,26 @@
 <?php
-/**
- * @var string $descripcion /src/logged-header.php
- * @var string $titulo /src/logged-header.php
- * @var string $css /src/logged-header.php
- * @var string $js /src/logged-header.php
- */
-
-require '../src/utils/sessionInit.php';
-require DIR . '/src/utils/autoloader.php';
-require DIR . '/vendor/autoload.php';
-include_once DIR . '/src/utils/utils.php';
-
-unsetLoginRegister();
-
-$descripcion = "Página principal de AsynCore";
-$titulo = "AsynCore";
-$css = ["css/style.css"];
-$js = ["js/script.js"];
-$cdn = ["https://friconix.com/cdn/friconix.js"];
-include_once DIR . '/src/head.php';
-if (isset($_SESSION['USER_ID'])) {
-  include_once DIR . '/src/logged-header.php';
-} else {
-  include_once DIR . '/src/login-header.php';
-}
+    /**
+     * @var string $descripcion /src/logged-header.php
+     * @var string $titulo      /src/logged-header.php
+     * @var string $css         /src/logged-header.php
+     * @var string $js          /src/logged-header.php
+     */
+    
+    require 'src/init.php';
+    
+    unsetLoginRegister();
+    
+    $descripcion = "Página principal de AsynCore";
+    $titulo = "AsynCore";
+    $css = ["css/style.css"];
+    $js = ["js/script.js"];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
+    include_once DIR . '/src/head.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 ?>
 
 <main>
@@ -66,7 +63,8 @@ if (isset($_SESSION['USER_ID'])) {
                         <p>
                             <a href="thread.php">$Título-hilo</a>
                         </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours ago($fecha-creacion?)</p>
+                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours
+                            ago($fecha-creacion?)</p>
                     </div>
 
                     <div class="activity">
@@ -86,7 +84,7 @@ if (isset($_SESSION['USER_ID'])) {
             </div>
         </div>
 
-        <div class="col-full push-top" >
+        <div class="col-full push-top">
             <div class="thread-list">
 
                 <h2 class="list-title">Hilos populares</h2>
@@ -124,7 +122,8 @@ if (isset($_SESSION['USER_ID'])) {
                         <p>
                             <a href="thread.php">$Título-hilo</a>
                         </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours ago($fecha-creacion?)</p>
+                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours
+                            ago($fecha-creacion?)</p>
                     </div>
 
                     <div class="activity">
@@ -146,5 +145,5 @@ if (isset($_SESSION['USER_ID'])) {
     </div>
 </main>
 <?php
-include_once DIR . '/src/footer.php';
+    include_once DIR . '/src/footer.php';
 ?>

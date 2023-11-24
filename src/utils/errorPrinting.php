@@ -3,9 +3,10 @@
     use src\Logger;
     use src\LogLevels;
     
-    include DIR . '/src/utils/sessionInit.php';
-    include DIR . '/src/utils/errorReporting.php';
-    
+    /**
+     * Array asociativo de iconos SVG.
+     * @const array SVG_ICONS
+     */
     const SVG_ICONS = [
         'INFO' => '<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                         <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -24,6 +25,10 @@
                     </svg>',
     ];
     
+    /**
+     * Array asociativo de tipos de error con el HTML para incrustar el icono.
+     * @const array ERROR_TYPES
+     */
     const ERROR_TYPES = [
         'INFO' => '<svg class="bi flex-shrink-0 me-2" width="75" height="75" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>',
         'SUCCESS' => '<svg class="bi flex-shrink-0 me-2" width="75" height="75" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>',
@@ -31,6 +36,10 @@
         'DANGER' => '<svg class="bi flex-shrink-0 me-2" width="75" height="75" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>'
     ];
     
+    /**
+     * Array asociativo de mensajes de error.
+     * @const array ERROR_MESSAGES
+     */
     const ERROR_MESSAGES = [
         'c_e' => [
             'type' => 'danger',
@@ -143,6 +152,9 @@
     
     
     /**
+     * Función que imprime un mensaje de error.
+     *
+     * Imprime un mensaje de error con el tipo y el mensaje especificados.
      * @param string $type - Tipo de mensaje
      * @param array  $messages - Array de mensajes
      * @param array  $dynamicValues - Valores dinámicos para formatear el mensaje

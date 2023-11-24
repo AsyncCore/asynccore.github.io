@@ -10,10 +10,7 @@
     use src\db\DatabaseConnection;
     use src\managers\CategoryManager;
     
-    require '../src/utils/sessionInit.php';
-    require DIR . '/src/utils/autoloader.php';
-    require DIR . '/vendor/autoload.php';
-    include_once DIR . '/src/utils/utils.php';
+    require 'src/init.php';
     include DIR . '/src/processNewThread.php';
     
     $descripcion = "Página para la creación de hilos del foro de AsynCore";

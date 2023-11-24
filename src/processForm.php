@@ -5,8 +5,7 @@
     use src\managers\TokenManager;
     
     /* Importar funcionalidad global */
-    require 'utils/sessionInit.php';
-    require_once 'utils/utils.php';
+    require 'src/init.php';
     
     /* Definición de constantes */
     /* INT */

@@ -1,29 +1,25 @@
 <?php
-/**
- * @var string $descripcion /src/logged-header.php
- * @var string $titulo /src/logged-header.php
- * @var string $css /src/logged-header.php
- * @var string $js /src/logged-header.php
- */
-
-require '../src/utils/sessionInit.php';
-require DIR . '/src/utils/autoloader.php';
-require DIR . '/vendor/autoload.php';
-include_once DIR . '/src/utils/utils.php';
-
-unsetLoginRegister();
-
-$descripcion = "Página de edición de perfíl de AsynCore";
-$titulo = "AsynCore";
-$css = ["css/style.css"];
-$js = ["js/script.js"];
-$cdn = ["https://friconix.com/cdn/friconix.js"];
-include_once DIR . '/src/head.php';
-if (isset($_SESSION['USER_ID'])) {
-  include_once DIR . '/src/logged-header.php';
-} else {
-  include_once DIR . '/src/login-header.php';
-}
+    /**
+     * @var string $descripcion /src/logged-header.php
+     * @var string $titulo      /src/logged-header.php
+     * @var string $css         /src/logged-header.php
+     * @var string $js          /src/logged-header.php
+     */
+    
+    require 'src/init.php';
+    
+    
+    $descripcion = "Página de edición de perfíl de AsynCore";
+    $titulo = "AsynCore";
+    $css = ["css/style.css"];
+    $js = ["js/script.js"];
+    $cdn = ["https://friconix.com/cdn/friconix.js"];
+    include_once DIR . '/src/head.php';
+    if (isset($_SESSION['USER_ID'])) {
+        include_once DIR . '/src/logged-header.php';
+    } else {
+        include_once DIR . '/src/login-header.php';
+    }
 ?>
 <div class="container">
     <div class="flex-grid">
@@ -170,7 +166,6 @@ if (isset($_SESSION['USER_ID'])) {
         </div>
     </div>
 </div>
-</div>
 <?php
-include_once DIR . '/src/footer.php';
+    include_once DIR . '/src/footer.php';
 ?>

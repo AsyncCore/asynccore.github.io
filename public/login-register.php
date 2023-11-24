@@ -7,14 +7,12 @@
      * Incluye formularios para ambas funciones y procesa las solicitudes de login y registro.<br><br>
      *
      * Dependencias:<pre>
-     *      - sessionInit.php: Inicialización de la sesión y definición de constantes globales.
+     *      - sessions.php: Inicialización de la sesión y definición de constantes globales.
      *      - autoloader.php: Carga automática de clases.
      *      - processForm.php: Procesamiento de formularios de inicio de sesión y registro.</pre>
      */
-    include_once '../src/utils/sessionInit.php';
-    require DIR . '/src/utils/autoloader.php';
+    require 'src/init.php';
     include DIR . '/src/processForm.php';
-    include DIR . '/src/utils/errorPrinting.php';
     
     /**
      * Otras variables

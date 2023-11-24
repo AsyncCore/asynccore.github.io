@@ -12,10 +12,7 @@
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require '../src/utils/sessionInit.php';
-    require DIR . '/src/utils/autoloader.php';
-    require DIR . '/vendor/autoload.php';
-    include_once DIR . '/src/utils/utils.php';
+    require 'src/init.php';
     
     $categories = [1, 2, 3, 4, 5]; /*TODO hacerlo dinámico desde BD*/
     
@@ -82,11 +79,12 @@
                     <div class="thread">
                         <div>
                             <p>
-                                <a href="thread.php?c=<?=$getCategory?>&t=<?= $thread['THREAD_ID'] ?>"><?= $thread['TITULO'] ?></a>
+                                <a href="thread.php?c=<?= $getCategory ?>&t=<?= $thread['THREAD_ID'] ?>"><?= $thread['TITULO'] ?></a>
                             </p>
                             <p class="text-faded text-xsmall">
                                 By
-                                <a href="profile.php?UID=<?= $thread['USER_ID'] ?>"><?= $threadUser['USERNAME'] ?></a>, <?= timeAgo($thread['F_CRE']) ?>.
+                                <a href="profile.php?UID=<?= $thread['USER_ID'] ?>"><?= $threadUser['USERNAME'] ?></a>, <?= timeAgo($thread['F_CRE']) ?>
+                                .
                             </p>
                         </div>
 
@@ -96,12 +94,12 @@
                             </p>
 
                             <img class="avatar-medium"
-                                 src="<?=$threadUser['AVATAR']?>"
-                                 alt="AVATAR DE <?=$threadUser['USERNAME']?>">
+                                 src="<?= $threadUser['AVATAR'] ?>"
+                                 alt="AVATAR DE <?= $threadUser['USERNAME'] ?>">
 
                             <div>
                                 <p class="text-xsmall">
-                                    <a href="profile.php?UID=<?=$post['USER_ID']?>"><?=$postUser['USERNAME']?></a>
+                                    <a href="profile.php?UID=<?= $post['USER_ID'] ?>"><?= $postUser['USERNAME'] ?></a>
                                 </p>
                                 <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
                             </div>
