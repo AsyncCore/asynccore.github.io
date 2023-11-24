@@ -17,7 +17,9 @@
     require DIR . '/vendor/autoload.php';
     include_once DIR . '/src/utils/utils.php';
     
-    if (!isset($_GET['c']) || !is_numeric(intval($_GET['c']))) {
+    $categories = [1, 2, 3, 4, 5]; /*TODO hacerlo dinámico desde BD*/
+    
+    if (!isset($_GET['c']) || !array_filter($categories, fn($cat) => $cat == $_GET['c'])) {
         header('Location: /forum.php?c=e');
         die;
     } else {
@@ -37,7 +39,7 @@
     
     $descripcion = "FORO DE ASYNCORE - ";
     $titulo = "Categoría ";
-    $css = ['css/style.css', 'css/footer.css'];
+    $css = ['css/mdb-custom.css', 'css/style.css', 'css/footer.css'];
     $js = ["js/script.js"];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
@@ -52,11 +54,8 @@
     <div class="container">
         <div class="col-full push-top">
             <ul class="breadcrumbs">
-                <li><a href="/index.php"><i class="fa fa-home fa-btn"></i>Home</a></li>
-                <li><a href="/forum.php">Forum</a></li>
-                <li class="active"><a
-                            href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a>
-                </li>
+                <li><a href="/index.php"><i class='fi-xnsuxl-house-solid'></i>Home</a></li>
+                <li class="active"><a href="/forum.php">Forum</a></li>
             </ul>
 
             <div class="forum-header">
@@ -64,7 +63,7 @@
                     <h1><?= $category['TITULO'] ?></h1>
                     <p class="text-lead"><?= $category['SUBTITULO'] ?></p>
                 </div>
-                <a href="crearHilo.php?c=<?= $getCategory ?>" class="btn-green btn-small">Crear un hilo</a>
+                <a href="new-thread.php?c=<?= $getCategory ?>" class="btn-green btn-small">Crear un hilo</a>
             </div>
         </div>
 
