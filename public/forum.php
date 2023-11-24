@@ -36,11 +36,20 @@
     
     $message = '';
     if (isset($_GET['c'])) {
+        if ($_GET['c'] == 'e') {
+            $message = <<<HTML
+                                <div>
+                                    <h2>400 - BAD REQUEST</h2>
+                                    <p>La categoría que estás buscando no existe. Puedes volver a la <a href="/main.php">página principal</a>.</p>
+                                </div>
+HTML;
+            $message = printCategoryFail($message);
+        }
         if ($_GET['c'] == 'nf') {
             $message = <<<HTML
                                 <div>
                                     <h2>404 - NOT FOUND</h2>
-                                    <p>La categoría que estás buscando no existe. Puedes <a href="/main.php">volver a la página principal</a>.</p>
+                                    <p>La categoría no existe o tenemos un problemilla en la BD. Puedes volver a la <a href="/main.php">página principal</a>.</p>
                                 </div>
 HTML;
             $message = printCategoryFail($message);
