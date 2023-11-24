@@ -15,6 +15,8 @@
     require DIR . '/src/utils/autoloader.php';
     require DIR . '/vendor/autoload.php';
     include_once DIR . '/src/utils/utils.php';
+    include_once DIR . '/src/utils/errorPrinting.php';
+    include_once DIR . '/src/utils/errorReporting.php';
     
     $descripcion = "Foro de AsynCore. Un foro de programación para estudiantes de DAW y DAM.";
     $titulo = "Foro de AsynCore";
@@ -33,26 +35,17 @@
     $threadManager = new ThreadManager($db);
     $userManager = new UserManager($db);
     $categories = $categoryManager->getAllCategories();
-    
     $message = '';
-    if (isset($_GET['c'])) {
-        if ($_GET['c'] == 'e') {
-            $message = <<<HTML
-                                <div>
-                                    <h2>400 - BAD REQUEST</h2>
-                                    <p>La categoría que estás buscando no existe. Puedes volver a la <a href="/main.php">página principal</a>.</p>
-                                </div>
-HTML;
-            $message = printCategoryFail($message);
-        }
-        if ($_GET['c'] == 'nf') {
-            $message = <<<HTML
-                                <div>
-                                    <h2>404 - NOT FOUND</h2>
-                                    <p>La categoría no existe o tenemos un problemilla en la BD. Puedes volver a la <a href="/main.php">página principal</a>.</p>
-                                </div>
-HTML;
-            $message = printCategoryFail($message);
+    
+    foreach (['c', 'nt', 't', 'p', 'UID'] as $param) {
+        if (isset($_GET[$param])) {
+            $errorKey = $param . '_' . htmlspecialchars($_GET[$param]);
+            if (array_key_exists($errorKey, ERROR_MESSAGES)) {
+                $message = printMessage($errorKey, ERROR_MESSAGES);
+                if ($message) {
+                    break;
+                }
+            }
         }
     }
 ?>
