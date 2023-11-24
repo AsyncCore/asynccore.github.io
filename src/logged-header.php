@@ -62,7 +62,6 @@
             <li class='navbar-item'>
                 <a href='FAQ.php'>FAQ</a>
             </li>
-            <!-- TODO CREAR LA PAGINA ¿QUIENES SOMOS?-->
             <li class='navbar-item'>
                 <a href='about-us.php'>¿Quiénes somos?</a>
             </li>
