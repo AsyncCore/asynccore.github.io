@@ -32,7 +32,7 @@
 					<ul class="submenu">
 						<li><a href="/error-pages/500.php">Más populares</a></li>
 						<li><a href="/error-pages/403.php">Últimos modificados</a></li>
-						<li><a href="/crearHilo.php">Crear Hilo</a></li>
+						<li><a href="/new-thread.php">Crear Hilo</a></li>
 						<li><a href="/editorHilos.php">Editar Hilo</a></li>
 						<li><a href="/crearPost.php">Crear Post</a></li>
 						<li><a href="/editarPost.php">Editar Post</a></li>
