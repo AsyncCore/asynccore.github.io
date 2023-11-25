@@ -66,6 +66,10 @@
         }
     }
     
+    if (isset($_GET['nt'])) {
+        $message = printMessage('nt_'.htmlspecialchars($_GET['nt']), ERROR_MESSAGES);
+    }
+    
     /**
      * Maneja el cambio entre los formularios de inicio de sesión y registro.
      * Establece la pestaña activa y el enfoque automático en función de los parámetros GET.
