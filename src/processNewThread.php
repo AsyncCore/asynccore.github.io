@@ -61,7 +61,7 @@
                 foreach ($tags as $tagId) {
                     $threadManager->associateTagWithThread($threadId, $tagId);
                 }
-                header('Location: /thread.php?t=' . $threadId);
+                header('Location: /thread.php?c='. $catId .'&t=' . $threadId);
                 die;
             } catch (Exception $e) {
                 Logger::log("Error al crear un hilo: " . $e->getMessage(), __FILE__, LogLevels::ERROR);
