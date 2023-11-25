@@ -101,6 +101,11 @@
             'title' => '',
             'message' => '¡Bienvenido <b>%s</b>! Redirigiendo a la página principal...<br>Si no se redirige en 5 segundos, pulsa <a href="/main.php">aquí</a>'
         ],
+        'nt_nl' => [
+            'type' => 'info',
+            'title' => '',
+            'message' => 'Debes iniciar sesión para crear un hilo.'
+        ],
         'register_fail' => [
             'type' => 'danger',
             'title' => '',
