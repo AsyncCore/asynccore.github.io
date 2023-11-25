@@ -48,22 +48,33 @@
 <main>
     <div class="container">
         <div class="col-full push-top">
-            <h1>Foro de Asyncore</h1>
+            <h1 style="text-align: center">Foro de AsynCore</h1>
         </div>
         <div class="col-full">
             <?= $message ?>
         </div>
         <div class="col-full">
             <div class="forum-list">
-                <h2 class="list-title">
-                    <span>Categorías</span>
-                </h2>
                 <?php foreach ($categories as $category): ?>
                     <?php
-                    $lastThread = $threadManager->getLastThreadByCategoryWithUser($category['CAT_ID']);
-                    if ($lastThread) {
-                        $user = $userManager->getUserById($lastThread['USER_ID']);
-                    }
+                        $lastThread = $threadManager->getLastThreadByCategoryWithUser($category['CAT_ID']);
+                        if ($lastThread) {
+                            $user = $userManager->getUserById($lastThread['USER_ID']);
+                        }
+                        
+                        if ($category['CAT_ID'] == 1) {
+                            echo <<<HTML
+                                    <h2 class="list-title">
+                                        <span>ASYNCORE</span>
+                                    </h2>
+                            HTML;
+                        } else if ($category['CAT_ID'] == 2){
+                            echo <<<HTML
+                                    <h2 class="list-title">
+                                        <span>CATEGORÍAS</span>
+                                    </h2>
+                            HTML;
+                        }
                     ?>
                     <div class="forum-listing">
                         <div class="forum-icon">

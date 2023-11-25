@@ -33,7 +33,10 @@
     $errors = [];
     
     $catId = '';
-    if (isset($_GET['c'])) {
+    
+    if (isset($_POST['cat-id'])){
+        $catId = htmlspecialchars($_POST['cat-id']);
+    } else if (!empty($_GET['c'])){
         $catId = htmlspecialchars($_GET['c']);
     }
     
@@ -49,7 +52,7 @@
         
         if (!array_filter($errors)){
             try {
-                $threadId = false;//$threadManager->createThread($title, $subtitle, $content, $_SESSION['USER_ID'], $catId);
+                $threadId = $threadManager->createThread($_SESSION['USER_ID'], $title, $subtitle, $content, $catId);
                 
                 if (!$threadId) {
                     throw new Exception("Error al crear el hilo", 1);
@@ -58,7 +61,8 @@
                 foreach ($tags as $tagId) {
                     $threadManager->associateTagWithThread($threadId, $tagId);
                 }
-    
+                header('Location: /thread.php?c='. $catId .'&t=' . $threadId);
+                die;
             } catch (Exception $e) {
                 Logger::log("Error al crear un hilo: " . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 header('Location: /category.php?c=' . $catId . '&nt=e');

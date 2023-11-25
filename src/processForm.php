@@ -20,7 +20,6 @@
     const NAMES_MAX_LENGTH = 50;
     const PASSWORD_MIN_LENGTH = 8;
     const PASSWORD_MAX_LENGTH = 16;
-    define('COOKIE_TIME', time() + 60 * 60 * 24 * 7);
     
     /* STRING */
     /**
@@ -49,7 +48,6 @@
     const ACTIVE_TAB_DEFAULT = 'login';
     const ACTIVE_TAB_REGISTER = 'registro';
     const CHECKED = '1';
-    const EMPTY_STRING = '';
     const MAIL_ERROR = "El Email debe ser de EducaMadrid <br> Ejemplo: 'usuario@educa.madrid.org'";
     const MAIL_PATTERN = '/^[a-zA-Z0-9_.+-]+@educa\.madrid\.org$/';
     const MAIL_REQUIRED_ERROR = 'El Email es obligatorio';
@@ -123,7 +121,7 @@
                         $token = $tokenManager->generateToken($usuario['USER_ID']);
                         $cookieName = 'usuario' . $usuario['USER_ID'];
                         $cookieValue = $token;
-                        setcookie($cookieName, $cookieValue, COOKIE_TIME, '/', true, true);
+                        setcookie($cookieName, $cookieValue, COOKIE_EXPIRATION_TIME, '/', true, true);
                     }catch (Exception $e) {
                         header("Location: error-pages/dbError.php");
                     }

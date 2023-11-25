@@ -21,3 +21,8 @@
      * @const EMPTY_STRING Cadena vacía.
      */
     defined('EMPTY_STRING') || define('EMPTY_STRING', '');
+    
+    /**
+     * @const COOKIE_EXPIRATION_TIME Tiempo de expiración de las cookies.
+     */
+    defined('COOKIE_EXPIRATION_TIME') || define('COOKIE_EXPIRATION_TIME', time() + 60 * 60 * 24 * 7);
