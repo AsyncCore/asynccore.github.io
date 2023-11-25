@@ -62,7 +62,7 @@
                             <input type="checkbox" id="tag-<?= $tag['ETI_ID'] ?>" name="post-tags[]"
                                    value="<?= $tag['ETI_ID'] ?>">
                             <label for="tag-<?= $tag['ETI_ID'] ?>">
-                                #<?= $tag['NOMBRE'] ?>
+                                <span style="display: flex; align-items: center;">#<?= $tag['NOMBRE'] ?><i style="margin-left: 5px;" class="<?= $tag['ICONO'] ?>"></i></span>
                                 <span class="tooltip"><?= $tag['DESC'] ?></span>
                             </label>
                         </div>
