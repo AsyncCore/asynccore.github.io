@@ -10,11 +10,12 @@
     class TagManager
     {
         private PDO $db;
-        private const CREATE_TAG = 'INSERT INTO ETIQUETAS (NOMBRE, `DESC`) VALUES (:nombre, :desc)';
+        private const CREATE_TAG = 'INSERT INTO ETIQUETAS (NOMBRE, `DESC`, ICONO) VALUES (:nombre, :desc, :icono)';
         private const GET_TAG = 'SELECT * FROM ETIQUETAS WHERE ETI_ID = :tagID';
         private const GET_ALL_TAGS = 'SELECT * FROM ETIQUETAS';
         private const UPDATE_TAG = 'UPDATE ETIQUETAS SET NOMBRE = :nombre, `DESC` = :desc WHERE ETI_ID = :tagID';
         private const DELETE_TAG = 'DELETE FROM ETIQUETAS WHERE ETI_ID = :tagID';
+        private const GET_ALL_TAGS_BY_THREAD_ID = 'SELECT * FROM ETIQUETAS E JOIN HILO_ETIQUETAS TT ON E.ETI_ID = TT.ETI_ID WHERE TT.THREAD_ID = :threadID';
         
         public function __construct($dbConnection)
         {
@@ -84,6 +85,19 @@
                 return $consulta->rowCount();
             } catch (PDOException $e) {
                 Logger::log('Error al eliminar etiqueta: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getAllTagsByThreadId($threadId): bool|array
+        {
+            try {
+                $consulta = $this->db->prepare(self::GET_ALL_TAGS_BY_THREAD_ID);
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->execute();
+                return $consulta->fetchAll();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener todas las etiquetas del hilo ' . $threadId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
