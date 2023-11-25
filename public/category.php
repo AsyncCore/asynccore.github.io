@@ -14,9 +14,16 @@
     
     require '../src/init.php';
     
-    $categories = [1, 2, 3, 4, 5]; /*TODO hacerlo dinámico desde BD*/
+    $categories = [1, 2, 3, 4, 5, '']; /*TODO hacerlo dinámico desde BD*/
     
-    if (!isset($_GET['c']) || !array_filter($categories, fn($cat) => $cat == $_GET['c'])) {
+    if(isset($_GET['nt'])) {
+        $errorKey = 'nt_' . htmlspecialchars($_GET['nt']);
+        if (array_key_exists($errorKey, ERROR_MESSAGES)) {
+            $message = printMessage($errorKey, ERROR_MESSAGES);
+        }
+    }
+    
+    if (!isset($_GET['c']) || !array_filter($categories, fn($cat) => $cat == $_GET['c']) && !isset($message)) {
         header('Location: /forum.php?c=e');
         die;
     } else {
@@ -27,7 +34,7 @@
         $postManager = new PostsManager($db);
         $userManager = new UserManager($db);
         $category = $categoryManager->getCategory($getCategory);
-        if (!$category) {
+        if (!$category and !isset($message)) {
             header('Location: /forum.php?c=nf');
             die;
         }
@@ -36,7 +43,7 @@
     
     $descripcion = "FORO DE ASYNCORE - ";
     $titulo = "Categoría ";
-    $css = ['css/mdb-custom.css', 'css/style.css', 'css/footer.css'];
+    $css = ['css/style.css', 'css/mdb-custom.css', 'css/footer.css'];
     $js = ["js/script.js"];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
@@ -55,6 +62,25 @@
                 <li class="active"><a href="/forum.php">Forum</a></li>
             </ul>
             <div class="forum-header">
+                <?php
+                    if(isset($message)){
+                        echo $message;
+                    }
+                    
+                    if(!$category){
+                        echo <<<HTML
+                                                <div class="col-full">
+                                                    <h1 style="text-align: center">Foro de Asyncore</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </main>
+                            HTML;
+                        include_once DIR . '/src/footer.php';
+                        die;
+                    }
+                ?>
                 <div class="forum-details">
                     <h1><?= $category['TITULO'] ?></h1>
                     <p class="text-lead"><?= $category['SUBTITULO'] ?></p>
