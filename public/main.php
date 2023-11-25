@@ -1,12 +1,24 @@
 <?php
     /**
      * @var string $descripcion /src/logged-header.php
-     * @var string $titulo      /src/logged-header.php
-     * @var string $css         /src/logged-header.php
-     * @var string $js          /src/logged-header.php
+     * @var string $titulo /src/logged-header.php
+     * @var string $css /src/logged-header.php
+     * @var string $js /src/logged-header.php
      */
     
+    use src\managers\UserManager;
+    use src\db\DatabaseConnection;
+    use src\managers\PostsManager;
+    use src\managers\ThreadManager;
+    
     require '../src/init.php';
+    
+    $db = DatabaseConnection::getInstance()->getConnection();
+    $threadManager = new ThreadManager($db);
+    $postManager = new PostsManager($db);
+    $userManager = new UserManager($db);
+    $latestThreads = $threadManager->getLatestThreads();
+    $mostRepliedThreads = $threadManager->getMostRepliedThreads();
     
     unsetLoginRegister();
     
@@ -29,58 +41,44 @@
             <div class="thread-list">
 
                 <h2 class="list-title">Últimos Hilos</h2>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">
-                            By <a href="profile.php">$username-propietario</a>, yesterday($fecha-creacion?).
-                        </p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png"
-                             alt="">
-
+                <?php foreach ($latestThreads as $thread): ?>
+                    <?php
+                    $threadUser = $userManager->getUserById($thread['USER_ID']);
+                    $post = $postManager->getLastPostByThread($thread['THREAD_ID']);
+                    if(!$post){
+                        $post = $thread;
+                    }
+                    $postUser = $userManager->getUserById($post['USER_ID']);
+                    ?>
+                    <div class="thread">
                         <div>
-                            <p class="text-xsmall">
-                                <a href="profile.php">$username-last-response</a>
+                            <p>
+                                <a href="thread.php?t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
                             </p>
-                            <p class="text-xsmall text-faded">2 hours ago</p>
+                            <p class="text-faded text-xsmall">
+                                By <a href="profile.php?UID=<?= htmlspecialchars($thread['USER_ID']) ?>"><?= htmlspecialchars($thread['USERNAME']) ?></a>, <?= htmlspecialchars(timeAgo($thread['F_CRE'])) ?>
+                            </p>
+                        </div>
+
+                        <div class="activity">
+                            <p class="replies-count">
+                                <?= $postManager->getPostCountByThread($thread['THREAD_ID']) ?>
+                            </p>
+
+                            <img class="avatar-medium"
+                                 src="<?= $threadUser['AVATAR'] ?>"
+                                 alt="Avatar de <?= $threadUser['USERNAME'] ?>">
+
+                            <div>
+                                <p class="text-xsmall">
+                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USER_ID'] ?></a>
+                                </p>
+                                <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours
-                            ago($fecha-creacion?)</p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
-                             alt="">
-                        <span>
-                          <a class="text-xsmall" href="profile.php">$username-last-response</a>
-                          <p class="text-faded text-xsmall">3 hours ago</p>
-                      </span>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+                
             </div>
         </div>
 
@@ -88,58 +86,44 @@
             <div class="thread-list">
 
                 <h2 class="list-title">Hilos populares</h2>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">
-                            By <a href="profile.php">$username-propietario</a>, yesterday($fecha-creacion?).
-                        </p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png"
-                             alt="">
-
+                
+                <?php foreach ($mostRepliedThreads as $thread): ?>
+                    <?php
+                    $threadUser = $userManager->getUserById($thread['USER_ID']);
+                    $post = $postManager->getLastPostByThread($thread['THREAD_ID']);
+                    if(!$post){
+                        $post = $thread;
+                    }
+                    $postUser = $userManager->getUserById($post['USER_ID']);
+                    ?>
+                    <div class="thread">
                         <div>
-                            <p class="text-xsmall">
-                                <a href="profile.php">$username-last-response</a>
+                            <p>
+                                <a href="thread.php?t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
                             </p>
-                            <p class="text-xsmall text-faded">2 hours ago</p>
+                            <p class="text-faded text-xsmall">
+                                By <a href="profile.php?UID=<?= htmlspecialchars($thread['USER_ID']) ?>"><?= htmlspecialchars($thread['USERNAME']) ?></a>, <?= htmlspecialchars(timeAgo($thread['F_CRE'])) ?>
+                            </p>
+                        </div>
+
+                        <div class="activity">
+                            <p class="replies-count">
+                                <?= $postManager->getPostCountByThread($thread['THREAD_ID']) ?>
+                            </p>
+
+                            <img class="avatar-medium"
+                                 src="<?= $threadUser['AVATAR'] ?>"
+                                 alt="Avatar de <?= $threadUser['USERNAME'] ?>">
+
+                            <div>
+                                <p class="text-xsmall">
+                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USER_ID'] ?></a>
+                                </p>
+                                <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="thread">
-                    <div>
-                        <p>
-                            <a href="thread.php">$Título-hilo</a>
-                        </p>
-                        <p class="text-faded text-xsmall">By <a href="profile.php">$username-propietario</a>, 8 hours
-                            ago($fecha-creacion?)</p>
-                    </div>
-
-                    <div class="activity">
-                        <p class="replies-count">
-                            $cant-reply
-                        </p>
-
-                        <img class="avatar-medium"
-                             src="https://firebasestorage.googleapis.com/v0/b/forum-2a982.appspot.com/o/images%2Favatars%2Fraynathan?alt=media&token=bd9a0f0e-60f2-4e60-b092-77d1ded50a7e"
-                             alt="">
-                        <span>
-                          <a class="text-xsmall" href="profile.php">$username-last-response</a>
-                          <p class="text-faded text-xsmall">3 hours ago</p>
-                      </span>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
