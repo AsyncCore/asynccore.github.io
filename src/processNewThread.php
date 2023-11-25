@@ -6,7 +6,7 @@
     use src\db\DatabaseConnection;
     use src\managers\ThreadManager;
     
-    require 'src/init.php';
+    require 'init.php';
     
     const TITLE_MIN_LENGTH = 1;
     const TITLE_MAX_LENGTH = 255;
@@ -32,11 +32,12 @@
     
     $errors = [];
     
-    $catId = htmlspecialchars($_GET['CAT_ID']);
+    $catId = '';
+    if (isset($_GET['c'])) {
+        $catId = htmlspecialchars($_GET['c']);
+    }
     
-    // Comprobar si el formulario ha sido enviado
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // Obtener los datos del formulario
         $title = isset($_POST['post-title']) ? sanitizeData($_POST['post-title']) : null;
         $subtitle = isset($_POST['post-subtitle']) ? sanitizeData($_POST['post-subtitle']) : null;
         $content = isset($_POST['post-content']) ? sanitizeData($_POST['post-content']) : null;
@@ -48,7 +49,7 @@
         
         if (!array_filter($errors)){
             try {
-                $threadId = $threadManager->createThread($title, $subtitle, $content, $_SESSION['USER_ID'], $catId);
+                $threadId = false;//$threadManager->createThread($title, $subtitle, $content, $_SESSION['USER_ID'], $catId);
                 
                 if (!$threadId) {
                     throw new Exception("Error al crear el hilo", 1);
@@ -60,6 +61,8 @@
     
             } catch (Exception $e) {
                 Logger::log("Error al crear un hilo: " . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                header('Location: /category.php?c=' . $catId . '&nt=e');
+                die;
             }
         }
     }
