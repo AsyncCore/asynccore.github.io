@@ -1,16 +1,13 @@
 <?php
-
-namespace src\db;
-
-use PDO;
-
-class DatabaseOperations
+    
+    
+    class DatabaseOperations
 {
     private PDO $connection;
 
     public function __construct()
     {
-        $this->connection = DatabaseConnection::getInstance()->getConnection();
+        $this->connection = \src\db\DatabaseConnection::getInstance()->getConnection();
     }
 
     public function getHilo($idHilo):array
