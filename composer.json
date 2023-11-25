@@ -27,6 +27,7 @@
   ],
   "require": {
     "phpmailer/phpmailer": "^v6.8.1",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "tinymce/tinymce": "^v6.8.0"
   }
 }

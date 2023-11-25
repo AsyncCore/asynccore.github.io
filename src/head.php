@@ -53,7 +53,7 @@
         <?php endforeach; ?>
         <!-- JavaScript -->
         <?php foreach ($js as $jsFile): ?>
-            <script defer src="<?=$jsFile?>" type='text/javascript'></script>
+            <script defer src="<?=$jsFile[0]?>" referrerpolicy="<?=$jsFile[1] ?? ""?>" type='text/javascript'></script>
         <?php endforeach; ?>
         <!-- CDN -->
         <?php if (isset($cdn) && is_array($cdn)): ?>

@@ -11,7 +11,7 @@
     $descripcion = 'Página sobre nosotros de AsynCore';
     $titulo = 'AsynCore';
     $css = ['css/style.css', 'css/about-us.css'];
-    $js = ['js/script.js', 'js/about-us.js'];
+    $js = [['js/script.js'], ['js/about-us.js']];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {

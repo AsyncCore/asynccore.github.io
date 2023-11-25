@@ -48,7 +48,7 @@
     $descripcion = "Página de hilo de AsynCore";
     $titulo = "AsynCore";
     $css = ["css/style.css", "css/footer.css", 'css/tooltip.css'];
-    $js = ["js/script.js",];
+    $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {
@@ -69,6 +69,7 @@
             </ul>
 
             <h1><?= $thread['TITULO']?></h1>
+            <h2 style="opacity: 75%; font-size: 25px;"><?=$thread['SUBTITULO']?></h2>
 
             <p>
                 By <a href="profile.php?UID=<?= $thread['USER_ID']?>" class="link-unstyled"><?=$threadUser['USERNAME']?></a>, <?= timeAgo($thread['F_CRE'])?>.
@@ -102,20 +103,23 @@
                         <div style="display: flex; justify-content: space-between;">
                             <div style="display: flex; gap: 5px;">
                                 <?php foreach ($tagManager->getAllTagsByThreadId($thread['THREAD_ID']) as $tag): ?>
-                                    <span style='border: 2px solid #eee; border-radius: 5px; z-index: 10;' class="tag">
+                                    <div class='tag-container'>
+                                        <span class="tag">
                                         <i class="<?= $tag['ICONO'] ?>"></i>
-                                        <span class='tooltip'><?= $tag['DESC'] ?></span>
-                                        <!-- <a href="/forum.php?tag=<?= $tag['ETI_ID'] ?>">#<?= $tag['NOMBRE'] ?></a> -->
-                                </span>
+                                            <!-- <a href="/forum.php?tag=<?= $tag['ETI_ID'] ?>">#<?= $tag['NOMBRE'] ?></a> -->
+                                        </span>
+                                        <span class='tag-tooltip'><?= $tag['DESC'] ?></span>
+                                    </div>
                                 <?php endforeach; ?>
                             </div>
-                            <div>
+                            <div class="edit-container">
                                 <a href="/editar.php?t=<?= $thread['THREAD_ID'] ?>" style='margin-left: auto;'
-                                   class='link-unstyled' title='Editar el post'>
+                                   class='link-unstyled'>
                                     <i class='fi-xwsux2-pen'></i></a>
+                                <span class='edit-tooltip'>Editar hilo</span>
                             </div>
                         </div>
-                        <div>
+                        <div style="margin-top: 10px;">
                             <p>
                                 <?=htmlspecialchars($thread['CONTENIDO'])?>
                             </p>
@@ -159,7 +163,7 @@
                         </span>
                         </div>
                         <div class="post-content">
-                            <div>
+                            <div style='margin-top: 10px;'>
                                 <?php if ($post['REPLY_ID'] != null): ?>
                                     <?php
                                     $reply = $postManager->getPost($post['REPLY_ID']);

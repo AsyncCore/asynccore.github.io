@@ -1,4 +1,18 @@
-.tag .tooltip {
+.tag-container,
+.edit-container {
+    position: relative;
+    display: flex;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.tag {
+    border: 2px solid #eee;
+    border-radius: 5px;
+}
+
+.tag-tooltip,
+.edit-tooltip {
     visibility: hidden;
     width: auto;
     max-width: min-content;
@@ -9,7 +23,7 @@
     padding: 5px 10px;
     position: absolute;
     z-index: 1;
-    bottom: 110%;
+    bottom: 115%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
@@ -17,7 +31,9 @@
     white-space: nowrap;
 }
 
-.tag:hover .tooltip {
+.tag-container:hover .tag-tooltip,
+.edit-container:hover .edit-tooltip {
     visibility: visible;
     opacity: 1;
 }
+

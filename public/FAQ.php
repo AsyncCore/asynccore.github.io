@@ -11,7 +11,7 @@
     $descripcion = "Página de foros de AsynCore";
     $titulo = "AsynCore";
     $css = ["css/style.css", "css/FAQ.css"];
-    $js = ["js/script.js"];
+    $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {

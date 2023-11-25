@@ -45,7 +45,7 @@
     $descripcion = "FORO DE ASYNCORE - ";
     $titulo = "Categoría ";
     $css = ['css/style.css', 'css/mdb-custom.css', 'css/footer.css'];
-    $js = ["js/script.js"];
+    $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {

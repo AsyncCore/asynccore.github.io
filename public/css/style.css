@@ -2437,7 +2437,7 @@ figure {
     max-width: 1200px;
     margin: 0 auto;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 

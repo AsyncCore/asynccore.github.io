@@ -11,7 +11,7 @@
     $descripcion = "Página para responder a un post";
     $titulo = "RESPONDER A POST";
     $css = ["css/style.css", "css/hilos-posts-style.css"];
-    $js = ["js/script.js"];
+    $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     
     include_once DIR . '/src/head.php';
