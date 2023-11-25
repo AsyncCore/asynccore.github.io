@@ -52,6 +52,15 @@
         
         if (!array_filter($errors)){
             try {
+                if(!isset($_SESSION['USER_ID'])){
+                    $_POST['post-title'] = $title;
+                    $_POST['post-subtitle'] = $subtitle;
+                    $_POST['post-content'] = $content;
+                    $_POST['post-tags'] = $tags;
+                    header('Location: /login-register.php?nt=nl');
+                    die;
+                }
+                
                 $threadId = $threadManager->createThread($_SESSION['USER_ID'], $title, $subtitle, $content, $catId);
                 
                 if (!$threadId) {
