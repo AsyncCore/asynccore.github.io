@@ -1,4 +1,5 @@
 <?php
+    
     namespace src\managers;
     
     use PDO;
@@ -15,8 +16,8 @@
         private const GET_THREAD_COUNT = 'SELECT COUNT(*) FROM HILOS';
         private const GET_THREAD_COUNT_BY_USER_ID = 'SELECT COUNT(*) FROM HILOS WHERE USER_ID = :userID';
         private const GET_THREAD_COUNT_BY_CATEGORY = 'SELECT COUNT(*) FROM HILOS WHERE CAT_ID = :catID';
-        private const GET_LAST_THREAD_BY_CATEGORY_WITH_USER = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID WHERE H.CAT_ID = :catID ORDER BY H.F_CRE DESC LIMIT 1';
-        private const GET_ALL_THREADS_BY_CATEGORY = 'SELECT * FROM HILOS WHERE CAT_ID = :catID ORDER BY F_CRE DESC';
+        private const GET_ALL_THREADS_BY_DATE = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID ORDER BY H.F_CRE DESC';
+        private const GET_ALL_THREADS_BY_COUNT_RESPONSES = "SELECT H.*, U.USERNAME, COUNT(P.POST_ID) AS NUMERO_RESPUESTAS FROM HILOS H LEFT JOIN POSTS P ON H.THREAD_ID = P.THREAD_ID JOIN USERS U ON H.USER_ID = U.USER_ID GROUP BY H.THREAD_ID, H.TITULO, H.SUBTITULO, H.CONTENIDO, U.USERNAME ORDER BY NUMERO_RESPUESTAS DESC";
         
         public function __construct($dbConnection)
         {
@@ -42,7 +43,7 @@
         
         public function getThread($threadId)
         {
-            try{
+            try {
                 $consulta = $this->db->prepare(self::GET_THREAD);
                 $consulta->bindParam(':threadID', $threadId);
                 $consulta->execute();
@@ -112,7 +113,8 @@
             }
         }
         
-        public function getThreadCount(){
+        public function getThreadCount()
+        {
             try {
                 $consulta = $this->db->query(self::GET_THREAD_COUNT);
                 return $consulta->fetchColumn();
@@ -122,8 +124,9 @@
             }
         }
         
-        public function getThreadCountByUserId($userId){
-            try{
+        public function getThreadCountByUserId($userId)
+        {
+            try {
                 $consulta = $this->db->prepare(self::GET_THREAD_COUNT_BY_USER_ID);
                 $consulta->bindParam(':userID', $userId);
                 $consulta->execute();
@@ -186,5 +189,27 @@
                 return null;
             }
         }
+        
+        
+        public function getLatestThreads(): array|false
+        {
+            try {
+                $consulta = $this->db->query(self::GET_ALL_THREADS_BY_DATE . ' LIMIT 3');
+                return $consulta->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener los hilos más recientes: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getMostRepliedThreads(): array|false
+        {
+            try {
+                $consulta = $this->db->query(self::GET_ALL_THREADS_BY_COUNT_RESPONSES . ' LIMIT 3');
+                return $consulta->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener los hilos con más respuestas: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
     }
-    
