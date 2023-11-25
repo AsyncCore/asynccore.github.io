@@ -15,4 +15,4 @@
     /**
      * @const URL_BASE URL base del proyecto.
      */
-    define('URL_BASE', 'https://' . ($_SERVER['HTTP_HOST'] ?? 'www.asyncore.es') . '/');
+    defined('URL_BASE') || define('URL_BASE', 'https://' . ($_SERVER['HTTP_HOST'] ?? 'www.asyncore.es') . '/');

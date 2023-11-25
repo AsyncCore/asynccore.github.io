@@ -6,7 +6,7 @@
      * @var string $js          /src/logged-header.php
      */
     
-    require 'src/init.php';
+    require '../src/init.php';
     
     $descripcion = "Página para responder a un post";
     $titulo = "RESPONDER A POST";

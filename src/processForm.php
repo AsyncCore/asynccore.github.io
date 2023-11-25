@@ -5,7 +5,7 @@
     use src\managers\TokenManager;
     
     /* Importar funcionalidad global */
-    require 'src/init.php';
+    require 'init.php';
     
     /* Definición de constantes */
     /* INT */

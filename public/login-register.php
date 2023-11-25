@@ -11,7 +11,7 @@
      *      - autoloader.php: Carga automática de clases.
      *      - processForm.php: Procesamiento de formularios de inicio de sesión y registro.</pre>
      */
-    require 'src/init.php';
+    require '../src/init.php';
     include DIR . '/src/processForm.php';
     
     /**

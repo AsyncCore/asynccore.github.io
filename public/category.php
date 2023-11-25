@@ -12,7 +12,7 @@
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require 'src/init.php';
+    require '../src/init.php';
     
     $categories = [1, 2, 3, 4, 5]; /*TODO hacerlo dinámico desde BD*/
     

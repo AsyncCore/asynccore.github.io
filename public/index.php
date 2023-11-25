@@ -1,5 +1,5 @@
 <?php
-    require 'src/init.php';
+    require '../src/init.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">

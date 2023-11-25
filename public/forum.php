@@ -11,7 +11,7 @@
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require 'src/init.php';
+    require '../src/init.php';
     include_once DIR . '/src/utils/errorReporting.php';
     
     $descripcion = "Foro de AsynCore. Un foro de programación para estudiantes de DAW y DAM.";

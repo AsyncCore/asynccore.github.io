@@ -12,7 +12,7 @@
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require 'src/init.php';
+    require '../src/init.php';
     include DIR . '/src/utils/errorReporting.php';
     
     if (!isset($_GET['t']) || !is_numeric($_GET['t'])) {
