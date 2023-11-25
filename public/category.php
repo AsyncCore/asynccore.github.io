@@ -6,15 +6,16 @@
      * @var string $js          /src/logged-header.php
      */
     
+    require '../src/init.php';
+    
     use src\managers\UserManager;
     use src\db\DatabaseConnection;
     use src\managers\PostsManager;
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
-    require '../src/init.php';
     
-    $categories = [1, 2, 3, 4, 5, '']; /*TODO hacerlo dinámico desde BD*/
+    $categories = [1, 2, 3, 4, 5, 6, '']; /*TODO hacerlo dinámico desde BD*/
     
     if(isset($_GET['nt'])) {
         $errorKey = 'nt_' . htmlspecialchars($_GET['nt']);
@@ -52,7 +53,7 @@
     } else {
         include_once DIR . '/src/login-header.php';
     }
-
+    
 ?>
 <main>
     <div class="container">
@@ -61,26 +62,25 @@
                 <li><a href="/index.php"><i class='fi-xnsuxl-house-solid'></i>Home</a></li>
                 <li class="active"><a href="/forum.php">Forum</a></li>
             </ul>
-            <div class="forum-header">
-                <?php
-                    if(isset($message)){
-                        echo $message;
-                    }
-                    
-                    if(!$category){
-                        echo <<<HTML
-                                                <div class="col-full">
-                                                    <h1 style="text-align: center">Foro de Asyncore</h1>
-                                                </div>
-                                            </div>
+            <?php
+                if(isset($message)){
+                    echo $message;
+                }
+                
+                if(!$category){
+                    echo <<<HTML
+                                        <div class="col-full">
+                                            <h1 style="text-align: center">Foro de Asyncore</h1>
                                         </div>
                                     </div>
-                                </main>
-                            HTML;
-                        include_once DIR . '/src/footer.php';
-                        die;
-                    }
-                ?>
+                                </div>
+                            </main>
+                        HTML;
+                    include_once DIR . '/src/footer.php';
+                    die;
+                }
+            ?>
+            <div class='forum-header'>
                 <div class="forum-details">
                     <h1><?= $category['TITULO'] ?></h1>
                     <p class="text-lead"><?= $category['SUBTITULO'] ?></p>
@@ -95,6 +95,9 @@
                     <?php
                     $threadUser = $userManager->getUserById($thread['USER_ID']);
                     $post = $postManager->getLastPostByThread($thread['THREAD_ID']);
+                    if (!$post) {
+                        $post = $thread;
+                    }
                     $postUser = $userManager->getUserById($post['USER_ID']);
                     ?>
                     <div class="thread">
