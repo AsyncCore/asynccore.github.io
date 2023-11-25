@@ -78,7 +78,7 @@
                     <div class="user-info">
                         <a href="profile.php?UID=<?=$thread['USER_ID']?>" class="user-name"><?=$threadUser['USERNAME']?></a>
 
-                        <a href=profile.php?UID=<?=$thread['USER_ID']?>">
+                        <a href="profile.php?UID=<?=$thread['USER_ID']?>">
                             <img class="avatar-large" src="<?=$threadUser['AVATAR']?>" alt="AVATAR DE <?=$threadUser['USERNAME']?>">
                         </a>
                         <?php
