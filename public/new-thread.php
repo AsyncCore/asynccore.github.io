@@ -25,7 +25,7 @@
         include_once DIR . '/src/login-header.php';
     }
     
-    $categories = [1, 2, 3, 4, 5, ""];
+    $categories = [1, 2, 3, 4, 5, 6, ""];
     
     if (!isset($_GET['c']) || !array_filter($categories, fn($cat) => $cat == $_GET['c'])) {
         header('Location: /forum.php?c=e');
@@ -74,6 +74,7 @@
                 <label for="post-content">Contenido:</label>
                 <textarea id="post-content" name="post-content" required rows="5"></textarea>
             </div>
+            <input type="hidden" name="cat-id" value="<?= $categoria['CAT_ID'] ?>">
 
             <div class="btn-group">
                 <button class="btn btn-green" type="submit" name="publicar">Publicar</button>
