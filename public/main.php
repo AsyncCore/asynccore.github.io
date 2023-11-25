@@ -6,6 +6,7 @@
      * @var string $js /src/logged-header.php
      */
     
+    use src\managers\CategoryManager;
     use src\managers\UserManager;
     use src\db\DatabaseConnection;
     use src\managers\PostsManager;
@@ -14,6 +15,7 @@
     require '../src/init.php';
     
     $db = DatabaseConnection::getInstance()->getConnection();
+    $categoryManager = new CategoryManager($db);
     $threadManager = new ThreadManager($db);
     $postManager = new PostsManager($db);
     $userManager = new UserManager($db);
@@ -53,7 +55,7 @@
                     <div class="thread">
                         <div>
                             <p>
-                                <a href="thread.php?t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
+                                <a href="thread.php?c=<?=$thread['CAT_ID']?>&t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
                             </p>
                             <p class="text-faded text-xsmall">
                                 By <a href="profile.php?UID=<?= htmlspecialchars($thread['USER_ID']) ?>"><?= htmlspecialchars($thread['USERNAME']) ?></a>, <?= htmlspecialchars(timeAgo($thread['F_CRE'])) ?>
@@ -71,7 +73,7 @@
 
                             <div>
                                 <p class="text-xsmall">
-                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USER_ID'] ?></a>
+                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USERNAME'] ?></a>
                                 </p>
                                 <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
                             </div>
@@ -99,7 +101,7 @@
                     <div class="thread">
                         <div>
                             <p>
-                                <a href="thread.php?t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
+                                <a href="thread.php?c=<?=$thread['CAT_ID']?>&t=<?= htmlspecialchars($thread['THREAD_ID']) ?>"><?= htmlspecialchars($thread['TITULO']) ?></a>
                             </p>
                             <p class="text-faded text-xsmall">
                                 By <a href="profile.php?UID=<?= htmlspecialchars($thread['USER_ID']) ?>"><?= htmlspecialchars($thread['USERNAME']) ?></a>, <?= htmlspecialchars(timeAgo($thread['F_CRE'])) ?>
@@ -117,7 +119,7 @@
 
                             <div>
                                 <p class="text-xsmall">
-                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USER_ID'] ?></a>
+                                    <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USERNAME'] ?></a>
                                 </p>
                                 <p class="text-xsmall text-faded"><?= timeAgo($post['F_CRE']) ?></p>
                             </div>
