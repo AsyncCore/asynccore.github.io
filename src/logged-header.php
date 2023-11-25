@@ -28,7 +28,7 @@
     <nav class='navbar444'>
         <ul>
             <li class='navbar-user'>
-                <a href='profile.php'> <!--TODO AQUÍ VA LA DIRECCIÓN DE LA PÁGINA DE USUARIO-->
+                <a href='profile.php?UID=<?=$_SESSION['USER_ID']?>'>
                     <img class='avatar-small' src="<?=$_SESSION['AVATAR']?>" alt="Avatar de <?=$_SESSION['USERNAME']?>">
                     <span>
                         <?= $_SESSION['USERNAME'] ?? 'Invitado' ?>
@@ -41,7 +41,7 @@
                 <div id='user-dropdown'>
                     <div class='triangle-drop'></div>
                     <ul class='dropdown-menu'>
-                        <li class='dropdown-menu-item'><a href='profile.php'>Perfil</a></li>
+                        <li class='dropdown-menu-item'><a href='profile.php?UID=<?=$_SESSION['USER_ID']?>'>Perfil</a></li>
                         <li class='dropdown-menu-item'><a href='#'>Logout</a></li>
                         <!-- TODO AQUI VA EL LINK DEL LOGOUT -->
                     </ul>
