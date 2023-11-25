@@ -6,6 +6,7 @@
      * @var string $js          /src/logged-header.php
      */
     
+    use src\managers\TagManager;
     use src\managers\UserManager;
     use src\db\DatabaseConnection;
     use src\managers\PostsManager;
@@ -29,6 +30,7 @@
         $threadManager = new ThreadManager($db);
         $postManager = new PostsManager($db);
         $userManager = new UserManager($db);
+        $tagManager = new TagManager($db);
         $thread = $threadManager->getThread($getThread);
         if (!$thread) {
             header('Location: /forum.php?t=nf');
@@ -45,7 +47,7 @@
     
     $descripcion = "Página de hilo de AsynCore";
     $titulo = "AsynCore";
-    $css = ["css/style.css", "css/footer.css"];
+    $css = ["css/style.css", "css/footer.css", 'css/tooltip.css'];
     $js = ["js/script.js",];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
@@ -96,16 +98,29 @@
                         </span>
                     </div>
 
-                    <div class="post-content">
+                    <div class="post-content" style="flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <div style="display: flex; gap: 5px;">
+                                <?php foreach ($tagManager->getAllTagsByThreadId($thread['THREAD_ID']) as $tag): ?>
+                                    <span style='border: 2px solid #eee; border-radius: 5px; z-index: 10;' class="tag">
+                                        <i class="<?= $tag['ICONO'] ?>"></i>
+                                        <span class='tooltip'><?= $tag['DESC'] ?></span>
+                                        <!-- <a href="/forum.php?tag=<?= $tag['ETI_ID'] ?>">#<?= $tag['NOMBRE'] ?></a> -->
+                                </span>
+                                <?php endforeach; ?>
+                            </div>
+                            <div>
+                                <a href="/editar.php?t=<?= $thread['THREAD_ID'] ?>" style='margin-left: auto;'
+                                   class='link-unstyled' title='Editar el post'>
+                                    <i class='fi-xwsux2-pen'></i></a>
+                            </div>
+                        </div>
                         <div>
                             <p>
                                 <?=htmlspecialchars($thread['CONTENIDO'])?>
                             </p>
                         </div>
-                        <a href="/editar.php?t=<?=$thread['THREAD_ID']?>" style="margin-left: auto;" class="link-unstyled" title="Editar el post">
-                            <i class='fi-xwsux2-pen'></i></a>
                     </div>
-
 
                     <div class="post-date text-faded">
                         <?= timeAgo($thread['F_CRE'])?>
