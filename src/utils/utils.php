@@ -75,12 +75,15 @@
      *
      * @return string Devuelve el dato saneado.
      */
-    function sanitizeData(string $data, bool $name = false): string
+    function sanitizeData(string $data, bool $name = false, $contenido = false): string
     {
         if ($name) {
             $data = preg_replace('/\s+/', ' ', $data);
             $data = trim($data);
             $data = stripslashes($data);
+            if($contenido){
+                return $data;
+            }
             return htmlspecialchars($data);
         }
         $data = trim(strtolower($data));

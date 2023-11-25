@@ -47,8 +47,8 @@
     
     $descripcion = "Página de hilo de AsynCore";
     $titulo = "AsynCore";
-    $css = ["css/style.css", "css/footer.css", 'css/tooltip.css'];
-    $js = [["js/script.js"]];
+    $css = ["css/style.css", "css/footer.css", 'css/tooltip.css', 'css/prism-threads.css'];
+    $js = [["js/script.js"], ['js/prism-threads.js']];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {
@@ -120,9 +120,7 @@
                             </div>
                         </div>
                         <div style="margin-top: 10px;">
-                            <p>
-                                <?=htmlspecialchars($thread['CONTENIDO'])?>
-                            </p>
+                            <?=html_entity_decode($thread['CONTENIDO'])?>
                         </div>
                     </div>
 
@@ -178,13 +176,11 @@
                                         </div>
 
                                         <div class="quote">
-                                            <p><?= htmlspecialchars($reply['CONTENIDO']) ?? '' ?></p>
+                                            <?= html_entity_decode($reply['CONTENIDO']) ?? '' ?>
                                         </div>
                                     </blockquote>
                                 <?php endif; ?>
-                                <p>
-                                    <?= htmlspecialchars($post['CONTENIDO']) ?>
-                                </p>
+                                <?= html_entity_decode($post['CONTENIDO']) ?>
                             </div>
                             <a href="/editar.php?p=<?= $post['POST_ID'] ?>" style="margin-left: auto;"
                                class="link-unstyled" title="Editar el post">

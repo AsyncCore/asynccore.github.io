@@ -42,6 +42,20 @@
         }
     }
 ?>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            tinymce.init({
+                selector: '#post-content',
+                plugins: ' searchreplace autolink directionality visualblocks visualchars image link media code codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap emoticons autosave',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: 'Author name',
+                height: 500,
+                menubar: false,
+                toolbar: 'undo redo | code codesample | formatselect | emoticons | bold italic underline | alignleft aligncenter alignright alignjustify | h1 h2 h3 h4 h5 h6 | bullist numlist outdent indent | link image | removeformat | help'
+            });
+        })
+    </script>
     <main>
         <h1>Nuevo hilo en <i><?=$categoria['TITULO']?></i></h1>
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="create-form" method="POST">
@@ -72,7 +86,7 @@
 
             <div class="form-group">
                 <label for="post-content">Contenido:</label>
-                <textarea id="post-content" name="post-content" required rows="5"></textarea>
+                <textarea id="post-content" name="post-content" rows="5"></textarea>
             </div>
             <input type="hidden" name="cat-id" value="<?= $categoria['CAT_ID'] ?>">
 

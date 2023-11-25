@@ -3,13 +3,24 @@
         'name' => 'vendor_name/asyncore',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '2f41c52466f2ec407f4992a3741eb9207ebe6471',
+        'reference' => 'bb76c7a0b5998879a323631bcb3136d5a942c976',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'ezyang/htmlpurifier' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'bbc513d79acf6691fa9cf10f192c90dd2957f18c',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../ezyang/htmlpurifier',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
         'phpmailer/phpmailer' => array(
             'pretty_version' => 'v6.8.1',
             'version' => '6.8.1.0',
@@ -31,7 +42,7 @@
         'vendor_name/asyncore' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '2f41c52466f2ec407f4992a3741eb9207ebe6471',
+            'reference' => 'bb76c7a0b5998879a323631bcb3136d5a942c976',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

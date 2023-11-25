@@ -40,11 +40,16 @@
         $catId = htmlspecialchars($_GET['c']);
     }
     
+    $config = HTMLPurifier_Config::createDefault();
+    $purifier = new HTMLPurifier($config);
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $title = isset($_POST['post-title']) ? sanitizeData($_POST['post-title'], true) : null;
         $subtitle = isset($_POST['post-subtitle']) ? sanitizeData($_POST['post-subtitle'], true) : null;
-        $content = isset($_POST['post-content']) ? sanitizeData($_POST['post-content'], true) : null;
+        $content = $_POST['post-content'] ?? null;
         $tags = $_POST['post-tags'] ?? [];
+        
+        $content = $purifier->purify($content);
         
         $errors [] = validateTitle($title);
         $errors [] = validateSubtitle($subtitle);
