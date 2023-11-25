@@ -26,7 +26,7 @@
     
     $descripcion = "Página principal de AsynCore";
     $titulo = "AsynCore";
-    $css = ["css/style.css"];
+    $css = ["css/style.css", "css/mdb-custom.css"];
     $js = ["js/script.js"];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
