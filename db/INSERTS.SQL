@@ -58,29 +58,29 @@ VALUES ('CÓDIGO', 'COMENTAR / REVISAR CÓDIGO', 'fi-swsuxl-laptop-solid');
 
 SELECT 'INSERTANDO USUARIOS' AS 'INFO';
 
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Daniel', 'admin', 'Admin1234', 'asyncoreproject@gmail.com', NULL, 'Er jefe colegah', 1);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Jorge','Jorge.Dueñas', 'Jorgeduenas01', 'jorge.duenas@educa.madrid.org', NULL, 'Er profeh', 2);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Miguel', 'Miguel.Martinez', 'MiguelMartinez01', 'mmartinez32@educa.madrid.org', NULL, 'Er compi', 3);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Víctor', 'Victor.Hellin', 'VictorHellin01', 'victor.hellin@educa.madrid.org', NULL, 'Er compi 2', 3);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Daniel', 'Daniel.Alonso', 'Danielalonso01', 'dalonso3@educa.madrid.org', NULL, 'Er compi 3', 3);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Maksym', 'Maksym.Dovgan', 'MaksymDovgan01', 'maksym.dovgan@educa.madrid.org', NULL, 'Er compi 4', 3);
-INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, AVATAR, FIRMA, USER_TYPE)
-VALUES ('Marcos', 'Marcos.Almorox', 'Marcosalmorox01', 'marcos.almorox@educa.madrid.org', NULL, 'Er compi 5', 3);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Daniel', 'admin', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'asyncoreproject@gmail.com', 'Er jefe colegah', 1);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Jorge','Jorge.Dueñas', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'jorge.duenas@educa.madrid.org', 'Er profeh', 2);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Miguel', 'Miguel.Martinez', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'miguel.martinez@educa.madrid.org', 'Er compi', 3);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Víctor', 'Victor.Hellin', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'victor.hellin@educa.madrid.org', 'Er compi 2', 3);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Daniel', 'Daniel.Alonso', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'dalonso3@educa.madrid.org', 'Er compi 3', 3);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Maksym', 'Maksym.Dovgan', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'maksym.dovgan@educa.madrid.org', 'Er compi 4', 3);
+INSERT INTO USERS(NAME, USERNAME, PASSWORD, EMAIL, FIRMA, USER_TYPE)
+VALUES ('Marcos', 'Marcos.Almorox', '$2y$10$TJa3j978JWtH0J2BTsCSyO30dnWvqacGp6G0j37TKCIq34PGVC5MW', 'marcos.almorox@educa.madrid.org', 'Er compi 5', 3);
 
 SELECT 'INSERTANDO HILOS' AS 'INFO';
 
 INSERT INTO HILOS(USER_ID, TITULO, SUBTITULO, CONTENIDO, F_CRE, CAT_ID)
-VALUES (3, 'Hilo 1 por tricky', 'Holiholi', 'Holi amiwis', '2023-10-17', 1);
+VALUES (3, 'Hilo 1 por tricky', 'Holiholi', 'Holi amiwis', '2023-10-17', 2);
 INSERT INTO HILOS(USER_ID, TITULO, SUBTITULO, CONTENIDO, F_CRE, CAT_ID)
-VALUES (4, 'Hilo 2 por Víctor', 'Llegó el momento, me presento...', 'Holi holi amiwitos', '2023-10-17', 1);
+VALUES (4, 'Hilo 2 por Víctor', 'Llegó el momento, me presento...', 'Holi holi amiwitos', '2023-10-17', 2);
 INSERT INTO HILOS(USER_ID, TITULO, SUBTITULO, CONTENIDO, F_CRE, CAT_ID)
-VALUES (7, 'Hilo 3 por Marcos', 'Asyncore Rulz!', 'ESTO ES MUCHO MENOS TÓXICO QUE STACKOVERFLOW', '2023-10-17', 1);
+VALUES (7, 'Hilo 3 por Marcos', 'Asyncore Rulz!', 'ESTO ES MUCHO MENOS TÓXICO QUE STACKOVERFLOW', '2023-10-17', 2);
 
 SELECT 'INSERTANDO POSTS' AS 'INFO';
 
