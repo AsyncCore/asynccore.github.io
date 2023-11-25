@@ -68,9 +68,18 @@
         {
         }
         
-        public function associateTagWithThread(bool|string $threadId, mixed $tagId)
+        public function associateTagWithThread(bool|string $threadId, mixed $tagId): bool
         {
-        
+            try{
+                $consulta = $this->db->prepare('INSERT INTO HILO_ETIQUETAS (THREAD_ID, ETI_ID) VALUES (:threadID, :tagID)');
+                $consulta->bindParam(':threadID', $threadId);
+                $consulta->bindParam(':tagID', $tagId);
+                $consulta->execute();
+                return true;
+            } catch (PDOException $e){
+                Logger::log('Error al asociar etiqueta con hilo: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
         }
         
         /**
