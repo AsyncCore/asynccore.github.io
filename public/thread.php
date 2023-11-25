@@ -18,7 +18,7 @@
     if (!isset($_GET['t']) || !is_numeric($_GET['t'])) {
         header('Location: /forum.php?t=e');
         die;
-    } else if ((!isset($_GET['c']) || !is_numeric($_GET['c'])) && $_GET['t'] != null) {
+    } else if ((!isset($_GET['c']) || !is_numeric($_GET['c'])) && $_GET['t'] == null) {
         header('Location: /forum.php?c=e');
         die;
     } else {
