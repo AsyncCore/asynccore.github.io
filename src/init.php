@@ -11,4 +11,5 @@
     require '../vendor/autoload.php';
     include_once 'utils/utils.php';
     include_once 'utils/errorPrinting.php';
+    include_once 'verifyToken.php';
     include_once 'utils/errorReporting.php';
