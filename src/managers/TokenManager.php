@@ -24,21 +24,17 @@
     class TokenManager
     {
        /**
-         * @const int TOKEN_EXPIRY_TIME tiempo de expiración del token en segundos.
-         * @const int TOKEN_LENGTH longitud del token.
-         * @const string DATE_FORMAT formato de fecha.
          * @const string INSERT_TOKEN consulta para insertar un token en la base de datos.
          * @const string SELECT_TOKEN consulta para seleccionar un token de la base de datos.
          * @const string DELETE_TOKEN consulta para eliminar un token de la base de datos.
          * @const string CLEAN_UP_EXPIRED_TOKENS consulta para eliminar los tokens expirados de la base de datos.
          */
-        private const TOKEN_EXPIRY_TIME = 7 * 24 * 60 * 60;
-        private const TOKEN_LENGTH = 16;
-        private const DATE_FORMAT = 'Y-m-d H:i:s';
-        private const INSERT_TOKEN = 'INSERT INTO TOKENS (TOKEN, USER_ID, FECHA_EXP) VALUES (:token, :user_id, :expiry_date)';
-        private const SELECT_TOKEN = 'SELECT * FROM TOKENS WHERE TOKEN = :token AND FECHA_EXP > NOW()';
+        private const INSERT_TOKEN = 'INSERT INTO TOKENS (TOKEN, USER_ID, F_EXP) VALUES (:token, :userId, :fExp)';
+        private const SELECT_TOKEN = 'SELECT * FROM TOKENS WHERE TOKEN = :token AND F_EXP > NOW()';
         private const DELETE_TOKEN = 'DELETE FROM TOKENS WHERE TOKEN = :token';
-        private const CLEAN_UP_EXPIRED_TOKENS = 'DELETE FROM TOKENS WHERE FECHA_EXP < NOW()';
+        private const CLEAN_UP_EXPIRED_TOKENS = 'DELETE FROM TOKENS WHERE F_EXP < NOW()';
+        private const GET_TOKEN_BY_USER_ID = 'SELECT * FROM TOKENS WHERE USER_ID = :userId';
+        private const UPDATE_TOKEN = 'UPDATE TOKENS SET F_EXP = :nuevaFExp WHERE TOKEN = :token';
         
         /**
          * @var PDO conexión a la base de datos.
@@ -70,13 +66,13 @@
          */
         public function generateToken(int $userId): string
         {
-            $token = bin2hex(random_bytes(self::TOKEN_LENGTH));
-            $expiryDate = date(self::DATE_FORMAT, time() + self::TOKEN_EXPIRY_TIME);
+            $token = bin2hex(random_bytes(TOKEN_LENGTH));
+            $fExp = date(TOKEN_DATE_FORMAT, time() + TOKEN_EXPIRY_TIME);
             try{
                 $consulta = $this->db->prepare(self::INSERT_TOKEN);
                 $consulta->bindParam(':token', $token);
-                $consulta->bindParam(':user_id', $userId);
-                $consulta->bindParam(':expiry_date', $expiryDate);
+                $consulta->bindParam(':userId', $userId);
+                $consulta->bindParam(':fExp', $fExp);
                 if (!$consulta->execute()){
                     Logger::log("Error al generar el token: CÓDIGO SQL -> " . $consulta->errorInfo()[0] . ', CÓDIGO PDO -> ' . $consulta->errorInfo()[1] . ', MENSAJE PDO -> ' .$consulta->errorInfo()[2], __FILE__, LogLevels::EXCEPTION);
                     throw new Exception('Error al generar el token.');
@@ -108,7 +104,7 @@
                 $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
                 if(!$resultado){
                     $this->cleanUpExpiredTokens();
-                    Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::WARNING);
+                    Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
                     throw new Exception('No se ha encontrado el token.');
                 }
                 return $resultado;
@@ -135,7 +131,7 @@
                 $consulta->bindParam(':token', $token);
                 $consulta->execute();
                 if($consulta->rowCount() == 0){
-                    Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::WARNING);
+                    Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
                     throw new Exception('No se ha encontrado el token.');
                 }
             }catch (Exception $e){
@@ -156,6 +152,40 @@
             $filas = $this->db->exec(self::CLEAN_UP_EXPIRED_TOKENS);
             if ($filas >= 0){
                 Logger::log("Se han eliminado " . $filas . " tokens expirados..", __FILE__, LogLevels::INFO);
+            }
+        }
+        
+        /**
+         * @throws Exception
+         */
+        public function getTokenByUserId(mixed $userId): bool|array
+        {
+            try{
+                $consulta = $this->db->prepare(self::GET_TOKEN_BY_USER_ID);
+                $consulta->bindParam(':userId', $userId);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            }catch (Exception $e){
+                Logger::log("Error al obtener el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
+                throw new Exception('Error al obtener el token.');
+            }
+        }
+        
+        /**
+         * @throws Exception
+         */
+        public function updateToken(mixed $token)
+        {
+            try{
+                $fExp = date(TOKEN_DATE_FORMAT, TOKEN_EXPIRY_TIME);
+                $consulta = $this->db->prepare(self::UPDATE_TOKEN);
+                $consulta->bindParam(':token', $token);
+                $consulta->bindParam(':nuevaFExp', $fExp);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            }catch (Exception $e){
+                Logger::log("Error al obtener el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
+                throw new Exception('Error al obtener el token.');
             }
         }
     }
