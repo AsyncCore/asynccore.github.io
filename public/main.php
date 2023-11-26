@@ -30,7 +30,7 @@
     $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_COOKIE[COOKIE_NAME])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';
@@ -41,7 +41,6 @@
     <div class="container ">
         <div class="col-full push-top">
             <div class="thread-list">
-
                 <h2 class="list-title">Últimos Hilos</h2>
                 <?php foreach ($latestThreads as $thread): ?>
                     <?php
@@ -80,15 +79,11 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
-                
             </div>
         </div>
-
         <div class="col-full push-top">
             <div class="thread-list">
-
                 <h2 class="list-title">Hilos populares</h2>
-                
                 <?php foreach ($mostRepliedThreads as $thread): ?>
                     <?php
                     $threadUser = $userManager->getUserById($thread['USER_ID']);
@@ -107,16 +102,13 @@
                                 By <a href="profile.php?UID=<?= htmlspecialchars($thread['USER_ID']) ?>"><?= htmlspecialchars($thread['USERNAME']) ?></a>, <?= htmlspecialchars(timeAgo($thread['F_CRE'])) ?>
                             </p>
                         </div>
-
                         <div class="activity">
                             <p class="replies-count">
                                 <?= $postManager->getPostCountByThread($thread['THREAD_ID']) ?>
                             </p>
-
                             <img class="avatar-medium"
                                  src="<?= $threadUser['AVATAR'] ?>"
                                  alt="Avatar de <?= $threadUser['USERNAME'] ?>">
-
                             <div>
                                 <p class="text-xsmall">
                                     <a href="profile.php?UID=<?= $postUser['USER_ID'] ?>"><?= $postUser['USERNAME'] ?></a>
