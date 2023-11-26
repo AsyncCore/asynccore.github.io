@@ -21,7 +21,7 @@
                 <code class="language-php">} catch (PDOException $e) {</code>
                     <code class="language-php">echo "Здравствуйте, это атака Кибервымогательство...";</code>
                     <code class="language-php">echo "В следующий раз не используйте дерьмовый пароль.";</code>
-                    <code class="language-php">header("Location: hacked.php");</code>
+                    <code class="language-php">header("Location: bitcoin.php");</code>
                 <code class="language-php">}</code>
             <code class="language-php">?&gt;</code>
         </pre>
