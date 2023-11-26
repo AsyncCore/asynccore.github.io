@@ -16,9 +16,9 @@
     
     /**
      * Otras variables
-     * @var string  $activeTab                   Pestaña activa
-     * @var string  $message                     Mensaje de error o de éxito
-     * @var string  $autofocus                   Autofocus en el email
+     * @var string $activeTab Pestaña activa
+     * @var string $message   Mensaje de error o de éxito
+     * @var string $autofocus Autofocus en el email
      */
     
     /**
@@ -47,9 +47,7 @@
         if (isset($_GET['login'])) {
             $message = printMessage('login_fail', ERROR_MESSAGES);
         } else if (isset($_GET['register'])) {
-            $message = isset($_SESSION['registerUserName'])
-                ? printMessage('register_fail', ERROR_MESSAGES, [$_SESSION['registerUserName'], returnSQLError()])
-                : '';
+            $message = isset($_SESSION['registerUserName']) ? printMessage('register_fail', ERROR_MESSAGES, [$_SESSION['registerUserName'], returnSQLError()]) : '';
         }
     }
     
@@ -57,9 +55,7 @@
         if (isset($_GET['register'])) {
             $message = printMessage('register_success', ERROR_MESSAGES, [$_SESSION['registerUserName']]);
         } else if (isset($_GET['login']) && isset($_SESSION['NAME'])) {
-            $_SESSION['EXPLODE_NAME'] = str_contains($_SESSION['NAME'], ' ')
-                ? explode(' ', $_SESSION['NAME'])[0]
-                : $_SESSION['NAME'];
+            $_SESSION['EXPLODE_NAME'] = str_contains($_SESSION['NAME'], ' ') ? explode(' ', $_SESSION['NAME'])[0] : $_SESSION['NAME'];
             $message = printMessage('login_success', ERROR_MESSAGES, [$_SESSION['EXPLODE_NAME']]);
             unsetLoginRegister();
             header('Refresh: 5; url=' . URL_BASE . 'main.php', true, 302);
@@ -67,17 +63,21 @@
     }
     
     if (isset($_GET['nt'])) {
-        $message = printMessage('nt_'.htmlspecialchars($_GET['nt']), ERROR_MESSAGES);
+        $message = printMessage('nt_' . htmlspecialchars($_GET['nt']), ERROR_MESSAGES);
+    }
+    
+    if (isset($_GET['nl'])) {
+        $message = printMessage('nl', ERROR_MESSAGES);
     }
     
     /**
      * Maneja el cambio entre los formularios de inicio de sesión y registro.
      * Establece la pestaña activa y el enfoque automático en función de los parámetros GET.
      */
-    if(isset($_GET['registerTab'])) {
+    if (isset($_GET['registerTab'])) {
         $activeTab = ACTIVE_TAB_REGISTER;
         $autofocus = EMPTY_STRING;
-    } else if(isset($_GET['loginTab'])) {
+    } else if (isset($_GET['loginTab'])) {
         $activeTab = ACTIVE_TAB_DEFAULT;
         $autofocus = 'autofocus';
     }
@@ -87,7 +87,7 @@
     $css = ["/css/style.css", "/css/mdb-custom.css", "/css/login-register.css"];
     $js = [['/js/script.js'], ['/js/mdb/mdb.min.js'], ['/js/login-register-main.js']];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
-    include_once DIR. '/src/head.php';
+    include_once DIR . '/src/head.php';
     if (isset($_SESSION['USER_ID'])) {
         include_once DIR . '/src/logged-header.php';
     } else {
@@ -97,6 +97,16 @@
     <main>
         <section>
             <div>
+                <?php if (isset($_GET['success'])){
+                    echo $message;
+                    echo <<<HTML
+                                </div>
+                            </section>
+                        </main>
+                    HTML;
+                    include_once DIR . '/src/footer.php';
+                    die;
+                } ?>
                 <?= $message ?>
             </div>
             <div class="container">
@@ -126,7 +136,7 @@
                             </li>
                         </ul>
                         <!-- SELECTOR FORMULARIO -->
-
+        
                         <!-- INICIO SESIÓN BOTONES -->
                         <div class="tab-content ">
                             <!-- BOTONES DE LOGIN -->
@@ -141,22 +151,22 @@
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
                                             <i class="fi-onsux3-facebook" style="color: #0866FF"></i>
                                         </button>
-
+        
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
                                             <i class="fi-onsux3-google-logo" style='color: #4285F4'></i>
                                         </button>
-
+        
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
                                             <i class="fi-onsux3-twitter-solid" style="color: #1D9BF0"></i>
                                         </button>
-
+        
                                         <button type="button" class="btn btn-secondary btn-floating mx-1">
                                             <i class="fi-onsux3-github-alt" style="color: #181717"></i>
                                         </button>
                                     </div>
                                     <?= $_SERVER['HTTP_HOST'] ?>
                                     <p class="text-center">o:</p>
-
+        
                                     <!-- EMAIL INPUT -->
                                     <span class="error"><?= $_SESSION['loginEmailError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -164,7 +174,7 @@
                                                value="<?= $_SESSION['loginEmail'] ?>" <?= $autofocus ? 'autofocus' : EMPTY_STRING ?>>
                                         <label class="form-label" for="loginEmail">Email</label>
                                     </div>
-
+        
                                     <!-- PASSWORD INPUT -->
                                     <span class="error"><?= $_SESSION['loginPasswordError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -177,7 +187,7 @@
                                             <i class='fi-xnsuxx-eye' id='loginToggle' style='color: #386bc0'></i>
                                         </button>
                                     </div>
-
+        
                                     <!-- COLUMNA ÚNICA -->
                                     <div class="row mb-4">
                                         <div class="col-12 d-flex justify-content-center">
@@ -188,16 +198,16 @@
                                                 <label class="form-check-label" for="loginCheck"> Recuérdame </label>
                                             </div>
                                         </div>
-
+        
                                         <div class="col-12 d-flex justify-content-center">
                                             <!-- LINK RECORDATORIO CONTRASEÑA-->
                                             <a href="/rememberPassword.html">¿Olvidaste tu contraseña?</a>
                                         </div>
                                     </div>
-
+        
                                     <!-- BOTÓN DE ENVÍO -->
                                     <button type="submit" class="btn btn-primary btn-block mb-4">Iniciar sesión</button>
-
+        
                                     <!-- LINK AL REGISTRO -->
                                     <div class="text-center">
                                         <p>¿No tienes usuario?
@@ -208,7 +218,7 @@
                                 </form>
                             </div>
                             <!-- FORMULARIO DE LOGIN -->
-
+        
                             <!-- FORMULARIO DE REGISTRO -->
                             <div class="tab-pane fade <?= $activeTab == 'registro' ? 'show active' : '' ?>"
                                  id="pills-register"
@@ -220,22 +230,22 @@
                                         <button type='button' class='btn btn-secondary btn-floating mx-1'>
                                             <i class='fi-onsux3-facebook' style='color: #0866FF'></i>
                                         </button>
-
+        
                                         <button type='button' class='btn btn-secondary btn-floating mx-1'>
                                             <i class='fi-onsux3-google-logo' style='color: #4285F4'></i>
                                         </button>
-
+        
                                         <button type='button' class='btn btn-secondary btn-floating mx-1'>
                                             <i class='fi-onsux3-twitter-solid' style='color: #1D9BF0'></i>
                                         </button>
-
+        
                                         <button type='button' class='btn btn-secondary btn-floating mx-1'>
                                             <i class='fi-onsux3-github-alt' style='color: #181717'></i>
                                         </button>
                                     </div>
-
+        
                                     <p class="text-center">o:</p>
-
+        
                                     <!-- NAME INPUT -->
                                     <span class="error"><?= $_SESSION['registerNameError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -243,7 +253,7 @@
                                                value="<?= $_SESSION['registerName'] ?>">
                                         <label class="form-label" for="registerName">Nombre</label>
                                     </div>
-
+        
                                     <!-- USERNAME INPUT -->
                                     <span class="error"><?= $_SESSION['registerUserNameError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -252,7 +262,7 @@
                                                value="<?= $_SESSION['registerUserName'] ?>">
                                         <label class="form-label" for="registerUsername">Usuario</label>
                                     </div>
-
+        
                                     <!-- EMAIL INPUT -->
                                     <span class="error"><?= $_SESSION['registerEmailError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -260,7 +270,7 @@
                                                value="<?= $_SESSION['registerEmail'] ?>">
                                         <label class="form-label" for="registerEmail">Email</label>
                                     </div>
-
+        
                                     <!-- PASSWORD INPUT -->
                                     <span class="error"><?= $_SESSION['registerPasswordError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -273,7 +283,7 @@
                                             <i class='fi-xnsuxx-eye' id='registerToggle' style="color: #386bc0"></i>
                                         </button>
                                     </div>
-
+        
                                     <!-- REPETIR PASSWORD INPUT -->
                                     <span class="error"><?= $_SESSION['registerRepeatPasswordError'] ?></span>
                                     <div class="form-outline mb-4">
@@ -286,7 +296,7 @@
                                             <i class='fi-xnsuxx-eye' id='registerToggle2' style='color: #386bc0'></i>
                                         </button>
                                     </div>
-
+        
                                     <!-- CHECKBOX -->
                                     <span class="error"><?= $_SESSION['registerCheckError'] ?></span>
                                     <div class="form-check d-flex justify-content-center mb-4">
@@ -298,7 +308,7 @@
                                             He leído y acepto los términos.
                                         </label>
                                     </div>
-
+        
                                     <!-- BOTÓN DE ENVÍO -->
                                     <button type="submit" class="btn btn-primary btn-block mb-4">Registrarse</button>
                                     <!-- LINK AL LOGIN -->
@@ -315,6 +325,7 @@
             </div>
         </section>
         <aside>
+        
         </aside>
     </main>
 <?php
