@@ -40,6 +40,21 @@
     $autofocus = EMPTY_STRING;
     
     /**
+     * Se verifican parámetros GET para imprimir los mensajes correspondientes a logout, no login y no login al crear un hilo.
+     */
+    if(isset($_GET['logout'])) {
+        $message = printMessage('logout', ERROR_MESSAGES);
+    }
+    
+    if (isset($_GET['nl'])) {
+        $message = printMessage('nl', ERROR_MESSAGES);
+    }
+    
+    if (isset($_GET['nt'])) {
+        $message = printMessage('nt_' . htmlspecialchars($_GET['nt']), ERROR_MESSAGES);
+    }
+    
+    /**
      * Verifica los parámetros GET para determinar si se debe mostrar un mensaje de error o éxito.
      * Los mensajes se basan en las acciones de inicio de sesión o registro y se muestran en función del resultado.
      */
@@ -62,14 +77,6 @@
         }
     }
     
-    if (isset($_GET['nt'])) {
-        $message = printMessage('nt_' . htmlspecialchars($_GET['nt']), ERROR_MESSAGES);
-    }
-    
-    if (isset($_GET['nl'])) {
-        $message = printMessage('nl', ERROR_MESSAGES);
-    }
-    
     /**
      * Maneja el cambio entre los formularios de inicio de sesión y registro.
      * Establece la pestaña activa y el enfoque automático en función de los parámetros GET.
@@ -82,6 +89,9 @@
         $autofocus = 'autofocus';
     }
     
+    /**
+     * Setea las variables dinámicas de las cabeceras y el footer y las incluye.
+     */
     $descripcion = 'Página de Login/Registro de AsynCore';
     $titulo = 'LOGIN / REGISTRO';
     $css = ["/css/style.css", "/css/mdb-custom.css", "/css/login-register.css"];
@@ -97,7 +107,7 @@
     <main>
         <section>
             <div>
-                <?php if (isset($_GET['success'])){
+                <?php if (isset($_GET['success']) || isset($_GET['logout'])){
                     echo $message;
                     echo <<<HTML
                                 </div>
