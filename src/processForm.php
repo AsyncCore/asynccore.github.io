@@ -118,12 +118,19 @@
                 if ($_SESSION['loginCheck'] === CHECKED) {
                     $tokenManager = new TokenManager($db);
                     try{
-                        $token = $tokenManager->generateToken($usuario['USER_ID']);
-                        $cookieName = 'usuario' . $usuario['USER_ID'];
-                        $cookieValue = $token;
-                        setcookie($cookieName, $cookieValue, COOKIE_EXPIRATION_TIME, '/', true, true);
+                        $token = $tokenManager->getTokenByUserId($usuario['USER_ID']);
+                        if ($token) {
+                            $tokenManager->updateToken($token['TOKEN']);
+                            $cookieValue = $token['TOKEN'];
+                        }else{
+                            $token = $tokenManager->generateToken($usuario['USER_ID']);
+                            $cookieValue = $token;
+                        }
+                        setcookie(COOKIE_NAME, $cookieValue, COOKIE_EXPIRY_TIME, '/', '');
+                        $userManager->updateLastSeen($usuario['USER_ID']);
                     }catch (Exception $e) {
                         header("Location: error-pages/dbError.php");
+                        die;
                     }
                 }
                 $_SESSION['NAME'] = $usuario['NAME'];
@@ -173,4 +180,5 @@
         } else {
             header('Location: login-register.php?registerTab');
         }
+        die;
     }
