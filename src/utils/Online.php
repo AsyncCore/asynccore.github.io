@@ -1,11 +1,5 @@
 <?php
     namespace src\utils;
-    /**
-     * Comprueba si la constante MAX_IDLE_TIME ya está definida. Si no, la define con un valor de 3.
-     * Esta constante representa el tiempo máximo en minutos que se considera para que una sesión sea activa.
-     * @const int MAX_IDLE_TIME
-     */
-    defined('MAX_IDLE_TIME') or define('MAX_IDLE_TIME', 3);
     
     /**
      * La clase Online se utiliza para determinar el número de usuarios actualmente activos en el sitio.
@@ -24,10 +18,6 @@
         public static function who(): bool|int
         {
             $path = session_save_path();
-            
-            /**
-             * Devuelve 'false' si no se puede leer el directorio de sesiones.
-             */
             if (trim($path) == '') {
                 return false;
             }
@@ -38,7 +28,7 @@
             while (false !== ($entry = $directory->read())) {
                 /* Ignora los directorios '.' y '..' */
                 if ($entry != '.' and $entry != '..') {
-                    /* Si el tiempo de modificación del archivo es menor que 3 minutos*/
+                    /* Si el tiempo de modificación del archivo es menor que 5 minutos*/
                     if (time() - filemtime($path . "/$entry") < MAX_IDLE_TIME * 60) {
                         $i++;
                     }
@@ -46,7 +36,6 @@
             }
             
             $directory->close();
-            
             return $i;
         }
     }
