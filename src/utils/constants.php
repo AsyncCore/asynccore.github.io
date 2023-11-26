@@ -13,9 +13,14 @@
     defined('DIR') || define('DIR', dirname(__DIR__, 2));
     
     /**
+     * @const DOMAIN_NAME Nombre de dominio.
+     */
+    defined('DOMAIN_NAME') || define('DOMAIN_NAME', htmlspecialchars($_SERVER['HTTP_HOST']) ?? 'www.asyncore.es');
+    
+    /**
      * @const URL_BASE URL base del proyecto.
      */
-    defined('URL_BASE') || define('URL_BASE', 'https://' . ($_SERVER['HTTP_HOST'] ?? 'www.asyncore.es') . '/');
+    defined('URL_BASE') || define('URL_BASE', 'https://' . (DOMAIN_NAME ?? 'www.asyncore.es') . '/');
     
     /**
      * @const EMPTY_STRING Cadena vacía.
