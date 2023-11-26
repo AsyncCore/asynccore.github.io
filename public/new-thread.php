@@ -12,6 +12,7 @@
     
     require '../src/init.php';
     include DIR . '/src/processNewThread.php';
+    include DIR . '/src/verifyToken.php';
     
     $descripcion = "Página para la creación de hilos del foro de AsynCore";
     $titulo = "Crear hilo";
@@ -19,7 +20,7 @@
     $js = [["js/script.js"], ['/tinymce/tinymce.min.js', 'origin']];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_COOKIE[COOKIE_NAME])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';
