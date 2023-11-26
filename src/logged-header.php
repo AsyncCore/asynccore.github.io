@@ -42,8 +42,7 @@
                     <div class='triangle-drop'></div>
                     <ul class='dropdown-menu'>
                         <li class='dropdown-menu-item'><a href='profile.php?UID=<?=$_SESSION['USER_ID']?>'>Perfil</a></li>
-                        <li class='dropdown-menu-item'><a href='#'>Logout</a></li>
-                        <!-- TODO AQUI VA EL LINK DEL LOGOUT -->
+                        <li class='dropdown-menu-item'><a href='logout.php'>Logout</a></li>
                     </ul>
                 </div>
             </li>
@@ -70,7 +69,7 @@
                 <a href='profile.php'>Perfil</a>
             </li>
             <li class='navbar-item mobile-only'>
-                <a href='login-header.php'>Logout</a>
+                <a href='logout.php'>Logout</a>
             </li>
         </ul>
     </nav>
