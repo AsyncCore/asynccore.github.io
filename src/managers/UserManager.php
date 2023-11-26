@@ -23,6 +23,7 @@
         private const GET_USER_COUNT = 'SELECT COUNT(*) FROM USERS';
         private const UPDATE_USER_MAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
         private const UPDATE_USER_PASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
+        private const UPDATE_LAST_SEEN = 'UPDATE USERS SET USERS.LAST_SEEN = NOW() WHERE USERS.USER_ID = :userID';
         private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
         private const DELETE_USER = 'DELETE FROM USERS WHERE USERS.USER_ID = :userID';
         private const GET_USER_AVATAR_BY_ID = 'SELECT USERS.AVATAR FROM USERS WHERE USERS.USER_ID = :userID';
@@ -171,6 +172,18 @@
                 return !empty($fila) && $fila['COUNT(*)'] > 0;
             } catch (PDOException $e) {
                 Logger::log('Error al comprobar si el usuario con ID ' . $userId . ' está online: ' . $e->getMessage() . ' con código de error ' . $e->getCode(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function updateLastSeen(string $userId): bool
+        {
+            try {
+                $consulta = $this->db->prepare(self::UPDATE_LAST_SEEN);
+                $consulta->bindParam(':userID', $userId);
+                return $consulta->execute();
+            } catch (PDOException $e) {
+                Logger::log('Error al actualizar la última vez que el usuario con ID ' . $userId . ' estuvo online: ' . $e->getMessage() . ' con código de error ' . $e->getCode(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
