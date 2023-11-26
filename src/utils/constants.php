@@ -21,8 +21,33 @@
      * @const EMPTY_STRING Cadena vacía.
      */
     defined('EMPTY_STRING') || define('EMPTY_STRING', '');
+
+    /**
+     * @const TOKEN_EXPIRY_TIME Tiempo de expiración de los tokens.
+     */
+    defined('TOKEN_EXPIRY_TIME') || define('TOKEN_EXPIRY_TIME', time() + 60 * 60 * 24 * 7);
     
     /**
-     * @const COOKIE_EXPIRATION_TIME Tiempo de expiración de las cookies.
+     * @const TOKEN_LENGTH Longitud de los tokens.
      */
-    defined('COOKIE_EXPIRATION_TIME') || define('COOKIE_EXPIRATION_TIME', time() + 60 * 60 * 24 * 7);
+    defined('TOKEN_LENGTH') || define('TOKEN_LENGTH', 16);
+    
+    /**
+     * @const TOKEN_DATE_FORMAT Formato de fecha de los tokens.
+     */
+    defined('TOKEN_DATE_FORMAT') || define('TOKEN_DATE_FORMAT', 'Y-m-d H:i:s');
+    
+    /**
+     * @const COOKIE_NAME Nombre de la cookie.
+     */
+    defined('COOKIE_NAME') || define('COOKIE_NAME', 'AsynCore');
+    
+    /**
+     * @const COOKIE_EXPIRY_TIME Tiempo de expiración de la cookie.
+     */
+    defined('COOKIE_EXPIRY_TIME') || define('COOKIE_EXPIRY_TIME', time() + 60 * 60 * 24 * 7);
+    
+    /**
+     * @const int MAX_IDLE_TIME Tiempo máximo de inactividad en minutos.
+     */
+    defined('MAX_IDLE_TIME') || define('MAX_IDLE_TIME', 5);
