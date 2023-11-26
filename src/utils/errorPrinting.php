@@ -111,6 +111,11 @@
             'title' => '',
             'message' => 'Debes iniciar sesión para continuar.'
         ],
+        'logout' => [
+            'type' => 'success',
+            'title' => '',
+            'message' => 'Sesión cerrada correctamente.<br>Redirigiendo a la página principal...<br>Si no se redirige en 5 segundos, pulsa <a href="/main.php">aquí</a>'
+        ],
         'register_fail' => [
             'type' => 'danger',
             'title' => '',
