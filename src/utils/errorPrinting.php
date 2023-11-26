@@ -106,6 +106,11 @@
             'title' => '',
             'message' => 'Debes iniciar sesión para crear un hilo.'
         ],
+        'nl' => [
+            'type' => 'info',
+            'title' => '',
+            'message' => 'Debes iniciar sesión para continuar.'
+        ],
         'register_fail' => [
             'type' => 'danger',
             'title' => '',
@@ -175,7 +180,7 @@
                 $formattedMessage = sprintf($formattedMessage, ...$dynamicValues);
             }
             
-            $message = "<div><h2 style='text-align:center;'>{$error['title']}</h2><p style='font-size: 1.5rem;'>{$formattedMessage}</p></div>";
+            $message = "<div><h2 style='text-align:center;'>{$error['title']}</h2><p style='font-size: 1.5rem;'>$formattedMessage</p></div>";
             return printAlert($error['type'], $message);
         }
         Logger::log("Tipo de mensaje inválido: '$type'", __FILE__, LogLevels::EXCEPTION);
