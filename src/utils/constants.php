@@ -5,6 +5,14 @@
      *       <strong>NOTA:</strong> Este archivo se incluye en el archivo init.php<br><br>
      * @const DIR Directorio raíz del proyecto.
      * @const URL_BASE URL base del proyecto.
+     * @const DOMAIN_NAME Nombre de dominio.
+     * @const EMPTY_STRING Cadena vacía.
+     * @const TOKEN_EXPIRY_TIME Tiempo de expiración de los tokens.
+     * @const TOKEN_LENGTH Longitud de los tokens.
+     * @const TOKEN_DATE_FORMAT Formato de fecha de los tokens.
+     * @const COOKIE_NAME Nombre de la cookie.
+     * @const COOKIE_EXPIRY_TIME Tiempo de expiración de la cookie.
+     * @const int MAX_IDLE_TIME Tiempo máximo de inactividad en minutos.
      */
     
     /**

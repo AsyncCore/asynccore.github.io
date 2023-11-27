@@ -12,7 +12,7 @@
      * @see     Logger
      * @access  public
      * @package src
-     * @author  Daniel Alonso Lázaro
+     * @author  Daniel Alonso Lázaro <dalonsolaz@gmail.com>
      * @link    https://es.wikipedia.org/wiki/Singleton
      */
     class Singleton
