@@ -1372,25 +1372,27 @@ scp -r /home/usuario/archivo usuario@servidor:/home/usuario/archivo
 ## PHPDocumentor
 https://www.phpdoc.org/
 ### Instalación
-```
-sudo apt install php-pear
-sudo pear channel-discover pear.phpdoc.org
-sudo pear install phpdoc/phpDocumentor
-```
-o
+
 ```
 sudo apt install php-mbstring
+```
+```
 mkdir /home/usuario/phpDocs && cd /home/usuario/phpDocs
-
+```
+```
 wget https://phpdoc.org/phpDocumentor.phar
-
+```
+```
 chmod u+x phpDocumentor.phar
-
+```
+```
 sudo mv phpDocumentor.phar /usr/local/bin/phpdoc
-
+```
+```
 phpdoc --version
-
-phpdoc -d /home/usuario/repositorio -t /home/usuario/phpDocs
+```
+```
+phpdoc run -d /home/usuario/donde_está_los_archivos_a_documentar -t /home/usuario/phpDocs
 ```
 Probar con este archivo;
 ```php
