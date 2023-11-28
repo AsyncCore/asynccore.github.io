@@ -256,6 +256,68 @@ git diff commit1 commit2
 ```
 nano .gitignore
 ```
+### Amend
+#### Añadir archivos al último commit
+```
+git commit -m 'Commit message'
+git add archivo_olvidado
+git commit --amend
+```
+#### Cambiar el mensaje del último commit
+```
+git commit -m 'Commit message'
+git add archivo_olvidado
+git commit --amend -m 'Nuevo mensaje'
+```
+### Reset
+#### Resetear el último commit
+```
+git reset --soft HEAD~1
+```
+#### Resetear el último commit y quitar los archivos del staging area
+```
+git reset --mixed HEAD~1
+```
+#### Resetear el último commit y quitar los archivos del staging area y del working directory
+```
+git reset --hard HEAD~1
+```
+#### Resetear el último commit, quitar los archivos del staging area y del working directory y aplicar al ancestro primero
+```
+git reset --hard HEAD^
+```
+
+### Revert
+#### Revertir el último commit
+```
+git revert HEAD
+```
+#### Revertir un commit concreto
+```
+git revert numero_commit
+```
+### Stash
+#### Guardar cambios en el stash
+```
+git stash
+```
+#### Ver los cambios guardados en el stash
+```
+git stash list
+```
+#### Aplicar los cambios guardados en el stash
+```
+git stash apply
+```
+#### Eliminar los cambios guardados en el stash
+```
+git stash drop
+```
+#### Aplicar y eliminar los cambios guardados en el stash
+```
+git stash pop
+```
+
 Y añadimos los archivos que queremos ignorar, por ejemplo:
 ```
 *.log
@@ -329,7 +391,6 @@ Si no los tiene, ejecutamos los siguientes comandos:
 ```
 sudo usermod -aG sudo usuario
 ```
-
 ## Instalación de Apache
 ### Preparación del servidor
 #### Actualizar el sistema
@@ -459,12 +520,11 @@ sudo chown -R $USER:$USER /var/www/nombre_dominio
 sudo chmod -R 755 /var/www/nombre_dominio
 ```
 ##### Crear archivo index.html
-
 ```
 sudo nano /var/www/nombre_dominio/index.html
 ```
 #### Añadir el siguiente código
-```
+```html
 <html>
     <head>
         <title>Nombre Dominio</title>
@@ -483,7 +543,7 @@ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-availab
 sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 ```
 #### Añadir el siguiente código al archivo de configuración
-```
+```apache
 <VirtualHost *:80> #escuchar a todas las peticiones que lleguen al puerto 80
     ServerAdmin webmaster@localhost #email del administrador
     ServerName nombre_dominio #nombre del dominio
@@ -499,7 +559,7 @@ sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 sudo nano /var/www/nombre_dominio/.htaccess
 ```
 #### Añadir el siguiente código en el archivo .conf del dominio: ALL para permitir todo, NONE para denegar todo.
-```
+```apache
 <Directory /var/www/nombre_dominio>
     AllowOverride All
 </Directory>
@@ -612,11 +672,25 @@ Y los errores en:
 /var/log/apache2/error.log
 ```
 Además, cada sitio puede tener sus logs en el directorio que le hayamos introducido en las directivas ErrorLog y CustomLog.
-```
+```apache
 ErrorLog ${APACHE_LOG_DIR}/nombre_dominio.error.log
 ```
-```
+```apache
 CustomLog ${APACHE_LOG_DIR}/nombre_dominio.access.log combined
+```
+
+### Directivas de error
+#### ErrorDocument
+```apache
+ErrorDocument 404 /error404.html
+```
+#### Redirect
+```apache
+Redirect 404 /error404.html
+```
+#### RedirectMatch
+```apache
+RedirectMatch 404 /error404.html
 ```
 ## Asegurando Apache
 ### Certificado SSL
@@ -635,7 +709,7 @@ sudo certbot --apache
 sudo nano /etc/apache2/sites-available/nombre_dominio-le-ssl.conf
 ```
 #### Añadir el siguiente código al archivo de configuración SSL
-```
+```apache
 <IfModule mod_ssl.c>
     <VirtualHost *:443>
         ServerAdmin webmaster@localhost
@@ -703,7 +777,7 @@ Email Address []:webmaster@ejemplo.com
 sudo nano /etc/apache2/sites-available/nombre_dominio-le-ssl.conf
 ```
 #### Añadir el siguiente código al archivo de configuración SSL
-```
+```apache
 <IfModule mod_ssl.c>
     <VirtualHost *:443>
         ServerAdmin webmaster@localhost
@@ -729,7 +803,7 @@ sudo a2ensite nombre_dominio-le-ssl.conf
 sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 ```
 #### Modificar el virtualhost
-```
+```apache
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     ServerName nombre_dominio
@@ -754,7 +828,7 @@ sudo systemctl reload apache2
 sudo nano /etc/apache2/conf-available/security.conf
 ```
 #### Añadir las siguientes líneas al final
-```
+```apache
 ServerTokens Prod
 ServerSignature Off
 ```
@@ -774,10 +848,11 @@ sudo systemctl reload apache2
 sudo nano /etc/apache2/apache2.conf
 ```
 #### Añadir las siguientes líneas
-```
+```apache
 <Directory /var/www/>
     Options -Indexes
 </Directory>
+```
 ```
 #### Comprobamos la configuración y reiniciamos apache
 ```
@@ -795,19 +870,19 @@ sudo systemctl restart apache2
 sudo nano /etc/apache2/apache2.conf
 ```
 #### Añadimos el siguiente código para denegar el acceso a las carpetas .git
-```
+```apache
 <DirectoryMatch "^/.*/\.git/">
     Require all denied
 </DirectoryMatch>
 ```
 #### Añadimos el siguiente código para denegar el acceso a los archivos .git
-```
+```apache
 <FilesMatch "^\.git">
     Require all denied
 </FilesMatch>
 ```
 #### Redirigimos las peticiones a los archivos .git a la página de error 404
-```
+```apache
 RedirectMatch 404 /\.git
 ```
 #### Comprobamos la configuración y reiniciamos apache
@@ -820,33 +895,33 @@ sudo systemctl restart apache2
 ### Las directivas REQUIRE se pueden usar en cualquier contexto de configuración de Apache.
 #### ALL
 Todos los usuarios, incluidos los anónimos.
-```
+```apache
 Require all granted
 ```
-```
+```apache
 Require all denied
 ```
 #### LOCAL
 Usuarios que se autentican con un módulo de autenticación local.
-```
+```apache
 Require local
 ```
 #### IP
 Usuarios que se autentican desde una dirección IP o rango de direcciones IP.
-```
+```apache
 Require ip 192.168.1.37
 ```
-```
+```apache
 Require ip 192.168.1.0/24
 ```
 #### HOST
 Usuarios que se autentican desde un nombre de host o patrón de nombre de host.
-```
+```apache
 Require host dominio.com
 ```
 #### USER
 Usuarios que se autentican con un módulo de autenticación local o externo. Requiere el modulo de autenticación.
-```
+```apache
 Require user usuario
 ```
 ### Añadir autentificación básica
@@ -883,7 +958,7 @@ sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 `AuthUserFile` especifica la ruta al archivo de contraseñas.
 
 `Require valid-user` indica que cualquier usuario válido en el archivo puede acceder.
-```
+```apache
 <Directory /var/www/nombre_dominio>
     AuthType Basic
     AuthName "Contenido restringido"
@@ -907,8 +982,8 @@ sudo a2enmod status
 sudo nano /etc/apache2/apache2.conf
 ```
 #### Añadir las siguientes líneas
-Si queremos mejorar la seguridad, cambiamos /server-status por una ruta que sólo nosotros conozcamos.
-```
+Si queremos mejorar la seguridad, cambiamos `/server-status` por una ruta que sólo nosotros conozcamos.
+```apache
 <Location /server-status>
     SetHandler server-status
     Require host dominio.com
@@ -941,7 +1016,7 @@ sudo a2dismod.... los que liste el error
 sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 ```
 Añadir las siguientes líneas:
-```
+```apache
 <IfModule mpm_itk_module>
     AssignUserId usuario grupo
 </IfModule>
@@ -971,10 +1046,10 @@ Si tras la instalación no podemos iniciar el comando `mysql_secure_installation
 sudo mysql
 ```
 Una vez en la consola de MySQL, ejecutamos los siguientes comandos:
-```
+```mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
-```
+```mysql
 FLUSH PRIVILEGES;
 ```
 ```
@@ -1101,7 +1176,7 @@ Para cambiar esto y que se muestre el index.php de forma global
 sudo nano /etc/apache2/mods-enabled/dir.conf
 ```
 #### Cambiamos el orden de los archivos
-```
+```apache
 <IfModule mod_dir.c>
     DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 </IfModule>
@@ -1112,7 +1187,7 @@ Si queremos que esta configuración sea para un dominio en concreto, modificamos
 sudo nano /etc/apache2/sites-available/nombre_dominio.conf
 ```
 #### Cambiamos el orden de los archivos
-```
+```apache
 DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
 ```
 #### Comprobamos la configuración y reiniciamos apache
@@ -1163,7 +1238,13 @@ curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 HASH=$(curl -sS https://composer.github.io/installer.sig)
 ```
 ```php
-php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') {
+    echo 'Installer verified'; 
+} else { 
+    echo 'Installer corrupt';
+    unlink('composer-setup.php'); 
+} 
+echo PHP_EOL;"
 ```
 ```
 Installer verified
@@ -1269,15 +1350,15 @@ try {
 sudo mysql
 ```
 ### Creamos una BD
-```
+```mysql
 CREATE DATABASE nombre_bd;
 ```
 ### Creamos un usuario
-```
+```mysql
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'password';
 ```
 ### Le damos permisos
-```
+```mysql
 GRANT ALL ON nombre_bd.* TO 'usuario'@'localhost';
 ```
 ### Salimos de mysql
@@ -1289,23 +1370,23 @@ exit
 mysql -u usuario -p
 ```
 ### Si nos hemos equivocado de contraseña, podemos cambiarla
-```
+```mysql
 ALTER USER 'usuario'@'localhost' IDENTIFIED BY 'password';
 ```
 ### Mostrar las BD:
-```
+```mysql
 SHOW DATABASES;
 ```
 ### Seleccionar la BD que creamos
-```
+```mysql
 USE nombre_bd;
 ```
 ### Mostramos las tablas
-```
+```mysql
 SHOW TABLES;
 ```
 ### Creamos una tabla
-```
+```mysql
 CREATE TABLE nombre_tabla (
     id INT NOT NULL AUTO_INCREMENT,
     contenido VARCHAR(100) NOT NULL,
@@ -1313,11 +1394,11 @@ CREATE TABLE nombre_tabla (
 );
 ```
 ### Insertamos datos en la tabla varias veces con diferentes valores
-```
+```mysql
 INSERT INTO nombre_tabla (contenido) VALUES ('Loqueunoquiera');
 ```
 ### Mostramos los datos de la tabla
-```
+```mysql
 SELECT * FROM nombre_tabla;
 ```
 ### Salimos de mysql
@@ -1384,7 +1465,7 @@ mkdocs --version
 ### Guía de uso
 Consultar la carpeta mkdocs y el archivo [getting-started.md](mkdocs/getting-started.md)
 Ejemplo de virtualhost para mkdocs:
-```
+```apache
 <VirtualHost *:80>
     ServerName mydocs.com
     DocumentRoot /var/www/my-docs
@@ -1403,6 +1484,33 @@ Ejemplo de virtualhost para mkdocs:
 ```
 scp -r /home/usuario/archivo usuario@servidor:/home/usuario/archivo
 ```
+### OPCIONES
+#### -r
+Copiar directorios y sus contenidos de manera recursiva.
+```
+scp -r /home/usuario/archivo usuario@servidor:/home/usuario/archivo
+```
+#### -v
+Mostrar el progreso de la copia.
+```
+scp -v /home/usuario/archivo usuario@servidor:/home/usuario/archivo
+```
+#### -C
+Comprimir los datos durante la copia.
+```
+scp -C /home/usuario/archivo usuario@servidor:/home/usuario/archivo
+```
+#### -P
+Especificar el puerto si es distinto al 22 habitual.
+```
+scp -P 2222 /home/usuario/archivo usuario@servidor:/home/usuario/archivo
+```
+#### -i
+Especificar la ruta del archivo de clave privada.
+```
+scp -i /home/usuario/.ssh/id_rsa /home/usuario/archivo usuario@servidor:/home/usuario/archivo
+```
+
 ## PHPDocumentor
 https://www.phpdoc.org/
 ### Instalación
@@ -1425,9 +1533,16 @@ sudo mv phpDocumentor.phar /usr/local/bin/phpdoc
 ```
 phpdoc --version
 ```
+### Uso
+#### Para directorios
 ```
-phpdoc run -d /home/usuario/donde_está_los_archivos_a_documentar -t /home/usuario/phpDocs
+phpdoc run -d /home/usuario/donde_están_los_archivos_a_documentar -t /home/usuario/directorio_destino/docs
 ```
+#### Para archivos
+```
+phpdoc run -f /home/usuario/donde_está_el_archivo_a_documentar.php -t /home/usuario/directorio_destino/docs
+```
+### Ejemplo
 Probar con este archivo;
 ```php
 <?php
@@ -1503,13 +1618,9 @@ Probar con este archivo;
         }
     }
 ```
-Ejecutar: 
-```
-php ./phpDocumentor.phar
-```
 Y ya decirle donde tenemos los sources y donde queremos los docs
 ```
-php ./phpDocumentor.phar -d /ruta/al/repo -t /ruta/a/donde/queremos/los/docs
+php run -f /ruta/al/archivo/Singleton.php -t /ruta/a/donde/queremos/los/docs
 ```
 
 ## WORDPRESS
@@ -1532,16 +1643,16 @@ tar -xzvf latest.tar.gz
 ```
 sudo mysql -u root -p
 ```
-```
+```mysql
 CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 ```
-```
+```mysql
 CREATE USER 'wordpressuser'@'localhost' IDENTIFIED BY 'password';
 ```
-```
+```mysql
 GRANT ALL ON wordpress.* TO 'wordpressuser'@'localhost';
 ```
-```
+```mysql
 FLUSH PRIVILEGES;
 ```
 ```
@@ -1560,7 +1671,7 @@ sudo systemctl restart apache2
 sudo nano /etc/apache2/sites-available/wordpress.conf
 ```
 #### Añadir el siguiente código
-```
+```apache
 <VirtualHost *:80>
     ServerAdmin webmaster@localhost
     ServerName nombre_dominio
@@ -1605,7 +1716,7 @@ Encontrar la parte donde pone los define de las claves y sustituir por el result
 sudo nano /var/www/wordpress/wp-config.php
 ```
 #### Configurar el acceso a la BD
-```
+```php
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
