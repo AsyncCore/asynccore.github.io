@@ -853,15 +853,10 @@ sudo nano /etc/apache2/apache2.conf
     Options -Indexes
 </Directory>
 ```
-```
 #### Comprobamos la configuración y reiniciamos apache
 ```
 sudo apache2ctl configtest
-```
-```
 Syntax OK
-```
-```
 sudo systemctl restart apache2
 ```
 ### Desactivar el acceso a carpetas git
@@ -920,7 +915,7 @@ Usuarios que se autentican desde un nombre de host o patrón de nombre de host.
 Require host dominio.com
 ```
 #### USER
-Usuarios que se autentican con un módulo de autenticación local o externo. Requiere el modulo de autenticación.
+Usuarios que se autentican con un módulo de autenticación local o externo. Requiere el módulo de autenticación.
 ```apache
 Require user usuario
 ```
