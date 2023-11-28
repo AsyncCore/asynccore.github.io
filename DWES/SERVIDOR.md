@@ -1,4 +1,38 @@
 # Examen DAW - Ubuntu 22.04
+# Guía de Uso de `sudo` en un Servidor Ubuntu
+En un servidor Ubuntu con Apache, PHP, MySQL, etc., el uso de `sudo` depende de la tarea que estés realizando y de los permisos requeridos para esa tarea específica. A continuación se presenta una guía general sobre cuándo usar `sudo`:
+## Cuándo Usar `sudo`:
+### Instalación y Actualización de Software
+- Al instalar nuevos paquetes o software con `apt` o `apt-get`.
+- Al actualizar el sistema o software instalado.
+### Modificar Configuraciones del Sistema
+- Al editar archivos de configuración que requieren permisos de root, como archivos en `/etc/apache2`, `/etc/php`, `/etc/mysql`.
+- Al modificar configuraciones relacionadas con el sistema operativo o servicios del sistema (por ejemplo, Apache, MySQL).
+### Gestión de Servicios del Sistema
+- Al iniciar, detener o reiniciar servicios del sistema como Apache (`apache2`), MySQL, u otros servicios de sistema.
+- Al habilitar o deshabilitar servicios para que se inicien en el arranque.
+### Manipulación de Archivos o Directorios Protegidos
+- Al cambiar permisos o propietarios de archivos/directorios que están fuera de tu directorio de usuario.
+- Al acceder o modificar directorios protegidos, como `/var/www` para sitios web.
+### Operaciones de Red
+- Al abrir puertos en el cortafuegos o realizar configuraciones de red que requieren privilegios elevados.
+### Tareas de Administración del Sistema
+- Al añadir o modificar usuarios del sistema o grupos.
+- Al configurar tareas programadas con `cron` que requieren permisos de root.
+## Cuándo No Usar `sudo`:
+### Operaciones Dentro de tu Directorio de Usuario
+- Al trabajar dentro de tu directorio personal (`/home/tu_usuario`), generalmente no necesitas `sudo` para crear, editar o borrar archivos.
+### Lectura de Archivos de Configuración
+- Si solo estás leyendo (no editando) archivos de configuración o logs que son accesibles para tu usuario, no necesitas `sudo`.
+### Uso de Aplicaciones de Usuario
+- Al ejecutar comandos o programas que no afectan el sistema a nivel global y están diseñados para ser ejecutados como tu usuario regular.
+### Desarrollo y Pruebas
+- Al escribir o probar tu código, a menos que específicamente necesites simular un entorno con permisos elevados.
+## Consideraciones Importantes
+- **Seguridad**: Usar `sudo` otorga poderes significativos y puede afectar la estabilidad y seguridad de tu sistema. Debe usarse con precaución.
+- **Entorno de Producción**: En un servidor de producción, es especialmente crítico ser cauteloso al usar `sudo`, ya que los errores pueden tener impactos significativos.
+
+En resumen, `sudo` se utiliza para tareas que requieren permisos elevados más allá de los de un usuario normal, como la gestión de configuraciones de sistema, servicios y software a nivel de sistema. En otros casos, es preferible usar el usuario regular para evitar riesgos de seguridad o errores críticos.
 # COMANDOS SALVAVIDAS
 ## MATAR PID EN UN PUERTO
 ```
@@ -663,7 +697,7 @@ Organizational Unit Name (eg, section) []:Ejemplo Dept
 Common Name (eg, your name or your server's hostname) []:nombre_dominio_o_ip
 Email Address []:webmaster@ejemplo.com
 ```
-### Configurar apache para que use el certificado
+### Configurar apache para que use el certificado SSL
 #### Crear un archivo de configuración para el dominio SSL
 ```
 sudo nano /etc/apache2/sites-available/nombre_dominio-le-ssl.conf
@@ -1599,4 +1633,57 @@ define('FS_METHOD', 'direct');
 #### Continuar desde el instalador web
 ```
 https://nombre_dominio
+```
+## CONFIGURAR FAIL2BAN
+### Instalación de fail2ban
+```
+sudo apt install fail2ban
+```
+### Configuración de fail2ban
+#### Crear una 'cárcel' local
+```
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+```
+#### Editar el archivo de configuración
+```
+sudo nano /etc/fail2ban/jail.local
+```
+#### Buscar la cabecera `[DEFAULT]` y verificar
+```
+[DEFAULT]
+. . .
+bantime = 10m
+findtime = 10m
+maxretry = 5
+destemail = root@localhost
+sender = root@<fq-hostname>
+mta = sendmail
+action = $(action_)s
+. . .
+```
+#### Buscar la cabecera `[sshd]` y verificar
+```
+[sshd]
+. . .
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 3
+. . .
+```
+#### Cuando se haya comprobado todo, activar y arrancar fail2ban
+```
+sudo systemctl enable fail2ban
+```
+```
+sudo systemctl start fail2ban
+```
+#### Comprobar el estado de fail2ban
+```
+sudo systemctl status fail2ban
+```
+#### Para ver los baneos
+```
+sudo iptables -S | grep f2b
 ```
