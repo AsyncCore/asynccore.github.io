@@ -8,6 +8,7 @@
     
     use src\managers\UserManager;
     use src\db\DatabaseConnection;
+    use src\managers\PostsManager;
     use src\managers\ThreadManager;
     use src\managers\CategoryManager;
     
@@ -29,8 +30,18 @@
     $db = DatabaseConnection::getInstance()->getConnection();
     $categoryManager = new CategoryManager($db);
     $threadManager = new ThreadManager($db);
+    $postManager = new PostsManager($db);
     $userManager = new UserManager($db);
     $categories = $categoryManager->getAllCategories();
+    
+    foreach ($categories as $key => $category) {
+        $lastPost = $postManager->getLastPostByCategory($category['CAT_ID']);
+        if ($lastPost) {
+            $user = $userManager->getUserById($lastPost['USER_ID']);
+            $categories[$key]['LAST_POST'] = $lastPost;
+            $categories[$key]['LAST_POST_USER'] = $user;
+        }
+    }
     $message = '';
     
     foreach (['c', 'nt', 't', 'p', 'UID'] as $param) {
@@ -91,16 +102,20 @@
                             <p class="count"><?= $threadManager->getThreadCountByCategory($category['CAT_ID']) ?></p>
                             hilos
                         </div>
-                        <?php if ($lastThread): ?>
+                        <?php if ($lastThread && !isset($category['LAST_POST'])): ?>
+                        <div class="last-thread">
+                            <img class='avatar' src="<?= $user['AVATAR'] ?>" alt="AVATAR DEL USUARIO <?= $user['USERNAME'] ?>">
+                            <div class="last-thread-details">
+                                <a href="thread.php?c=<?= $category['CAT_ID'] ?>&t=<?= $lastThread['THREAD_ID'] ?>"><?= $lastThread['TITULO'] ?></a>
+                                <p class="text-xsmall">By <a href="profile.php&UID=<?= $lastThread['USER_ID'] ?>"><?= $user['USERNAME'] ?></a>, <?= timeAgo($lastThread['F_CRE']) ?></p>
+                            </div>
+                        </div>
+                        <?php elseif (isset($category['LAST_POST'])): ?>
                             <div class="last-thread">
-                                <img class='avatar'
-                                     src="<?= $user['AVATAR'] ?>"
-                                     alt="AVATAR DEL USUARIO <?= $user['USERNAME'] ?>">
+                                <img class='avatar' src="<?= $category['LAST_POST_USER']['AVATAR'] ?>" alt="AVATAR DEL USUARIO <?= $category['LAST_POST_USER']['USERNAME'] ?>">
                                 <div class="last-thread-details">
-                                    <a href="thread.php?c=<?= $category['CAT_ID'] ?>&t=<?= $lastThread['THREAD_ID'] ?>"><?= $lastThread['TITULO'] ?? 'Título del hilo' ?></a>
-                                    <p class="text-xsmall">By <a
-                                                href="profile.php&UID=<?= $lastThread['USER_ID'] ?>"><?= $lastThread['USERNAME'] ?></a>, <?= timeAgo($lastThread['F_CRE']) ?>
-                                    </p>
+                                    <a href="thread.php?c=<?= $category['CAT_ID'] ?>&t=<?= $category['LAST_POST']['THREAD_ID'] ?>"><?= $category['LAST_POST']['TITULO'] ?></a>
+                                    <p class="text-xsmall">By <a href="profile.php&UID=<?= $category['LAST_POST']['USER_ID'] ?>"><?= $category['LAST_POST_USER']['USERNAME'] ?></a>, <?= timeAgo($category['LAST_POST']['F_CRE']) ?></p>
                                 </div>
                             </div>
                         <?php else: ?>
