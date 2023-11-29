@@ -162,25 +162,7 @@
                         </div>
                         <div class="post-content">
                             <div style='margin-top: 10px;'>
-                                <?php if ($post['REPLY_ID'] != null): ?>
-                                    <?php
-                                    $reply = $postManager->getPost($post['REPLY_ID']);
-                                    $replyUser = $userManager->getUserById($reply['USER_ID']);
-                                    ?>
-                                    <blockquote class="small">
-                                        <div class="author">
-                                            <a href="profile.php?UID=<?= $reply['USER_ID'] ?? '' ?>"
-                                               class=""><?= $replyUser['USERNAME'] ?? '' ?></a>
-                                            <span class="time"><?= timeAgo($reply['F_CRE']) ?? '' ?></span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </div>
-
-                                        <div class="quote">
-                                            <?= html_entity_decode($reply['CONTENIDO']) ?? '' ?>
-                                        </div>
-                                    </blockquote>
-                                <?php endif; ?>
-                                <?= html_entity_decode($post['CONTENIDO']) ?>
+                                <?= getNestedReplyContent($post['POST_ID'], $postManager, $userManager) ?>
                             </div>
                             <a href="/editar.php?p=<?= $post['POST_ID'] ?>" style="margin-left: auto;"
                                class="link-unstyled" title="Editar el post">
@@ -190,7 +172,7 @@
                             <?= timeAgo($post['F_CRE']) ?>
                         </div>
                         <div class='reactions'>
-                            <a href='reply.php?t=<?= $post['POST_ID'] ?>' class='btn-green btn-small'>Responder</a>
+                            <a href='reply.php?t=<?=$post['THREAD_ID']?>&p=<?= $post['POST_ID'] ?>' class='btn-green btn-small'>Responder</a>
                         </div>
                     </div>
                 <?php endforeach; ?>
