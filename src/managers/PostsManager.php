@@ -18,6 +18,7 @@
         private const GET_POST_COUNT_BY_USER_ID = 'SELECT COUNT(*) FROM POSTS WHERE USER_ID = :userID';
         private const GET_POST_COUNT_BY_THREAD = 'SELECT COUNT(*) FROM POSTS WHERE THREAD_ID = :threadID';
         private const GET_LAST_POST_BY_THREAD = 'SELECT * FROM POSTS WHERE THREAD_ID = :threadID ORDER BY F_CRE DESC LIMIT 1';
+        private const GET_LAST_POST_AND_THREAD_BY_CATEGORY = 'SELECT P.*, H.TITULO, H.THREAD_ID FROM POSTS P INNER JOIN HILOS H ON P.THREAD_ID = H.THREAD_ID WHERE H.CAT_ID = :catID ORDER BY P.F_CRE DESC LIMIT 1';
         
         public function __construct($db)
         {
@@ -150,6 +151,18 @@
                 return $consulta->fetch();
             } catch (PDOException $e) {
                 Logger::log('Error al obtener el último post del hilo ' . $threadId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
+        
+        public function getLastPostByCategory($categoryId) {
+            try {
+                $consulta = $this->db->prepare(self::GET_LAST_POST_AND_THREAD_BY_CATEGORY);
+                $consulta->bindParam(':catID', $categoryId, PDO::PARAM_INT);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener el último post y hilo de la categoría ' . $categoryId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return false;
             }
         }
