@@ -100,6 +100,9 @@
         <div class="col-full push-top">
             <div class="thread-list">
                 <h2 class="list-title">Hilos</h2>
+                <?php if (empty($threads)): ?>
+                    <p class="text-lead" style="text-align: center">No hay hilos en esta categoría.</p>
+                <?php else: ?>
                 <?php foreach ($threads as $thread): ?>
                     <?php
                     $threadUser = $userManager->getUserById($thread['USER_ID']);
@@ -135,6 +138,7 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+                <?php endif; ?>
             </div>
             <?= generatePagination($page, $totalPages, $getCategory) ?>
         </div>
