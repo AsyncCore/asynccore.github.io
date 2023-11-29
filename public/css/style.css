@@ -471,15 +471,15 @@ figcaption {
 .post-content blockquote.big {
     display: flex;
     position: relative;
+    margin: 20px;
 }
-
+/*TODO dónde se pone big? */
 .post-content blockquote.big::before {
     position: absolute;
     top: -25px;
     left: -25px;
     font-size: 42px;
-    font-family: "FontAwesome", monospace;
-    content: "\f10e";
+    content: "\275D";
     color: #263959;
 }
 
@@ -526,15 +526,15 @@ figcaption {
     border: 2px solid rgba(152, 152, 152, 0.15);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    margin: 20px;
 }
 
 .post-content blockquote.small::before {
     position: absolute;
-    top: -20px;
-    left: -20px;
+    top: 8px;
+    left: -35px;
     font-size: 42px;
-    font-family: "FontAwesome", monospace;
-    content: "\f10e";
+    content: "\275D";
     color: #263959;
 }
 
