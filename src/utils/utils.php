@@ -252,3 +252,36 @@
             }
         }
     }
+    
+    function getNestedReplyContent($postId, $postManager, $userManager, $depth = 0): string
+    {
+        if ($depth > 1) {
+            return '';
+        }
+        
+        $post = $postManager->getPost($postId);
+        if (!$post) {
+            return '';
+        }
+        
+        $replyContent = '';
+        if ($post['REPLY_ID'] != null) {
+            $reply = $postManager->getPost($post['REPLY_ID']);
+            $replyUser = $userManager->getUserById($reply['USER_ID']);
+            $replyUsername = $replyUser['USERNAME'] ?? '';
+            
+            $replyContent = "<blockquote class='small'>
+                <div class='author'>
+                    <a href='profile.php?UID={$reply['USER_ID']}' class=''>{$replyUsername}</a>
+                    <span class='time'>" . timeAgo($reply['F_CRE']) . "</span>
+                </div>
+                <div class='quote'>
+                 " . getNestedReplyContent($post['REPLY_ID'], $postManager, $userManager, $depth + 1)
+                     . ($depth == 1 ? html_entity_decode($reply['CONTENIDO']) : '') . '
+                </div>
+            </blockquote>';
+        }
+        
+        return $replyContent . html_entity_decode($post['CONTENIDO']);
+    }
+
