@@ -67,7 +67,7 @@
         public function generateToken(int $userId): string
         {
             $token = bin2hex(random_bytes(TOKEN_LENGTH));
-            $fExp = date(TOKEN_DATE_FORMAT, time() + TOKEN_EXPIRY_TIME);
+            $fExp = date(TOKEN_DATE_FORMAT, TOKEN_EXPIRY_TIME);
             try{
                 $consulta = $this->db->prepare(self::INSERT_TOKEN);
                 $consulta->bindParam(':token', $token);

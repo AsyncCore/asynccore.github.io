@@ -125,7 +125,7 @@
                             $token = $tokenManager->generateToken($usuario['USER_ID']);
                             $cookieValue = $token;
                         }
-                        setcookie(COOKIE_NAME, $cookieValue, COOKIE_EXPIRY_TIME, '/', DOMAIN_NAME);
+                        setcookie(COOKIE_NAME, $cookieValue, COOKIE_EXPIRY_TIME, '/', DOMAIN_NAME, true, true);
                         $userManager->updateLastSeen($usuario['USER_ID']);
                     }catch (Exception $e) {
                         header("Location: error-pages/dbError.php");
