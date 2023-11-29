@@ -43,7 +43,7 @@
             <li class='navbar-item'>
                 <a href='FAQ.php'>FAQ</a>
             </li>
-            <li class='navbar-item'>
+            <li class='navbar-item' style="white-space: nowrap">
                 <a href='about-us.php'>¿Quiénes somos?</a>
             </li>
         </ul>
