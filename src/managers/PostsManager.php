@@ -166,4 +166,18 @@
                 return false;
             }
         }
+        
+        public function getLastPostsByUser($userId, $limit = 5)
+        {
+            try {
+                $consulta = $this->db->prepare('SELECT * FROM POSTS WHERE USER_ID = :userId ORDER BY F_CRE DESC LIMIT :limit');
+                $consulta->bindParam(':userId', $userId);
+                $consulta->bindParam(':limit', $limit, PDO::PARAM_INT);
+                $consulta->execute();
+                return $consulta->fetchAll();
+            } catch (PDOException $e) {
+                Logger::log('Error al obtener últimos posts: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
     }
