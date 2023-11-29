@@ -76,7 +76,6 @@
     /* Variables generales del script */
     $activeTab = $_POST['form'] ?? ACTIVE_TAB_DEFAULT;
     $errores = [];
-    $cookieName = EMPTY_STRING;
     $cookieValue = EMPTY_STRING;
     
     /* Variables del formulario de login */
@@ -141,6 +140,7 @@
                 $_SESSION['F_REG'] = $usuario['F_REG'];
                 $_SESSION['USER_TYPE'] = $usuario['USER_TYPE'];
                 unsetLoginRegister();
+                $userManager->updateLastSeen($_SESSION['USER_ID']);
                 header('Location: login-register.php?loginTab&success&login');
             }
             die;

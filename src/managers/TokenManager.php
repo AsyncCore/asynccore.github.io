@@ -105,7 +105,6 @@
                 if(!$resultado){
                     $this->cleanUpExpiredTokens();
                     Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
-                    throw new Exception('No se ha encontrado el token.');
                 }
                 return $resultado;
             }catch (Exception $e){
@@ -132,7 +131,6 @@
                 $consulta->execute();
                 if($consulta->rowCount() == 0){
                     Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
-                    throw new Exception('No se ha encontrado el token.');
                 }
             }catch (Exception $e){
                 Logger::log("Error al eliminar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);

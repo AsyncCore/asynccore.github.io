@@ -2,6 +2,7 @@
     
     use src\Logger;
     use src\LogLevels;
+    use src\managers\UserManager;
     use src\db\DatabaseConnection;
     use src\managers\PostsManager;
     use src\managers\ThreadManager;
@@ -17,6 +18,7 @@
     $db = DatabaseConnection::getInstance()->getConnection();
     $postManager = new PostsManager($db);
     $threadManager = new ThreadManager($db);
+    $userManager = new UserManager($db);
     $errors = [];
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -51,6 +53,7 @@
                     throw new Exception('Error al guardar la respuesta', 1);
                 }
                 $threadCategory = $threadManager->getThread($threadId)['CAT_ID'];
+                $userManager->updateLastSeen($_SESSION['USER_ID']);
                 header('Location: /thread.php?c=' . $threadCategory . '&t=' . $threadId);
                 exit;
             } catch (Exception $e) {

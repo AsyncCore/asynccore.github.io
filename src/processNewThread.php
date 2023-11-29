@@ -3,6 +3,7 @@
     use src\Logger;
     use src\LogLevels;
     use src\managers\TagManager;
+    use src\managers\UserManager;
     use src\db\DatabaseConnection;
     use src\managers\ThreadManager;
     
@@ -29,6 +30,7 @@
     $db = DatabaseConnection::getInstance()->getConnection();
     $tagManager = new TagManager($db);
     $threadManager = new ThreadManager($db);
+    $userManager = new UserManager($db);
     
     $errors = [];
     
@@ -57,7 +59,7 @@
         
         if (!array_filter($errors)){
             try {
-                if(!isset($_SESSION['USER_ID'])){
+                if(!isset($_SESSION['USER_ID']) == !isset($_COOKIE[COOKIE_NAME])){
                     $_POST['post-title'] = $title;
                     $_POST['post-subtitle'] = $subtitle;
                     $_POST['post-content'] = $content;
@@ -75,6 +77,7 @@
                 foreach ($tags as $tagId) {
                     $threadManager->associateTagWithThread($threadId, $tagId);
                 }
+                $userManager->updateLastSeen($_SESSION['USER_ID']);
                 header('Location: /thread.php?c='. $catId .'&t=' . $threadId);
                 die;
             } catch (Exception $e) {

@@ -9,10 +9,10 @@
      * Dependencias:<pre>
      *      - sessions.php: Inicialización de la sesión y definición de constantes globales.
      *      - autoloader.php: Carga automática de clases.
-     *      - processForm.php: Procesamiento de formularios de inicio de sesión y registro.</pre>
+     *      - processLoginRegister.php: Procesamiento de formularios de inicio de sesión y registro.</pre>
      */
-    require '../src/init.php';
-    include DIR . '/src/processForm.php';
+  
+    include_once '../src/processLoginRegister.php';
     
     /**
      * Otras variables
@@ -98,7 +98,7 @@
     $js = [['/js/script.js'], ['/js/mdb/mdb.min.js'], ['/js/login-register-main.js']];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_COOKIE[COOKIE_NAME]) || isset($_SESSION['USER_ID'])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';

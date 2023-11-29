@@ -5,8 +5,8 @@
   "license": "MIT",
   "authors": [
     {
-        "name": "AsynCore Project",
-        "email": "asyncoreproject@gmail.com"
+      "name": "AsynCore Project",
+      "email": "asyncoreproject@gmail.com"
     },
     {
       "name": "Daniel Alonso Lázaro",
@@ -29,6 +29,7 @@
     "phpmailer/phpmailer": "^v6.8.1",
     "ext-pdo": "*",
     "tinymce/tinymce": "^v6.8.0",
-    "ezyang/htmlpurifier": "dev-master"
+    "ezyang/htmlpurifier": "dev-master",
+    "ext-mbstring": "*"
   }
 }

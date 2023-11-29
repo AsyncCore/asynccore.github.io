@@ -5,7 +5,7 @@
     use src\db\DatabaseConnection;
     use src\managers\TokenManager;
     
-    require 'init.php';
+    require '../src/init.php';
 
     $db = DatabaseConnection::getInstance()->getConnection();
     $tokenManager = new TokenManager($db);

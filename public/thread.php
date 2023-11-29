@@ -51,7 +51,7 @@
     $js = [["js/script.js"], ['js/prism-threads.js']];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_COOKIE[COOKIE_NAME]) || isset($_SESSION['USER_ID'])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';
@@ -65,7 +65,7 @@
             <ul class="breadcrumbs">
                 <li><a href="/main.php"><i class='fi-xnsuxl-house-solid'></i>Home</a></li>
                 <li><a href="forum.php">Forum</a></li>
-                <li class="active"><a href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(strtolower($category['TITULO'])) ?></a></li>
+                <li class="active"><a href="/category.php?c=<?= $getCategory ?>"><?= ucfirst(mb_strtolower($category['TITULO'])) ?></a></li>
             </ul>
 
             <h1><?= $thread['TITULO']?></h1>

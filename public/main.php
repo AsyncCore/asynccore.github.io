@@ -30,7 +30,7 @@
     $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_COOKIE[COOKIE_NAME])) {
+    if (isset($_COOKIE[COOKIE_NAME]) || isset($_SESSION['USER_ID'])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';

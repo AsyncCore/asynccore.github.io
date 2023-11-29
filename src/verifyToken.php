@@ -6,10 +6,10 @@
     use src\managers\TokenManager;
     use src\db\DatabaseConnection;
     
-    if(!isset($_SESSION['USER_ID']) && isset($_COOKIE[COOKIE_NAME])){
+    if(isset($_SESSION['USER_ID']) != isset($_COOKIE[COOKIE_NAME])) {
         $db = DatabaseConnection::getInstance()->getConnection();
         $tokenManager = new TokenManager($db);
-        $token = $_COOKIE[COOKIE_NAME];
+        $token = $_COOKIE[COOKIE_NAME] ?? '';
         try {
             $tokenData = $tokenManager->validateToken($token);
             if ($tokenData) {
@@ -32,16 +32,7 @@
                     $uriActual = $_SESSION['REF_URI'];
                     unset($_SESSION['REF_URI']);
                 }
-                header('Location: ' . $uriActual);
-            } else {
-                $tokenManager->deleteToken($token);
-                setcookie(COOKIE_NAME, '', 1, '/');
-                $_SESSION = [];
-                session_destroy();
-                $_SESSION['REF_URI'] = $_SERVER['REQUEST_URI'] ?? '/main.php';
-                header('Location: /login-register.php?nl');
             }
-            die;
         } catch (Exception $e) {
             setcookie(COOKIE_NAME, '', 1, '/');
             $_SESSION = [];
@@ -50,12 +41,12 @@
             header('Location: /error-pages/dbError.php');
             die;
         }
-    }/*else if (!isset($_SESSION['USER_ID'])) {
+    }/*else if(!isset($_SESSION['USER_ID']) && !isset($_COOKIE[COOKIE_NAME]) && (!isset($_POST['login']) || !isset($_POST['register']))) {
         if ($_SERVER['REQUEST_URI'] !== '/login-register.php?nl') {
             $_SESSION['REF_URI'] = $_SERVER['REQUEST_URI'] ?? '/main.php';
             header('Location: /login-register.php?nl');
             exit;
         }
-    } else {
+    }else{
         die;
     }*/

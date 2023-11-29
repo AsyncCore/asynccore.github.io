@@ -13,7 +13,6 @@
     use src\managers\CategoryManager;
     
     require '../src/init.php';
-    include_once DIR . '/src/utils/errorReporting.php';
     
     $descripcion = "Foro de AsynCore. Un foro de programación para estudiantes de DAW y DAM.";
     $titulo = "Foro de AsynCore";
@@ -21,7 +20,7 @@
     $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_COOKIE[COOKIE_NAME]) || isset($_SESSION['USER_ID'])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';
