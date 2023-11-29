@@ -17,7 +17,7 @@
         private const GET_THREAD_COUNT_BY_USER_ID = 'SELECT COUNT(*) FROM HILOS WHERE USER_ID = :userID';
         private const GET_THREAD_COUNT_BY_CATEGORY = 'SELECT COUNT(*) FROM HILOS WHERE CAT_ID = :catID';
         private const GET_LAST_THREAD_BY_CATEGORY_WITH_USER = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID WHERE H.CAT_ID = :catID ORDER BY H.F_CRE DESC LIMIT 1';
-        private const GET_ALL_THREADS_BY_CATEGORY = 'SELECT H.* FROM HILOS H LEFT JOIN (SELECT THREAD_ID, MAX(F_CRE) AS LAST_POST_DATE FROM POSTS GROUP BY THREAD_ID) P ON H.THREAD_ID = P.THREAD_ID WHERE H.CAT_ID = :catID ORDER BY COALESCE(P.LAST_POST_DATE, H.F_CRE) DESC';
+        private const GET_ALL_THREADS_BY_CATEGORY_AND_DATE_PAGINATED = 'SELECT H.* FROM HILOS H LEFT JOIN (SELECT THREAD_ID, MAX(F_CRE) AS LAST_POST_DATE FROM POSTS GROUP BY THREAD_ID) P ON H.THREAD_ID = P.THREAD_ID WHERE H.CAT_ID = :catID ORDER BY COALESCE(P.LAST_POST_DATE, H.F_CRE) DESC LIMIT :limit OFFSET :offset';
         private const GET_ALL_THREADS_BY_DATE = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID ORDER BY H.F_CRE DESC';
         private const GET_ALL_THREADS_BY_COUNT_RESPONSES = "SELECT H.*, U.USERNAME, COUNT(P.POST_ID) AS NUMERO_RESPUESTAS FROM HILOS H LEFT JOIN POSTS P ON H.THREAD_ID = P.THREAD_ID JOIN USERS U ON H.USER_ID = U.USER_ID GROUP BY H.THREAD_ID, H.TITULO, H.SUBTITULO, H.CONTENIDO, U.USERNAME ORDER BY NUMERO_RESPUESTAS DESC";
         
@@ -83,7 +83,7 @@
         }
         
         /**
-         * Método para obtener todos los hilos de una categoría.
+         * Método para obtener todos los hilos de una categoría ordenados por fecha de último hilo/post.
          *
          * Devuelve las siguientes columnas: <br>
          * - THREAD_ID: ID del hilo.<br>
@@ -94,19 +94,24 @@
          * - F_CRE: Fecha de creación del hilo.<br>
          * - F_EDI: Fecha de edición del hilo.<br>
          * - CAT_ID: ID de la categoría a la que pertenece el hilo.<br>
-         * @param string $categoryId
+         *
+         * @param string $categoryId ID de la categoría.
+         * @param int    $page       Página a obtener.
+         * @param int    $threadsPerPage Cantidad de hilos por página.
          *
          * @return bool|array|null
          */
-        public function getAllThreadsByCategory(string $categoryId): bool|array|null
-        {
+        public function getAllThreadsByCategoryAndDatePaginated(string $categoryId, int $page, int $threadsPerPage): bool|array|null {
+            $offset = ($page - 1) * $threadsPerPage;
             try {
-                $consulta = $this->db->prepare(self::GET_ALL_THREADS_BY_CATEGORY);
+                $consulta = $this->db->prepare(self::GET_ALL_THREADS_BY_CATEGORY_AND_DATE_PAGINATED);
                 $consulta->bindParam(':catID', $categoryId);
+                $consulta->bindValue(':limit', $threadsPerPage, PDO::PARAM_INT);
+                $consulta->bindValue(':offset', $offset, PDO::PARAM_INT);
                 $consulta->execute();
                 return $consulta->fetchAll();
             } catch (PDOException $e) {
-                Logger::log('Error al obtener todos los hilos de la categoría ' . $categoryId . ': ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
+                Logger::log('Error al obtener todos los hilos de la categoría ' . $categoryId . ' con paginación: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
                 return null;
             }
         }

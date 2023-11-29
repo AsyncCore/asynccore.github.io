@@ -29,17 +29,26 @@
         die;
     } else {
         $getCategory = htmlspecialchars($_GET['c']);
+        $threadsPerPage = 5;
+        $page = 1;
+        if (isset($_GET['page']) && is_numeric($_GET['page'])) {
+            $page = (int)$_GET['page'];
+        }
+        $page = max($page, 1);
         $db = DatabaseConnection::getInstance()->getConnection();
         $categoryManager = new CategoryManager($db);
         $threadManager = new ThreadManager($db);
         $postManager = new PostsManager($db);
         $userManager = new UserManager($db);
         $category = $categoryManager->getCategory($getCategory);
+        $totalThreads = $threadManager->getThreadCountByCategory($getCategory);
+        $totalPages = ceil($totalThreads / $threadsPerPage);
+        $page = min($page, $totalPages);
         if (!$category and !isset($message)) {
             header('Location: /forum.php?c=nf');
             die;
         }
-        $threads = $threadManager->getAllThreadsByCategory($getCategory);
+        $threads = $threadManager->getAllThreadsByCategoryAndDatePaginated($getCategory, $page, $threadsPerPage);
     }
     
     $descripcion = "FORO DE ASYNCORE - ";
@@ -127,6 +136,7 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+            <?= generatePagination($page, $totalPages, $getCategory) ?>
         </div>
     </div>
 </main>

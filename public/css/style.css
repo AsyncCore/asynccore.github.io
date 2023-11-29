@@ -2573,3 +2573,31 @@ hr {
     background: #F5F8FE;
     min-height: 100vh;
 }
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination a.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.pagination .page-separator {
+    margin: 0 5px;
+}

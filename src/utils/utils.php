@@ -284,4 +284,50 @@
         
         return $replyContent . html_entity_decode($post['CONTENIDO']);
     }
+    
+    function generatePagination($currentPage, $totalPages, $category, $range = 2): string
+    {
+        $html = '<div class="pagination">';
+        
+        // Primera y anterior
+        if ($currentPage > 1) {
+            $html .= '<a href="?c=' . $category . '&page=1">Primera página</a>';
+            $html .= '<a href="?c=' . $category . '&page=' . ($currentPage - 1) . '" rel="prev">Anterior</a>';
+        }
+        
+        // Puntos suspensivos para el inicio (si es necesario)
+        if ($currentPage - $range > 1) {
+            $html .= '<span class="page-separator" style="font-size: 20px">...</span>';
+        }
+        
+        // Rango de paginación
+        $start = max(1, $currentPage - $range);
+        $end = min($totalPages, $currentPage + $range);
+        
+        for ($i = $start; $i <= $end; $i++) {
+            $activeClass = $i === $currentPage ? 'active' : '';
+            $html .= '<a class="' . $activeClass . '" href="?c=' . $category . '&page=' . $i . '">' . $i . '</a>';
+            if ($i < $end) {
+                $html .= '<span class="page-separator">|</span> ';
+            }
+        }
+        
+        // Puntos suspensivos para el final (si es necesario)
+        if ($currentPage + $range < $totalPages) {
+            $html .= '<span class="page-separator" style="font-size: 20px">...</span>';
+        }
+        
+        // Siguiente y última
+        if ($currentPage < $totalPages) {
+            $html .= '<a href="?c=' . $category . '&page=' . ($currentPage + 1) . '" rel="next">Siguiente</a>';
+            $html .= '<a href="?c=' . $category . '&page=' . $totalPages . '">Última página</a>';
+        }
+        
+        $html .= '</div>';
+        
+        return $html;
+    }
+
+
+
 
