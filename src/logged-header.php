@@ -56,9 +56,6 @@
                 <a href='forum.php'>Foro</a>
             </li>
             <li class='navbar-item'>
-                <a href='thread.php'>Hilos</a>
-            </li>
-            <li class='navbar-item'>
                 <a href='FAQ.php'>FAQ</a>
             </li>
             <li class='navbar-item' style="white-space: nowrap">

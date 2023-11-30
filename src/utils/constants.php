@@ -41,6 +41,11 @@
     defined('TOKEN_EXPIRY_TIME') || define('TOKEN_EXPIRY_TIME', time() + 60 * 60 * 24 * 7);
     
     /**
+     * @const RECOVERY_TOKEN_EXPIRY_TIME Tiempo de expiración de los tokens de recuperación de contraseña.
+     */
+    defined('RECOVERY_TOKEN_EXPIRY_TIME') || define('RECOVERY_TOKEN_EXPIRY_TIME', time() + 60 * 10);
+    
+    /**
      * @const TOKEN_LENGTH Longitud de los tokens.
      */
     defined('TOKEN_LENGTH') || define('TOKEN_LENGTH', 16);

@@ -211,7 +211,7 @@
         
                                         <div class="col-12 d-flex justify-content-center">
                                             <!-- LINK RECORDATORIO CONTRASEÑA-->
-                                            <a href="/rememberPassword.html">¿Olvidaste tu contraseña?</a>
+                                            <a href="/rememberPassword.php">¿Olvidaste tu contraseña?</a>
                                         </div>
                                     </div>
         

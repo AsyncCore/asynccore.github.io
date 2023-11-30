@@ -126,6 +126,11 @@
             'title' => '',
             'message' => 'Usuario <b>%s</b> registrado correctamente.<br>Inicia sesión para continuar...'
         ],
+        'recovery' => [
+            'type' => 'info',
+            'title' => '',
+            'message' => 'Se ha enviado un enlace de recuperación a tu correo.'
+        ],
     ];
     
     /**

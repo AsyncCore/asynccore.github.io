@@ -51,7 +51,7 @@
 							<a href="#">Authentication</a>
 							<ul class="submenu">
 								<li><a href="/login-register.php">Login-Registro</a></li>
-								<li><a href="/rememberPassword.html">Recordar<br>contraseña</a></li>
+								<li><a href="/rememberPassword.php">Recordar<br>contraseña</a></li>
 							</ul>
 						</li>
 						<li class="submenu-item has-submenu">

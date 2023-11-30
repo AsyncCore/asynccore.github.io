@@ -22,7 +22,7 @@
     }
     
     if (isset($_COOKIE[COOKIE_NAME])) {
-        setcookie(COOKIE_NAME, '', 1, '/');
+        setcookie(COOKIE_NAME, '', 1, '/', DOMAIN_NAME, true, true);
     }
     $_SESSION = [];
     session_destroy();

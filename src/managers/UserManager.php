@@ -188,4 +188,17 @@
                 return false;
             }
         }
+        
+        public function getUserByEmail(mixed $correo)
+        {
+            try{
+                $consulta = $this->db->prepare(self::LOGIN);
+                $consulta->bindParam(':loginEmail', $correo);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            }catch (PDOException $e){
+                Logger::log('Error al obtener el usuario con email ' . $correo . ': ' . $e->getMessage() . ' con código de error ' . $e->getCode(), __FILE__, LogLevels::ERROR);
+                return false;
+            }
+        }
     }

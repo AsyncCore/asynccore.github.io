@@ -34,7 +34,7 @@
                 }
             }
         } catch (Exception $e) {
-            setcookie(COOKIE_NAME, '', 1, '/');
+            setcookie(COOKIE_NAME, '', 1, '/', DOMAIN_NAME, true, true);
             $_SESSION = [];
             session_destroy();
             Logger::log('Error en el proceso de manejo de token: ' . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);

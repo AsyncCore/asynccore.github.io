@@ -33,8 +33,9 @@
                         <label class='label_straw'
                                for='Asyncore'>AsynCore</label>
                         <div class='content content_straw'><span class='picto'></span>
-                            <h1>AsynCore</h1>
-                            <p>Nosotros somos AsynCore</p>
+                            <a href=""><h1>AsynCore</h1></a>
+                            <p>Nosotros somos AsynCore</p><br>
+                            <p>A cada uno se nos da bien algo...</p>
                         </div>
                     </li>
                     <li class='item'>
@@ -47,21 +48,13 @@
                                for='radio_The garden strawberry (or simply strawberry /ˈstrɔːbᵊri/; Fragaria × ananassa) is a widely grown hybrid species of the genus Fragaria (collectively known as the strawberries)'>Daniel
                             Alonso</label>
                         <div class='content content_strawberry'><span class='picto'></span>
-                            <h1>Daniel Alonso</h1>
-                            <p>Este es Daniel Alonso</p>
-                        </div>
-                    </li>
-                    <li class='item'>
-                        <input type='radio'
-                               id='radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'
-                               name='basic_carousel'
-                               value='A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'/>
-                        <label class='label_banana'
-                               for='radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'>Miguel
-                            Martínez</label>
-                        <div class='content content_banana'><span class='picto'></span>
-                            <h1>Miguel Martínez</h1>
-                            <p>Este es Miguel Martínez</p>
+                            <a href="https://github.com/GyllenhaalSP"><h1>GyllenhaalSP</h1></a><br>
+                            <ul style='text-align: center'>
+                                <li>Su pasión es el <em>BACK</em>end.</li>
+                                <li>PHP se ejecuta de derecha a izquierda.</li>
+                                <li>Su amor secreto es C#.</li>
+                                <li>Te monta un server antes de que digas HTTPS.</li>
+                            </ul>
                         </div>
                     </li>
                     <li class='item'>
@@ -73,8 +66,32 @@
                                for='radio_The apple tree (Malus domestica) is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple. It is cultivated worldwide as a fruit tree, and is the most widely grown species in the genus Malus.'>Maksym
                             Dovgan</label>
                         <div class='content content_apple'><span class='picto'></span>
-                            <h1>Maksym Dovgan</h1>
-                            <p>Este es Maksym Dovgan</p>
+                            <a href='https://github.com/xrezu'><h1>Xrezu</h1></a><br>
+                            <ul style='text-align: center'>
+                                <li>Más conocido como Mr. Trigger.</li>
+                                <li>SQLServer es lo suyo.</li>
+                                <li>Cree que MaríaDB es el nombre artístico de una cariñosa.</li>
+                                <li>Odia los baños y los espacios oscuros.</li>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <li class='item'>
+                        <input type='radio'
+                               id='radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'
+                               name='basic_carousel'
+                               value='A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'/>
+                        <label class='label_banana'
+                               for='radio_A banana is an edible fruit, botanically a berry, produced by several kinds of large herbaceous flowering plants in the genus Musa.'>Miguel
+                            Martínez</label>
+                        <div class='content content_banana'><span class='picto'></span>
+                            <a href="https://github.com/trikytrukos"><h1>Trikytrukos</h1></a><br>
+                            <ul style='text-align: center'>
+                                <li>Le gustan las IAs.</li>
+                                <li>El prompter del equipo.</li>
+                                <li>Sus GPTs molan.</li>
+                                <li>También le gustan las pulas.</li>
+                            </ul>
                         </div>
                     </li>
                     <li class='item'>
@@ -86,8 +103,13 @@
                                for='radio_The orange (specifically, the sweet orange) is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.'>Víctor
                             Hellín</label>
                         <div class='content content_orange'><span class='picto'></span>
-                            <h1>Víctor Hellín</h1>
-                            <p>Este es Víctor Hellín</p>
+                            <a href="https://github.com/Redcario4444"><h1>Redcario4444</h1></a><br>
+                            <ul style='text-align: center'>
+                                <li>¿Bootstrap? ¿Eso qué es?</li>
+                                <li>Ha descubierto su pasión por el JavaScript.</li>
+                                <li>Su etiqueta favorita es &lt;marquee&gt;</li>
+                                <li>Antes muerta que sin DOMContentLoaded.</li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
