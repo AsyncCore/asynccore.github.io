@@ -131,6 +131,11 @@
             'title' => '',
             'message' => 'Se ha enviado un enlace de recuperación a tu correo.'
         ],
+        'recovery-fail' => [
+            'type' => 'danger',
+            'title' => '',
+            'message' => 'No se ha podido enviar el correo de recuperación.<br>Ponte en contacto con la administración.'
+        ],
     ];
     
     /**
