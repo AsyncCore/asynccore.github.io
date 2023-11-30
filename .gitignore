@@ -8,6 +8,8 @@ config/dbConfig.php
 /bin/clearTokens.sh
 /logs/
 /DWES/ChatGPT/
+/config/mailConfig.php
+
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -181,4 +183,3 @@ fabric.properties
 # Editor-based Rest Client
 
 # Android studio 3.1+ serialized cache file
-
