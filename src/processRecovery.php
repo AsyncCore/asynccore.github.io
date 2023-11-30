@@ -10,7 +10,6 @@
     
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $correo = $_POST['correo'];
-        
         $db = DatabaseConnection::getInstance()->getConnection();
         $userManager = new UserManager($db);
         $tokenManager = new TokenManager($db);
@@ -45,8 +44,8 @@
                     
                     $mail->isHTML();
                     $mail->Subject = 'Recuperación de contraseña - Foro AsynCore';
-                    $mail->Body    = 'Buenas, ' . $user['NAME'] . '.<br><br>Para recuperar tu contraseña, haz click en el siguiente enlace: <a href="https://foro.asyncore.es/newPassword.php?token=' . $tokenString . '">https://foro.asyncore.es/newPassword.php?token=' . $tokenString . '</a><br><br>Si no has solicitado la recuperación de tu contraseña, ignora este mensaje.<br><br>Un saludo, el equipo de AsynCore.';
-                    $mail->AltBody = 'Buenas, ' . $user['NAME'] . '. '. PHP_EOL .' Para recuperar tu contraseña, haz click en el siguiente enlace: https://foro.asyncore.es/newPassword.php?token=' . $tokenString . '. '.PHP_EOL.'Si no has solicitado la recuperación de tu contraseña, ignora este mensaje. '.PHP_EOL.'Un saludo, el equipo de AsynCore.';
+                    $mail->Body    = 'Buenas, ' . $user['NAME'] . '.<br><br>Para recuperar tu contraseña, haz click en el siguiente enlace: <a href="' . URL_BASE . 'newPassword.php?token=' . $tokenString . '">' . URL_BASE . 'newPassword.php?token=' . $tokenString . '</a><br><br>Si no has solicitado la recuperación de tu contraseña, ignora este mensaje.<br><br>Un saludo, el equipo de AsynCore.';
+                    $mail->AltBody = 'Buenas, ' . $user['NAME'] . '. ' . PHP_EOL . ' Para recuperar tu contraseña, haz click en el siguiente enlace: ' . URL_BASE . 'newPassword.php?token=' . $tokenString . '. ' . PHP_EOL . 'Si no has solicitado la recuperación de tu contraseña, ignora este mensaje. ' . PHP_EOL . 'Un saludo, el equipo de AsynCore.';
                     
                     $mail->send();
                 } catch (Exception $e) {
