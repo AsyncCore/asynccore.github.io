@@ -24,26 +24,29 @@
     $username = '';
     $name = '';
     $firma = '';
-    $avatar = 'path/to/default/avatar.jpg'; // Ruta a un avatar por defecto
+    $avatar = '';
     $email = '';
     $cantPosts = 0;
     $cantHilos = 0;
     
-    if (isset($_SESSION['USER_ID'])) {
-        $userId = $_SESSION['USER_ID'];
-        $userInfo = $userManager->getUserById($userId);
-        $username = $userInfo['USERNAME'];
-        $name = $userInfo['NAME'];
-        $firma = $userInfo['FIRMA'];
-        $avatar = $userInfo['AVATAR'];
-        $email = $userInfo['EMAIL'];
-        $cantPosts = $postManager->getPostCountByUserId($userId);
-        $cantHilos = $threadManager->getThreadCountByUserId($userId);
-        $ultimosPosts = $postManager->getLastPostsByUser($userId, 2);
-        $ultimosHilos = $threadManager->getLastThreadsByUser($userId, 2);
-        
+    if (isset($_SESSION['USER_ID']) || isset($_COOKIE[COOKIE_NAME])) {
+        if(isset($_GET['UID']) && is_numeric($_GET['UID'])){
+            $userId = htmlspecialchars($_GET['UID']);
+            $userInfo = $userManager->getUserById($userId);
+            $username = $userInfo['USERNAME'];
+            $name = $userInfo['NAME'];
+            $firma = $userInfo['FIRMA'];
+            $avatar = $userInfo['AVATAR'];
+            $email = $userInfo['EMAIL'];
+            $cantPosts = $postManager->getPostCountByUserId($userId);
+            $cantHilos = $threadManager->getThreadCountByUserId($userId);
+            $ultimosPosts = $postManager->getLastPostsByUser($userId, 2);
+            $ultimosHilos = $threadManager->getLastThreadsByUser($userId, 2);
+            $online = $userManager->isUserOnline($userId);
+            $offline = !$online;
+        }
     } else {
-        // Redirigir al usuario o manejar el caso de que no esté logueado
+        header("Location: login-register.php?nl");
     }
     unsetLoginRegister();
     
@@ -53,7 +56,7 @@
     $js = [["js/script.js"]];
     $cdn = ["https://friconix.com/cdn/friconix.js"];
     include_once DIR . '/src/head.php';
-    if (isset($_SESSION['USER_ID'])) {
+    if (isset($_SESSION['USER_ID']) || isset($_COOKIE[COOKIE_NAME])) {
         include_once DIR . '/src/logged-header.php';
     } else {
         include_once DIR . '/src/login-header.php';
@@ -77,7 +80,7 @@
                         <?php echo $firma; ?>
                     </p>
 
-                    <span class="online"><?php echo $username; ?> is online</span>
+                    <span class="user-status <?= $online ? 'online' : 'offline' ?>"><?php echo $username; ?> <?= $online ? ' online' : ' offline' ?></span>
 
                     <!--TODO ACTUALIZAR BASE DE DATOS PARA AÑADIR ESTOS CAMPOS-->
                     <div class="stats">
