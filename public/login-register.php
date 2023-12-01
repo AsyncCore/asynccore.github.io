@@ -336,7 +336,6 @@
             </div>
         </section>
         <aside>
-        
         </aside>
     </main>
 <?php

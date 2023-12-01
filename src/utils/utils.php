@@ -11,6 +11,9 @@
      * @auhor   Daniel Alonso Lázaro <dalonsolaz@gmail.com>
      */
     
+    use src\managers\UserManager;
+    use src\managers\PostsManager;
+    
     /**
      * Función que cambia el formato de una fecha.
      *
@@ -91,7 +94,14 @@
         return htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     }
     
-    function validateTitle($data): string
+    /**
+     * Función para validar el título que comprueba si está vacío y si no lo está comprueba la longitud.
+     *
+     * @param $data string Título que se va a validar.
+     *
+     * @return string Devuelve un string vacío si no hay errores o un string con el error correspondiente.
+     */
+    function validateTitle(string $data): string
     {
         if (empty($data)) {
             return TITLE_EMPTY_ERROR;
@@ -106,7 +116,14 @@
         }
     }
     
-    function validateSubtitle($data): string
+    /**
+     * Función para validar el subtítulo que comprueba si está vacío y si no lo está comprueba la longitud.
+     *
+     * @param $data string Subtítulo que se va a validar.
+     *
+     * @return string Devuelve un string vacío si no hay errores o un string con el error correspondiente.
+     */
+    function validateSubtitle(string $data): string
     {
         if (empty($data)) {
             return SUBTITLE_EMPTY_ERROR;
@@ -121,7 +138,14 @@
         }
     }
     
-    function validateContent($data): string
+    /**
+     * Función para validar el contenido que comprueba si está vacío y si no lo está comprueba la longitud.
+     *
+     * @param string $data Contenido que se va a validar.
+     *
+     * @return string Devuelve un string vacío si no hay errores o un string con el error correspondiente.
+     */
+    function validateContent(string $data): string
     {
         if (empty($data)) {
             return CONTENT_EMPTY_ERROR;
@@ -138,6 +162,7 @@
     
     /**
      * Función para validar el email que comprueba si está vacío y si no lo está comprueba que sea de EducaMadrid.
+     * Hay una whitelist de mails de administradores.
      *
      * @param string $mail Email que se va a validar
      *
@@ -148,7 +173,14 @@
         if (empty($mail)) {
             return MAIL_REQUIRED_ERROR;
         } else {
-            if($mail == 'asyncoreproject@gmail.com'){
+            $allowed = [
+                'asyncoreproject@gmail.com',
+                'dalonsolaz@gmail.com',
+                'maxdovgan959@gmail.com',
+                'victorhellinsaez@gmail.com',
+                'miguelmartinezsantos2003@gmail.com'
+            ];
+            if(in_array($mail, $allowed)){
                 return EMPTY_STRING;
             }
             if (!preg_match(MAIL_PATTERN, $mail)) {
@@ -256,7 +288,18 @@
         }
     }
     
-    function getNestedReplyContent($postId, $postManager, $userManager, $depth = 0): string
+    /**
+     * Función que se encarga de imprimir el HTML de forma recursiva para una respuesta que tiene otras respuestas anidadas.
+     * Se utiliza para imprimir las respuestas de un hilo.
+     *
+     * @param int $postId    ID del post.
+     * @param PostsManager $postManager Instancia de PostsManager.
+     * @param UserManager $userManager Instancia de UserManager.
+     * @param int $depth    Profundidad de la respuesta.
+     *
+     * @return string HTML de la respuesta.
+     */
+    function getNestedReplyContent(int $postId, PostsManager $postManager, UserManager $userManager, int $depth = 0): string
     {
         if ($depth > 1) {
             return '';
@@ -288,7 +331,15 @@
         return $replyContent . html_entity_decode($post['CONTENIDO']);
     }
     
-    function generatePagination($currentPage, $totalPages, $category, $range = 2): string
+    /**
+     * @param int $currentPage Número de página actual.
+     * @param int $totalPages Número total de páginas.
+     * @param int $category    ID de la categoría.
+     * @param int $range Número de páginas a mostrar a cada lado de la página actual.
+     *
+     * @return string
+     */
+    function generatePagination(int $currentPage, int $totalPages, int $category, int $range = 2): string
     {
         $html = '<div class="pagination">';
         
@@ -330,7 +381,3 @@
         
         return $html;
     }
-
-
-
-
