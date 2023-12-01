@@ -1,19 +1,21 @@
 <?php
+    
     namespace src\managers;
     
     /**
      * Clase para la gestión de tokens de autenticación y seguridad.
      *
      * TokenManager es una clase encargada de crear, validar y eliminar tokens de seguridad.<br>
-     * Los tokens son utilizados para mantener sesiones de usuario seguras y validar la autenticidad de las solicitudes.<br>
-     * Esta clase permite generar tokens únicos para los usuarios, validar su vigencia y limpiar tokens expirados de la base de datos.
+     * Los tokens son utilizados para mantener sesiones de usuario seguras y validar la autenticidad de las
+     * solicitudes.<br> Esta clase permite generar tokens únicos para los usuarios, validar su vigencia y limpiar
+     * tokens expirados de la base de datos.
      *
      *
      * @link     https://www.php.net/manual/es/function.random-bytes.php
      *           https://www.php.net/manual/es/class.pdo.php
-     * @access public
-     * @author Daniel Alonso Lázaro <dalonsolaz@gmail.com>
-     * @package src\managers
+     * @access   public
+     * @author   Daniel Alonso Lázaro <dalonsolaz@gmail.com>
+     * @package  src\managers
      */
     
     use PDO;
@@ -23,14 +25,16 @@
     
     class TokenManager
     {
-       /**
+        /**
          * @const string INSERT_TOKEN consulta para insertar un token en la base de datos.
          * @const string SELECT_TOKEN consulta para seleccionar un token de la base de datos.
          * @const string DELETE_TOKEN consulta para eliminar un token de la base de datos.
          * @const string CLEAN_UP_EXPIRED_TOKENS consulta para eliminar los tokens expirados de la base de datos.
          */
         private const INSERT_TOKEN = 'INSERT INTO TOKENS (TOKEN, USER_ID, F_EXP) VALUES (:token, :userId, :fExp)';
+        private const INSERT_RECOVERY_TOKEN = 'INSERT INTO TOKENS (TOKEN, USER_ID, EMAIL, F_EXP) VALUES (:token, :userId, :email, :fExp)';
         private const SELECT_TOKEN = 'SELECT * FROM TOKENS WHERE TOKEN = :token AND F_EXP > NOW()';
+        private const SELECT_TOKEN_BY_MAIL = 'SELECT * FROM TOKENS WHERE EMAIL = :email AND F_EXP > NOW()';
         private const DELETE_TOKEN = 'DELETE FROM TOKENS WHERE TOKEN = :token';
         private const CLEAN_UP_EXPIRED_TOKENS = 'DELETE FROM TOKENS WHERE F_EXP < NOW()';
         private const GET_TOKEN_BY_USER_ID = 'SELECT * FROM TOKENS WHERE USER_ID = :userId';
@@ -47,7 +51,8 @@
          * Inicializa el objeto TokenManager con la conexión a la base de datos.
          *
          * @param PDO $db conexión a la base de datos.
-         * @see PDO
+         *
+         * @see    PDO
          * @access public
          */
         public function __construct(PDO $db)
@@ -68,17 +73,17 @@
         {
             $token = bin2hex(random_bytes(TOKEN_LENGTH));
             $fExp = date(TOKEN_DATE_FORMAT, TOKEN_EXPIRY_TIME);
-            try{
+            try {
                 $consulta = $this->db->prepare(self::INSERT_TOKEN);
                 $consulta->bindParam(':token', $token);
                 $consulta->bindParam(':userId', $userId);
                 $consulta->bindParam(':fExp', $fExp);
-                if (!$consulta->execute()){
-                    Logger::log("Error al generar el token: CÓDIGO SQL -> " . $consulta->errorInfo()[0] . ', CÓDIGO PDO -> ' . $consulta->errorInfo()[1] . ', MENSAJE PDO -> ' .$consulta->errorInfo()[2], __FILE__, LogLevels::EXCEPTION);
+                if (!$consulta->execute()) {
+                    Logger::log("Error al generar el token: CÓDIGO SQL -> " . $consulta->errorInfo()[0] . ', CÓDIGO PDO -> ' . $consulta->errorInfo()[1] . ', MENSAJE PDO -> ' . $consulta->errorInfo()[2], __FILE__, LogLevels::EXCEPTION);
                     throw new Exception('Error al generar el token.');
                 }
                 return $token;
-            }catch(Exception $e){
+            } catch (Exception $e) {
                 Logger::log("Error al generar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
                 throw new Exception('Error al generar el token.');
             }
@@ -97,19 +102,34 @@
          */
         public function validateToken(string $token): bool|array
         {
-            try{
+            try {
                 $consulta = $this->db->prepare(self::SELECT_TOKEN);
                 $consulta->bindParam(':token', $token);
                 $consulta->execute();
                 $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
-                if(!$resultado){
+                if (!$resultado) {
                     $this->cleanUpExpiredTokens();
                     Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
                 }
                 return $resultado;
-            }catch (Exception $e){
+            } catch (Exception $e) {
                 Logger::log("Error al validar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
                 throw new Exception('Error al validar el token.');
+            }
+        }
+        
+        /**
+         * Limpia los tokens expirados de la base de datos.
+         *
+         * Elimina todos los tokens que han excedido su fecha de expiración.
+         *
+         * @return void
+         */
+        public function cleanUpExpiredTokens(): void
+        {
+            $filas = $this->db->exec(self::CLEAN_UP_EXPIRED_TOKENS);
+            if ($filas >= 0) {
+                Logger::log("Se han eliminado " . $filas . " tokens expirados..", __FILE__, LogLevels::INFO);
             }
         }
         
@@ -125,31 +145,16 @@
          */
         public function deleteToken(string $token): void
         {
-            try{
+            try {
                 $consulta = $this->db->prepare(self::DELETE_TOKEN);
                 $consulta->bindParam(':token', $token);
                 $consulta->execute();
-                if($consulta->rowCount() == 0){
+                if ($consulta->rowCount() == 0) {
                     Logger::log("No se encontraron datos del token: " . $token, __FILE__, LogLevels::EXCEPTION);
                 }
-            }catch (Exception $e){
+            } catch (Exception $e) {
                 Logger::log("Error al eliminar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
                 throw new Exception('Error al eliminar el token.');
-            }
-        }
-        
-        /**
-         * Limpia los tokens expirados de la base de datos.
-         *
-         * Elimina todos los tokens que han excedido su fecha de expiración.
-         *
-         * @return void
-         */
-        public function cleanUpExpiredTokens(): void
-        {
-            $filas = $this->db->exec(self::CLEAN_UP_EXPIRED_TOKENS);
-            if ($filas >= 0){
-                Logger::log("Se han eliminado " . $filas . " tokens expirados..", __FILE__, LogLevels::INFO);
             }
         }
         
@@ -158,12 +163,12 @@
          */
         public function getTokenByUserId(mixed $userId): bool|array
         {
-            try{
+            try {
                 $consulta = $this->db->prepare(self::GET_TOKEN_BY_USER_ID);
                 $consulta->bindParam(':userId', $userId);
                 $consulta->execute();
                 return $consulta->fetch(PDO::FETCH_ASSOC);
-            }catch (Exception $e){
+            } catch (Exception $e) {
                 Logger::log("Error al obtener el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
                 throw new Exception('Error al obtener el token.');
             }
@@ -174,16 +179,69 @@
          */
         public function updateToken(mixed $token)
         {
-            try{
+            try {
                 $fExp = date(TOKEN_DATE_FORMAT, TOKEN_EXPIRY_TIME);
                 $consulta = $this->db->prepare(self::UPDATE_TOKEN);
                 $consulta->bindParam(':token', $token);
                 $consulta->bindParam(':nuevaFExp', $fExp);
                 $consulta->execute();
                 return $consulta->fetch(PDO::FETCH_ASSOC);
-            }catch (Exception $e){
+            } catch (Exception $e) {
                 Logger::log("Error al obtener el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
                 throw new Exception('Error al obtener el token.');
+            }
+        }
+        
+        /**
+         * @throws Exception
+         */
+        public function generateRecoveryToken(mixed $USER_ID, mixed $EMAIL): bool
+        {
+            try {
+                $token = bin2hex(random_bytes(TOKEN_LENGTH));
+                $fExp = date(TOKEN_DATE_FORMAT, RECOVERY_TOKEN_EXPIRY_TIME);
+                $consulta = $this->db->prepare(self::INSERT_RECOVERY_TOKEN);
+                $consulta->bindParam(':token', $token);
+                $consulta->bindParam(':userId', $USER_ID);
+                $consulta->bindParam(':email', $EMAIL);
+                $consulta->bindParam(':fExp', $fExp);
+                $consulta->execute();
+                return $token;
+            } catch (Exception $e) {
+                Logger::log("Error al generar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
+                throw new Exception('Error al generar el token.');
+            }
+        }
+        
+        /**
+         * @throws Exception
+         */
+        public function getRecoveryToken(mixed $token): bool|array
+        {
+            try {
+                $consulta = $this->db->prepare(self::SELECT_TOKEN);
+                $consulta->bindParam(':token', $token);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            } catch (Exception $e) {
+                Logger::log("Error al validar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
+                throw new Exception('Error al validar el token.');
+            }
+        }
+        
+        /**
+         * @throws Exception
+         */
+        public function getRecoveryTokenByMail(mixed $correo): bool|array
+        {
+            try {
+                $consulta = $this->db->prepare(self::SELECT_TOKEN_BY_MAIL);
+                $consulta->bindParam(':email', $correo);
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_ASSOC);
+            } catch (Exception $e) {
+                Logger::log("Error al validar el token: " . $e->getMessage(), __FILE__, LogLevels::EXCEPTION);
+                throw new Exception('Error al validar el token.');
             }
         }
     }

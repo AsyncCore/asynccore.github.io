@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-6CJ87FEXmT/P3+XKl6r2d23J4XHe83jmMHUsZvQUynGddFf4Q6cu6/vD5vBbo3w4tIFz2Zr9fiykhEkrzZ0cnA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="js/script.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .admin-sidebar {
+            background-color: #0077B6;
+            color: white;
+            width: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            position: fixed;
+            height: 100%;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            z-index: 1000; /* Añadido para ajustar la superposición */
+        }
+
+        .admin-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .admin-sidebar ul li {
+            position: relative;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 16px; /* Ajusta el tamaño de fuente según tus preferencias */
+        }
+
+        .admin-sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .admin-sidebar ul ul {
+            display: none;
+            background-color: #004080; /* Cambiado para diferenciar de color al submenú */
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            position: absolute;
+            left: 0; /* Changed positioning to left: 0 to display directly below the parent item */
+            top: 100%;
+            z-index: 999;
+        }
+
+
+        .admin-sidebar ul li:hover > ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Bienvenido admin todopoderoso</h1>
+            <div class="row">
+                <!-- Admin Sidebar -->
+                <div class="col-md-3">
+                    <div class="admin-sidebar">
+                        <ul>
+                            <li>
+                                <a href="?action=users">Manage Users</a>
+                                <ul>
+                                    <li><a href="?subaction=view">View Users</a></li>
+                                    <li><a href="?subaction=add">Add User</a></li>
+                                    <!-- Add more suboptions as needed -->
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="?action=passwords">Reset Passwords</a>
+                                <ul>
+                                    <li><a href="?subaction=single">Reset Single Password</a></li>
+                                    <li><a href="?subaction=multiple">Reset Multiple Passwords</a></li>
+                                    <!-- Add more suboptions as needed -->
+                                </ul>
+                            </li>
+                            <!-- Additional Options -->
+                            <li>
+                                <a href="?action=content">Manage Content</a>
+                                <ul>
+                                    <li><a href="?subaction=edit">Edit Content</a></li>
+                                    <li><a href="?subaction=add">Add Content</a></li>
+                                    <!-- Add more suboptions as needed -->
+                                </ul>
+                            </li>
+                            <li><a href="?action=categories">Manage Categories</a></li>
+                            <li><a href="?action=reports">View Reports</a></li>
+                            <!-- Add more menu items as needed -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Dani mete er footeeeeeeeee -->
+</body>
+</html>
