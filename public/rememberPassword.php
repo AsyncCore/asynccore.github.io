@@ -11,11 +11,11 @@
     use src\managers\CategoryManager;
     
     require '../src/init.php';
-    include DIR . '/src/processRecovery.php';
+    include '../src/processRecovery.php';
     
     $descripcion = 'Página para solicitar una nueva contraseña';
     $titulo = 'Solictar nueva contraseña';
-    $css = ['css/style.css', 'css/passwordForms.css'];
+    $css = ['css/style.css', 'css/mdb-custom.css','css/passwordForms.css'];
     $js = [['js/script.js']];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
     include_once DIR . '/src/head.php';
@@ -24,19 +24,17 @@
     } else {
         include_once DIR . '/src/login-header.php';
     }
-    
-    $message = null;
-    
 ?>
     <?php if (isset($message)) : ?>
         <main>
             <section>
-                <div class="message">
-                    <p><?=$message?></p>
-                </div>
+                <p><?=$message?></p>
             </section>
         </main>
-    <?php die; ?>
+    <?php
+        include_once '../src/footer.php';
+        die;
+    ?>
     <?php endif; ?>
 <main>
     <section>

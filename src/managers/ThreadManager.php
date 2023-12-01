@@ -20,7 +20,6 @@
         private const GET_ALL_THREADS_BY_CATEGORY_AND_DATE_PAGINATED = 'SELECT H.* FROM HILOS H LEFT JOIN (SELECT THREAD_ID, MAX(F_CRE) AS LAST_POST_DATE FROM POSTS GROUP BY THREAD_ID) P ON H.THREAD_ID = P.THREAD_ID WHERE H.CAT_ID = :catID ORDER BY COALESCE(P.LAST_POST_DATE, H.F_CRE) DESC LIMIT :limit OFFSET :offset';
         private const GET_ALL_THREADS_BY_DATE = 'SELECT H.*, U.USERNAME FROM HILOS H JOIN USERS U ON H.USER_ID = U.USER_ID ORDER BY H.F_CRE DESC';
         private const GET_ALL_THREADS_BY_COUNT_RESPONSES = "SELECT H.*, U.USERNAME, COUNT(P.POST_ID) AS NUMERO_RESPUESTAS FROM HILOS H LEFT JOIN POSTS P ON H.THREAD_ID = P.THREAD_ID JOIN USERS U ON H.USER_ID = U.USER_ID GROUP BY H.THREAD_ID, H.TITULO, H.SUBTITULO, H.CONTENIDO, U.USERNAME ORDER BY NUMERO_RESPUESTAS DESC";
-        
         public function __construct($dbConnection)
         {
             $this->db = $dbConnection;
@@ -229,17 +228,10 @@
             }
         }
         
-        public function getLastThreadsByUser($userId, $limit = 5)
-        {
-            try {
-                $consulta = $this->db->prepare('SELECT * FROM THREADS WHERE USER_ID = :userId ORDER BY F_CRE DESC LIMIT :limit');
-                $consulta->bindParam(':userId', $userId);
-                $consulta->bindParam(':limit', $limit, PDO::PARAM_INT);
-                $consulta->execute();
-                return $consulta->fetchAll();
-            } catch (PDOException $e) {
-                Logger::log('Error al obtener últimos hilos: ' . $e->getMessage(), __FILE__, LogLevels::ERROR);
-                return false;
-            }
+        public function obtenerHiloCompleto($hiloId) {
+            $consulta = $this->db->prepare("SELECT * FROM HILOS WHERE THREAD_ID = :hiloId");
+            $consulta->bindParam(':hiloId', $hiloId, PDO::PARAM_INT);
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_ASSOC);
         }
     }

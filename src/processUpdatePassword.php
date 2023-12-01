@@ -16,7 +16,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $newPassword = $_POST['newPassword'];
         $confirmPassword = $_POST['confirmPassword'];
-        $token = $_GET['token'];
+        $token = $_POST['token'];
         
         if ($newPassword !== $confirmPassword) {
             $messageBlueprint['type'] = 'danger';
@@ -43,11 +43,12 @@
                 $userManager = new UserManager($db);
                 $user = $userManager->getUserById($token['USER_ID']);
                 if ($user) {
-                    $userManager->updatePassword($user['USER_ID'], $newPassword);
+                    $userManager->updatePassword($user['USER_ID'], password_hash($newPassword, PASSWORD_DEFAULT));
                     $tokenManager->deleteToken($token['TOKEN_ID']);
                     $messageBlueprint['type'] = 'success';
                     $messageBlueprint['message'] = 'Contraseña actualizada correctamente. Ya puedes iniciar sesión';
                     $message = printMessage('success', $messageBlueprint);
+                    header('Refresh: 5; url=' . URL_BASE . 'login-register.php', true, 302);
                 } else {
                     Logger::log('No se encontró el usuario con id: ' . $token['USER_ID'], __FILE__, LogLevels::ERROR);
                     $messageBlueprint['type'] = 'danger';

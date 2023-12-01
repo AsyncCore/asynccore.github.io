@@ -22,7 +22,7 @@
         private const LOGIN = 'SELECT * FROM USERS WHERE USERS.EMAIL = :loginEmail';
         private const GET_USER_COUNT = 'SELECT COUNT(*) FROM USERS';
         private const UPDATE_USER_MAIL_BY_ID = 'UPDATE USERS SET USERS.EMAIL = :newMail WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
-        private const UPDATE_USER_PASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID';
+        private const UPDATE_USER_PASSWORD_BY_ID = 'UPDATE USERS SET USERS.PASSWORD = :newPassword WHERE USERS.USER_ID = :userID AND USERS.PASSWORD = :password';
         private const UPDATE_LAST_SEEN = 'UPDATE USERS SET USERS.LAST_SEEN = NOW() WHERE USERS.USER_ID = :userID';
         private const GET_LAST_SEEN = 'SELECT USERS.LAST_SEEN FROM USERS WHERE USERS.USER_ID = :userID';
         private const GET_USER_BY_ID = 'SELECT * FROM USERS WHERE USERS.USER_ID = :userID';
@@ -200,6 +200,18 @@
                 Logger::log('Error al obtener el usuario con email ' . $correo . ': ' . $e->getMessage() . ' con código de error ' . $e->getCode(), __FILE__, LogLevels::ERROR);
                 return false;
             }
+        }
+        
+        public function obtenerUltimasInteracciones($usuarioId) {
+            $consulta = $this->db->prepare("
+                (SELECT 'post' AS tipo, POST_ID AS id, F_CRE AS fecha FROM POSTS WHERE USER_ID = :usuarioId)
+                UNION ALL
+                (SELECT 'hilo' AS tipo, THREAD_ID AS id, F_CRE AS fecha FROM HILOS WHERE USER_ID = :usuarioId)
+                ORDER BY fecha DESC
+                LIMIT 3");
+            $consulta->bindParam(':usuarioId', $usuarioId, PDO::PARAM_INT);
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
         }
         
         public function updatePassword(mixed $USER_ID, mixed $newPassword): bool

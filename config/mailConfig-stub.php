@@ -12,7 +12,6 @@
             'username' => 'email@email.com',
             'password' => 'contraseña',
             'port'     => 587,
-            'from'     => 'campo DE',
             'fromMail' => 'campo FROM',
             'fromName' => 'campo FROMNAME'
         ]
