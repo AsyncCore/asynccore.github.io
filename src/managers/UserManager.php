@@ -201,4 +201,17 @@
                 return false;
             }
         }
+        
+        public function obtenerUltimasInteracciones($usuarioId) {
+            $consulta = $this->db->prepare("
+        (SELECT 'post' AS tipo, POST_ID AS id, F_CRE AS fecha FROM POSTS WHERE USER_ID = :usuarioId)
+        UNION ALL
+        (SELECT 'hilo' AS tipo, THREAD_ID AS id, F_CRE AS fecha FROM HILOS WHERE USER_ID = :usuarioId)
+        ORDER BY fecha DESC
+        LIMIT 3
+    ");
+            $consulta->bindParam(':usuarioId', $usuarioId, PDO::PARAM_INT);
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
