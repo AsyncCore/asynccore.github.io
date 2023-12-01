@@ -175,7 +175,6 @@
                                             <i class="fi-onsux3-github-alt" style="color: #181717"></i>
                                         </button>
                                     </div>
-                                    <?= $_SERVER['HTTP_HOST'] ?>
                                     <p class="text-center">o:</p>
         
                                     <!-- EMAIL INPUT -->
