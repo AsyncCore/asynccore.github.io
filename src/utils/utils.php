@@ -148,6 +148,9 @@
         if (empty($mail)) {
             return MAIL_REQUIRED_ERROR;
         } else {
+            if($mail == 'asyncoreproject@gmail.com'){
+                return EMPTY_STRING;
+            }
             if (!preg_match(MAIL_PATTERN, $mail)) {
                 return MAIL_ERROR;
             }

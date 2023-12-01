@@ -244,4 +244,8 @@
                 throw new Exception('Error al validar el token.');
             }
         }
+        
+        public function getUserByToken(bool|array $token)
+        {
+        }
     }

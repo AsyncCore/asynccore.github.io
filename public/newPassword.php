@@ -11,10 +11,10 @@
     use src\managers\CategoryManager;
     
     require '../src/init.php';
-    include DIR . '/src/processNewThread.php';
+    include DIR . '/src/processUpdatePassword.php';
     
-    $descripcion = 'Página para solicitar una nueva contraseña';
-    $titulo = 'Solictar nueva contraseña';
+    $descripcion = 'Página para cambiar la contraseña de un usuario';
+    $titulo = 'Cambiar Contraseña';
     $css = ['css/style.css', 'css/passwordForms.css'];
     $js = [['js/script.js']];
     $cdn = ['https://friconix.com/cdn/friconix.js'];
@@ -26,8 +26,14 @@
     }
 ?>
 <main>
+    <h1>Cambiar Contraseña</h1>
+    <?php
+        if (isset($message)) {
+            echo $message;
+        }
+    ?>
     <section>
-        <form action="#" class="reset" method="post">
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" class="reset" method="post">
             <label for="newPassword">Nueva Contraseña:</label>
             <input id="newPassword" name="newPassword" placeholder="Nueva Contraseña" required
                    type="password">

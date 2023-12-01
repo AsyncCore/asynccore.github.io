@@ -44,6 +44,7 @@
      */
     if(isset($_GET['logout'])) {
         $message = printMessage('logout', ERROR_MESSAGES);
+        header('Refresh: 5; url=' . URL_BASE . 'main.php', true, 302);
     }
     
     if (isset($_GET['nl'])) {
